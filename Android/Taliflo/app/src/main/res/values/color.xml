@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Taliflo colours -->
+    <color name="taliflo_tiffanyBlue">#00a79d</color>
+    <color name="taliflo_orange">#ffae42</color>
+    <color name="taliflo_purple">#440e62</color>
+
+    <!-- Buttons -->
+    <color name="btn_text_color">#ffffff</color>
+    <color name="btn_state_default">#ffae42</color>
+    <color name="btn_state_pressed">#32b7e8</color>
+    <color name="btn_shadow">#4f4f4f</color>
+
+    <!-- For list views -->
+    <color name="list_item_bg_def">#ffffff</color>
+    <color name="list_item_bg_press">#32b7e8</color>
+    <color name="list_section_bg">#bbbbbb</color>
+
+    <!-- Navigation Drawer -->
+    <color name="nav_drawer_bg">#dedede</color>
+
+    <!-- General Colours -->
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="grey">#dedede</color>
+    <color name="purple">#7c5691</color>
+    <color name="dark_purple">#3d0c58</color>
+
+</resources>

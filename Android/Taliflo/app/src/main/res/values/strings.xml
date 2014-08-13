@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Taliflo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- For Facebook SDK -->
+    <string name="APP_ID">443781372430423</string>
+    <string name="dummy_string">Text</string>
+
+    <!-- Button text -->
+    <string name="btn_logout_from_google">Logout from Google</string>
+    <string name="btn_revoke_access">Revoke Access</string>
+    <string name="title_activity_login">Sign In</string>
+
+    <!-- Main Activity Navigation Drawer -->
+    <string name="nav_drawer_section_default">Section</string>
+    <string name="nav_banner_first">First name</string>
+    <string name="nav_banner_last">Last name</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

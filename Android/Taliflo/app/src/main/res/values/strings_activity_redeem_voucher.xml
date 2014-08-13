@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_redeem_voucher">Redeem at</string>
+    <string name="action_help">Help</string>
+    <string name="redeemVoucher_max">You may redeem up to</string>
+    <string name="redeemVoucher_total">Total redemption amount</string>
+    <string name="redeemVoucher_agreeTC">With confirmation you agree to the Terms and Conditions.</string>
+    <string name="redeemVoucher_confirm">Confirm</string>
+    <string name="redeemVoucher_redeemUpTo">You may redeem up to:</string>
+    <string name="redeemVoucher_dummyRedeemMax">100.00</string>
+    <string name="redeemVoucher_amountHint">Enter amount to redeem</string>
+    <string name="redeemVoucher_dummyDate">5 December 2014</string>
+    <string name="redeemVoucher_dummyBusinessName">Business A</string>
+    <string name="redeemVoucher_dummyBusinessAddress">123 Address St., Vancouver, BC</string>
+</resources>

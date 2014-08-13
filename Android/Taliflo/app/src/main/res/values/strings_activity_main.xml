@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="main_nav_drawer_sections">
+        <item>My Causes</item>
+        <item>Help &amp; Settings</item>
+    </string-array>
+
+    <string-array name="main_nav_drawer_items">
+        <item>Redeem</item>
+        <item>Businesses</item>
+        <item>Causes</item>
+        <item>Log Out</item>
+    </string-array>
+
+    <array name="main_drawer_icons">
+        <item>@drawable/voucher_orange</item>
+        <item>@drawable/business_orange</item>
+        <item>@drawable/causes_heart_orange</item>
+    </array>
+
+</resources>
