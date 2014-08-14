@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
+		D5B50DD4199D2C1100A486B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */; };
+		D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
+		D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DDA199D2C1100A486B0 /* InfoPlist.strings */; };
+		D5B50DDE199D2C1100A486B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DDD199D2C1100A486B0 /* main.m */; };
+		D5B50DE2199D2C1100A486B0 /* TLFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DE1199D2C1100A486B0 /* TLFAppDelegate.m */; };
+		D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DE3199D2C1100A486B0 /* Images.xcassets */; };
+		D5B50DEB199D2C1100A486B0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DEA199D2C1100A486B0 /* XCTest.framework */; };
+		D5B50DEC199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
+		D5B50DED199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
+		D5B50DF5199D2C1100A486B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DF3199D2C1100A486B0 /* InfoPlist.strings */; };
+		D5B50DF7199D2C1100A486B0 /* TalifloTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DF6199D2C1100A486B0 /* TalifloTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5B50DEE199D2C1100A486B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5B50DC6199D2C1000A486B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5B50DCD199D2C1100A486B0;
+			remoteInfo = Taliflo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D5B50DCE199D2C1100A486B0 /* Taliflo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taliflo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5B50DD1199D2C1100A486B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D5B50DD5199D2C1100A486B0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D5B50DD9199D2C1100A486B0 /* Taliflo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Taliflo-Info.plist"; sourceTree = "<group>"; };
+		D5B50DDB199D2C1100A486B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5B50DDD199D2C1100A486B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D5B50DDF199D2C1100A486B0 /* Taliflo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taliflo-Prefix.pch"; sourceTree = "<group>"; };
+		D5B50DE0199D2C1100A486B0 /* TLFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLFAppDelegate.h; sourceTree = "<group>"; };
+		D5B50DE1199D2C1100A486B0 /* TLFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLFAppDelegate.m; sourceTree = "<group>"; };
+		D5B50DE3199D2C1100A486B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D5B50DE9199D2C1100A486B0 /* TalifloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalifloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5B50DEA199D2C1100A486B0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D5B50DF2199D2C1100A486B0 /* TalifloTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TalifloTests-Info.plist"; sourceTree = "<group>"; };
+		D5B50DF4199D2C1100A486B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5B50DF6199D2C1100A486B0 /* TalifloTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalifloTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5B50DCB199D2C1100A486B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DD4199D2C1100A486B0 /* CoreGraphics.framework in Frameworks */,
+				D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */,
+				D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5B50DE6199D2C1100A486B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DEB199D2C1100A486B0 /* XCTest.framework in Frameworks */,
+				D5B50DED199D2C1100A486B0 /* UIKit.framework in Frameworks */,
+				D5B50DEC199D2C1100A486B0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5B50DC5199D2C1000A486B0 = {
+			isa = PBXGroup;
+			children = (
+				D5B50DD7199D2C1100A486B0 /* Taliflo */,
+				D5B50DF0199D2C1100A486B0 /* TalifloTests */,
+				D5B50DD0199D2C1100A486B0 /* Frameworks */,
+				D5B50DCF199D2C1100A486B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5B50DCF199D2C1100A486B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50DCE199D2C1100A486B0 /* Taliflo.app */,
+				D5B50DE9199D2C1100A486B0 /* TalifloTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5B50DD0199D2C1100A486B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50DD1199D2C1100A486B0 /* Foundation.framework */,
+				D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */,
+				D5B50DD5199D2C1100A486B0 /* UIKit.framework */,
+				D5B50DEA199D2C1100A486B0 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5B50DD7199D2C1100A486B0 /* Taliflo */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50E03199D2C7F00A486B0 /* Views */,
+				D5B50E02199D2C7500A486B0 /* Controllers */,
+				D5B50E01199D2C6C00A486B0 /* Utilities */,
+				D5B50E00199D2C6400A486B0 /* Model */,
+				D5B50DE0199D2C1100A486B0 /* TLFAppDelegate.h */,
+				D5B50DE1199D2C1100A486B0 /* TLFAppDelegate.m */,
+				D5B50DE3199D2C1100A486B0 /* Images.xcassets */,
+				D5B50DD8199D2C1100A486B0 /* Supporting Files */,
+			);
+			path = Taliflo;
+			sourceTree = "<group>";
+		};
+		D5B50DD8199D2C1100A486B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50DD9199D2C1100A486B0 /* Taliflo-Info.plist */,
+				D5B50DDA199D2C1100A486B0 /* InfoPlist.strings */,
+				D5B50DDD199D2C1100A486B0 /* main.m */,
+				D5B50DDF199D2C1100A486B0 /* Taliflo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5B50DF0199D2C1100A486B0 /* TalifloTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50DF6199D2C1100A486B0 /* TalifloTests.m */,
+				D5B50DF1199D2C1100A486B0 /* Supporting Files */,
+			);
+			path = TalifloTests;
+			sourceTree = "<group>";
+		};
+		D5B50DF1199D2C1100A486B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50DF2199D2C1100A486B0 /* TalifloTests-Info.plist */,
+				D5B50DF3199D2C1100A486B0 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5B50E00199D2C6400A486B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D5B50E01199D2C6C00A486B0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		D5B50E02199D2C7500A486B0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D5B50E03199D2C7F00A486B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5B50DCD199D2C1100A486B0 /* Taliflo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5B50DFA199D2C1100A486B0 /* Build configuration list for PBXNativeTarget "Taliflo" */;
+			buildPhases = (
+				D5B50DCA199D2C1100A486B0 /* Sources */,
+				D5B50DCB199D2C1100A486B0 /* Frameworks */,
+				D5B50DCC199D2C1100A486B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taliflo;
+			productName = Taliflo;
+			productReference = D5B50DCE199D2C1100A486B0 /* Taliflo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5B50DE8199D2C1100A486B0 /* TalifloTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5B50DFD199D2C1100A486B0 /* Build configuration list for PBXNativeTarget "TalifloTests" */;
+			buildPhases = (
+				D5B50DE5199D2C1100A486B0 /* Sources */,
+				D5B50DE6199D2C1100A486B0 /* Frameworks */,
+				D5B50DE7199D2C1100A486B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5B50DEF199D2C1100A486B0 /* PBXTargetDependency */,
+			);
+			name = TalifloTests;
+			productName = TalifloTests;
+			productReference = D5B50DE9199D2C1100A486B0 /* TalifloTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5B50DC6199D2C1000A486B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TLF;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Taliflo Inc.";
+				TargetAttributes = {
+					D5B50DCD199D2C1100A486B0 = {
+						DevelopmentTeam = 4H39J2TQND;
+					};
+					D5B50DE8199D2C1100A486B0 = {
+						TestTargetID = D5B50DCD199D2C1100A486B0;
+					};
+				};
+			};
+			buildConfigurationList = D5B50DC9199D2C1000A486B0 /* Build configuration list for PBXProject "Taliflo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D5B50DC5199D2C1000A486B0;
+			productRefGroup = D5B50DCF199D2C1100A486B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5B50DCD199D2C1100A486B0 /* Taliflo */,
+				D5B50DE8199D2C1100A486B0 /* TalifloTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5B50DCC199D2C1100A486B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */,
+				D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5B50DE7199D2C1100A486B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DF5199D2C1100A486B0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5B50DCA199D2C1100A486B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DDE199D2C1100A486B0 /* main.m in Sources */,
+				D5B50DE2199D2C1100A486B0 /* TLFAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5B50DE5199D2C1100A486B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DF7199D2C1100A486B0 /* TalifloTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5B50DEF199D2C1100A486B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5B50DCD199D2C1100A486B0 /* Taliflo */;
+			targetProxy = D5B50DEE199D2C1100A486B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5B50DDA199D2C1100A486B0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5B50DDB199D2C1100A486B0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D5B50DF3199D2C1100A486B0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5B50DF4199D2C1100A486B0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5B50DF8199D2C1100A486B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D5B50DF9199D2C1100A486B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5B50DFB199D2C1100A486B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
+				INFOPLIST_FILE = "Taliflo/Taliflo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D5B50DFC199D2C1100A486B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
+				INFOPLIST_FILE = "Taliflo/Taliflo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D5B50DFE199D2C1100A486B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Taliflo.app/Taliflo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TalifloTests/TalifloTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D5B50DFF199D2C1100A486B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Taliflo.app/Taliflo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
+				INFOPLIST_FILE = "TalifloTests/TalifloTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5B50DC9199D2C1000A486B0 /* Build configuration list for PBXProject "Taliflo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5B50DF8199D2C1100A486B0 /* Debug */,
+				D5B50DF9199D2C1100A486B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5B50DFA199D2C1100A486B0 /* Build configuration list for PBXNativeTarget "Taliflo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5B50DFB199D2C1100A486B0 /* Debug */,
+				D5B50DFC199D2C1100A486B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D5B50DFD199D2C1100A486B0 /* Build configuration list for PBXNativeTarget "TalifloTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5B50DFE199D2C1100A486B0 /* Debug */,
+				D5B50DFF199D2C1100A486B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5B50DC6199D2C1000A486B0 /* Project object */;
+}
