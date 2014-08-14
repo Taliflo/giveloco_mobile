@@ -7,6 +7,10 @@
 //
 
 #import "TLFAppDelegate.h"
+#import "TLFColor.h"
+#import "TLFVouchersViewController.h"
+#import "TLFHistoryViewController.h"
+#import "TLFExploreViewController.h"
 
 @implementation TLFAppDelegate
 
@@ -14,6 +18,27 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // Vouchers table view controller and navigation controller
+    TLFVouchersViewController *vouchersVC = [[TLFVouchersViewController alloc] init];
+    UINavigationController *vouchersNC = [[UINavigationController alloc] initWithRootViewController:vouchersVC];
+    
+    // History table view controller and navigation controller
+    TLFHistoryViewController *historyVC = [[TLFHistoryViewController alloc] init];
+    UINavigationController *historyNC = [[UINavigationController alloc] initWithRootViewController:historyVC];
+    
+    // Explore view controller and navigation controller
+    TLFExploreViewController *exploreVC = [[TLFExploreViewController alloc] init];
+    UINavigationController *exploreNC = [[UINavigationController alloc] initWithRootViewController:exploreVC];
+    
+    // Tab bar controller
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[vouchersNC, historyNC, exploreNC];
+    [tabBarController.tabBar setBarTintColor:[UIColor whiteColor]];
+    [tabBarController.tabBar setTintColor:[TLFColor talifloTiffanyBlue]];
+    
+    self.window.rootViewController = tabBarController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
