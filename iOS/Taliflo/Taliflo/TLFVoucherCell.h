@@ -10,4 +10,6 @@
 
 @interface TLFVoucherCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *businessNameLabel;
+
 @end

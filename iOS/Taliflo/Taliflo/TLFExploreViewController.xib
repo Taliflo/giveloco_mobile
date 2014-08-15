@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="58G-Dh-awN">
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="58G-Dh-awN">
                     <rect key="frame" x="77" y="86" width="167" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
@@ -25,13 +25,23 @@
                     </segments>
                     <color key="tintColor" red="0.0" green="0.65490196078431373" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DkF-eA-QoT">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DkF-eA-QoT">
                     <rect key="frame" x="0.0" y="122" width="320" height="446"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="DkF-eA-QoT" secondAttribute="bottom" id="8iK-df-oRF"/>
+                <constraint firstItem="58G-Dh-awN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="86" id="Kwl-uw-HVd"/>
+                <constraint firstItem="DkF-eA-QoT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MtE-Je-XSh"/>
+                <constraint firstItem="DkF-eA-QoT" firstAttribute="top" secondItem="58G-Dh-awN" secondAttribute="bottom" constant="8" id="X0P-Ip-sZc"/>
+                <constraint firstItem="58G-Dh-awN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="77" id="fgC-bv-HFN"/>
+                <constraint firstAttribute="trailing" secondItem="58G-Dh-awN" secondAttribute="trailing" constant="76" id="vc4-gD-Tah"/>
+                <constraint firstAttribute="trailing" secondItem="DkF-eA-QoT" secondAttribute="trailing" id="xQa-Yd-tgb"/>
+                <constraint firstItem="DkF-eA-QoT" firstAttribute="top" secondItem="58G-Dh-awN" secondAttribute="bottom" constant="8" id="yRC-xK-gDj"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
