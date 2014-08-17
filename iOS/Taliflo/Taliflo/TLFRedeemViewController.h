@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TLFVouchersViewController : UITableViewController
+@interface TLFRedeemViewController : UITableViewController
 
 @end

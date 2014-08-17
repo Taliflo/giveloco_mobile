@@ -10,8 +10,7 @@
 
 @interface TLFRestAPI : NSObject
 
-+ (NSURL *)queryVouchers;
-
++ (NSURL *)queryAllUsers;
 + (NSURL *)queryAllBusinesses;
 + (NSURL *)queryAllCauses;
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TLFVoucherViewController : UIViewController
+@interface TLFRedeemAtViewController : UIViewController
 
 @end

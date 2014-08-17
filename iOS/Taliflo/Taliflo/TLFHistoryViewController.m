@@ -12,10 +12,9 @@
 
 @implementation TLFHistoryViewController
 
-- (instancetype)init
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:UITableViewStylePlain];
-    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
         // Setting the title and tab bar title and image
@@ -23,13 +22,7 @@
                                     withTitle:@"History"
                                     withImage:[UIImage imageNamed:@"History.png"]];
     }
-    
     return self;
-}
-
-- (instancetype)initWithStyle:(UITableViewStyle)style
-{
-    return [self init];
 }
 
 - (void)viewWillAppear:(BOOL)animated

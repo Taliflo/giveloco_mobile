@@ -1,1714 +1,659 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>08E2E9725DFD4754B3FED73B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>2384896295554975B373109D</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>8F59EE28752046449CAE410F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>94B030FF31954DD88A413E6A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DC5199D2C1000A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50DD7199D2C1100A486B0</string>
-				<string>D5B50DF0199D2C1100A486B0</string>
-				<string>D5B50DD0199D2C1100A486B0</string>
-				<string>D5B50DCF199D2C1100A486B0</string>
-				<string>94B030FF31954DD88A413E6A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DC6199D2C1000A486B0</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>TLF</string>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Taliflo Inc.</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>D5B50DCD199D2C1100A486B0</key>
-					<dict>
-						<key>DevelopmentTeam</key>
-						<string>4H39J2TQND</string>
-					</dict>
-					<key>D5B50DE8199D2C1100A486B0</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>D5B50DCD199D2C1100A486B0</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>D5B50DC9199D2C1000A486B0</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>D5B50DC5199D2C1000A486B0</string>
-			<key>productRefGroup</key>
-			<string>D5B50DCF199D2C1100A486B0</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>D5B50DCD199D2C1100A486B0</string>
-				<string>D5B50DE8199D2C1100A486B0</string>
-			</array>
-		</dict>
-		<key>D5B50DC9199D2C1000A486B0</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D5B50DF8199D2C1100A486B0</string>
-				<string>D5B50DF9199D2C1100A486B0</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D5B50DCA199D2C1100A486B0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D5B50E1A199D38EC00A486B0</string>
-				<string>D5B50E06199D353000A486B0</string>
-				<string>D5B50E52199D90D100A486B0</string>
-				<string>D5B50E32199D461D00A486B0</string>
-				<string>D5B50E4D199D73B600A486B0</string>
-				<string>D5B50E5F199DB2E600A486B0</string>
-				<string>D5B50E2B199D3CEB00A486B0</string>
-				<string>D5B50DDE199D2C1100A486B0</string>
-				<string>D5B50E57199D90F400A486B0</string>
-				<string>D5B50E35199D464B00A486B0</string>
-				<string>D5B50DE2199D2C1100A486B0</string>
-				<string>D5B50E5C199D9A3500A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D5B50DCB199D2C1100A486B0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D5B50DD4199D2C1100A486B0</string>
-				<string>D5B50DD6199D2C1100A486B0</string>
-				<string>D5B50DD2199D2C1100A486B0</string>
-				<string>EE03657EB73449F9A3445768</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D5B50DCC199D2C1100A486B0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D5B50E40199D69C800A486B0</string>
-				<string>D5B50E49199D6D8300A486B0</string>
-				<string>D5B50E3D199D628400A486B0</string>
-				<string>D5B50DDC199D2C1100A486B0</string>
-				<string>D5B50E44199D6B1C00A486B0</string>
-				<string>D5B50DE4199D2C1100A486B0</string>
-				<string>D5B50E1B199D38EC00A486B0</string>
-				<string>D5B50E45199D6B1C00A486B0</string>
-				<string>D5B50E48199D6D8300A486B0</string>
-				<string>D5B50E3C199D628400A486B0</string>
-				<string>D5B50E4E199D73B600A486B0</string>
-				<string>D5B50E53199D90D100A486B0</string>
-				<string>D5B50E41199D69C800A486B0</string>
-				<string>D5B50E58199D90F400A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D5B50DCD199D2C1100A486B0</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>D5B50DFA199D2C1100A486B0</string>
-			<key>buildPhases</key>
-			<array>
-				<string>08E2E9725DFD4754B3FED73B</string>
-				<string>D5B50DCA199D2C1100A486B0</string>
-				<string>D5B50DCB199D2C1100A486B0</string>
-				<string>D5B50DCC199D2C1100A486B0</string>
-				<string>8F59EE28752046449CAE410F</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Taliflo</string>
-			<key>productName</key>
-			<string>Taliflo</string>
-			<key>productReference</key>
-			<string>D5B50DCE199D2C1100A486B0</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>D5B50DCE199D2C1100A486B0</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Taliflo.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D5B50DCF199D2C1100A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50DCE199D2C1100A486B0</string>
-				<string>D5B50DE9199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DD0199D2C1100A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50DD1199D2C1100A486B0</string>
-				<string>D5B50DD3199D2C1100A486B0</string>
-				<string>D5B50DD5199D2C1100A486B0</string>
-				<string>D5B50DEA199D2C1100A486B0</string>
-				<string>2384896295554975B373109D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DD1199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>D5B50DD2199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DD1199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DD3199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>D5B50DD4199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DD3199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DD5199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>D5B50DD6199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DD5199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DD7199D2C1100A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50E59199D9A0B00A486B0</string>
-				<string>D5B50E03199D2C7F00A486B0</string>
-				<string>D5B50E02199D2C7500A486B0</string>
-				<string>D5B50E01199D2C6C00A486B0</string>
-				<string>D5B50E00199D2C6400A486B0</string>
-				<string>D5B50DE0199D2C1100A486B0</string>
-				<string>D5B50DE1199D2C1100A486B0</string>
-				<string>D5B50DE3199D2C1100A486B0</string>
-				<string>D5B50DD8199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Taliflo</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DD8199D2C1100A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50E46199D6D8300A486B0</string>
-				<string>D5B50E47199D6D8300A486B0</string>
-				<string>D5B50E42199D6B1C00A486B0</string>
-				<string>D5B50E43199D6B1C00A486B0</string>
-				<string>D5B50E3E199D69C800A486B0</string>
-				<string>D5B50E3F199D69C800A486B0</string>
-				<string>D5B50E3A199D628400A486B0</string>
-				<string>D5B50E3B199D628400A486B0</string>
-				<string>D5B50DD9199D2C1100A486B0</string>
-				<string>D5B50DDA199D2C1100A486B0</string>
-				<string>D5B50DDD199D2C1100A486B0</string>
-				<string>D5B50DDF199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DD9199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Taliflo-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DDA199D2C1100A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50DDB199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DDB199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DDC199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DDA199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DDD199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DDE199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DDD199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DDF199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Taliflo-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DE0199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DE1199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DE2199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DE1199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DE3199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DE4199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DE3199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DE5199D2C1100A486B0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D5B50DF7199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D5B50DE6199D2C1100A486B0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D5B50DEB199D2C1100A486B0</string>
-				<string>D5B50DED199D2C1100A486B0</string>
-				<string>D5B50DEC199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D5B50DE7199D2C1100A486B0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D5B50DF5199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D5B50DE8199D2C1100A486B0</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>D5B50DFD199D2C1100A486B0</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D5B50DE5199D2C1100A486B0</string>
-				<string>D5B50DE6199D2C1100A486B0</string>
-				<string>D5B50DE7199D2C1100A486B0</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>D5B50DEF199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>TalifloTests</string>
-			<key>productName</key>
-			<string>TalifloTests</string>
-			<key>productReference</key>
-			<string>D5B50DE9199D2C1100A486B0</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>D5B50DE9199D2C1100A486B0</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>TalifloTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D5B50DEA199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>D5B50DEB199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DEA199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DEC199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DD1199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DED199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DD5199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DEE199D2C1100A486B0</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D5B50DC6199D2C1000A486B0</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>D5B50DCD199D2C1100A486B0</string>
-			<key>remoteInfo</key>
-			<string>Taliflo</string>
-		</dict>
-		<key>D5B50DEF199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>D5B50DCD199D2C1100A486B0</string>
-			<key>targetProxy</key>
-			<string>D5B50DEE199D2C1100A486B0</string>
-		</dict>
-		<key>D5B50DF0199D2C1100A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50DF6199D2C1100A486B0</string>
-				<string>D5B50DF1199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>TalifloTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DF1199D2C1100A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50DF2199D2C1100A486B0</string>
-				<string>D5B50DF3199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DF2199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>TalifloTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DF3199D2C1100A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50DF4199D2C1100A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DF4199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DF5199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DF3199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DF6199D2C1100A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TalifloTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50DF7199D2C1100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50DF6199D2C1100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50DF8199D2C1100A486B0</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D5B50DF9199D2C1100A486B0</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D5B50DFA199D2C1100A486B0</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D5B50DFB199D2C1100A486B0</string>
-				<string>D5B50DFC199D2C1100A486B0</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D5B50DFB199D2C1100A486B0</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>94B030FF31954DD88A413E6A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Taliflo/Taliflo-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Taliflo/Taliflo-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D5B50DFC199D2C1100A486B0</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>94B030FF31954DD88A413E6A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Taliflo/Taliflo-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Taliflo/Taliflo-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D5B50DFD199D2C1100A486B0</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D5B50DFE199D2C1100A486B0</string>
-				<string>D5B50DFF199D2C1100A486B0</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D5B50DFE199D2C1100A486B0</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Taliflo.app/Taliflo</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Taliflo/Taliflo-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>TalifloTests/TalifloTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D5B50DFF199D2C1100A486B0</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Taliflo.app/Taliflo</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Taliflo/Taliflo-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>TalifloTests/TalifloTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D5B50E00199D2C6400A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50E5D199DB2E600A486B0</string>
-				<string>D5B50E5E199DB2E600A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Model</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E01199D2C6C00A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50E04199D353000A486B0</string>
-				<string>D5B50E05199D353000A486B0</string>
-				<string>D5B50E29199D3CEB00A486B0</string>
-				<string>D5B50E2A199D3CEB00A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Utilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E02199D2C7500A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50E4A199D73B600A486B0</string>
-				<string>D5B50E4B199D73B600A486B0</string>
-				<string>D5B50E17199D38EC00A486B0</string>
-				<string>D5B50E18199D38EC00A486B0</string>
-				<string>D5B50E30199D461D00A486B0</string>
-				<string>D5B50E31199D461D00A486B0</string>
-				<string>D5B50E33199D464B00A486B0</string>
-				<string>D5B50E34199D464B00A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Controllers</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E03199D2C7F00A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50E4C199D73B600A486B0</string>
-				<string>D5B50E19199D38EC00A486B0</string>
-				<string>D5B50E4F199D90D100A486B0</string>
-				<string>D5B50E50199D90D100A486B0</string>
-				<string>D5B50E51199D90D100A486B0</string>
-				<string>D5B50E54199D90F400A486B0</string>
-				<string>D5B50E55199D90F400A486B0</string>
-				<string>D5B50E56199D90F400A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Views</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E04199D353000A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFColor.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E05199D353000A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFColor.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E06199D353000A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E05199D353000A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E17199D38EC00A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFVoucherViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E18199D38EC00A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFVoucherViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E19199D38EC00A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>TLFVoucherViewController.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E1A199D38EC00A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E18199D38EC00A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E1B199D38EC00A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E19199D38EC00A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E29199D3CEB00A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFNavBarConfig.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E2A199D3CEB00A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFNavBarConfig.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E2B199D3CEB00A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E2A199D3CEB00A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E30199D461D00A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFVouchersViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E31199D461D00A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFVouchersViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E32199D461D00A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E31199D461D00A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E33199D464B00A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFHistoryViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E34199D464B00A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFHistoryViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E35199D464B00A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E34199D464B00A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E3A199D628400A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>name</key>
-			<string>Voucher.png</string>
-			<key>path</key>
-			<string>../../../../../TalifloAssets/assets/voucher/Voucher.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E3B199D628400A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>name</key>
-			<string>Voucher@2x.png</string>
-			<key>path</key>
-			<string>../../../../../TalifloAssets/assets/voucher/Voucher@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E3C199D628400A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E3A199D628400A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E3D199D628400A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E3B199D628400A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E3E199D69C800A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>name</key>
-			<string>History.png</string>
-			<key>path</key>
-			<string>../../../../../TalifloAssets/assets/History/History.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E3F199D69C800A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>name</key>
-			<string>History@2x.png</string>
-			<key>path</key>
-			<string>../../../../../TalifloAssets/assets/History/History@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E40199D69C800A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E3E199D69C800A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E41199D69C800A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E3F199D69C800A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E42199D6B1C00A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>name</key>
-			<string>Explore.png</string>
-			<key>path</key>
-			<string>../../../../../TalifloAssets/assets/Explore/Explore.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E43199D6B1C00A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>name</key>
-			<string>Explore@2x.png</string>
-			<key>path</key>
-			<string>../../../../../TalifloAssets/assets/Explore/Explore@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E44199D6B1C00A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E42199D6B1C00A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E45199D6B1C00A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E43199D6B1C00A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E46199D6D8300A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>name</key>
-			<string>logo.png</string>
-			<key>path</key>
-			<string>../../../../../TalifloAssets/assets/logo.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E47199D6D8300A486B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>name</key>
-			<string>logo@2x.png</string>
-			<key>path</key>
-			<string>../../../../../TalifloAssets/assets/logo@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E48199D6D8300A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E46199D6D8300A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E49199D6D8300A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E47199D6D8300A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E4A199D73B600A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFExploreViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E4B199D73B600A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFExploreViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E4C199D73B600A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>TLFExploreViewController.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E4D199D73B600A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E4B199D73B600A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E4E199D73B600A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E4C199D73B600A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E4F199D90D100A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFVoucherCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E50199D90D100A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFVoucherCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E51199D90D100A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>TLFVoucherCell.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E52199D90D100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E50199D90D100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E53199D90D100A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E51199D90D100A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E54199D90F400A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFHistoryCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E55199D90F400A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFHistoryCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E56199D90F400A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>TLFHistoryCell.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E57199D90F400A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E55199D90F400A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E58199D90F400A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E56199D90F400A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E59199D9A0B00A486B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D5B50E5A199D9A3500A486B0</string>
-				<string>D5B50E5B199D9A3500A486B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Rest</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E5A199D9A3500A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFRestAPI.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E5B199D9A3500A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFRestAPI.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E5C199D9A3500A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E5B199D9A3500A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5B50E5D199DB2E600A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TLFVoucher.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E5E199DB2E600A486B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>TLFVoucher.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5B50E5F199DB2E600A486B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5B50E5E199DB2E600A486B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EE03657EB73449F9A3445768</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2384896295554975B373109D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D5B50DC6199D2C1000A486B0</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5054EE619A03814008477D9 /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EE319A03814008477D9 /* Jastor.m */; };
+		D5054EE719A03814008477D9 /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EE519A03814008477D9 /* JastorRuntimeHelper.m */; };
+		D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
+		D5B50DD4199D2C1100A486B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */; };
+		D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
+		D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DDA199D2C1100A486B0 /* InfoPlist.strings */; };
+		D5B50DDE199D2C1100A486B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DDD199D2C1100A486B0 /* main.m */; };
+		D5B50DE2199D2C1100A486B0 /* TLFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DE1199D2C1100A486B0 /* TLFAppDelegate.m */; };
+		D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DE3199D2C1100A486B0 /* Images.xcassets */; };
+		D5B50DEB199D2C1100A486B0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DEA199D2C1100A486B0 /* XCTest.framework */; };
+		D5B50DEC199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
+		D5B50DED199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
+		D5B50DF5199D2C1100A486B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DF3199D2C1100A486B0 /* InfoPlist.strings */; };
+		D5B50DF7199D2C1100A486B0 /* TalifloTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DF6199D2C1100A486B0 /* TalifloTests.m */; };
+		D5B50E06199D353000A486B0 /* TLFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E05199D353000A486B0 /* TLFColor.m */; };
+		D5B50E1A199D38EC00A486B0 /* TLFRedeemAtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E18199D38EC00A486B0 /* TLFRedeemAtViewController.m */; };
+		D5B50E1B199D38EC00A486B0 /* TLFRedeemAtViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E19199D38EC00A486B0 /* TLFRedeemAtViewController.xib */; };
+		D5B50E2B199D3CEB00A486B0 /* TLFNavBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E2A199D3CEB00A486B0 /* TLFNavBarConfig.m */; };
+		D5B50E32199D461D00A486B0 /* TLFRedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E31199D461D00A486B0 /* TLFRedeemViewController.m */; };
+		D5B50E35199D464B00A486B0 /* TLFHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E34199D464B00A486B0 /* TLFHistoryViewController.m */; };
+		D5B50E3C199D628400A486B0 /* Voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E3A199D628400A486B0 /* Voucher.png */; };
+		D5B50E3D199D628400A486B0 /* Voucher@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E3B199D628400A486B0 /* Voucher@2x.png */; };
+		D5B50E40199D69C800A486B0 /* History.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E3E199D69C800A486B0 /* History.png */; };
+		D5B50E41199D69C800A486B0 /* History@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E3F199D69C800A486B0 /* History@2x.png */; };
+		D5B50E44199D6B1C00A486B0 /* Explore.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E42199D6B1C00A486B0 /* Explore.png */; };
+		D5B50E45199D6B1C00A486B0 /* Explore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E43199D6B1C00A486B0 /* Explore@2x.png */; };
+		D5B50E48199D6D8300A486B0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E46199D6D8300A486B0 /* logo.png */; };
+		D5B50E49199D6D8300A486B0 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E47199D6D8300A486B0 /* logo@2x.png */; };
+		D5B50E52199D90D100A486B0 /* TLFVoucherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E50199D90D100A486B0 /* TLFVoucherCell.m */; };
+		D5B50E53199D90D100A486B0 /* TLFVoucherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E51199D90D100A486B0 /* TLFVoucherCell.xib */; };
+		D5B50E57199D90F400A486B0 /* TLFHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E55199D90F400A486B0 /* TLFHistoryCell.m */; };
+		D5B50E58199D90F400A486B0 /* TLFHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E56199D90F400A486B0 /* TLFHistoryCell.xib */; };
+		D5B50E5C199D9A3500A486B0 /* TLFRestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E5B199D9A3500A486B0 /* TLFRestAPI.m */; };
+		D5B50E5F199DB2E600A486B0 /* TLFVoucher.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E5E199DB2E600A486B0 /* TLFVoucher.m */; };
+		D5B50EA0199FD6FD00A486B0 /* TLFExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E9F199FD6FD00A486B0 /* TLFExploreViewController.m */; };
+		EE03657EB73449F9A3445768 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2384896295554975B373109D /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5B50DEE199D2C1100A486B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5B50DC6199D2C1000A486B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5B50DCD199D2C1100A486B0;
+			remoteInfo = Taliflo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2384896295554975B373109D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B030FF31954DD88A413E6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D5054EE219A03814008477D9 /* Jastor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Jastor.h; path = ../../../../../github/jastor/Jastor/Jastor.h; sourceTree = "<group>"; };
+		D5054EE319A03814008477D9 /* Jastor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Jastor.m; path = ../../../../../github/jastor/Jastor/Jastor.m; sourceTree = "<group>"; };
+		D5054EE419A03814008477D9 /* JastorRuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JastorRuntimeHelper.h; path = ../../../../../github/jastor/Jastor/JastorRuntimeHelper.h; sourceTree = "<group>"; };
+		D5054EE519A03814008477D9 /* JastorRuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JastorRuntimeHelper.m; path = ../../../../../github/jastor/Jastor/JastorRuntimeHelper.m; sourceTree = "<group>"; };
+		D5B50DCE199D2C1100A486B0 /* Taliflo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taliflo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5B50DD1199D2C1100A486B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D5B50DD5199D2C1100A486B0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D5B50DD9199D2C1100A486B0 /* Taliflo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Taliflo-Info.plist"; sourceTree = "<group>"; };
+		D5B50DDB199D2C1100A486B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5B50DDD199D2C1100A486B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D5B50DDF199D2C1100A486B0 /* Taliflo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taliflo-Prefix.pch"; sourceTree = "<group>"; };
+		D5B50DE0199D2C1100A486B0 /* TLFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLFAppDelegate.h; sourceTree = "<group>"; };
+		D5B50DE1199D2C1100A486B0 /* TLFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLFAppDelegate.m; sourceTree = "<group>"; };
+		D5B50DE3199D2C1100A486B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D5B50DE9199D2C1100A486B0 /* TalifloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalifloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5B50DEA199D2C1100A486B0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D5B50DF2199D2C1100A486B0 /* TalifloTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TalifloTests-Info.plist"; sourceTree = "<group>"; };
+		D5B50DF4199D2C1100A486B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5B50DF6199D2C1100A486B0 /* TalifloTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalifloTests.m; sourceTree = "<group>"; };
+		D5B50E04199D353000A486B0 /* TLFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFColor.h; sourceTree = "<group>"; };
+		D5B50E05199D353000A486B0 /* TLFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFColor.m; sourceTree = "<group>"; };
+		D5B50E17199D38EC00A486B0 /* TLFRedeemAtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemAtViewController.h; sourceTree = "<group>"; };
+		D5B50E18199D38EC00A486B0 /* TLFRedeemAtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemAtViewController.m; sourceTree = "<group>"; };
+		D5B50E19199D38EC00A486B0 /* TLFRedeemAtViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFRedeemAtViewController.xib; sourceTree = "<group>"; };
+		D5B50E29199D3CEB00A486B0 /* TLFNavBarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFNavBarConfig.h; sourceTree = "<group>"; };
+		D5B50E2A199D3CEB00A486B0 /* TLFNavBarConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFNavBarConfig.m; sourceTree = "<group>"; };
+		D5B50E30199D461D00A486B0 /* TLFRedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemViewController.h; sourceTree = "<group>"; };
+		D5B50E31199D461D00A486B0 /* TLFRedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemViewController.m; sourceTree = "<group>"; };
+		D5B50E33199D464B00A486B0 /* TLFHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFHistoryViewController.h; sourceTree = "<group>"; };
+		D5B50E34199D464B00A486B0 /* TLFHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFHistoryViewController.m; sourceTree = "<group>"; };
+		D5B50E3A199D628400A486B0 /* Voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Voucher.png; path = ../../../../../TalifloAssets/assets/voucher/Voucher.png; sourceTree = "<group>"; };
+		D5B50E3B199D628400A486B0 /* Voucher@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Voucher@2x.png"; path = "../../../../../TalifloAssets/assets/voucher/Voucher@2x.png"; sourceTree = "<group>"; };
+		D5B50E3E199D69C800A486B0 /* History.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = History.png; path = ../../../../../TalifloAssets/assets/History/History.png; sourceTree = "<group>"; };
+		D5B50E3F199D69C800A486B0 /* History@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "History@2x.png"; path = "../../../../../TalifloAssets/assets/History/History@2x.png"; sourceTree = "<group>"; };
+		D5B50E42199D6B1C00A486B0 /* Explore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Explore.png; path = ../../../../../TalifloAssets/assets/Explore/Explore.png; sourceTree = "<group>"; };
+		D5B50E43199D6B1C00A486B0 /* Explore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Explore@2x.png"; path = "../../../../../TalifloAssets/assets/Explore/Explore@2x.png"; sourceTree = "<group>"; };
+		D5B50E46199D6D8300A486B0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../../TalifloAssets/assets/logo.png; sourceTree = "<group>"; };
+		D5B50E47199D6D8300A486B0 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo@2x.png"; path = "../../../../../TalifloAssets/assets/logo@2x.png"; sourceTree = "<group>"; };
+		D5B50E4F199D90D100A486B0 /* TLFVoucherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFVoucherCell.h; sourceTree = "<group>"; };
+		D5B50E50199D90D100A486B0 /* TLFVoucherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFVoucherCell.m; sourceTree = "<group>"; };
+		D5B50E51199D90D100A486B0 /* TLFVoucherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFVoucherCell.xib; sourceTree = "<group>"; };
+		D5B50E54199D90F400A486B0 /* TLFHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFHistoryCell.h; sourceTree = "<group>"; };
+		D5B50E55199D90F400A486B0 /* TLFHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFHistoryCell.m; sourceTree = "<group>"; };
+		D5B50E56199D90F400A486B0 /* TLFHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFHistoryCell.xib; sourceTree = "<group>"; };
+		D5B50E5A199D9A3500A486B0 /* TLFRestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRestAPI.h; sourceTree = "<group>"; };
+		D5B50E5B199D9A3500A486B0 /* TLFRestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRestAPI.m; sourceTree = "<group>"; };
+		D5B50E5D199DB2E600A486B0 /* TLFVoucher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFVoucher.h; sourceTree = "<group>"; };
+		D5B50E5E199DB2E600A486B0 /* TLFVoucher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFVoucher.m; sourceTree = "<group>"; };
+		D5B50E9E199FD6FD00A486B0 /* TLFExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFExploreViewController.h; sourceTree = "<group>"; };
+		D5B50E9F199FD6FD00A486B0 /* TLFExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFExploreViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5B50DCB199D2C1100A486B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DD4199D2C1100A486B0 /* CoreGraphics.framework in Frameworks */,
+				D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */,
+				D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */,
+				EE03657EB73449F9A3445768 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5B50DE6199D2C1100A486B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DEB199D2C1100A486B0 /* XCTest.framework in Frameworks */,
+				D5B50DED199D2C1100A486B0 /* UIKit.framework in Frameworks */,
+				D5B50DEC199D2C1100A486B0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5B50DC5199D2C1000A486B0 = {
+			isa = PBXGroup;
+			children = (
+				D5B50DD7199D2C1100A486B0 /* Taliflo */,
+				D5B50DF0199D2C1100A486B0 /* TalifloTests */,
+				D5B50DD0199D2C1100A486B0 /* Frameworks */,
+				D5B50DCF199D2C1100A486B0 /* Products */,
+				94B030FF31954DD88A413E6A /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		D5B50DCF199D2C1100A486B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50DCE199D2C1100A486B0 /* Taliflo.app */,
+				D5B50DE9199D2C1100A486B0 /* TalifloTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5B50DD0199D2C1100A486B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50DD1199D2C1100A486B0 /* Foundation.framework */,
+				D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */,
+				D5B50DD5199D2C1100A486B0 /* UIKit.framework */,
+				D5B50DEA199D2C1100A486B0 /* XCTest.framework */,
+				2384896295554975B373109D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5B50DD7199D2C1100A486B0 /* Taliflo */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50E59199D9A0B00A486B0 /* Rest */,
+				D5B50E03199D2C7F00A486B0 /* Views */,
+				D5B50E02199D2C7500A486B0 /* Controllers */,
+				D5B50E01199D2C6C00A486B0 /* Utilities */,
+				D5B50E00199D2C6400A486B0 /* Model */,
+				D5B50DE0199D2C1100A486B0 /* TLFAppDelegate.h */,
+				D5B50DE1199D2C1100A486B0 /* TLFAppDelegate.m */,
+				D5B50DE3199D2C1100A486B0 /* Images.xcassets */,
+				D5B50DD8199D2C1100A486B0 /* Supporting Files */,
+			);
+			path = Taliflo;
+			sourceTree = "<group>";
+		};
+		D5B50DD8199D2C1100A486B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50E46199D6D8300A486B0 /* logo.png */,
+				D5B50E47199D6D8300A486B0 /* logo@2x.png */,
+				D5B50E42199D6B1C00A486B0 /* Explore.png */,
+				D5B50E43199D6B1C00A486B0 /* Explore@2x.png */,
+				D5B50E3E199D69C800A486B0 /* History.png */,
+				D5B50E3F199D69C800A486B0 /* History@2x.png */,
+				D5B50E3A199D628400A486B0 /* Voucher.png */,
+				D5B50E3B199D628400A486B0 /* Voucher@2x.png */,
+				D5B50DD9199D2C1100A486B0 /* Taliflo-Info.plist */,
+				D5B50DDA199D2C1100A486B0 /* InfoPlist.strings */,
+				D5B50DDD199D2C1100A486B0 /* main.m */,
+				D5B50DDF199D2C1100A486B0 /* Taliflo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5B50DF0199D2C1100A486B0 /* TalifloTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50DF6199D2C1100A486B0 /* TalifloTests.m */,
+				D5B50DF1199D2C1100A486B0 /* Supporting Files */,
+			);
+			path = TalifloTests;
+			sourceTree = "<group>";
+		};
+		D5B50DF1199D2C1100A486B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50DF2199D2C1100A486B0 /* TalifloTests-Info.plist */,
+				D5B50DF3199D2C1100A486B0 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5B50E00199D2C6400A486B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50E5D199DB2E600A486B0 /* TLFVoucher.h */,
+				D5B50E5E199DB2E600A486B0 /* TLFVoucher.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D5B50E01199D2C6C00A486B0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D5054EE219A03814008477D9 /* Jastor.h */,
+				D5054EE319A03814008477D9 /* Jastor.m */,
+				D5054EE419A03814008477D9 /* JastorRuntimeHelper.h */,
+				D5054EE519A03814008477D9 /* JastorRuntimeHelper.m */,
+				D5B50E04199D353000A486B0 /* TLFColor.h */,
+				D5B50E05199D353000A486B0 /* TLFColor.m */,
+				D5B50E29199D3CEB00A486B0 /* TLFNavBarConfig.h */,
+				D5B50E2A199D3CEB00A486B0 /* TLFNavBarConfig.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		D5B50E02199D2C7500A486B0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50E17199D38EC00A486B0 /* TLFRedeemAtViewController.h */,
+				D5B50E18199D38EC00A486B0 /* TLFRedeemAtViewController.m */,
+				D5B50E30199D461D00A486B0 /* TLFRedeemViewController.h */,
+				D5B50E31199D461D00A486B0 /* TLFRedeemViewController.m */,
+				D5B50E33199D464B00A486B0 /* TLFHistoryViewController.h */,
+				D5B50E34199D464B00A486B0 /* TLFHistoryViewController.m */,
+				D5B50E9E199FD6FD00A486B0 /* TLFExploreViewController.h */,
+				D5B50E9F199FD6FD00A486B0 /* TLFExploreViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D5B50E03199D2C7F00A486B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50E19199D38EC00A486B0 /* TLFRedeemAtViewController.xib */,
+				D5B50E4F199D90D100A486B0 /* TLFVoucherCell.h */,
+				D5B50E50199D90D100A486B0 /* TLFVoucherCell.m */,
+				D5B50E51199D90D100A486B0 /* TLFVoucherCell.xib */,
+				D5B50E54199D90F400A486B0 /* TLFHistoryCell.h */,
+				D5B50E55199D90F400A486B0 /* TLFHistoryCell.m */,
+				D5B50E56199D90F400A486B0 /* TLFHistoryCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D5B50E59199D9A0B00A486B0 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				D5B50E5A199D9A3500A486B0 /* TLFRestAPI.h */,
+				D5B50E5B199D9A3500A486B0 /* TLFRestAPI.m */,
+			);
+			name = Rest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5B50DCD199D2C1100A486B0 /* Taliflo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5B50DFA199D2C1100A486B0 /* Build configuration list for PBXNativeTarget "Taliflo" */;
+			buildPhases = (
+				08E2E9725DFD4754B3FED73B /* Check Pods Manifest.lock */,
+				D5B50DCA199D2C1100A486B0 /* Sources */,
+				D5B50DCB199D2C1100A486B0 /* Frameworks */,
+				D5B50DCC199D2C1100A486B0 /* Resources */,
+				8F59EE28752046449CAE410F /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taliflo;
+			productName = Taliflo;
+			productReference = D5B50DCE199D2C1100A486B0 /* Taliflo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5B50DE8199D2C1100A486B0 /* TalifloTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5B50DFD199D2C1100A486B0 /* Build configuration list for PBXNativeTarget "TalifloTests" */;
+			buildPhases = (
+				D5B50DE5199D2C1100A486B0 /* Sources */,
+				D5B50DE6199D2C1100A486B0 /* Frameworks */,
+				D5B50DE7199D2C1100A486B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5B50DEF199D2C1100A486B0 /* PBXTargetDependency */,
+			);
+			name = TalifloTests;
+			productName = TalifloTests;
+			productReference = D5B50DE9199D2C1100A486B0 /* TalifloTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5B50DC6199D2C1000A486B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TLF;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Taliflo Inc.";
+				TargetAttributes = {
+					D5B50DCD199D2C1100A486B0 = {
+						DevelopmentTeam = 4H39J2TQND;
+					};
+					D5B50DE8199D2C1100A486B0 = {
+						TestTargetID = D5B50DCD199D2C1100A486B0;
+					};
+				};
+			};
+			buildConfigurationList = D5B50DC9199D2C1000A486B0 /* Build configuration list for PBXProject "Taliflo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D5B50DC5199D2C1000A486B0;
+			productRefGroup = D5B50DCF199D2C1100A486B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5B50DCD199D2C1100A486B0 /* Taliflo */,
+				D5B50DE8199D2C1100A486B0 /* TalifloTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5B50DCC199D2C1100A486B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50E40199D69C800A486B0 /* History.png in Resources */,
+				D5B50E49199D6D8300A486B0 /* logo@2x.png in Resources */,
+				D5B50E3D199D628400A486B0 /* Voucher@2x.png in Resources */,
+				D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */,
+				D5B50E44199D6B1C00A486B0 /* Explore.png in Resources */,
+				D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */,
+				D5B50E1B199D38EC00A486B0 /* TLFRedeemAtViewController.xib in Resources */,
+				D5B50E45199D6B1C00A486B0 /* Explore@2x.png in Resources */,
+				D5B50E48199D6D8300A486B0 /* logo.png in Resources */,
+				D5B50E3C199D628400A486B0 /* Voucher.png in Resources */,
+				D5B50E53199D90D100A486B0 /* TLFVoucherCell.xib in Resources */,
+				D5B50E41199D69C800A486B0 /* History@2x.png in Resources */,
+				D5B50E58199D90F400A486B0 /* TLFHistoryCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5B50DE7199D2C1100A486B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DF5199D2C1100A486B0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08E2E9725DFD4754B3FED73B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8F59EE28752046449CAE410F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5B50DCA199D2C1100A486B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50E1A199D38EC00A486B0 /* TLFRedeemAtViewController.m in Sources */,
+				D5054EE619A03814008477D9 /* Jastor.m in Sources */,
+				D5B50E06199D353000A486B0 /* TLFColor.m in Sources */,
+				D5B50E52199D90D100A486B0 /* TLFVoucherCell.m in Sources */,
+				D5B50E32199D461D00A486B0 /* TLFRedeemViewController.m in Sources */,
+				D5B50E5F199DB2E600A486B0 /* TLFVoucher.m in Sources */,
+				D5B50EA0199FD6FD00A486B0 /* TLFExploreViewController.m in Sources */,
+				D5054EE719A03814008477D9 /* JastorRuntimeHelper.m in Sources */,
+				D5B50E2B199D3CEB00A486B0 /* TLFNavBarConfig.m in Sources */,
+				D5B50DDE199D2C1100A486B0 /* main.m in Sources */,
+				D5B50E57199D90F400A486B0 /* TLFHistoryCell.m in Sources */,
+				D5B50E35199D464B00A486B0 /* TLFHistoryViewController.m in Sources */,
+				D5B50DE2199D2C1100A486B0 /* TLFAppDelegate.m in Sources */,
+				D5B50E5C199D9A3500A486B0 /* TLFRestAPI.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5B50DE5199D2C1100A486B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B50DF7199D2C1100A486B0 /* TalifloTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5B50DEF199D2C1100A486B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5B50DCD199D2C1100A486B0 /* Taliflo */;
+			targetProxy = D5B50DEE199D2C1100A486B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5B50DDA199D2C1100A486B0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5B50DDB199D2C1100A486B0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D5B50DF3199D2C1100A486B0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5B50DF4199D2C1100A486B0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5B50DF8199D2C1100A486B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D5B50DF9199D2C1100A486B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5B50DFB199D2C1100A486B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94B030FF31954DD88A413E6A /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
+				INFOPLIST_FILE = "Taliflo/Taliflo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D5B50DFC199D2C1100A486B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94B030FF31954DD88A413E6A /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
+				INFOPLIST_FILE = "Taliflo/Taliflo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D5B50DFE199D2C1100A486B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Taliflo.app/Taliflo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TalifloTests/TalifloTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D5B50DFF199D2C1100A486B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Taliflo.app/Taliflo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
+				INFOPLIST_FILE = "TalifloTests/TalifloTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5B50DC9199D2C1000A486B0 /* Build configuration list for PBXProject "Taliflo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5B50DF8199D2C1100A486B0 /* Debug */,
+				D5B50DF9199D2C1100A486B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5B50DFA199D2C1100A486B0 /* Build configuration list for PBXNativeTarget "Taliflo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5B50DFB199D2C1100A486B0 /* Debug */,
+				D5B50DFC199D2C1100A486B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5B50DFD199D2C1100A486B0 /* Build configuration list for PBXNativeTarget "TalifloTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5B50DFE199D2C1100A486B0 /* Debug */,
+				D5B50DFF199D2C1100A486B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5B50DC6199D2C1000A486B0 /* Project object */;
+}

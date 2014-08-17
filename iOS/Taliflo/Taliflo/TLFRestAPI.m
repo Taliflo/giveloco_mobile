@@ -7,25 +7,27 @@
 //
 
 #import "TLFRestAPI.h"
+#import "AFNetworking.h"
 
 
-NSString *const base = @"http://api-dev.taliflo.com/v1/";
+//NSString *const base = @"http://api-dev.taliflo.com/v1/";
+ NSString *const base = @"http://sheltered-wave-9353.herokuapp.com/";
 
 @implementation TLFRestAPI
 
-+ (NSURL *)queryVouchers
++ (NSURL *)queryAllUsers
 {
-    return [NSURL URLWithString:[base stringByAppendingString:@"vouchers"]];
+    return [NSURL URLWithString:[base stringByAppendingString:@"users"]];
 }
 
 + (NSURL *)queryAllBusinesses
 {
-    return [NSURL URLWithString:[base stringByAppendingString:@"businesses"]];
+    return [NSURL URLWithString:[base stringByAppendingString:@"users?role=business"]];
 }
 
 + (NSURL *)queryAllCauses
 {
-    return [NSURL URLWithString:[base stringByAppendingString:@"causes"]];
+    return [NSURL URLWithString:[base stringByAppendingString:@"users?role=cause"]];
 }
 
 @end

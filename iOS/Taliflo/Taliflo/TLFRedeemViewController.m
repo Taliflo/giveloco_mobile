@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import "TLFVouchersViewController.h"
+#import "TLFRedeemViewController.h"
 #import "TLFNavBarConfig.h"
 #import "TLFColor.h"
 #import "TLFRestAPI.h"
 #import "AFNetworking.h"
 
-@interface TLFVouchersViewController ()
+@interface TLFRedeemViewController ()
 
 @property (nonatomic) NSURLSession *session;
-@property (nonatomic, copy) NSArray *vouchers;
+@property (nonatomic, copy) NSArray *businesses;
 
 @end
 
-@implementation TLFVouchersViewController
+@implementation TLFRedeemViewController
 
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
@@ -30,13 +30,13 @@
         
         // Setting the title and tab bar title and image
         [TLFNavBarConfig configViewController:self
-                                    withTitle:@"My Vouchers"
+                                    withTitle:@"Redeem"
                                     withImage:[UIImage imageNamed:@"Voucher.png"]];
         
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         _session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
         
-        [self requestVouchers];
+        [self requestBusinessesOutstanding];
     }
     
     return self;
@@ -66,7 +66,7 @@
     
 }
 
-- (void)requestVouchers
+- (void)requestBusinessesOutstanding
 {
  /*   NSURLRequest *req = [NSURLRequest requestWithURL:[TLFRestAPI queryVouchers]];
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
@@ -89,14 +89,14 @@
     // Start the web service request
     [dataTask resume]; */
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[TLFRestAPI queryVouchers]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[TLFRestAPI queryAllBusinesses]];
     // AFNetworking asynchronous url request
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:
      ^(AFHTTPRequestOperation *operation, id responseObject) {
-         self.vouchers = responseObject;
-         NSDictionary *first = self.vouchers[0];
+         self.businesses = responseObject;
+         NSDictionary *first = self.businesses[0];
          NSLog(@"%@", first);
          
          dispatch_async(dispatch_get_main_queue(),
@@ -124,17 +124,18 @@
 // Return the number of rows in the section.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.vouchers count];
+    return [self.businesses count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIndentifier = @"UITableViewCell";
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
-    NSDictionary *voucher = self.vouchers[indexPath.row];
-    cell.textLabel.text = voucher[@"issued_by_name"];
-    
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+    }
+    NSDictionary *voucher = self.businesses[indexPath.row];
+    cell.textLabel.text = voucher[@"company_name"];
     
     //cell.imageView.image =
     return cell;

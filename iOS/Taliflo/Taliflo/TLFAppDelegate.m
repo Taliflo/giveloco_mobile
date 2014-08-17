@@ -8,7 +8,7 @@
 
 #import "TLFAppDelegate.h"
 #import "TLFColor.h"
-#import "TLFVouchersViewController.h"
+#import "TLFRedeemViewController.h"
 #import "TLFHistoryViewController.h"
 #import "TLFExploreViewController.h"
 
@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     
     // Vouchers table view controller and navigation controller
-    TLFVouchersViewController *vouchersVC = [[TLFVouchersViewController alloc] init];
+    TLFRedeemViewController *vouchersVC = [[TLFRedeemViewController alloc] init];
     UINavigationController *vouchersNC = [[UINavigationController alloc] initWithRootViewController:vouchersVC];
     
     // History table view controller and navigation controller

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import "TLFVoucherViewController.h"
+#import "TLFRedeemAtViewController.h"
 
-@interface TLFVoucherViewController ()
+@interface TLFRedeemAtViewController ()
 
 @end
 
-@implementation TLFVoucherViewController
+@implementation TLFRedeemAtViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
