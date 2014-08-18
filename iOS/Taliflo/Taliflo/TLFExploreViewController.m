@@ -11,12 +11,15 @@
 #import "TLFColor.h"
 #import "AFNetworking.h"
 #import "TLFRestAPI.h"
+#import "TLFExploreCellLeft.h"
+#import "TLFExploreCellRight.h"
 
 @interface TLFExploreViewController ()
 
 @property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
-@property (nonatomic, copy) NSMutableArray *businesses, *causes;
+@property (nonatomic) NSMutableArray *businesses, *causes;
 @property (nonatomic) NSArray *data;
+@property (nonatomic) UIImage *placeholder;
 
 @end
 
@@ -38,6 +41,7 @@
         self.navigationItem.titleView = _segmentedControl;
         
         [self requestUsers];
+        
     }
     return self;
 }
@@ -60,6 +64,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    // Load the left image nib file
+    UINib *nib = [UINib nibWithNibName:@"TLFExploreCellLeft" bundle:nil];
+    
+    // Register the NIB file which contains the cell
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"TLFExploreCellLeft"];
     
 }
 
@@ -141,30 +150,36 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 161.0f;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"cellIdentifier";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"TLFExploreCellLeft";
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+    TLFExploreCellLeft *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     NSString *cellValue;
     switch (_segmentedControl.selectedSegmentIndex) {
         case 0:
             cellValue = _businesses[indexPath.row][@"company_name"];
+            cell.backgroundColor = [TLFColor talifloPurple];
             break;
         case 1:
             cellValue = _causes[indexPath.row][@"company_name"];
+            cell.backgroundColor = [TLFColor talifloTiffanyBlue];
             break;
             
         default:
             cellValue = _businesses[indexPath.row][@"company_name"];
+            cell.backgroundColor = [TLFColor talifloPurple];
             break;
     }
-    cell.textLabel.text = cellValue;
+    cell.userName.text = cellValue;
+    cell.userImage.image = [UIImage imageNamed:@"160.gif"];
     return cell;
 }
 

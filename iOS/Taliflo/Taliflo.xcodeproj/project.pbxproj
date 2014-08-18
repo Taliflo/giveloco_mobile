@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D5054EE619A03814008477D9 /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EE319A03814008477D9 /* Jastor.m */; };
-		D5054EE719A03814008477D9 /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EE519A03814008477D9 /* JastorRuntimeHelper.m */; };
+		D5054EEB19A15417008477D9 /* TLFExploreCellLeft.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EE919A15417008477D9 /* TLFExploreCellLeft.m */; };
+		D5054EEC19A15417008477D9 /* TLFExploreCellLeft.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5054EEA19A15417008477D9 /* TLFExploreCellLeft.xib */; };
+		D5054EF019A15FD9008477D9 /* 160.gif in Resources */ = {isa = PBXBuildFile; fileRef = D5054EEF19A15FD9008477D9 /* 160.gif */; };
+		D5054EF419A16606008477D9 /* TLFExploreCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EF219A16606008477D9 /* TLFExploreCellRight.m */; };
+		D5054EF519A16606008477D9 /* TLFExploreCellRight.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5054EF319A16606008477D9 /* TLFExploreCellRight.xib */; };
 		D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
 		D5B50DD4199D2C1100A486B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */; };
 		D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
@@ -35,12 +38,9 @@
 		D5B50E45199D6B1C00A486B0 /* Explore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E43199D6B1C00A486B0 /* Explore@2x.png */; };
 		D5B50E48199D6D8300A486B0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E46199D6D8300A486B0 /* logo.png */; };
 		D5B50E49199D6D8300A486B0 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E47199D6D8300A486B0 /* logo@2x.png */; };
-		D5B50E52199D90D100A486B0 /* TLFVoucherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E50199D90D100A486B0 /* TLFVoucherCell.m */; };
-		D5B50E53199D90D100A486B0 /* TLFVoucherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E51199D90D100A486B0 /* TLFVoucherCell.xib */; };
 		D5B50E57199D90F400A486B0 /* TLFHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E55199D90F400A486B0 /* TLFHistoryCell.m */; };
 		D5B50E58199D90F400A486B0 /* TLFHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E56199D90F400A486B0 /* TLFHistoryCell.xib */; };
 		D5B50E5C199D9A3500A486B0 /* TLFRestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E5B199D9A3500A486B0 /* TLFRestAPI.m */; };
-		D5B50E5F199DB2E600A486B0 /* TLFVoucher.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E5E199DB2E600A486B0 /* TLFVoucher.m */; };
 		D5B50EA0199FD6FD00A486B0 /* TLFExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E9F199FD6FD00A486B0 /* TLFExploreViewController.m */; };
 		EE03657EB73449F9A3445768 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2384896295554975B373109D /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -58,10 +58,13 @@
 /* Begin PBXFileReference section */
 		2384896295554975B373109D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B030FF31954DD88A413E6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		D5054EE219A03814008477D9 /* Jastor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Jastor.h; path = ../../../../../github/jastor/Jastor/Jastor.h; sourceTree = "<group>"; };
-		D5054EE319A03814008477D9 /* Jastor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Jastor.m; path = ../../../../../github/jastor/Jastor/Jastor.m; sourceTree = "<group>"; };
-		D5054EE419A03814008477D9 /* JastorRuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JastorRuntimeHelper.h; path = ../../../../../github/jastor/Jastor/JastorRuntimeHelper.h; sourceTree = "<group>"; };
-		D5054EE519A03814008477D9 /* JastorRuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JastorRuntimeHelper.m; path = ../../../../../github/jastor/Jastor/JastorRuntimeHelper.m; sourceTree = "<group>"; };
+		D5054EE819A15417008477D9 /* TLFExploreCellLeft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFExploreCellLeft.h; sourceTree = "<group>"; };
+		D5054EE919A15417008477D9 /* TLFExploreCellLeft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFExploreCellLeft.m; sourceTree = "<group>"; };
+		D5054EEA19A15417008477D9 /* TLFExploreCellLeft.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFExploreCellLeft.xib; sourceTree = "<group>"; };
+		D5054EEF19A15FD9008477D9 /* 160.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 160.gif; path = ../../../../../TalifloAssets/assets/160.gif; sourceTree = "<group>"; };
+		D5054EF119A16606008477D9 /* TLFExploreCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFExploreCellRight.h; sourceTree = "<group>"; };
+		D5054EF219A16606008477D9 /* TLFExploreCellRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFExploreCellRight.m; sourceTree = "<group>"; };
+		D5054EF319A16606008477D9 /* TLFExploreCellRight.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFExploreCellRight.xib; sourceTree = "<group>"; };
 		D5B50DCE199D2C1100A486B0 /* Taliflo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taliflo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B50DD1199D2C1100A486B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,16 +100,11 @@
 		D5B50E43199D6B1C00A486B0 /* Explore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Explore@2x.png"; path = "../../../../../TalifloAssets/assets/Explore/Explore@2x.png"; sourceTree = "<group>"; };
 		D5B50E46199D6D8300A486B0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../../TalifloAssets/assets/logo.png; sourceTree = "<group>"; };
 		D5B50E47199D6D8300A486B0 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo@2x.png"; path = "../../../../../TalifloAssets/assets/logo@2x.png"; sourceTree = "<group>"; };
-		D5B50E4F199D90D100A486B0 /* TLFVoucherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFVoucherCell.h; sourceTree = "<group>"; };
-		D5B50E50199D90D100A486B0 /* TLFVoucherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFVoucherCell.m; sourceTree = "<group>"; };
-		D5B50E51199D90D100A486B0 /* TLFVoucherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFVoucherCell.xib; sourceTree = "<group>"; };
 		D5B50E54199D90F400A486B0 /* TLFHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFHistoryCell.h; sourceTree = "<group>"; };
 		D5B50E55199D90F400A486B0 /* TLFHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFHistoryCell.m; sourceTree = "<group>"; };
 		D5B50E56199D90F400A486B0 /* TLFHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFHistoryCell.xib; sourceTree = "<group>"; };
 		D5B50E5A199D9A3500A486B0 /* TLFRestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRestAPI.h; sourceTree = "<group>"; };
 		D5B50E5B199D9A3500A486B0 /* TLFRestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRestAPI.m; sourceTree = "<group>"; };
-		D5B50E5D199DB2E600A486B0 /* TLFVoucher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFVoucher.h; sourceTree = "<group>"; };
-		D5B50E5E199DB2E600A486B0 /* TLFVoucher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFVoucher.m; sourceTree = "<group>"; };
 		D5B50E9E199FD6FD00A486B0 /* TLFExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFExploreViewController.h; sourceTree = "<group>"; };
 		D5B50E9F199FD6FD00A486B0 /* TLFExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFExploreViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +185,7 @@
 		D5B50DD8199D2C1100A486B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D5054EEF19A15FD9008477D9 /* 160.gif */,
 				D5B50E46199D6D8300A486B0 /* logo.png */,
 				D5B50E47199D6D8300A486B0 /* logo@2x.png */,
 				D5B50E42199D6B1C00A486B0 /* Explore.png */,
@@ -224,8 +223,6 @@
 		D5B50E00199D2C6400A486B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D5B50E5D199DB2E600A486B0 /* TLFVoucher.h */,
-				D5B50E5E199DB2E600A486B0 /* TLFVoucher.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -233,10 +230,6 @@
 		D5B50E01199D2C6C00A486B0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				D5054EE219A03814008477D9 /* Jastor.h */,
-				D5054EE319A03814008477D9 /* Jastor.m */,
-				D5054EE419A03814008477D9 /* JastorRuntimeHelper.h */,
-				D5054EE519A03814008477D9 /* JastorRuntimeHelper.m */,
 				D5B50E04199D353000A486B0 /* TLFColor.h */,
 				D5B50E05199D353000A486B0 /* TLFColor.m */,
 				D5B50E29199D3CEB00A486B0 /* TLFNavBarConfig.h */,
@@ -264,12 +257,15 @@
 			isa = PBXGroup;
 			children = (
 				D5B50E19199D38EC00A486B0 /* TLFRedeemAtViewController.xib */,
-				D5B50E4F199D90D100A486B0 /* TLFVoucherCell.h */,
-				D5B50E50199D90D100A486B0 /* TLFVoucherCell.m */,
-				D5B50E51199D90D100A486B0 /* TLFVoucherCell.xib */,
 				D5B50E54199D90F400A486B0 /* TLFHistoryCell.h */,
 				D5B50E55199D90F400A486B0 /* TLFHistoryCell.m */,
 				D5B50E56199D90F400A486B0 /* TLFHistoryCell.xib */,
+				D5054EE819A15417008477D9 /* TLFExploreCellLeft.h */,
+				D5054EE919A15417008477D9 /* TLFExploreCellLeft.m */,
+				D5054EEA19A15417008477D9 /* TLFExploreCellLeft.xib */,
+				D5054EF119A16606008477D9 /* TLFExploreCellRight.h */,
+				D5054EF219A16606008477D9 /* TLFExploreCellRight.m */,
+				D5054EF319A16606008477D9 /* TLFExploreCellRight.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -368,13 +364,15 @@
 				D5B50E49199D6D8300A486B0 /* logo@2x.png in Resources */,
 				D5B50E3D199D628400A486B0 /* Voucher@2x.png in Resources */,
 				D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */,
+				D5054EEC19A15417008477D9 /* TLFExploreCellLeft.xib in Resources */,
+				D5054EF519A16606008477D9 /* TLFExploreCellRight.xib in Resources */,
 				D5B50E44199D6B1C00A486B0 /* Explore.png in Resources */,
 				D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */,
 				D5B50E1B199D38EC00A486B0 /* TLFRedeemAtViewController.xib in Resources */,
+				D5054EF019A15FD9008477D9 /* 160.gif in Resources */,
 				D5B50E45199D6B1C00A486B0 /* Explore@2x.png in Resources */,
 				D5B50E48199D6D8300A486B0 /* logo.png in Resources */,
 				D5B50E3C199D628400A486B0 /* Voucher.png in Resources */,
-				D5B50E53199D90D100A486B0 /* TLFVoucherCell.xib in Resources */,
 				D5B50E41199D69C800A486B0 /* History@2x.png in Resources */,
 				D5B50E58199D90F400A486B0 /* TLFHistoryCell.xib in Resources */,
 			);
@@ -429,13 +427,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B50E1A199D38EC00A486B0 /* TLFRedeemAtViewController.m in Sources */,
-				D5054EE619A03814008477D9 /* Jastor.m in Sources */,
+				D5054EF419A16606008477D9 /* TLFExploreCellRight.m in Sources */,
 				D5B50E06199D353000A486B0 /* TLFColor.m in Sources */,
-				D5B50E52199D90D100A486B0 /* TLFVoucherCell.m in Sources */,
+				D5054EEB19A15417008477D9 /* TLFExploreCellLeft.m in Sources */,
 				D5B50E32199D461D00A486B0 /* TLFRedeemViewController.m in Sources */,
-				D5B50E5F199DB2E600A486B0 /* TLFVoucher.m in Sources */,
 				D5B50EA0199FD6FD00A486B0 /* TLFExploreViewController.m in Sources */,
-				D5054EE719A03814008477D9 /* JastorRuntimeHelper.m in Sources */,
 				D5B50E2B199D3CEB00A486B0 /* TLFNavBarConfig.m in Sources */,
 				D5B50DDE199D2C1100A486B0 /* main.m in Sources */,
 				D5B50E57199D90F400A486B0 /* TLFHistoryCell.m in Sources */,

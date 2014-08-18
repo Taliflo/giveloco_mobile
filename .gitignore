@@ -21,4 +21,4 @@ local.properties
 build/
 
 # Xcode
-iOS/Taliflo/Taliflo.xcodeproj/project.xcworkspace/xcuserdata/Caswell.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate

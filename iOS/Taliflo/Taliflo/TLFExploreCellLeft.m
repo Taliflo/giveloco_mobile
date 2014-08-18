@@ -1,14 +1,14 @@
 //
-//  TLFVoucherCell.m
+//  TLFExploreCellLeft.m
 //  Taliflo
 //
-//  Created by NR-Mac on 1/14/2014.
+//  Created by NR-Mac on 1/17/2014.
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import "TLFVoucherCell.h"
+#import "TLFExploreCellLeft.h"
 
-@implementation TLFVoucherCell
+@implementation TLFExploreCellLeft
 
 - (void)awakeFromNib
 {
