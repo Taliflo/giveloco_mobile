@@ -22,6 +22,8 @@
     <!-- Taliflo white coloured theme -->
     <style name="CustomLightGreyTheme" parent="@android:Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/LightGreyActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/GreyTextStyle</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle</item>
     </style>
         <!-- Taliflo white coloured action bar -->
         <style name="LightGreyActionBar" parent="@android:Widget.Holo.ActionBar">
@@ -31,6 +33,13 @@
         <!-- Font appearance -->
         <style name="TiffanyBlueTextStyle" parent="@android:TextAppearance.Holo.Widget.ActionBar.Title">
             <item name="android:textColor">#00a79d</item>
+        </style>
+        <style name="GreyTextStyle" parent="@android:TextAppearance.Holo.Widget.ActionBar.Title">
+            <item name="android:textColor">#888</item>
+        </style>
+        <!-- Action bar tab style -->
+        <style name="ActionBarTabStyle" parent="@android:style/Widget.Holo.ActionBar.TabView">
+            <item name="android:background">@android:color/transparent</item>
         </style>
 
     <!-- Style to remove action bar for the Login activity -->

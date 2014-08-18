@@ -1,6 +1,6 @@
 package com.taliflo.app.fragments;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,27 +12,8 @@ import android.widget.ListView;
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.api.RequestUsers;
-import com.taliflo.app.api.TalifloRestAPI;
-import com.taliflo.app.model.Business;
 import com.taliflo.app.model.User;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.conn.ConnectTimeoutException;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**

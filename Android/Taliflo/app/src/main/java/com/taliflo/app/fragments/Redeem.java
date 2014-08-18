@@ -2,7 +2,7 @@ package com.taliflo.app.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +12,7 @@ import android.widget.ListView;
 
 import com.taliflo.app.R;
 import com.taliflo.app.activities.RedeemVoucher;
-import com.taliflo.app.adapters.VoucherAdapter;
-import com.taliflo.app.api.RequestVouchers;
 import com.taliflo.app.api.TalifloRestAPI;
-import com.taliflo.app.model.Voucher;
-
-import java.util.ArrayList;
 
 
 public class Redeem extends Fragment {
@@ -27,8 +22,6 @@ public class Redeem extends Fragment {
 
     // Layout views and member variables
     private ListView listView;
-    private VoucherAdapter adapter;
-    private ArrayList<Voucher> vouchers = new ArrayList<Voucher>();
 
     private TalifloRestAPI restAPI = TalifloRestAPI.getInstance();
 
@@ -39,10 +32,6 @@ public class Redeem extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_redeem, container, false);
-        listView = (ListView) view.findViewById(R.id.redeem_listView);
-        adapter = new VoucherAdapter(getActivity(), vouchers);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(openVoucher);
         return view;
     }
 
@@ -50,10 +39,6 @@ public class Redeem extends Fragment {
     public void onActivityCreated (Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (vouchers.size() == 0) {
-            RequestVouchers requestVouchers = new RequestVouchers(vouchers, adapter);
-            requestVouchers.execute();
-        }
     }
 
     private ListView.OnItemClickListener openVoucher = new ListView.OnItemClickListener() {
@@ -62,7 +47,7 @@ public class Redeem extends Fragment {
 
             // Passing voucher information with the intent
             Intent i = new Intent(getActivity(), RedeemVoucher.class);
-            i.putExtra(restAPI.DISTRIBUTOR_NAME, vouchers.get(position).getDistributorName());
+            //i.putExtra(restAPI.DISTRIBUTOR_NAME, vouchers.get(position).getDistributorName());
 
             // Start activity
             startActivity(i);

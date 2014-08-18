@@ -1,25 +1,37 @@
 package com.taliflo.app.activities;
 
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentActivity;
+import android.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.NavDrawerAdapter;
+import com.taliflo.app.adapters.TabsPagerAdapter;
 import com.taliflo.app.fragments.Businesses;
 import com.taliflo.app.fragments.Redeem;
 import com.taliflo.app.fragments.Search;
@@ -30,14 +42,14 @@ import com.taliflo.app.utilities.NavDrawerItem;
 import java.util.ArrayList;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     // Logcat tag
     private final String TAG = "Taliflo.MainActivity";
 
-    private DrawerLayout drawerLayout;
-    private ListView drawerList;
-    private ActionBarDrawerToggle drawerToggle;
+  //  private DrawerLayout drawerLayout;
+  //  private ListView drawerList;
+  //  private ActionBarDrawerToggle drawerToggle;
 
     // Navigation drawer title
     private CharSequence drawerTitle;
@@ -59,80 +71,65 @@ public class MainActivity extends Activity {
 
     // Boolean variable to ensure proper back navigation. When the user presses the back button on a fragment
     // the user should be returned to home. If the user is at home, then the application should be exited
-    private boolean atHome = false;
+    //private boolean atHome = false;
+
+    // Member field for the view pager
+    private ViewPager viewPager;
+    private TabsPagerAdapter tabsAdapter;
+    private ActionBar actionBar;
+    // Tab titles
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_pager);
 
-        Intent loginIntent = new Intent(getApplicationContext(), Login.class);
-        startActivityForResult(loginIntent, 1);
+//        Intent loginIntent = new Intent(getApplicationContext(), Login.class);
+//        startActivityForResult(loginIntent, 1);
 
-        if (navDrawerEntries.size() == 0) {
+        if (savedInstanceState == null) {
 
-            // Load app title
-            appTitle = drawerTitle = getTitle();
+            // Initialization
+            viewPager = (ViewPager) findViewById(R.id.main_pager);
+            actionBar = getActionBar();
+            tabsAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 
-            // load drawer titles
-            navDrawerItems = getResources().getStringArray(R.array.main_nav_drawer_items);
-            navDrawerSections = getResources().getStringArray(R.array.main_nav_drawer_sections);
+            viewPager.setAdapter(tabsAdapter);
+            actionBar.setHomeButtonEnabled(false);
+            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-            // load icons from resources
-            navDrawerIcons = getResources().obtainTypedArray(R.array.main_drawer_icons);
-
-            drawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
-            drawerList = (ListView) findViewById(R.id.main_left_drawer);
-
-            navDrawerEntries = new ArrayList<NavDrawerInterface>();
-
-            // Adding items to the navigation drawer array
-            //-- Banner
-            navDrawerEntries.add(new NavDrawerBanner(null, 1));
-            //-- Redeem
-            navDrawerEntries.add(new NavDrawerItem(navDrawerItems[0], 100, navDrawerIcons.getResourceId(0, -1)));
-            //-- Businesses
-            navDrawerEntries.add(new NavDrawerItem(navDrawerItems[1], 101, navDrawerIcons.getResourceId(1, -1)));
-            //-- Causes
-            navDrawerEntries.add(new NavDrawerItem(navDrawerItems[2], 102, navDrawerIcons.getResourceId(2, -1)));
-
-            // Recycle the typed array
-            navDrawerIcons.recycle();
-
-            drawerList.setOnItemClickListener(new NavDrawerClickListener());
-
-            // setting the nav drawer list adapter
-            adapter = new NavDrawerAdapter(this, navDrawerEntries);
-            drawerList.setAdapter(adapter);
-
-            // enabling action bar app icon and behaving it as toggle button
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-            // getActionBar().setHomeButtonEnabled(true);
-
-            drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
-                    R.drawable.ic_drawer, // nav menu toggle icon
-                    R.string.app_name, // nav drawer open
-                    R.string.app_name
-            ) {
-                public void onDrawerClosed(View view) {
-                    getActionBar().setTitle(appTitle);
-                    // calling onPrepareOptionsMenu() to show action bar icons
-                    invalidateOptionsMenu();
-                }
-
-                public void onDrawerOpened(View drawerView) {
-                    getActionBar().setTitle(drawerTitle);
-                    // calling onPrepareOptionsMenu() to hide action bar icons
-                    invalidateOptionsMenu();
-                }
-
-            };
-            drawerLayout.setDrawerListener(drawerToggle);
-
-            if (savedInstanceState == null) {
-                // Display the Redeem fragment when the app is first opened
-                displayView(1, 100);
+            final String[] tabs = getResources().getStringArray(R.array.main_tab_labels);
+            TypedArray tabIcons = getResources().obtainTypedArray(R.array.main_tab_icons);
+            // Adding Tabs
+            for (int i = 0; i < 3; i++) {
+                Tab tab = actionBar.newTab();
+                tab.setTabListener(this);
+                tab.setCustomView(createTabView(this, tabs[0], tabIcons.getResourceId(i, 0)));
+                actionBar.addTab(tab);
             }
+
+            setTitle(tabs[0]);
+
+            viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+                @Override
+                public void onPageSelected(int position) {
+                    actionBar.setSelectedNavigationItem(position);
+                    setTitle(tabs[position]);
+                }
+
+                @Override
+                public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int arg0) {
+
+                }
+            });
+
+            tabIcons.recycle();
 
             // Create global configuration and initialize ImageLoader with this configuration
             ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).build();
@@ -140,6 +137,30 @@ public class MainActivity extends Activity {
 
         }
 
+
+    }
+
+    @Override
+    public void onTabReselected (Tab tab, FragmentTransaction ft) {
+    }
+
+    @Override
+    public void onTabSelected (Tab tab, FragmentTransaction ft) {
+        viewPager.setCurrentItem(tab.getPosition());
+    }
+
+    @Override
+    public void onTabUnselected(Tab tab, FragmentTransaction ft){
+
+    }
+
+    private View createTabView(Context context, String tabTitle, int iconSrc) {
+        View view = LayoutInflater.from(context).inflate(R.layout.tab_layout, null, false);
+       // TextView title = (TextView) view.findViewById(R.id.tab_title);
+        ImageView icon = (ImageView) view.findViewById(R.id.tab_icon);
+       // title.setText(tabTitle);
+        icon.setImageResource(iconSrc);
+        return view;
     }
 
     private class NavDrawerClickListener implements ListView.OnItemClickListener {
@@ -147,7 +168,7 @@ public class MainActivity extends Activity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             // Display view for selected navigation drawer item
             Log.d(TAG, "in NavDrawerClickListener start");
-            displayView(position, navDrawerEntries.get(position).getId());
+        //    displayView(position, navDrawerEntries.get(position).getId());
             Log.d(TAG, "in NavDrawerClickListener finish");
         }
     }
@@ -161,8 +182,8 @@ public class MainActivity extends Activity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
         // if nav drawer is opened, hide the action items
-        	boolean drawerOpen = drawerLayout.isDrawerOpen(drawerList);
-        	menu.findItem(R.id.main_action_search).setVisible(!drawerOpen);
+       // 	boolean drawerOpen = drawerLayout.isDrawerOpen(drawerList);
+       // 	menu.findItem(R.id.main_action_search).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -174,20 +195,20 @@ public class MainActivity extends Activity {
 
             case R.id.main_action_search:
                 // Open search fragment
-                displayView(-1, 999);
+            //    displayView(-1, 999);
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
+/*
     /**
      * Displays fragment view for selected navigation drawer list item
      * @param position
      * @param id
      */
-    private void displayView(int position, int id) {
+/*    private void displayView(int position, int id) {
         Log.d(TAG, "inside DisplayView()");
         String newTitle = "";
         // Update the main content by replacing fragments
@@ -246,7 +267,7 @@ public class MainActivity extends Activity {
             Log.e(TAG, "Error in creating fragment");
         }
     }
-
+*/
     @Override
     public void setTitle(CharSequence title) {
         appTitle = title;
@@ -262,23 +283,24 @@ public class MainActivity extends Activity {
     protected void onPostCreate(Bundle savedInstanceState){
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occured
-        drawerToggle.syncState();
+        //drawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggles
-        drawerToggle.onConfigurationChanged(newConfig);
+       // drawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
     public void onBackPressed() {
-        if (atHome) {
+/*        if (atHome) {
             finish();
         } else {
             displayView(1, 100);
-        }
+        } */
+        finish();
     }
 
     @Override

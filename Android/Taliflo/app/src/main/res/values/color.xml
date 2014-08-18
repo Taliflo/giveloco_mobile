@@ -27,4 +27,7 @@
     <color name="purple">#7c5691</color>
     <color name="dark_purple">#3d0c58</color>
 
+    <!-- Main Acivity Action Bar Tab -->
+    <color name="tabTextGrey">#777777</color>
+
 </resources>

@@ -12,7 +12,6 @@ public class Business extends User {
     private Cause[] supportedCauses;
     private Redemption[] redemptions;
     private String[] tags;
-    private ArrayList<Voucher> vouchers;
     private int type;
 
     // Constructors

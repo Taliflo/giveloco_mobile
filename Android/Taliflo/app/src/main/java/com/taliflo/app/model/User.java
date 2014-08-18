@@ -10,8 +10,6 @@ public abstract class User {
     // Member variables
     private int id, zip;
     private String email, streetAddress, city, state, country;
-    private ArrayList<Transaction> transactions;
-    private ArrayList<Voucher> vouchers;
     protected String name, summary, description, imageUrl;
     protected int type;
 
@@ -37,8 +35,6 @@ public abstract class User {
     public String getCountry() { return country; }
     public void setCountry(String country) { this.country = country; }
 
-    public ArrayList<Transaction> getTransactions() { return this.transactions; }
-    public ArrayList<Voucher> getVouchers() { return this.vouchers; }
 
     public abstract String getName();
     public abstract void setName(String name);

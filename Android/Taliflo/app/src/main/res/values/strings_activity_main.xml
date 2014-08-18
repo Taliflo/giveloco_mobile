@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="main_nav_drawer_sections">
-        <item>My Causes</item>
-        <item>Help &amp; Settings</item>
-    </string-array>
-
-    <string-array name="main_nav_drawer_items">
+    <string-array name="main_tab_labels">
         <item>Redeem</item>
-        <item>Businesses</item>
-        <item>Causes</item>
-        <item>Log Out</item>
+        <item>History</item>
+        <item>Explore</item>
     </string-array>
 
-    <array name="main_drawer_icons">
-        <item>@drawable/voucher_orange</item>
-        <item>@drawable/business_orange</item>
-        <item>@drawable/causes_heart_orange</item>
+    <array name="main_tab_icons">
+        <item>@drawable/tab_btn_voucher</item>
+        <item>@drawable/tab_btn_history</item>
+        <item>@drawable/tab_btn_explore</item>
     </array>
+
+    <string name="main_dummyTabTitle">Title</string>
 
 </resources>
