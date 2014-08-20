@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.taliflo.app.R;
-import com.taliflo.app.activities.RedeemVoucher;
+import com.taliflo.app.activities.RedeemAt;
 import com.taliflo.app.api.TalifloRestAPI;
 
 
@@ -32,6 +32,7 @@ public class Redeem extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_redeem, container, false);
+
         return view;
     }
 
@@ -39,6 +40,9 @@ public class Redeem extends Fragment {
     public void onActivityCreated (Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        if (savedInstanceState == null) {
+
+        }
     }
 
     private ListView.OnItemClickListener openVoucher = new ListView.OnItemClickListener() {
@@ -46,7 +50,7 @@ public class Redeem extends Fragment {
         public void onItemClick(AdapterView<?> arg0, View v, int position, long Id) {
 
             // Passing voucher information with the intent
-            Intent i = new Intent(getActivity(), RedeemVoucher.class);
+            Intent i = new Intent(getActivity(), RedeemAt.class);
             //i.putExtra(restAPI.DISTRIBUTOR_NAME, vouchers.get(position).getDistributorName());
 
             // Start activity

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.taliflo.app.R;
 import com.taliflo.app.api.TalifloRestAPI;
 
-public class RedeemVoucher extends Activity {
+public class RedeemAt extends Activity {
 
     // Layout views
     private TextView businessName, businessAddress;

@@ -4,13 +4,10 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.taliflo.app.adapters.UserAdapter;
-import com.taliflo.app.model.Business;
-import com.taliflo.app.model.Cause;
 import com.taliflo.app.model.User;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -26,6 +23,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Created by Caswell on 1/11/2014.
@@ -35,14 +35,28 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
     // Log cat tag
     private final String TAG = "Talifo.RequestBusinesses";
 
-    private ArrayList<User> userList = new ArrayList<User>();
+    private ArrayList<User> userList;
     private UserAdapter adapter;
     private String userRole;
+
+    private ArrayList<User> businessList;
+    private ArrayList<User> causeList;
 
     public RequestUsers (ArrayList<User> userList, UserAdapter adapter, String userRole) {
         this.userList = userList;
         this.adapter = adapter;
         this.userRole = userRole;
+    }
+
+    public RequestUsers(ArrayList<User> userList, UserAdapter adapter) {
+        this.userList = userList;
+        this.adapter = adapter;
+    }
+
+    public RequestUsers(UserAdapter adapter, ArrayList<User> businessList, ArrayList<User> causeList) {
+        this.adapter = adapter;
+        this.businessList = businessList;
+        this.causeList = causeList;
     }
 
     @Override
@@ -66,6 +80,8 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
     @Override
     protected void onPostExecute (String result) {
         super.onPostExecute(result);
+        sortAlphabetically(businessList);
+        sortAlphabetically(causeList);
         adapter.notifyDataSetChanged();
     }
 
@@ -73,15 +89,15 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
 
         // Construct the HTTP request message
         TalifloRestAPI restAPI = TalifloRestAPI.getInstance();
-        HttpGet get;
-        if (userRole.equals("business")) {
+        HttpGet get = new HttpGet(restAPI.QUERY_USERS);
+/*        if (userRole.equals("business")) {
             get = new HttpGet(restAPI.QUERY_BUSINESSES);
         }
         else if (userRole.equals("cause")) {
             get = new HttpGet(restAPI.QUERY_CAUSES);
         }
         else
-            throw new Exception("Invalid user role");
+            throw new Exception("Invalid user role"); */
 
 
         // Set the HTTP parameters
@@ -107,25 +123,26 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
 
             /** Parsing result to retrieve the contents **/
             JSONArray resultArray = new JSONArray(result);
-            User user;
             for (int i = 0; i < resultArray.length(); i++) {
                 JSONObject jsonObject = resultArray.getJSONObject(i);
 
-                if (userRole.equals("business"))
-                    user = new Business();
-                else
-                    user = new Cause();
-
-                user.setName(jsonObject.getString("company_name"));
-                user.setSummary(jsonObject.getString("summary"));
-                user.setType(i % 2);
-
-                // Add to list
-                userList.add(user);
+                if (jsonObject.getString("role").equals("business"))
+                    businessList.add(new User(jsonObject));
+                else if (jsonObject.getString("role").equals("cause"))
+                    causeList.add(new User(jsonObject));
             }
         } else {
             Log.e(TAG, "HTTP Request Error");
         }
+    }
+
+    private void sortAlphabetically(List<User> userList) {
+        Collections.sort(userList, new Comparator<User>(){
+            @Override
+            public int compare(User arg0, User arg1){
+                return new String(arg0.getCompanyName()).compareTo(arg1.getCompanyName());
+            }
+        });
     }
 
 }

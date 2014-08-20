@@ -14,6 +14,7 @@ import com.taliflo.app.R;
 import com.taliflo.app.model.User;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Caswell on 1/7/2014.
@@ -32,6 +33,11 @@ public class UserAdapter extends BaseAdapter {
         imageLoader = ImageLoader.getInstance();
     }
 
+    public void setUserList(ArrayList<User> list) {
+        users = list;
+        this.notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() { return users.size(); }
 
@@ -39,26 +45,44 @@ public class UserAdapter extends BaseAdapter {
     public Object getItem(int position) { return users.get(position); }
 
     @Override
-    public long getItemId(int position) { return users.get(position).getId(); }
+    public long getItemId(int position) { return Long.parseLong(users.get(position).getId()); }
 
     @Override
-    public int getViewTypeCount() { return 2; }
+    public int getViewTypeCount() { return 1; }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parentView) {
 
-        View view = null;
+        View v = convertView;
+        UserHolder holder = null;
         User user = users.get(position);
 
-        if (user.getType() == 0) {
-            view = getImageLeftView(convertView, parentView, user);
+        if (v == null) {
+            v = layoutInflater.inflate(R.layout.user_list_item_1, parentView, false);
+            ImageView image = (ImageView) v.findViewById(R.id.user_image1);
+            TextView name = (TextView) v.findViewById(R.id.user_name1);
+            TextView summary = (TextView) v.findViewById(R.id.user_summary1);
+            TextView tags = (TextView) v.findViewById(R.id.user_tags1);
+            TextView support = (TextView) v.findViewById(R.id.user_support1);
+
+            holder = new UserHolder(name, summary, tags, support, image);
+            v.setTag(holder);
+        } else {
+            // Recycle view that already exists
+            holder = (UserHolder) v.getTag();
         }
 
-        if (user.getType() == 1) {
-            view = getImageRightView(convertView, parentView, user);
-        }
+        imageLoader.displayImage(user.getProfilePictureURL(), holder.image);
+        holder.name.setText(user.getCompanyName());
+        holder.summary.setText(user.getSummary());
+        holder.tags.setText(Arrays.toString(user.getTags()));
 
-        return view;
+        if (user.getRole().equals("business"))
+            v.setBackgroundColor(context.getResources().getColor(R.color.taliflo_purple));
+        else if (user.getRole().equals("cause"))
+            v.setBackgroundColor(context.getResources().getColor(R.color.taliflo_tiffanyBlue));
+
+        return v;
 
      /*   if (convertView == null) {
 
@@ -105,57 +129,6 @@ public class UserAdapter extends BaseAdapter {
 
     }
 
-    public View getImageLeftView(View convertView, ViewGroup parentView, User user) {
-        View v = convertView;
-        UserHolder holder = null;
-
-        if (v == null) {
-            v = layoutInflater.inflate(R.layout.user_list_item_1, parentView, false);
-            ImageView image = (ImageView) v.findViewById(R.id.user_image1);
-            TextView name = (TextView) v.findViewById(R.id.user_name1);
-            TextView summary = (TextView) v.findViewById(R.id.user_summary1);
-            TextView tags = (TextView) v.findViewById(R.id.user_tags1);
-            TextView support = (TextView) v.findViewById(R.id.user_support1);
-
-            holder = new UserHolder(name, summary, tags, support, image);
-            v.setTag(holder);
-        } else {
-            // Recycle view that already exists
-            holder = (UserHolder) v.getTag();
-        }
-
-        imageLoader.displayImage(user.getImageUrl(), holder.image);
-        holder.name.setText(user.getName());
-        holder.summary.setText(user.getSummary());
-
-        return v;
-    }
-
-    public View getImageRightView(View convertView, ViewGroup parentView, User user) {
-        View v = convertView;
-        UserHolder holder = null;
-
-        if (v == null) {
-            v = layoutInflater.inflate(R.layout.user_list_item_2, parentView, false);
-            ImageView image = (ImageView) v.findViewById(R.id.user_image2);
-            TextView name = (TextView) v.findViewById(R.id.user_name2);
-            TextView summary = (TextView) v.findViewById(R.id.user_summary2);
-            TextView tags = (TextView) v.findViewById(R.id.user_tags2);
-            TextView support = (TextView) v.findViewById(R.id.user_support2);
-
-            holder = new UserHolder(name, summary, tags, support, image);
-            v.setTag(holder);
-        } else {
-            // Recycle view that already exists
-            holder = (UserHolder) v.getTag();
-        }
-
-        imageLoader.displayImage(user.getImageUrl(), holder.image);
-        holder.name.setText(user.getName());
-        holder.summary.setText(user.getSummary());
-
-        return v;
-    }
 
     private static class UserHolder {
         private ImageView image;

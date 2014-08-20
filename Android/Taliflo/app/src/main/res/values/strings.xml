@@ -20,4 +20,8 @@
     <string name="nav_banner_last">Last name</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Explore fragment -->
+    <string name="explore_businesses">Businesses</string>
+    <string name="explore_causes">Causes</string>
+
 </resources>

@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@color/taliflo_purple"
-    tools:context="com.taliflo.app.activities.RedeemVoucher">
+    tools:context="com.taliflo.app.activities.RedeemAt">
 
     <TableLayout
         android:id="@+id/redeemVoucher_infoLayout"

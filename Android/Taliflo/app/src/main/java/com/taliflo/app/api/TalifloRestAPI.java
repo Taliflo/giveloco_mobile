@@ -5,13 +5,14 @@ package com.taliflo.app.api;
  */
 public final class TalifloRestAPI {
 
-    private final String base = "http://sheltered-wave-9353.herokuapp.com";
+    private final String base = "http://api-dev.taliflo.com/v1";
 
     // Request URLs
+    public final String QUERY_USERS = base + "/users";
     public final String QUERY_BUSINESSES = base + "/users?role=business";
     public final String QUERY_CAUSES = base + "/users?role=cause";
     public final String QUERY_PERSONS = base + "/users?role=person";
-    public final String QUERY_VOUCHERS = base + "/vouchers";
+    public final String QUERY_TRANSACTIONS = base + "/transactions";
 
     // Response codes
     public final int STATUS_OK = 200;

@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.RedeemVoucher"
+            android:name=".activities.RedeemAt"
             android:label="@string/title_activity_redeem_voucher" >
         </activity>
         <activity

@@ -4,7 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.taliflo.app.fragments.Businesses;
+import com.taliflo.app.fragments.Explore;
+import com.taliflo.app.fragments.History;
 import com.taliflo.app.fragments.Redeem;
 import com.taliflo.app.fragments.Search;
 
@@ -13,13 +14,13 @@ import com.taliflo.app.fragments.Search;
  */
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
-    private Fragment redeem, businesses, search;
+    private Fragment redeem, history, explore;
 
     public TabsPagerAdapter (FragmentManager fm) {
         super(fm);
         redeem = new Redeem();
-        businesses = new Businesses();
-        search = new Search();
+        history = new History();
+        explore = new Explore();
     }
 
     @Override
@@ -28,9 +29,9 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return redeem;
             case 1:
-                return businesses;
+                return history;
             case 2:
-                return search;
+                return explore;
         }
         return null;
     }

@@ -2,19 +2,15 @@ package com.taliflo.app.activities;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,22 +18,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TableLayout;
-import android.widget.TextView;
-
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.NavDrawerAdapter;
 import com.taliflo.app.adapters.TabsPagerAdapter;
-import com.taliflo.app.fragments.Businesses;
-import com.taliflo.app.fragments.Redeem;
-import com.taliflo.app.fragments.Search;
-import com.taliflo.app.utilities.NavDrawerBanner;
 import com.taliflo.app.utilities.NavDrawerInterface;
-import com.taliflo.app.utilities.NavDrawerItem;
 
 import java.util.ArrayList;
 
@@ -66,8 +53,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     // Fragment placeholder
     private Fragment fragment = null;
-    // Fragments
-    private Fragment Redeem = new Redeem(), Businesses = new Businesses(), Search = new Search();
 
     // Boolean variable to ensure proper back navigation. When the user presses the back button on a fragment
     // the user should be returned to home. If the user is at home, then the application should be exited
