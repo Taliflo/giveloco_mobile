@@ -1,11 +1,31 @@
 package com.taliflo.app.api;
 
+import android.util.Log;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 /**
  * Created by Caswell on 1/7/2014.
  */
 public final class TalifloRestAPI {
 
+    private final String TAG = "Taliflo.TalifloRestAPI";
+
     private final String base = "http://api-dev.taliflo.com/v1";
+    //private final String base = "http://sheltered-wave-9353.herokuapp.com/";
 
     // Request URLs
     public final String QUERY_USERS = base + "/users";
@@ -36,6 +56,38 @@ public final class TalifloRestAPI {
             instance = new TalifloRestAPI();
         }
         return instance;
+    }
+
+    public String getJsonResult(String query) throws IOException, Exception {
+        // Construct the HTTP request message
+        HttpGet get = new HttpGet(query);
+
+        // Set the HTTP parameters
+        HttpParams params = new BasicHttpParams();
+        HttpConnectionParams.setConnectionTimeout(params, CONNECTIONTIMEOUT);
+        HttpConnectionParams.setSoTimeout(params, SOTIMEOUT);
+
+        HttpClient client = new DefaultHttpClient(params);
+        HttpResponse response = client.execute(get);
+        int responseStatus = response.getStatusLine().getStatusCode();
+
+        String result = "";
+        if (responseStatus == STATUS_OK) {
+            HttpEntity responseEntity = response.getEntity();
+            InputStream is = responseEntity.getContent();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
+            StringBuilder sb = new StringBuilder();
+            String line = "";
+
+            while ((line = reader.readLine()) != null)
+                sb.append(line + '\n');
+            result = sb.toString();
+            is.close();
+        } else {
+            throw new Exception("HTTP Request Error");
+        }
+
+        return result;
     }
 
 }

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="dummy_business_name">Business Name</string>
-    <string name="dummy_business_summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin.</string>
-    <string name="dummy_business_tags">#TECHNOLOGIES #SEARCH #CLOUD COMPUTING #SOFTWARE</string>
-    <string name="dummy_supporters_num">3 supported causes</string>
-</resources>

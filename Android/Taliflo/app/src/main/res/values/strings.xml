@@ -5,6 +5,73 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- ** Activity Main ** -->
+    <string-array name="main_tab_labels">
+        <item>Redeem</item>
+        <item>History</item>
+        <item>Explore</item>
+    </string-array>
+
+    <array name="main_tab_icons">
+        <item>@drawable/tab_btn_voucher</item>
+        <item>@drawable/tab_btn_history</item>
+        <item>@drawable/tab_btn_explore</item>
+    </array>
+
+    <string name="main_dummyTabTitle">Title</string>
+
+    <!-- ** Activity Login ** -->
+    <string name="login_hint_email">Enter email</string>
+    <string name="login_hint_password">Enter password</string>
+    <string name="login_btn_login">Log In</string>
+    <string name="login_btn_signUp">Sign up for Taliflo</string>
+    <string name="login_btn_fb">Log in with Facebook</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="plus_sign_out">Switch Google+ account</string>
+    <string name="plus_disconnect">Disconnect from Google+</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+
+    <!-- ** Activity Redeem At ** -->
+    <string name="title_activity_redeem_voucher">Redeem at</string>
+    <string name="action_help">Help</string>
+    <string name="redeemVoucher_max">You may redeem up to</string>
+    <string name="redeemVoucher_total">Total redemption amount</string>
+    <string name="redeemVoucher_agreeTC">With confirmation you agree to the Terms and Conditions.</string>
+    <string name="redeemVoucher_confirm">Confirm</string>
+    <string name="redeemVoucher_redeemUpTo">You may redeem up to:</string>
+    <string name="redeemVoucher_dummyRedeemMax">100.00</string>
+    <string name="redeemVoucher_amountHint">Enter amount to redeem</string>
+    <string name="redeemVoucher_dummyDate">5 December 2014</string>
+    <string name="redeemVoucher_dummyBusinessName">Business A</string>
+    <string name="redeemVoucher_dummyBusinessAddress">123 Address St., Vancouver, BC</string>
+
+    <!-- ** Fragment Redeem ** -->
+    <string name="dummy_value">$100.00</string>
+    <string name="dummy_supported_causes">14 Supported Causes</string>
+
+    <!-- ** Fragment Explore ** -->
+    <string name="dummy_business_name">Business Name</string>
+    <string name="dummy_business_summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin.</string>
+    <string name="dummy_business_tags">#TECHNOLOGIES #SEARCH #CLOUD COMPUTING #SOFTWARE</string>
+    <string name="dummy_supporters_num">3 supported causes</string>
+
+    <string name="explore_businesses">Businesses</string>
+    <string name="explore_causes">Causes</string>
+
+    <!-- ** Fragment Search ** -->
+    <string name="action_search">Search</string>
+    <string name="search_inputHint">Find businesses and causes</string>
+
+    <!-- ** Fragment History ** -->
+    <string name="history_donationTo">Donation To:</string>
+    <string name="history_redemptionAt">Redemption At:</string>
+
     <!-- For Facebook SDK -->
     <string name="APP_ID">443781372430423</string>
     <string name="dummy_string">Text</string>
@@ -20,8 +87,7 @@
     <string name="nav_banner_last">Last name</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!-- Explore fragment -->
-    <string name="explore_businesses">Businesses</string>
-    <string name="explore_causes">Causes</string>
+
+
 
 </resources>

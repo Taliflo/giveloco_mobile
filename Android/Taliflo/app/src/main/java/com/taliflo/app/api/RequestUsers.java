@@ -87,52 +87,18 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
 
     private void parseUsers () throws IOException, JSONException, Exception {
 
-        // Construct the HTTP request message
         TalifloRestAPI restAPI = TalifloRestAPI.getInstance();
-        HttpGet get = new HttpGet(restAPI.QUERY_USERS);
-/*        if (userRole.equals("business")) {
-            get = new HttpGet(restAPI.QUERY_BUSINESSES);
-        }
-        else if (userRole.equals("cause")) {
-            get = new HttpGet(restAPI.QUERY_CAUSES);
-        }
-        else
-            throw new Exception("Invalid user role"); */
+        String userQuery = restAPI.QUERY_USERS;
+        String jsonResult = restAPI.getJsonResult(userQuery);
+        /** Parsing result to retrieve the contents **/
+        JSONArray resultArray = new JSONArray(jsonResult);
+        for (int i = 0; i < resultArray.length(); i++) {
+            JSONObject jsonObject = resultArray.getJSONObject(i);
 
-
-        // Set the HTTP parameters
-        HttpParams params = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(params, restAPI.CONNECTIONTIMEOUT);
-        HttpConnectionParams.setSoTimeout(params, restAPI.SOTIMEOUT);
-
-        HttpClient client = new DefaultHttpClient(params);
-        HttpResponse response = client.execute(get);
-        int responseStatus = response.getStatusLine().getStatusCode();
-
-        if (responseStatus == restAPI.STATUS_OK) {
-            HttpEntity responseEntity = response.getEntity();
-            InputStream is = responseEntity.getContent();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
-            StringBuilder sb = new StringBuilder();
-            String line = "";
-
-            while ((line = reader.readLine()) != null)
-                sb.append(line + '\n');
-            String result = sb.toString();
-            is.close();
-
-            /** Parsing result to retrieve the contents **/
-            JSONArray resultArray = new JSONArray(result);
-            for (int i = 0; i < resultArray.length(); i++) {
-                JSONObject jsonObject = resultArray.getJSONObject(i);
-
-                if (jsonObject.getString("role").equals("business"))
-                    businessList.add(new User(jsonObject));
-                else if (jsonObject.getString("role").equals("cause"))
-                    causeList.add(new User(jsonObject));
-            }
-        } else {
-            Log.e(TAG, "HTTP Request Error");
+            if (jsonObject.getString("role").equals("business"))
+                businessList.add(new User(jsonObject));
+            else if (jsonObject.getString("role").equals("cause"))
+                causeList.add(new User(jsonObject));
         }
     }
 
