@@ -51,7 +51,7 @@ public final class TalifloRestAPI {
 
     private TalifloRestAPI() {}
 
-    public static TalifloRestAPI getInstance() {
+    public static TalifloRestAPI getSharedInstance() {
         if (instance == null) {
             instance = new TalifloRestAPI();
         }

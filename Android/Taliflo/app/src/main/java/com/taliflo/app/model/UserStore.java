@@ -13,7 +13,7 @@ public class UserStore {
 
     private UserStore () {}
 
-    public static synchronized UserStore sharedInstance() {
+    public static synchronized UserStore getSharedInstance() {
         if (instance == null) {
             instance = new UserStore();
         }

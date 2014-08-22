@@ -23,7 +23,7 @@ public class Redeem extends Fragment {
     // Layout views and member variables
     private ListView listView;
 
-    private TalifloRestAPI restAPI = TalifloRestAPI.getInstance();
+    private TalifloRestAPI restAPI = TalifloRestAPI.getSharedInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -1,7 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -24,7 +24,7 @@
                 android:layout_weight="1"
                 android:gravity="left"
                 android:textSize="18sp"
-                android:textColor="@color/taliflo_tiffanyBlue"
+                android:textColor="@color/taliflo_purple"
                 android:text="@string/billingInfo_nameCC"
                 />
 
@@ -33,7 +33,7 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             >
 
             <EditText
@@ -44,6 +44,7 @@
                 android:textSize="18sp"
                 android:background="@drawable/tiffany_blue_box"
                 android:padding="8dp"
+                android:singleLine="true"
                 />
 
         </TableRow>
@@ -59,8 +60,116 @@
                 android:layout_weight="1"
                 android:gravity="left"
                 android:textSize="18sp"
-                android:textColor="@color/taliflo_tiffanyBlue"
+                android:textColor="@color/taliflo_purple"
                 android:text="@string/billingInfo_numCC"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            >
+
+            <EditText
+                android:id="@+id/billingInfo_creditCardNumber"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:background="@drawable/tiffany_blue_box"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:maxLength="16"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:textColor="@color/taliflo_purple"
+                android:text="@string/billingInfo_expiryDate"
+                />
+
+            <View
+                android:layout_width="0dip"
+                android:layout_height="1dp"
+                android:layout_weight="2"
+                />
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:textColor="@color/taliflo_purple"
+                android:text="@string/billingInfo_ccv"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            >
+
+            <Button
+                android:id="@+id/billingInfo_btnExpiryDate"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textSize="18sp"
+                android:text="@string/billingInfo_dummyExpiryDate"
+                android:background="@drawable/btn_bg_white"
+                android:drawableLeft="@drawable/ic_action_go_to_today_tb"
+                android:gravity="center"
+                />
+
+            <View
+                android:layout_width="0dip"
+                android:layout_height="1dp"
+                android:layout_weight="2"
+                />
+
+            <EditText
+                android:id="@+id/billingInfo_creditCardCCV"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:background="@drawable/tiffany_blue_box"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:maxLength="3"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:textColor="@color/taliflo_purple"
+                android:text="@string/billingInfo_billingAddress"
                 />
 
         </TableRow>
@@ -72,17 +181,106 @@
             >
 
             <EditText
-                android:id="@+id/billingInfo_creditCardNumber"
+                android:id="@+id/billingInfo_street"
                 android:layout_height="wrap_content"
                 android:layout_width="0dip"
                 android:layout_weight="1"
                 android:textSize="18sp"
                 android:background="@drawable/tiffany_blue_box"
                 android:padding="8dp"
+                android:singleLine="true"
+                android:hint="@string/billingInfo_hintStreet"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            >
+
+            <EditText
+                android:id="@+id/billingInfo_city"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:background="@drawable/tiffany_blue_box"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:hint="@string/billingInfo_hintCity"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            >
+
+            <Spinner
+                android:id="@+id/billingInfo_province"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:entries="@array/billingInfo_canadaEntries"
+                />
+
+            <View
+                android:layout_width="0dip"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                />
+
+            <Spinner
+                android:id="@+id/billingInfo_country"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:entries="@array/billingInfo_countryEntries"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            >
+
+            <EditText
+                android:id="@+id/billingInfo_zip"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:background="@drawable/tiffany_blue_box"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:hint="@string/billingInfo_hintPostalCode"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <Button
+                android:id="@+id/billingInfo_btnSave"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/billingInfo_btnSaveText"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_bg_purple"
                 />
 
         </TableRow>
 
     </TableLayout>
 
-</RelativeLayout>
+</ScrollView>

@@ -27,4 +27,5 @@ dependencies {
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.2'
     compile files('libs/joda-time-2.4.jar')
     compile 'info.hoang8f:android-segmented:1.0.2'
+    compile 'eu.inmite.android.lib:android-styled-dialogs:1.2.0'
 }

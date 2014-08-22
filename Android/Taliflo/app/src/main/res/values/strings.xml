@@ -13,9 +13,9 @@
     </string-array>
 
     <array name="main_tab_icons">
-        <item>@drawable/tab_btn_myaccount</item>
-        <item>@drawable/tab_btn_explore</item>
-        <item>@drawable/tab_btn_options</item>
+        <item>@drawable/viewpager_btn_myaccount</item>
+        <item>@drawable/viewpager_btn_causes</item>
+        <item>@drawable/viewpager_btn_businesses</item>
     </array>
 
     <string name="main_dummyTabTitle">Title</string>
@@ -74,7 +74,7 @@
     <!-- ** Fragment My Account ** -->
     <string name="myAccount_dummyFullName">Stein Mack</string>
     <string name="myAccount_currentBalance">Current Balance (Credits)</string>
-    <string name="myAccount_dummyCredits">C60.00</string>
+    <string name="myAccount_dummyCredits">C 00.00</string>
     <string name="myAccount_transactions">Transactions</string>
     <string name="myAccount_transType">Redemption at</string>
     <string name="myAccount_trans">C -20.00</string>
@@ -91,6 +91,34 @@
     <string name="billingInfo_expiryDate">Expiry Date</string>
     <string name="billingInfo_ccv">CVV</string>
     <string name="billingInfo_billingAddress">Billing Address</string>
+    <string name="billingInfo_dummyExpiryDate">MM/yyyy</string>
+    <string name="billingInfo_hintStreet">Steet Address</string>
+    <string name="billingInfo_hintSuite">Suite</string>
+    <string name="billingInfo_hintCity">City</string>
+    <string name="billingInfo_hintPostalCode">V6T 1Z4</string>
+    <string name="billingInfo_btnSaveText">Save</string>
+    <string-array name="billingInfo_countryEntries">
+        <item>Canada</item>
+        <item>US</item>
+    </string-array>
+    <string-array name="billingInfo_canadaEntries">
+        <item>AB</item>
+        <item>BC</item>
+        <item>MB</item>
+        <item>NB</item>
+        <item>NL</item>
+        <item>NS</item>
+        <item>ON</item>
+        <item>PE</item>
+        <item>QC</item>
+        <item>SK</item>
+    </string-array>
+    <string-array name="billingInfo_usEntries">
+        <item>CA</item>
+        <item>MT</item>
+        <item>OR</item>
+        <item>WA</item>
+    </string-array>
 
 
     <!-- For Facebook SDK -->

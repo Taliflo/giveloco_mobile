@@ -18,7 +18,7 @@ public class RedeemAt extends Activity {
     private EditText enteredAmount;
     private Button btnConfirm;
 
-    private TalifloRestAPI restAPI = TalifloRestAPI.getInstance();
+    private TalifloRestAPI restAPI = TalifloRestAPI.getSharedInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

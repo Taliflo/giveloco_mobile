@@ -77,7 +77,7 @@ public class TransactionsAdapter extends BaseAdapter {
         holder.party.setText(trans.getToName());
         holder.amount.setText("C "+ trans.getAmount());
         holder.date.setText(trans.createdAt());
-        holder.id.setText(trans.getId());
+        holder.id.setText(trans.getTransID());
 
         if (position%2 == 0)
             v.setBackgroundColor(context.getResources().getColor(R.color.white));

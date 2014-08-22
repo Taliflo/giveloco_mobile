@@ -1,27 +1,13 @@
 package com.taliflo.app.api;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.model.User;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -83,7 +69,7 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
 
     private void parseUsers () throws Exception {
 
-        TalifloRestAPI restAPI = TalifloRestAPI.getInstance();
+        TalifloRestAPI restAPI = TalifloRestAPI.getSharedInstance();
         String query = restAPI.QUERY_USERS;
         String jsonResult = restAPI.getJsonResult(query);
         /** Parsing result to retrieve the contents **/

@@ -15,12 +15,12 @@ import com.taliflo.app.adapters.TransactionsAdapter;
 import com.taliflo.app.api.TalifloRestAPI;
 import com.taliflo.app.model.Transaction;
 import com.taliflo.app.model.User;
+import com.taliflo.app.model.UserStore;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Created by Caswell on 1/20/2014.
@@ -36,6 +36,8 @@ public class MyAccount extends Fragment {
     private ListView listView;
     private ArrayList<Transaction> transactionsList = new ArrayList<Transaction>();
     private TransactionsAdapter adapter;
+
+    private UserStore userStore = UserStore.getSharedInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -116,11 +118,12 @@ public class MyAccount extends Fragment {
         }
 
         private void parseUser() throws Exception {
-            TalifloRestAPI restAPI = TalifloRestAPI.getInstance();
+            TalifloRestAPI restAPI = TalifloRestAPI.getSharedInstance();
             String query = restAPI.queryUserID(userId);
             String jsonResult = restAPI.getJsonResult(query);
             JSONObject resultObject = new JSONObject(jsonResult);
             user = new User(resultObject);
+            userStore.setCurrentUser(user);
         }
     }
 }
