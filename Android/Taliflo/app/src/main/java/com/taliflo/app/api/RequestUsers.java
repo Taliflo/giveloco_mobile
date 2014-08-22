@@ -25,24 +25,10 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
     private UserAdapter adapter;
     private String userRole;
 
-    private ArrayList<User> businessList;
-    private ArrayList<User> causeList;
-
-    public RequestUsers (ArrayList<User> userList, UserAdapter adapter, String userRole) {
+    public RequestUsers (UserAdapter adapter, ArrayList<User> userList, String userRole) {
         this.userList = userList;
         this.adapter = adapter;
         this.userRole = userRole;
-    }
-
-    public RequestUsers(ArrayList<User> userList, UserAdapter adapter) {
-        this.userList = userList;
-        this.adapter = adapter;
-    }
-
-    public RequestUsers(UserAdapter adapter, ArrayList<User> businessList, ArrayList<User> causeList) {
-        this.adapter = adapter;
-        this.businessList = businessList;
-        this.causeList = causeList;
     }
 
     @Override
@@ -62,8 +48,7 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
     @Override
     protected void onPostExecute (String result) {
         super.onPostExecute(result);
-        sortAlphabetically(businessList);
-        sortAlphabetically(causeList);
+        sortAlphabetically(userList);
         adapter.notifyDataSetChanged();
     }
 
@@ -77,10 +62,8 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
         for (int i = 0; i < resultArray.length(); i++) {
             JSONObject jsonObject = resultArray.getJSONObject(i);
 
-            if (jsonObject.getString("role").equals("business"))
-                businessList.add(new User(jsonObject));
-            else if (jsonObject.getString("role").equals("cause"))
-                causeList.add(new User(jsonObject));
+            if (jsonObject.getString("role").equals(userRole))
+                userList.add(new User(jsonObject));
         }
     }
 

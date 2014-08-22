@@ -177,9 +177,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         switch (item.getItemId()) {
 
-            case R.id.main_action_search:
+            case R.id.action_search:
                 // Open search fragment
             //    displayView(-1, 999);
+                return true;
+
+            case R.id.action_updateBillingInfo:
+                Intent i = new Intent(getApplicationContext(), BillingInfo.class);
+                startActivityForResult(i, 20);
                 return true;
 
             default:
@@ -290,10 +295,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     public void onActivityResult (int requestCode, int resultCode, Intent data) {
         switch (resultCode) {
-            case 1:
+            case 10:
                 // Successful login
                 break;
-            case 2:
+            case 11:
                 // If the user has pressed the back button from the Login activity
                 finish();
                 break;

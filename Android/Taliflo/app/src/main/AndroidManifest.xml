@@ -32,7 +32,8 @@
         </activity>
         <activity
             android:name=".activities.BillingInfo"
-            android:label="@string/title_activity_billing_info" >
+            android:label="@string/title_activity_billing_info"
+            android:windowSoftInputMode="stateHidden">
         </activity>
     </application>
 

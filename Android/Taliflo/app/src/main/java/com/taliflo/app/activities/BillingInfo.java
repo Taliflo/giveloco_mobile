@@ -53,6 +53,7 @@ public class BillingInfo extends Activity {
 
 
         btnExpiryDate.setOnClickListener(openDatePicker);
+        btnSave.setOnClickListener(saveInfo);
 
         name.setSelectAllOnFocus(true);
         number.setSelectAllOnFocus(true);
@@ -103,6 +104,14 @@ public class BillingInfo extends Activity {
         public void onNothingSelected(AdapterView<?> arg0) {
         }
 
+    };
+
+    private Button.OnClickListener saveInfo = new Button.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            finish();
+        }
     };
 
     @Override

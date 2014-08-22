@@ -25,6 +25,7 @@
         <item name="android:actionBarTabTextStyle">@style/GreyTextStyle</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle</item>
         <item name="android:datePickerStyle">@style/DialogStyle</item>
+        <item name="android:actionOverflowButtonStyle">@style/Overflow</item>
     </style>
         <!-- Taliflo white coloured action bar -->
         <style name="LightGreyActionBar" parent="@android:Widget.Holo.ActionBar">
@@ -45,6 +46,10 @@
         <!-- Dialog style -->
         <style name="DialogStyle" parent="@android:style/Widget.Holo.DatePicker">
             <item name="android:windowBackground">@color/taliflo_orange</item>
+        </style>
+        <!-- Action Overflow Icon -->
+        <style name="Overflow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+            <item name="android:src">@drawable/ic_action_overflow</item>
         </style>
 
     <!-- Style to remove action bar for the Login activity -->

@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.taliflo.app.fragments.Explore;
+import com.taliflo.app.fragments.Businesses;
+import com.taliflo.app.fragments.Causes;
 import com.taliflo.app.fragments.MyAccount;
-import com.taliflo.app.fragments.Options;
 
 /**
  * Created by Caswell on 1/18/2014.
@@ -18,8 +18,8 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     public TabsPagerAdapter (FragmentManager fm) {
         super(fm);
         myAccount = new MyAccount();
-        options = new Options();
-        explore = new Explore();
+        options = new Businesses();
+        explore = new Causes();
     }
 
     @Override
