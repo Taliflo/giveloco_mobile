@@ -28,7 +28,11 @@
         <activity
             android:name=".activities.Login"
             android:label="@string/title_activity_login"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activities.BillingInfo"
+            android:label="@string/title_activity_billing_info" >
         </activity>
     </application>
 

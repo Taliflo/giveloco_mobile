@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.taliflo.app.activities.BillingInfo">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:textColor="@color/taliflo_tiffanyBlue"
+                android:text="@string/billingInfo_nameCC"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            >
+
+            <EditText
+                android:id="@+id/billingInfo_creditCardName"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:background="@drawable/tiffany_blue_box"
+                android:padding="8dp"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:textColor="@color/taliflo_tiffanyBlue"
+                android:text="@string/billingInfo_numCC"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            >
+
+            <EditText
+                android:id="@+id/billingInfo_creditCardNumber"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:background="@drawable/tiffany_blue_box"
+                android:padding="8dp"
+                />
+
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

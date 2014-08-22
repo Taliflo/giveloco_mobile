@@ -6,19 +6,19 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.taliflo.app.fragments.Explore;
 import com.taliflo.app.fragments.MyAccount;
-import com.taliflo.app.fragments.Settings;
+import com.taliflo.app.fragments.Options;
 
 /**
  * Created by Caswell on 1/18/2014.
  */
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
-    private Fragment myAccount, settings, explore;
+    private Fragment myAccount, options, explore;
 
     public TabsPagerAdapter (FragmentManager fm) {
         super(fm);
         myAccount = new MyAccount();
-        settings = new Settings();
+        options = new Options();
         explore = new Explore();
     }
 
@@ -30,7 +30,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return explore;
             case 2:
-                return settings;
+                return options;
         }
         return null;
     }
