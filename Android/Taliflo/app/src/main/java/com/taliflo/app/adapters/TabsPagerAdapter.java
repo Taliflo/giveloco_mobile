@@ -5,21 +5,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.taliflo.app.fragments.Explore;
-import com.taliflo.app.fragments.History;
-import com.taliflo.app.fragments.Redeem;
-import com.taliflo.app.fragments.Search;
+import com.taliflo.app.fragments.MyAccount;
+import com.taliflo.app.fragments.Settings;
 
 /**
  * Created by Caswell on 1/18/2014.
  */
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
-    private Fragment redeem, history, explore;
+    private Fragment myAccount, settings, explore;
 
     public TabsPagerAdapter (FragmentManager fm) {
         super(fm);
-        redeem = new Redeem();
-        history = new History();
+        myAccount = new MyAccount();
+        settings = new Settings();
         explore = new Explore();
     }
 
@@ -27,11 +26,11 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem (int index) {
         switch(index) {
             case 0:
-                return redeem;
+                return myAccount;
             case 1:
-                return history;
-            case 2:
                 return explore;
+            case 2:
+                return settings;
         }
         return null;
     }

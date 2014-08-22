@@ -8,7 +8,6 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grey"
         android:orientation="horizontal">
 
         <View
@@ -28,6 +27,16 @@
             >
 
             <RadioButton
+                android:id="@+id/explore_segmentBtnCauses"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/explore_causes"
+                android:textSize="14sp"
+                style="@style/RadioButton"
+                />
+
+            <RadioButton
                 android:id="@+id/explore_segmentBtnBusinesses"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
@@ -37,15 +46,7 @@
                 style="@style/RadioButton"
                 />
 
-            <RadioButton
-                android:id="@+id/explore_segmentBtnCauses"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/explore_causes"
-                android:textSize="14sp"
-                style="@style/RadioButton"
-                />
+
 
         </info.hoang8f.android.segmented.SegmentedGroup>
 

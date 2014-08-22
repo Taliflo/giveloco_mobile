@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/myAccount_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/taliflo_purple"
+        android:textSize="22sp"
+        android:text="@string/myAccount_dummyFullName"
+        android:layout_marginBottom="10dp"
+        android:freezesText="true"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="@string/myAccount_currentBalance"
+        android:textColor="@color/taliflo_tiffanyBlue"
+        />
+
+    <TextView
+        android:id="@+id/myAccount_credits"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/myAccount_dummyCredits"
+        android:textSize="18sp"
+        android:textColor="@color/taliflo_purple"
+        android:gravity="center"
+        android:background="@drawable/tiffany_blue_box"
+        android:padding="5dp"
+        android:layout_marginBottom="25dp"
+        android:freezesText="true"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/myAccount_transactions"
+        android:textSize="18sp"
+        android:textColor="@color/taliflo_tiffanyBlue"/>
+
+    <ListView
+        android:id="@+id/myAccount_transactions"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
+
+</LinearLayout>

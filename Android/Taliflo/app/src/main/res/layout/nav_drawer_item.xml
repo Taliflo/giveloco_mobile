@@ -16,7 +16,6 @@
         android:layout_marginRight="12dp"
         android:paddingTop="4dp"
         android:layout_centerVertical="true"
-        android:src="@drawable/ic_action_web_site"
         />
 
     <TextView

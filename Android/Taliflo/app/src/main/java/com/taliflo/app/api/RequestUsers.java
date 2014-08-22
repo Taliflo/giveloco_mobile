@@ -32,8 +32,8 @@ import java.util.List;
  */
 public class RequestUsers extends AsyncTask<String, Integer, String> {
 
-    // Log cat tag
-    private final String TAG = "Talifo.RequestBusinesses";
+    // Log tag
+    private final String TAG = "Talifo.RequestUsers";
 
     private ArrayList<User> userList;
     private UserAdapter adapter;
@@ -63,10 +63,6 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
     protected String doInBackground (String... params) {
         try {
             parseUsers();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -85,11 +81,11 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
         adapter.notifyDataSetChanged();
     }
 
-    private void parseUsers () throws IOException, JSONException, Exception {
+    private void parseUsers () throws Exception {
 
         TalifloRestAPI restAPI = TalifloRestAPI.getInstance();
-        String userQuery = restAPI.QUERY_USERS;
-        String jsonResult = restAPI.getJsonResult(userQuery);
+        String query = restAPI.QUERY_USERS;
+        String jsonResult = restAPI.getJsonResult(query);
         /** Parsing result to retrieve the contents **/
         JSONArray resultArray = new JSONArray(jsonResult);
         for (int i = 0; i < resultArray.length(); i++) {

@@ -31,7 +31,7 @@ public final class TalifloRestAPI {
     public final String QUERY_USERS = base + "/users";
     public final String QUERY_BUSINESSES = base + "/users?role=business";
     public final String QUERY_CAUSES = base + "/users?role=cause";
-    public final String QUERY_PERSONS = base + "/users?role=person";
+    public final String QUERY_INDIVDUALS = base + "/users?role=individual";
     public final String QUERY_TRANSACTIONS = base + "/transactions";
 
     // Response codes
@@ -88,6 +88,10 @@ public final class TalifloRestAPI {
         }
 
         return result;
+    }
+
+    public String queryUserID(int id) {
+        return QUERY_USERS + "/" + id;
     }
 
 }

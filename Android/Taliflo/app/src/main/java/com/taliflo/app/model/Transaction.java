@@ -1,7 +1,14 @@
 package com.taliflo.app.model;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Created by Caswell on 1/7/2014.
@@ -10,8 +17,11 @@ public class Transaction {
 
     // Member fields
     private String id, transID, stripeID, transType, fromUserID, toUserID,
-    fromName, toName, fromUserRole, toUserRole, amount, status, cancelledAt,
-    completedAt, createdAt, updatedAt;
+    fromName, toName, fromUserRole, toUserRole, amount, status;
+    private DateTime cancelledAt, completedAt, createdAt, updatedAt;
+
+    private DateTimeFormatter inputDtf = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    private DateTimeFormatter outputDtf = DateTimeFormat.forPattern("MM/dd/yyyy");
 
     // Constructors
     public Transaction(){}
@@ -21,7 +31,11 @@ public class Transaction {
             id = jsonObject.getString("id");
             transID = jsonObject.getString("trans_id");
             stripeID = jsonObject.getString("stripe_id");
+
+
             transType = jsonObject.getString("trans_type");
+
+
             fromUserID = jsonObject.getString("from_user_id");
             toUserID = jsonObject.getString("to_user_id");
             fromName = jsonObject.getString("from_name");
@@ -30,17 +44,25 @@ public class Transaction {
             toUserRole = jsonObject.getString("to_user_role");
             amount = jsonObject.getString("amount");
             status = jsonObject.getString("status");
-            cancelledAt = jsonObject.getString("cancelled_at");
-            completedAt = jsonObject.getString("completed_at");
-            createdAt = jsonObject.getString("created_at");
-            updatedAt = jsonObject.getString("updated_at");
+            //cancelledAt = inputDtf.parseDateTime(jsonObject.getString("cancelled_at"));
+            //completedAt = inputDtf.parseDateTime(jsonObject.getString("completed_at"));
+            createdAt = inputDtf.parseDateTime(jsonObject.getString("created_at"));
+            updatedAt = inputDtf.parseDateTime(jsonObject.getString("updated_at"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    // Accessor methods
+    public static void sortByDateTimeUpdated(List<Transaction> transList) {
+        Collections.sort(transList, new Comparator<Transaction>() {
+            @Override
+            public int compare(Transaction arg0, Transaction arg1) {
+                return new DateTime(arg0.getUpdatedAt()).compareTo(arg1.getUpdatedAt());
+            }
+        });
+    }
 
+    // Accessor methods
 
     public String getId() {
         return id;
@@ -138,35 +160,51 @@ public class Transaction {
         this.status = status;
     }
 
-    public String getCancelledAt() {
+    public DateTime getCancelledAt() {
         return cancelledAt;
     }
 
-    public void setCancelledAt(String cancelledAt) {
+    public void setCancelledAt(DateTime cancelledAt) {
         this.cancelledAt = cancelledAt;
     }
 
-    public String getCompletedAt() {
+    public String cancelledAt() {
+        return outputDtf.print(cancelledAt);
+    }
+
+    public DateTime getCompletedAt() {
         return completedAt;
     }
 
-    public void setCompletedAt(String completedAt) {
+    public void setCompletedAt(DateTime completedAt) {
         this.completedAt = completedAt;
     }
 
-    public String getCreatedAt() {
+    public String completedAt() {
+        return outputDtf.print(completedAt);
+    }
+
+    public DateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(DateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public String getUpdatedAt() {
+    public String createdAt() {
+        return outputDtf.print(createdAt);
+    }
+
+    public DateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(String updatedAt) {
+    public void setUpdatedAt(DateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String updatedAt() {
+        return outputDtf.print(updatedAt);
     }
 }

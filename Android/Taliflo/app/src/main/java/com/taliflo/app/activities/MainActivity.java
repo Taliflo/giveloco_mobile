@@ -86,13 +86,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             final String[] tabs = getResources().getStringArray(R.array.main_tab_labels);
             TypedArray tabIcons = getResources().obtainTypedArray(R.array.main_tab_icons);
             // Adding Tabs
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < tabs.length; i++) {
                 Tab tab = actionBar.newTab();
                 tab.setTabListener(this);
-                tab.setCustomView(createTabView(this, tabs[0], tabIcons.getResourceId(i, 0)));
+                tab.setCustomView(createTabView(this, tabIcons.getResourceId(i, 0)));
                 actionBar.addTab(tab);
             }
 
+            actionBar.setSelectedNavigationItem(0);
             setTitle(tabs[0]);
 
             viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -139,11 +140,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     }
 
-    private View createTabView(Context context, String tabTitle, int iconSrc) {
+    private View createTabView(Context context, int iconSrc) {
         View view = LayoutInflater.from(context).inflate(R.layout.tab_layout, null, false);
-       // TextView title = (TextView) view.findViewById(R.id.tab_title);
         ImageView icon = (ImageView) view.findViewById(R.id.tab_icon);
-       // title.setText(tabTitle);
         icon.setImageResource(iconSrc);
         return view;
     }

@@ -47,10 +47,10 @@ public class Explore extends Fragment implements RadioGroup.OnCheckedChangeListe
         btnCauses = (RadioButton) v.findViewById(R.id.explore_segmentBtnCauses);
         listView = (ListView) v.findViewById(R.id.explore_listView);
 
-        adapter = new UserAdapter(getActivity(), businesses);
+        adapter = new UserAdapter(getActivity(), causes);
         listView.setAdapter(adapter);
 
-        btnBusinesses.setChecked(true);
+        btnCauses.setChecked(true);
 
         return v;
     }
@@ -70,17 +70,18 @@ public class Explore extends Fragment implements RadioGroup.OnCheckedChangeListe
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId) {
-            case R.id.explore_segmentBtnBusinesses:
-                Log.i(TAG, "Businesses checked");
-                segmentedControl.setTintColor(getActivity().getResources().getColor(R.color.taliflo_purple));
-                adapter.setUserList(businesses);
-
-                return;
 
             case R.id.explore_segmentBtnCauses:
                 Log.i(TAG, "Causes checked");
                 segmentedControl.setTintColor(getActivity().getResources().getColor(R.color.taliflo_tiffanyBlue));
                 adapter.setUserList(causes);
+                return;
+
+            case R.id.explore_segmentBtnBusinesses:
+                Log.i(TAG, "Businesses checked");
+                segmentedControl.setTintColor(getActivity().getResources().getColor(R.color.taliflo_purple));
+                adapter.setUserList(businesses);
+
                 return;
 
             default:

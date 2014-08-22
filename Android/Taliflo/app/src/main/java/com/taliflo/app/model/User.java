@@ -24,12 +24,17 @@ public class User {
             country, zip, summary, description, website, profilePictureURL = "http://placehold.it/500";
     protected String[] tags;
     protected Transaction[] transactionsCreated, transactionsAccepted;
+    private int totalDebits, totalCredits;
+    private float balance, totalDebitsValue, totalCreditsValue;
+
     public User(){}
 
     public User(JSONObject jsonObject) {
         try {
             id = jsonObject.getString("id");
             role = jsonObject.getString("role");
+            firstName = jsonObject.getString("first_name");
+            lastName = jsonObject.getString("last_name");
             companyName = jsonObject.getString("company_name");
             summary = jsonObject.getString("summary");
             description = jsonObject.getString("description");
@@ -43,6 +48,26 @@ public class User {
             zip = jsonObject.getString("zip");
             summary = jsonObject.getString("summary");
             description = jsonObject.getString("description");
+
+            balance = Float.parseFloat(jsonObject.getString("balance"));
+
+            JSONArray jsonTags = jsonObject.getJSONArray("tags");
+            tags = new String[jsonTags.length()];
+            for (int i = 0; i < jsonTags.length(); i++) {
+                tags[i] = jsonTags.getString(i);
+            }
+
+            JSONArray jsonTC = jsonObject.getJSONArray("transactions_created");
+            transactionsCreated = new Transaction[jsonTC.length()];
+            for (int i = 0; i < jsonTC.length(); i++) {
+                transactionsCreated[i] = new Transaction(jsonTC.getJSONObject(i));
+            }
+
+            JSONArray jsonTA = jsonObject.getJSONArray("transactions_accepted");
+            transactionsAccepted = new Transaction[jsonTA.length()];
+            for (int i = 0; i < jsonTA.length(); i++) {
+                transactionsAccepted[i] = new Transaction(jsonTA.getJSONObject(i));
+            }
 
          /*   ArrayList<String> temp = new ArrayList<String>();
             JSONArray jsonTags = jsonObject.getJSONArray("tags");
@@ -88,6 +113,10 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 
     public String getCompanyName() {
@@ -210,5 +239,44 @@ public class User {
         this.profilePictureURL = profilePictureURL;
     }
 
+    public int getTotalDebits() {
+        return totalDebits;
+    }
+
+    public void setTotalDebits(int totalDebits) {
+        this.totalDebits = totalDebits;
+    }
+
+    public int getTotalCredits() {
+        return totalCredits;
+    }
+
+    public void setTotalCredits(int totalCredits) {
+        this.totalCredits = totalCredits;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+
+    public float getTotalDebitsValue() {
+        return totalDebitsValue;
+    }
+
+    public void setTotalDebitsValue(float totalDebitsValue) {
+        this.totalDebitsValue = totalDebitsValue;
+    }
+
+    public float getTotalCreditsValue() {
+        return totalCreditsValue;
+    }
+
+    public void setTotalCreditsValue(float totalCreditsValue) {
+        this.totalCreditsValue = totalCreditsValue;
+    }
 }
 

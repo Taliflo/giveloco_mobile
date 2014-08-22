@@ -16,6 +16,8 @@
     <color name="list_item_bg_def">#ffffff</color>
     <color name="list_item_bg_press">#32b7e8</color>
     <color name="list_section_bg">#bbbbbb</color>
+    <color name="light_grey_bg">#eeeeee</color>
+    <color name="med_grey_bg">#e0e0e0</color>
 
     <!-- Navigation Drawer -->
     <color name="nav_drawer_bg">#dedede</color>
@@ -23,7 +25,9 @@
     <!-- General Colours -->
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="grey">#dedede</color>
+    <color name="light_grey">#dedede</color>
+    <color name="med_grey">#999</color>
+    <color name="grey">#444</color>
     <color name="purple">#7c5691</color>
     <color name="dark_purple">#3d0c58</color>
 
