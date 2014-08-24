@@ -4,7 +4,7 @@
     tools:context="ca.taliflo.app.MainActivity" >
 
     <item android:id="@+id/action_search"
-        android:icon="@drawable/ic_action_search"
+        android:icon="@drawable/ic_action_search_tb"
         android:title="@string/action_search"
         android:showAsAction="always"
         android:orderInCategory="1" />

@@ -15,6 +15,7 @@
         android:text="@string/myAccount_dummyFullName"
         android:layout_marginBottom="10dp"
         android:freezesText="true"
+        android:gravity="center"
         />
 
     <TextView

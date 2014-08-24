@@ -302,6 +302,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 // If the user has pressed the back button from the Login activity
                 finish();
                 break;
+
+            case 20:
+                // BillingInfo activity result
+                break;
+
+            case 30:
+                // UserDetail activity result
+                break;
         }
     }
 

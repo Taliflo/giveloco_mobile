@@ -2,17 +2,23 @@
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Bottom shadow -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/btn_shadow" />
+            <solid android:color="@color/light_grey" />
+            <corners android:radius="@dimen/btnCornerRadius" />
+        </shape>
+    </item>
+
+    <!-- Bottom shadow -->
+    <item android:top="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/med_grey" />
             <corners android:radius="@dimen/btnCornerRadius" />
         </shape>
     </item>
 
     <!-- Top Colour -->
-    <!--<item android:bottom="0dp">-->
-    <item>
+    <item android:bottom="2dp" android:top="2dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/white" />
             <corners android:radius="@dimen/btnCornerRadius" />

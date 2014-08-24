@@ -18,9 +18,8 @@
         <item>@drawable/viewpager_btn_businesses</item>
     </array>
 
-    <string name="action_updateBillingInfo">Update Billing Info.</string>
+    <string name="action_updateBillingInfo">Update Billing Info</string>
     <string name="action_logout">Logout</string>
-
     <string name="main_dummyTabTitle">Title</string>
 
     <!-- ** Activity Login ** -->
@@ -89,6 +88,7 @@
     <string name="usermenu_btnLogout">Logout</string>
 
     <!-- ** Activity Billing Info ** -->
+    <string name="title_activity_billing_info">Update Billing Info</string>
     <string name="billingInfo_nameCC">Name on Credit Card</string>
     <string name="billingInfo_numCC">Credit Card Number</string>
     <string name="billingInfo_expiryDate">Expiry Date</string>
@@ -100,6 +100,7 @@
     <string name="billingInfo_hintCity">City</string>
     <string name="billingInfo_hintPostalCode">V6T 1Z4</string>
     <string name="billingInfo_btnSaveText">Save</string>
+
     <string-array name="billingInfo_countryEntries">
         <item>Canada</item>
         <item>US</item>
@@ -123,6 +124,23 @@
         <item>WA</item>
     </string-array>
 
+    <!-- ** Activity User Detail ** -->
+    <string name="userDetail_btnRedeemText">Redeem $20</string>
+    <string name="userDetail_btnDonateText">Donate</string>
+    <string name="userDetail_availableCredit">Your Available Credit:</string>
+    <string name="userDetail_dummyCredit">C 60</string>
+    <string name="userDetail_btnSupportingBusinessesText">Supporting Businesses</string>
+    <string name="userDetail_btnSupportedCausesText">Supported Causes</string>
+    <string name="userDetail_description">Description</string>
+    <string name="userDeatil_dummyDescription">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+    commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+        Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+        aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,</string>
+    <string name="userDetail_contactInfo">Contact Info</string>
+    <string name="userDetail_dummyBusinessAddress">123 Address St. \nVancouver, BC\nCanada V6T 1Z4</string>
+    <string name="userDetail_dummyPhone">778 778 7788</string>
 
     <!-- For Facebook SDK -->
     <string name="APP_ID">443781372430423</string>
@@ -138,6 +156,11 @@
     <string name="nav_banner_first">First name</string>
     <string name="nav_banner_last">Last name</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_billing_info">Update Billing Info</string>
+
+
+
+    <string name="title_activity_user_detail">UserDetail</string>
+    <string name="title_activity_redeem">Redeem Credits</string>
+    <string name="title_activity_donate">Donate</string>
 
 </resources>

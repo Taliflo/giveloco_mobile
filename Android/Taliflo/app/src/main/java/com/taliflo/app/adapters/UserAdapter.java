@@ -75,7 +75,7 @@ public class UserAdapter extends BaseAdapter {
         imageLoader.displayImage(user.getProfilePictureURL(), holder.image);
         holder.name.setText(user.getCompanyName());
         holder.summary.setText(user.getSummary());
-        holder.tags.setText(Arrays.toString(user.getTags()));
+        holder.tags.setText(user.getTagsString());
 
         if (user.getRole().equals("business"))
             v.setBackgroundColor(context.getResources().getColor(R.color.taliflo_purple));

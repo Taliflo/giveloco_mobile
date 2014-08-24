@@ -1,6 +1,5 @@
 package com.taliflo.app.fragments;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,18 +7,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.DatePicker;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.taliflo.app.R;
-import com.taliflo.app.activities.BillingInfo;
+import com.taliflo.app.activities.UserDetail;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.api.RequestUsers;
 import com.taliflo.app.model.User;
-
-import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 
@@ -43,6 +38,7 @@ public class Businesses extends Fragment {
         listView = (ListView) v.findViewById(R.id.businesses_listView);
         adapter = new UserAdapter(getActivity(), businesses);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(openUserDetail);
 
         return v;
     }
@@ -58,5 +54,15 @@ public class Businesses extends Fragment {
 
         Log.i(TAG, "# of Businesses: " + businesses.size());
     }
+
+    private ListView.OnItemClickListener openUserDetail = new ListView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            // Start User Detail Activity
+            Intent i = new Intent(getActivity(), UserDetail.class);
+            i.putExtra("User", businesses.get(position));
+            startActivityForResult(i, 30);
+        }
+    };
 
 }

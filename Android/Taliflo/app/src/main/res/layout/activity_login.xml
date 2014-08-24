@@ -55,7 +55,7 @@
             android:id="@+id/login_btn_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_bg"
+            android:background="@drawable/btn_bg_orange"
             android:textColor="@color/btn_text_color"
             android:text="@string/login_btn_login"
             android:textSize="18sp"

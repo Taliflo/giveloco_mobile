@@ -113,7 +113,7 @@
         android:text="@string/redeemVoucher_confirm"
         android:textColor="@color/white"
         android:textSize="22sp"
-        android:background="@drawable/btn_bg"
+        android:background="@drawable/btn_bg_orange"
         />
 
     <TextView

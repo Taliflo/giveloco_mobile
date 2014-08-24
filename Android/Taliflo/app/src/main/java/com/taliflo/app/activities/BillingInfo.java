@@ -3,6 +3,7 @@ package com.taliflo.app.activities;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,13 +33,15 @@ public class BillingInfo extends Activity {
     private Spinner province, country;
     private ArrayAdapter<String> provinceAdapter;
 
-
+    // Logged in user
     private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_billing_info);
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         name = (EditText) findViewById(R.id.billingInfo_creditCardName);
         number = (EditText) findViewById(R.id.billingInfo_creditCardNumber);
@@ -63,13 +66,7 @@ public class BillingInfo extends Activity {
         //province.setAdapter(provinceAdapter);
         country.setOnItemSelectedListener(countryListener);
 
-        // Retrieve intent data
-/*        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            // Retrieve matter details
-            // extras.getString(ClioAPI.NOTES_JSON_ID_INTENT)
-        }
-*/
+
 
         // Should put exception handling here to check if the GET user
         // request fails
@@ -126,9 +123,11 @@ public class BillingInfo extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return  true;
         }
         return super.onOptionsItemSelected(item);
     }

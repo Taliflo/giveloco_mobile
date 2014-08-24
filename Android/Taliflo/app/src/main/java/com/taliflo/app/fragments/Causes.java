@@ -1,14 +1,17 @@
 package com.taliflo.app.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.taliflo.app.R;
+import com.taliflo.app.activities.UserDetail;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.api.RequestUsers;
 import com.taliflo.app.model.User;
@@ -36,6 +39,7 @@ public class Causes extends Fragment {
 
         adapter = new UserAdapter(getActivity(), causes);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(openUserDetail);
 
 
         return v;
@@ -52,5 +56,15 @@ public class Causes extends Fragment {
 
         Log.i(TAG, "# of Causes: " + causes.size());
     }
+
+    private ListView.OnItemClickListener openUserDetail = new ListView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            // Start User Detail Activity
+            Intent i = new Intent(getActivity(), UserDetail.class);
+            i.putExtra("User", causes.get(position));
+            startActivityForResult(i, 30);
+        }
+    };
 
 }
