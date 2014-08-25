@@ -34,7 +34,7 @@
         android:textSize="18sp"
         android:textColor="@color/taliflo_purple"
         android:gravity="center"
-        android:background="@drawable/tiffany_blue_box"
+        android:background="@drawable/box_bg_stroke_tb"
         android:padding="5dp"
         android:layout_marginBottom="25dp"
         android:freezesText="true"

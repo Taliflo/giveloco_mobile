@@ -73,8 +73,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_pager);
         thisActiv = this;
-//        Intent loginIntent = new Intent(getApplicationContext(), Login.class);
-//        startActivityForResult(loginIntent, 1);
+
+        Intent loginIntent = new Intent(getApplicationContext(), Login.class);
+        startActivityForResult(loginIntent, 1);
 
         // If user selects "Logout" from another activity
         if (getIntent().getBooleanExtra("EXIT", false)) finish();

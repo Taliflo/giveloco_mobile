@@ -1,10 +1,13 @@
 package com.taliflo.app.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.taliflo.app.R;
@@ -69,10 +72,28 @@ public class UserSupport extends Activity {
 
             adapter = new UserAdapter(this, support);
             listView.setAdapter(adapter);
+            listView.setOnItemClickListener(openUserDetail);
         }
 
         BusinessStore businessStore = BusinessStore.getInstance();
         Log.i(TAG, "First listed business " + businessStore.getBusinesses().get(0).getCompanyName());
+    }
+
+    private ListView.OnItemClickListener openUserDetail = new ListView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            // Start User Detail Activity
+            Intent i = new Intent(getApplicationContext(), UserDetail.class);
+            i.putExtra("User", support.get(position));
+            startActivityForResult(i, 1);
+        }
+    };
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+
+        }
     }
 
 

@@ -9,7 +9,7 @@
     <!-- Buttons -->
     <color name="btn_text_color">#ffffff</color>
     <color name="btn_state_default">#ffae42</color>
-    <color name="btn_state_pressed">#32b7e8</color>
+    <color name="btn_state_pressed">#bdbdbd</color>
     <color name="btn_shadow">#4f4f4f</color>
 
     <!-- For list views -->

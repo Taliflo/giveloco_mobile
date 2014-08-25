@@ -1,6 +1,6 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.taliflo.app.activities.BillingInfo" >
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/action_search"
         android:icon="@drawable/ic_action_search_tb"
