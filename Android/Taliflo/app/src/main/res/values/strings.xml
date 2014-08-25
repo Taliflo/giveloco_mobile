@@ -104,6 +104,7 @@
     <string name="billingInfo_dialogMsg">These changes will be reflected on your account immediately.</string>
     <string name="billingInfo_dialogBtnPosText">Yes</string>
     <string name="billingInfo_dialogBtnNegText">Cancel</string>
+
     <string-array name="billingInfo_countryEntries">
         <item>Canada</item>
         <item>US</item>
@@ -179,6 +180,11 @@
     <string name="donate_dialogBtnPosText">Yes</string>
     <string name="donate_dialogBtnNegText">Cancel</string>
 
+    <!-- ** Activity User Support ** -->
+    <string name="title_activity_user_support">UserSupport</string>
+    <string name="userSupport_titleSupportingBusinesses">Supporting Businesses</string>
+    <string name="userSupport_titleSupportedCauses">Supported Causes</string>
+
     <!-- Dialogs -->
     <string name="dialog_title">Are you sure?</string>
     <string name="dialog_btnPosText">Yes</string>
@@ -198,11 +204,6 @@
     <string name="nav_banner_first">First name</string>
     <string name="nav_banner_last">Last name</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
-
-
-
 
 
 </resources>

@@ -1,12 +1,7 @@
 package com.taliflo.app.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NavUtils;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -103,5 +98,5 @@ public class Redeem extends FragmentActivity implements ISimpleDialogListener {
     }
 
     @Override
-    public void onNeutralButtonClicked(int requestCode){}
+    public void onNeutralButtonClicked(int requestCode) {}
 }

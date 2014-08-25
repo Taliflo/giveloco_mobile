@@ -40,11 +40,16 @@
         <activity
             android:name=".activities.Redeem"
             android:label="@string/title_activity_redeem"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".activities.MainActivity" >
         </activity>
         <activity
             android:name=".activities.Donate"
             android:label="@string/title_activity_donate"
+            android:parentActivityName=".activities.MainActivity" >
+        </activity>
+        <activity
+            android:name=".activities.UserSupport"
+            android:label="@string/title_activity_user_support"
             android:parentActivityName=".activities.MainActivity">
         </activity>
     </application>

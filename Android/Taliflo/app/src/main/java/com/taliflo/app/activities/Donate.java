@@ -52,6 +52,8 @@ public class Donate extends FragmentActivity implements ISimpleDialogListener {
         radioBtn100 = (RadioButton) findViewById(R.id.donate_radioBtn100);
         donateMonthly = (CheckBox) findViewById(R.id.donate_donateMonthly);
 
+        radioBtn20.setChecked(true);
+
         btnConfirm.setOnClickListener(donate);
 
         // Retrieve intent data

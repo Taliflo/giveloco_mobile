@@ -14,6 +14,7 @@ import com.taliflo.app.R;
 import com.taliflo.app.activities.UserDetail;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.api.RequestUsers;
+import com.taliflo.app.model.CauseStore;
 import com.taliflo.app.model.User;
 
 import java.util.ArrayList;
@@ -41,6 +42,8 @@ public class Causes extends Fragment {
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(openUserDetail);
 
+        CauseStore causeStore = CauseStore.getInstance();
+        causeStore.setCauses(causes);
 
         return v;
     }

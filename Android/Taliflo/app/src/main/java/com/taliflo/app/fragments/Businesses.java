@@ -14,6 +14,7 @@ import com.taliflo.app.R;
 import com.taliflo.app.activities.UserDetail;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.api.RequestUsers;
+import com.taliflo.app.model.BusinessStore;
 import com.taliflo.app.model.User;
 
 import java.util.ArrayList;
@@ -39,6 +40,9 @@ public class Businesses extends Fragment {
         adapter = new UserAdapter(getActivity(), businesses);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(openUserDetail);
+
+        BusinessStore businessStore = BusinessStore.getInstance();
+        businessStore.setBusinesses(businesses);
 
         return v;
     }

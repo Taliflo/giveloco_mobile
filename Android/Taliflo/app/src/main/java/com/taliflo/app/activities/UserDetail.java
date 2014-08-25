@@ -63,6 +63,7 @@ public class UserDetail extends Activity {
             address.setText(user.getStreetAddress() + '\n' + user.getCity() + ", " + user.getState() + '\n' + user.getZip());
             phone.setText(user.getPhone());
             imageLoader.displayImage(user.getProfilePictureURL(), image);
+            btnSupport.setOnClickListener(openSupport);
 
             // Set activity title and wire up views based on user role
             if (user.getRole().equals("business")) {
@@ -107,6 +108,24 @@ public class UserDetail extends Activity {
         }
     };
 
+    private Button.OnClickListener openSupport = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(getApplicationContext(), UserSupport.class);
+            if (user.getRole().equals("business")) {
+                i.putExtra("Role", "business");
+                i.putExtra("Support", user.getSupportedCauses());
+            }
+
+            if (user.getRole().equals("cause")) {
+                i.putExtra("Role", "cause");
+                i.putExtra("Support", user.getSupporters());
+            }
+
+            startActivityForResult(i, 3);
+        }
+    };
+
     @Override
     public void onActivityResult (int requestCode, int resultCode, Intent data) {
         switch (resultCode) {
@@ -115,7 +134,11 @@ public class UserDetail extends Activity {
                 break;
 
             case 2:
-                // Cause activity result
+                // Donate activity result
+                break;
+
+            case 3:
+                // User Support result
                 break;
         }
     }
@@ -123,7 +146,7 @@ public class UserDetail extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.user_detail, menu);
+        getMenuInflater().inflate(R.menu.global, menu);
         return true;
     }
 
