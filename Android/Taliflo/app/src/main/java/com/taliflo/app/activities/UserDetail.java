@@ -1,23 +1,28 @@
 package com.taliflo.app.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.taliflo.app.R;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
+import com.taliflo.app.utilities.ActionBarHelper;
 
 public class UserDetail extends Activity {
 
     // Layout Views
-    private TextView companyName, availableCredit, description, address, phoneNumber, supportCount, tags;
+    private TextView companyName, availableCredit, description, address, phone, supportCount, tags;
     private Button btnTransact, btnSupport;
+    private ImageView image;
 
     // Member variables
     private User user, loggedInUser;
@@ -29,7 +34,7 @@ public class UserDetail extends Activity {
         setContentView(R.layout.activity_user_detail);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        UserStore userStore = UserStore.getSharedInstance();
+        UserStore userStore = UserStore.getInstance();
         loggedInUser = userStore.getCurrentUser();
 
         // Wire up views
@@ -38,10 +43,11 @@ public class UserDetail extends Activity {
         availableCredit = (TextView) findViewById(R.id.userDetail_availableCredit);
         description = (TextView) findViewById(R.id.userDetail_description);
         address = (TextView) findViewById(R.id.userDetail_address);
-        phoneNumber = (TextView) findViewById(R.id.userDetail_phoneNumber);
+        phone = (TextView) findViewById(R.id.userDetail_phoneNumber);
         supportCount = (TextView) findViewById(R.id.userDetail_supportCount);
         btnTransact = (Button) findViewById(R.id.userDetail_btnTransact);
         btnSupport = (Button) findViewById(R.id.userDetail_btnSupport);
+        image = (ImageView) findViewById(R.id.userDetail_profilePicture);
 
         imageLoader = ImageLoader.getInstance();
 
@@ -55,7 +61,8 @@ public class UserDetail extends Activity {
             availableCredit.setText("C " + loggedInUser.getBalance());
             description.setText(user.getDescription());
             address.setText(user.getStreetAddress() + '\n' + user.getCity() + ", " + user.getState() + '\n' + user.getZip());
-            phoneNumber.setText(user.getPhone());
+            phone.setText(user.getPhone());
+            imageLoader.displayImage(user.getProfilePictureURL(), image);
 
             // Set activity title and wire up views based on user role
             if (user.getRole().equals("business")) {
@@ -65,6 +72,7 @@ public class UserDetail extends Activity {
                 supportCount.setText("" + user.getSupportedCausesCount());
                 btnTransact.setText(getResources().getString(R.string.userDetail_btnRedeemText));
                 btnTransact.setBackgroundResource(R.drawable.btn_bg_purple);
+                btnTransact.setOnClickListener(openRedeem);
             }
 
             if (user.getRole().equals("cause")) {
@@ -74,12 +82,43 @@ public class UserDetail extends Activity {
                 supportCount.setText("" + user.getSupportersCount());
                 btnTransact.setText(getResources().getString(R.string.userDetail_btnDonateText));
                 btnTransact.setBackgroundResource(R.drawable.btn_bg_tb);
+                btnTransact.setOnClickListener(openDonate);
             }
         }
 
 
     }
 
+    private Button.OnClickListener openRedeem = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(getApplicationContext(), Redeem.class);
+            i.putExtra("Business", user);
+            startActivityForResult(i, 1);
+        }
+    };
+
+    private Button.OnClickListener openDonate = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(getApplicationContext(), Donate.class);
+            i.putExtra("Cause", user);
+            startActivityForResult(i, 2);
+        }
+    };
+
+    @Override
+    public void onActivityResult (int requestCode, int resultCode, Intent data) {
+        switch (resultCode) {
+            case 1:
+                // Redeem activity result
+                break;
+
+            case 2:
+                // Cause activity result
+                break;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,11 +132,8 @@ public class UserDetail extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
+        ActionBarHelper helper = ActionBarHelper.getInstance();
+        helper.onOptionsItemSelected(this, item);
         return super.onOptionsItemSelected(item);
     }
 }

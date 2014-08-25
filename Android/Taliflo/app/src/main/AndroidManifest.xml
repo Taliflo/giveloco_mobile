@@ -22,10 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.RedeemAt"
-            android:label="@string/title_activity_redeem_voucher" >
-        </activity>
-        <activity
             android:name=".activities.Login"
             android:label="@string/title_activity_login"
             android:theme="@style/NoActionBar" >
@@ -43,11 +39,13 @@
         </activity>
         <activity
             android:name=".activities.Redeem"
-            android:label="@string/title_activity_redeem" >
+            android:label="@string/title_activity_redeem"
+            android:parentActivityName=".activities.MainActivity">
         </activity>
         <activity
             android:name=".activities.Donate"
-            android:label="@string/title_activity_donate" >
+            android:label="@string/title_activity_donate"
+            android:parentActivityName=".activities.MainActivity">
         </activity>
     </application>
 

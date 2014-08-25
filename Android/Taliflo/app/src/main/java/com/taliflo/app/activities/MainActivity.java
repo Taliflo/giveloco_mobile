@@ -2,6 +2,7 @@ package com.taliflo.app.activities;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.NavDrawerAdapter;
 import com.taliflo.app.adapters.TabsPagerAdapter;
+import com.taliflo.app.utilities.ActionBarHelper;
 import com.taliflo.app.utilities.NavDrawerInterface;
 
 import java.util.ArrayList;
@@ -64,13 +66,19 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private ActionBar actionBar;
     // Tab titles
 
+    Activity thisActiv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_pager);
-
+        thisActiv = this;
 //        Intent loginIntent = new Intent(getApplicationContext(), Login.class);
 //        startActivityForResult(loginIntent, 1);
+
+        // If user selects "Logout" from another activity
+        if (getIntent().getBooleanExtra("EXIT", false)) finish();
+
 
         if (savedInstanceState == null) {
 
@@ -174,22 +182,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-
-            case R.id.action_search:
-                // Open search fragment
-            //    displayView(-1, 999);
-                return true;
-
-            case R.id.action_updateBillingInfo:
-                Intent i = new Intent(getApplicationContext(), BillingInfo.class);
-                startActivityForResult(i, 20);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        ActionBarHelper helper = ActionBarHelper.getInstance();
+        helper.onOptionsItemSelected(thisActiv, item);
+        return super.onOptionsItemSelected(item);
     }
 /*
     /**
@@ -303,12 +298,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 finish();
                 break;
 
-            case 20:
-                // BillingInfo activity result
-                break;
-
             case 30:
                 // UserDetail activity result
+                break;
+
+            case 555:
+                // BillingInfo activity result
                 break;
         }
     }

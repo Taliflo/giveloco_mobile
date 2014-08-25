@@ -30,6 +30,7 @@
     <color name="grey">#444</color>
     <color name="purple">#7c5691</color>
     <color name="dark_purple">#3d0c58</color>
+    <color name="custom_color">@color/taliflo_tiffanyBlue</color>
 
     <!-- Main Acivity Action Bar Tab -->
     <color name="tabTextGrey">#777777</color>

@@ -37,7 +37,7 @@ public class MyAccount extends Fragment {
     private ArrayList<Transaction> transactionsList = new ArrayList<Transaction>();
     private TransactionsAdapter adapter;
 
-    private UserStore userStore = UserStore.getSharedInstance();
+    private UserStore userStore = UserStore.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -72,8 +72,6 @@
                 android:gravity="right"
                 />
 
-
-
         </LinearLayout>
 
         <ImageView
@@ -94,8 +92,9 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_bg_white"
-                android:drawableLeft="@drawable/ic_cause_tb"
                 android:drawablePadding="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="@string/userDetail_btnSupportedCausesText"
                 android:textSize="18sp"
                 android:textColor="@color/taliflo_purple"

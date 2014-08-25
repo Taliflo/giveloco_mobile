@@ -100,7 +100,10 @@
     <string name="billingInfo_hintCity">City</string>
     <string name="billingInfo_hintPostalCode">V6T 1Z4</string>
     <string name="billingInfo_btnSaveText">Save</string>
-
+    <string name="billingInfo_dialogTitle">Are you sure?</string>
+    <string name="billingInfo_dialogMsg">These changes will be reflected on your account immediately.</string>
+    <string name="billingInfo_dialogBtnPosText">Yes</string>
+    <string name="billingInfo_dialogBtnNegText">Cancel</string>
     <string-array name="billingInfo_countryEntries">
         <item>Canada</item>
         <item>US</item>
@@ -125,6 +128,7 @@
     </string-array>
 
     <!-- ** Activity User Detail ** -->
+    <string name="title_activity_user_detail">UserDetail</string>
     <string name="userDetail_btnRedeemText">Redeem $20</string>
     <string name="userDetail_btnDonateText">Donate</string>
     <string name="userDetail_availableCredit">Your Available Credit:</string>
@@ -141,6 +145,44 @@
     <string name="userDetail_contactInfo">Contact Info</string>
     <string name="userDetail_dummyBusinessAddress">123 Address St. \nVancouver, BC\nCanada V6T 1Z4</string>
     <string name="userDetail_dummyPhone">778 778 7788</string>
+
+    <!-- ** Activity Redeem ** -->
+    <string name="title_activity_redeem">Redeem Credits</string>
+    <string name="redeem_headingRedeem">Redeem</string>
+    <string name="redeem_$20">$20</string>
+    <string name="redeem_youAreAboutTo">You are about to redeem 20 credits (worth $20 in store credit)
+    at BUSINESS NAME located at BUSINESS ADDRESS.</string>
+    <string name="redeem_msg1Part1">You are about to redeem 20 credits (worth $20 in store credit)
+    at</string>
+    <string name="redeem_msg1Part2">located at</string>
+    <string name="redeem_beSureTo">Be sure to show the business\'s staff that you are redeeming credits
+     so they can apply it to your purchase immediately.</string>
+    <string name="redeem_btnConfirmText">Confirm</string>
+    <string name="redeem_dialogTitle">Are you sure?</string>
+    <string name="redeem_dialogMsg">Your available balance will be debited this amount immediately.</string>
+    <string name="redeem_dialogBtnPosText">Yes</string>
+    <string name="redeem_dialogBtnNegText">Cancel</string>
+
+    <!-- ** Activity Donate ** -->
+    <string name="title_activity_donate">Donate</string>
+    <string name="donate_headingDonate">Donate</string>
+    <string name="donate_$20">$20</string>
+    <string name="donate_msg1">Confirm your donation amount to</string>
+    <string name="donate_donateMonthlyText">Monthly recurring donation?</string>
+    <string name="donate_btnConfirmText">Confirm Donation</string>
+    <string name="donate_radioBtn$20">$20</string>
+    <string name="donate_radioBtn$40">$40</string>
+    <string name="donate_radioBtn$60">$60</string>
+    <string name="donate_radioBtn$100">$100</string>
+    <string name="donate_dialogTitle">Are you sure?</string>
+    <string name="donate_dialogMsg">Your credit card will charged this amount immediately.</string>
+    <string name="donate_dialogBtnPosText">Yes</string>
+    <string name="donate_dialogBtnNegText">Cancel</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_title">Are you sure?</string>
+    <string name="dialog_btnPosText">Yes</string>
+    <string name="dialog_btnNegText">Cancel</string>
 
     <!-- For Facebook SDK -->
     <string name="APP_ID">443781372430423</string>
@@ -159,8 +201,8 @@
 
 
 
-    <string name="title_activity_user_detail">UserDetail</string>
-    <string name="title_activity_redeem">Redeem Credits</string>
-    <string name="title_activity_donate">Donate</string>
+
+
+
 
 </resources>

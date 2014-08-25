@@ -1,11 +1,11 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- ** Base application theme. ** -->
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
 
-    <!-- Taliflo teal coloured theme -->
+    <!-- ** Taliflo teal coloured theme ** -->
     <style name="CustomTealTheme" parent="@android:Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/TealActionBar</item>
     </style>
@@ -19,13 +19,16 @@
             <item name="android:textColor">#ffffff</item>
         </style>
 
-    <!-- Taliflo white coloured theme -->
+    <!-- ** Taliflo white coloured theme ** -->
     <style name="CustomLightGreyTheme" parent="@android:Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/LightGreyActionBar</item>
         <item name="android:actionBarTabTextStyle">@style/GreyTextStyle</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle</item>
         <item name="android:datePickerStyle">@style/DialogStyle</item>
         <item name="android:actionOverflowButtonStyle">@style/Overflow</item>
+        <item name="sdlDialogStyle">@style/DialogStyle.CustomDialog</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/custom_btn_check_holo_light</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/custom_btn_radio_holo_light</item>
     </style>
         <!-- Taliflo white coloured action bar -->
         <style name="LightGreyActionBar" parent="@android:Widget.Holo.ActionBar">
@@ -50,6 +53,17 @@
         <!-- Action Overflow Icon -->
         <style name="Overflow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
             <item name="android:src">@drawable/ic_action_overflow_tb</item>
+        </style>
+        <!-- Simple Dialog styling -->
+        <style name="DialogStyle.CustomDialog">
+            <item name="titleTextColor">@color/taliflo_purple</item>
+            <item name="titleSeparatorColor">@color/taliflo_tiffanyBlue</item>
+            <item name="messageTextColor">@color/taliflo_purple</item>
+            <item name="buttonTextColor">@color/taliflo_purple</item>
+            <item name="buttonSeparatorColor">@color/taliflo_tiffanyBlue</item>
+            <item name="buttonBackgroundColorPressed">@color/med_grey</item>
+            <item name="buttonBackgroundColorFocused">@color/med_grey</item>
+            <item name="dialogBackground">@color/white</item>
         </style>
 
     <!-- Style to remove action bar for the Login activity -->

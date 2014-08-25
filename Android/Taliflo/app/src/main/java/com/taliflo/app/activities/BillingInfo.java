@@ -1,8 +1,8 @@
 package com.taliflo.app.activities;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -18,10 +18,14 @@ import android.widget.Spinner;
 import com.taliflo.app.R;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
+import com.taliflo.app.utilities.ActionBarHelper;
 
 import org.joda.time.DateTime;
 
-public class BillingInfo extends Activity {
+import eu.inmite.android.lib.dialogs.ISimpleDialogListener;
+import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
+
+public class BillingInfo extends FragmentActivity implements ISimpleDialogListener {
 
     // Log tag
     private final String TAG = "Taliflo.BillingInfo";
@@ -70,7 +74,7 @@ public class BillingInfo extends Activity {
 
         // Should put exception handling here to check if the GET user
         // request fails
-        UserStore userStore = UserStore.getSharedInstance();
+        UserStore userStore = UserStore.getInstance();
         user = userStore.getCurrentUser();
 
         name.setText(user.getFullName());
@@ -107,7 +111,14 @@ public class BillingInfo extends Activity {
 
         @Override
         public void onClick(View v) {
-            finish();
+            SimpleDialogFragment.createBuilder(getApplicationContext(), getSupportFragmentManager())
+                    .setTitle(getResources().getString(R.string.dialog_title))
+                    .setMessage(getResources().getString(R.string.billingInfo_dialogMsg))
+                    .setPositiveButtonText(getResources().getString(R.string.dialog_btnPosText))
+                    .setNegativeButtonText(getResources().getString(R.string.dialog_btnNegText))
+                    .setRequestCode(1)
+                    .setCancelableOnTouchOutside(false)
+                    .show();
         }
     };
 
@@ -123,12 +134,19 @@ public class BillingInfo extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
+  /*      switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
-            case android.R.id.home:
+           case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return  true;
-        }
+
+            case R.id.action_logout:
+                ActionBarHelper helper = ActionBarHelper.getInstance();
+                helper.exitApplication(this);
+                return true;
+        } */
+        ActionBarHelper helper = ActionBarHelper.getInstance();
+        helper.onOptionsItemSelected(this, item);
         return super.onOptionsItemSelected(item);
     }
 
@@ -194,4 +212,25 @@ public class BillingInfo extends Activity {
             }
         }
     };
+
+    // ISimpleDialogListener methods
+
+    @Override
+    public void onPositiveButtonClicked(int requestCode) {
+        if (requestCode == 1) {
+            Log.i(TAG, "Positive button clicked");
+
+            finish();
+        }
+    }
+
+    @Override
+    public void onNegativeButtonClicked(int requestCode) {
+        if (requestCode == 1) {
+            Log.i(TAG, "Negative button clicked");
+        }
+    }
+
+    @Override
+    public void onNeutralButtonClicked(int requestCode) {}
 }
