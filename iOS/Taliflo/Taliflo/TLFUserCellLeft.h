@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TLFExploreCellLeft : UITableViewCell
+@interface TLFUserCellLeft : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *userImage;
 @property (strong, nonatomic) IBOutlet UILabel *userName;

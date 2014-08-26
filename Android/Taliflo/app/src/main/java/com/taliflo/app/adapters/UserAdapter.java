@@ -77,10 +77,16 @@ public class UserAdapter extends BaseAdapter {
         holder.summary.setText(user.getSummary());
         holder.tags.setText(user.getTagsString());
 
-        if (user.getRole().equals("business"))
+        if (user.getRole().equals("business")) {
             v.setBackgroundColor(context.getResources().getColor(R.color.taliflo_purple));
-        else if (user.getRole().equals("cause"))
+            holder.support.setText(user.getSupportedCausesCount() + " "
+                    + context.getResources().getString(R.string.userAdapter_supportedCauses));
+        }
+        else if (user.getRole().equals("cause")) {
             v.setBackgroundColor(context.getResources().getColor(R.color.taliflo_tiffanyBlue));
+            holder.support.setText(user.getSupportersCount() + " "
+                    + context.getResources().getString(R.string.userAdapter_supportingBusinesses));
+        }
 
         return v;
 

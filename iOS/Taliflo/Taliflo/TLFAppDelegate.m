@@ -8,9 +8,9 @@
 
 #import "TLFAppDelegate.h"
 #import "TLFColor.h"
-#import "TLFRedeemViewController.h"
-#import "TLFHistoryViewController.h"
-#import "TLFExploreViewController.h"
+#import "TLFMyAccountViewController.h"
+#import "TLFCausesViewController.h"
+#import "TLFBusinessesViewController.h"
 
 @implementation TLFAppDelegate
 
@@ -19,21 +19,21 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    // Vouchers table view controller and navigation controller
-    TLFRedeemViewController *vouchersVC = [[TLFRedeemViewController alloc] init];
-    UINavigationController *vouchersNC = [[UINavigationController alloc] initWithRootViewController:vouchersVC];
+    // My Account view controller and navigation controller
+    TLFMyAccountViewController *myAccountVC = [[TLFMyAccountViewController alloc] init];
+    UINavigationController *myAccountNC = [[UINavigationController alloc] initWithRootViewController:myAccountVC];
     
-    // History table view controller and navigation controller
-    TLFHistoryViewController *historyVC = [[TLFHistoryViewController alloc] init];
-    UINavigationController *historyNC = [[UINavigationController alloc] initWithRootViewController:historyVC];
+    // Causes table view controller and navigation controller
+    TLFCausesViewController *causesVC = [[TLFCausesViewController alloc] init];
+    UINavigationController *causesNC = [[UINavigationController alloc] initWithRootViewController:causesVC];
     
-    // Explore view controller and navigation controller
-    TLFExploreViewController *exploreVC = [[TLFExploreViewController alloc] init];
-    UINavigationController *exploreNC = [[UINavigationController alloc] initWithRootViewController:exploreVC];
+    // Businesses table view controller and navigation controller
+    TLFBusinessesViewController *businessesVC = [[TLFBusinessesViewController alloc] init];
+    UINavigationController *businessesNC = [[UINavigationController alloc] initWithRootViewController:businessesVC];
     
     // Tab bar controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[vouchersNC, historyNC, exploreNC];
+    tabBarController.viewControllers = @[myAccountNC, causesNC, businessesNC];
     [tabBarController.tabBar setBarTintColor:[UIColor whiteColor]];
     [tabBarController.tabBar setTintColor:[TLFColor talifloTiffanyBlue]];
     

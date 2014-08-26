@@ -6,22 +6,49 @@
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import "TLFNavBarConfig.h"
+#import "TLFNavBarHelper.h"
 #import "TLFColor.h"
 
-@implementation TLFNavBarConfig
+@implementation TLFNavBarHelper
 
-+ (void) configViewController:(UIViewController *)viewController withTitle:(NSString *)title withImage:(UIImage *)image
++ (instancetype)getInstance
+{
+    static TLFNavBarHelper *sharedInstance = nil;
+    static dispatch_once_t pred;
+    
+    if (sharedInstance) return sharedInstance;
+    
+    dispatch_once(&pred, ^{
+        sharedInstance = [TLFNavBarHelper alloc];
+        sharedInstance = [sharedInstance initPrivate];
+    });
+    
+    return sharedInstance;
+}
+
+// If a prgrammer calls [[TLFNavBarHelper]], let him know the error of his ways
+- (instancetype)init
+{
+    @throw [NSException exceptionWithName:@"Singleton"
+                                   reason:@"Use +[TLFNavBarHelper getInstance]"
+                                 userInfo:nil];
+}
+
+// Here is the real (secret) initializer
+- (instancetype)initPrivate
+{
+    self = [super init];
+    
+    return self;
+}
+
+- (void) configViewController:(UIViewController *)viewController withTitle:(NSString *)title withImage:(UIImage *)image
 {    
     // Set the navigation bar title
     UINavigationItem *navItem = viewController.navigationItem;
     navItem.title = title;
     
-    navItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"logo.png"]
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:viewController
-                                                                action:nil];
-    
+    // Set search as the right bar button
     navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
                                                                                target:viewController
                                                                                action:nil];
@@ -32,7 +59,7 @@
     viewController.tabBarItem.image = image;
 }
 
-+ (void) configViewController:(UIViewController *)viewController
+- (void) configViewController:(UIViewController *)viewController
              withBarTintColor:(UIColor *)barTintColor
                 withTintColor:(UIColor *)tintColor
 {

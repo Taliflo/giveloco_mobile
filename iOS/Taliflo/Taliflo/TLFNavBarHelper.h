@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TLFNavBarConfig : NSObject
+@interface TLFNavBarHelper : NSObject
 
-+ (void) configViewController:(UIViewController *)viewController
++ (instancetype)getInstance;
+
+- (void) configViewController:(UIViewController *)viewController
                     withTitle:(NSString *)title
                     withImage:(UIImage *)image;
 
-+ (void) configViewController:(UIViewController *)viewController
+- (void) configViewController:(UIViewController *)viewController
              withBarTintColor:(UIColor *)barTintColor
                 withTintColor:(UIColor *)tintColor;
 

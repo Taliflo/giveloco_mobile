@@ -190,6 +190,10 @@
     <string name="dialog_btnPosText">Yes</string>
     <string name="dialog_btnNegText">Cancel</string>
 
+    <!-- User Adapter -->
+    <string name="userAdapter_supportingBusinesses">in support</string>
+    <string name="userAdapter_supportedCauses">supported</string>
+
     <!-- For Facebook SDK -->
     <string name="APP_ID">443781372430423</string>
     <string name="dummy_string">Text</string>

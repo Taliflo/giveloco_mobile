@@ -1,14 +1,14 @@
 //
-//  TLFExploreCellRight.m
+//  TLFExploreCellLeft.m
 //  Taliflo
 //
 //  Created by NR-Mac on 1/17/2014.
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import "TLFExploreCellRight.h"
+#import "TLFUserCellLeft.h"
 
-@implementation TLFExploreCellRight
+@implementation TLFUserCellLeft
 
 - (void)awakeFromNib
 {

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D5054EEB19A15417008477D9 /* TLFExploreCellLeft.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EE919A15417008477D9 /* TLFExploreCellLeft.m */; };
-		D5054EEC19A15417008477D9 /* TLFExploreCellLeft.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5054EEA19A15417008477D9 /* TLFExploreCellLeft.xib */; };
+		D5054EEB19A15417008477D9 /* TLFUserCellLeft.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EE919A15417008477D9 /* TLFUserCellLeft.m */; };
+		D5054EEC19A15417008477D9 /* TLFUserCellLeft.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5054EEA19A15417008477D9 /* TLFUserCellLeft.xib */; };
 		D5054EF019A15FD9008477D9 /* 160.gif in Resources */ = {isa = PBXBuildFile; fileRef = D5054EEF19A15FD9008477D9 /* 160.gif */; };
-		D5054EF419A16606008477D9 /* TLFExploreCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EF219A16606008477D9 /* TLFExploreCellRight.m */; };
-		D5054EF519A16606008477D9 /* TLFExploreCellRight.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5054EF319A16606008477D9 /* TLFExploreCellRight.xib */; };
+		D5054EF419A16606008477D9 /* TLFUserCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = D5054EF219A16606008477D9 /* TLFUserCellRight.m */; };
+		D5054EF519A16606008477D9 /* TLFUserCellRight.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5054EF319A16606008477D9 /* TLFUserCellRight.xib */; };
 		D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
 		D5B50DD4199D2C1100A486B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */; };
 		D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
@@ -25,23 +25,21 @@
 		D5B50DF5199D2C1100A486B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DF3199D2C1100A486B0 /* InfoPlist.strings */; };
 		D5B50DF7199D2C1100A486B0 /* TalifloTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DF6199D2C1100A486B0 /* TalifloTests.m */; };
 		D5B50E06199D353000A486B0 /* TLFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E05199D353000A486B0 /* TLFColor.m */; };
-		D5B50E1A199D38EC00A486B0 /* TLFRedeemAtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E18199D38EC00A486B0 /* TLFRedeemAtViewController.m */; };
 		D5B50E1B199D38EC00A486B0 /* TLFRedeemAtViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E19199D38EC00A486B0 /* TLFRedeemAtViewController.xib */; };
-		D5B50E2B199D3CEB00A486B0 /* TLFNavBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E2A199D3CEB00A486B0 /* TLFNavBarConfig.m */; };
-		D5B50E32199D461D00A486B0 /* TLFRedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E31199D461D00A486B0 /* TLFRedeemViewController.m */; };
-		D5B50E35199D464B00A486B0 /* TLFHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E34199D464B00A486B0 /* TLFHistoryViewController.m */; };
-		D5B50E3C199D628400A486B0 /* Voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E3A199D628400A486B0 /* Voucher.png */; };
-		D5B50E3D199D628400A486B0 /* Voucher@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E3B199D628400A486B0 /* Voucher@2x.png */; };
-		D5B50E40199D69C800A486B0 /* History.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E3E199D69C800A486B0 /* History.png */; };
-		D5B50E41199D69C800A486B0 /* History@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E3F199D69C800A486B0 /* History@2x.png */; };
-		D5B50E44199D6B1C00A486B0 /* Explore.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E42199D6B1C00A486B0 /* Explore.png */; };
-		D5B50E45199D6B1C00A486B0 /* Explore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E43199D6B1C00A486B0 /* Explore@2x.png */; };
-		D5B50E48199D6D8300A486B0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E46199D6D8300A486B0 /* logo.png */; };
-		D5B50E49199D6D8300A486B0 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E47199D6D8300A486B0 /* logo@2x.png */; };
+		D5B50E2B199D3CEB00A486B0 /* TLFNavBarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E2A199D3CEB00A486B0 /* TLFNavBarHelper.m */; };
 		D5B50E57199D90F400A486B0 /* TLFHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E55199D90F400A486B0 /* TLFHistoryCell.m */; };
 		D5B50E58199D90F400A486B0 /* TLFHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B50E56199D90F400A486B0 /* TLFHistoryCell.xib */; };
-		D5B50E5C199D9A3500A486B0 /* TLFRestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E5B199D9A3500A486B0 /* TLFRestAPI.m */; };
-		D5B50EA0199FD6FD00A486B0 /* TLFExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E9F199FD6FD00A486B0 /* TLFExploreViewController.m */; };
+		D5D333F119ABD5E900925EBF /* TLFMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D333EF19ABD5E900925EBF /* TLFMyAccountViewController.m */; };
+		D5D333F219ABD5E900925EBF /* TLFMyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5D333F019ABD5E900925EBF /* TLFMyAccountViewController.xib */; };
+		D5D333F519ABD63500925EBF /* TLFCausesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D333F419ABD63500925EBF /* TLFCausesViewController.m */; };
+		D5D333F819ABD64300925EBF /* TLFBusinessesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D333F719ABD64300925EBF /* TLFBusinessesViewController.m */; };
+		D5D3341119ABE7DC00925EBF /* MyAccount.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341019ABE7DC00925EBF /* MyAccount.png */; };
+		D5D3341519ABE88400925EBF /* Causes.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341419ABE88400925EBF /* Causes.png */; };
+		D5D3341919ABE93200925EBF /* Businesses.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341819ABE93200925EBF /* Businesses.png */; };
+		D5D3341B19ABE98300925EBF /* Businesses@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341A19ABE98300925EBF /* Businesses@2x.png */; };
+		D5D3341D19ABE9B900925EBF /* Causes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341C19ABE9B900925EBF /* Causes@2x.png */; };
+		D5D3341F19ABE9D700925EBF /* MyAccount@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341E19ABE9D700925EBF /* MyAccount@2x.png */; };
+		D5D3342219ABEE5B00925EBF /* TLFRestAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3342119ABEE5B00925EBF /* TLFRestAPIHelper.m */; };
 		EE03657EB73449F9A3445768 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2384896295554975B373109D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -58,13 +56,13 @@
 /* Begin PBXFileReference section */
 		2384896295554975B373109D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B030FF31954DD88A413E6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		D5054EE819A15417008477D9 /* TLFExploreCellLeft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFExploreCellLeft.h; sourceTree = "<group>"; };
-		D5054EE919A15417008477D9 /* TLFExploreCellLeft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFExploreCellLeft.m; sourceTree = "<group>"; };
-		D5054EEA19A15417008477D9 /* TLFExploreCellLeft.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFExploreCellLeft.xib; sourceTree = "<group>"; };
+		D5054EE819A15417008477D9 /* TLFUserCellLeft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserCellLeft.h; sourceTree = "<group>"; };
+		D5054EE919A15417008477D9 /* TLFUserCellLeft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUserCellLeft.m; sourceTree = "<group>"; };
+		D5054EEA19A15417008477D9 /* TLFUserCellLeft.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFUserCellLeft.xib; sourceTree = "<group>"; };
 		D5054EEF19A15FD9008477D9 /* 160.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 160.gif; path = ../../../../../TalifloAssets/assets/160.gif; sourceTree = "<group>"; };
-		D5054EF119A16606008477D9 /* TLFExploreCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFExploreCellRight.h; sourceTree = "<group>"; };
-		D5054EF219A16606008477D9 /* TLFExploreCellRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFExploreCellRight.m; sourceTree = "<group>"; };
-		D5054EF319A16606008477D9 /* TLFExploreCellRight.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFExploreCellRight.xib; sourceTree = "<group>"; };
+		D5054EF119A16606008477D9 /* TLFUserCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserCellRight.h; sourceTree = "<group>"; };
+		D5054EF219A16606008477D9 /* TLFUserCellRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUserCellRight.m; sourceTree = "<group>"; };
+		D5054EF319A16606008477D9 /* TLFUserCellRight.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFUserCellRight.xib; sourceTree = "<group>"; };
 		D5B50DCE199D2C1100A486B0 /* Taliflo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taliflo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B50DD1199D2C1100A486B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,30 +81,27 @@
 		D5B50DF6199D2C1100A486B0 /* TalifloTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalifloTests.m; sourceTree = "<group>"; };
 		D5B50E04199D353000A486B0 /* TLFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFColor.h; sourceTree = "<group>"; };
 		D5B50E05199D353000A486B0 /* TLFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFColor.m; sourceTree = "<group>"; };
-		D5B50E17199D38EC00A486B0 /* TLFRedeemAtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemAtViewController.h; sourceTree = "<group>"; };
-		D5B50E18199D38EC00A486B0 /* TLFRedeemAtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemAtViewController.m; sourceTree = "<group>"; };
 		D5B50E19199D38EC00A486B0 /* TLFRedeemAtViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFRedeemAtViewController.xib; sourceTree = "<group>"; };
-		D5B50E29199D3CEB00A486B0 /* TLFNavBarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFNavBarConfig.h; sourceTree = "<group>"; };
-		D5B50E2A199D3CEB00A486B0 /* TLFNavBarConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFNavBarConfig.m; sourceTree = "<group>"; };
-		D5B50E30199D461D00A486B0 /* TLFRedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemViewController.h; sourceTree = "<group>"; };
-		D5B50E31199D461D00A486B0 /* TLFRedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemViewController.m; sourceTree = "<group>"; };
-		D5B50E33199D464B00A486B0 /* TLFHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFHistoryViewController.h; sourceTree = "<group>"; };
-		D5B50E34199D464B00A486B0 /* TLFHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFHistoryViewController.m; sourceTree = "<group>"; };
-		D5B50E3A199D628400A486B0 /* Voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Voucher.png; path = ../../../../../TalifloAssets/assets/voucher/Voucher.png; sourceTree = "<group>"; };
-		D5B50E3B199D628400A486B0 /* Voucher@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Voucher@2x.png"; path = "../../../../../TalifloAssets/assets/voucher/Voucher@2x.png"; sourceTree = "<group>"; };
-		D5B50E3E199D69C800A486B0 /* History.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = History.png; path = ../../../../../TalifloAssets/assets/History/History.png; sourceTree = "<group>"; };
-		D5B50E3F199D69C800A486B0 /* History@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "History@2x.png"; path = "../../../../../TalifloAssets/assets/History/History@2x.png"; sourceTree = "<group>"; };
-		D5B50E42199D6B1C00A486B0 /* Explore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Explore.png; path = ../../../../../TalifloAssets/assets/Explore/Explore.png; sourceTree = "<group>"; };
-		D5B50E43199D6B1C00A486B0 /* Explore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Explore@2x.png"; path = "../../../../../TalifloAssets/assets/Explore/Explore@2x.png"; sourceTree = "<group>"; };
-		D5B50E46199D6D8300A486B0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../../TalifloAssets/assets/logo.png; sourceTree = "<group>"; };
-		D5B50E47199D6D8300A486B0 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo@2x.png"; path = "../../../../../TalifloAssets/assets/logo@2x.png"; sourceTree = "<group>"; };
+		D5B50E29199D3CEB00A486B0 /* TLFNavBarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFNavBarHelper.h; sourceTree = "<group>"; };
+		D5B50E2A199D3CEB00A486B0 /* TLFNavBarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFNavBarHelper.m; sourceTree = "<group>"; };
 		D5B50E54199D90F400A486B0 /* TLFHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFHistoryCell.h; sourceTree = "<group>"; };
 		D5B50E55199D90F400A486B0 /* TLFHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFHistoryCell.m; sourceTree = "<group>"; };
 		D5B50E56199D90F400A486B0 /* TLFHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFHistoryCell.xib; sourceTree = "<group>"; };
-		D5B50E5A199D9A3500A486B0 /* TLFRestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRestAPI.h; sourceTree = "<group>"; };
-		D5B50E5B199D9A3500A486B0 /* TLFRestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRestAPI.m; sourceTree = "<group>"; };
-		D5B50E9E199FD6FD00A486B0 /* TLFExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFExploreViewController.h; sourceTree = "<group>"; };
-		D5B50E9F199FD6FD00A486B0 /* TLFExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFExploreViewController.m; sourceTree = "<group>"; };
+		D5D333EE19ABD5E900925EBF /* TLFMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFMyAccountViewController.h; sourceTree = "<group>"; };
+		D5D333EF19ABD5E900925EBF /* TLFMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFMyAccountViewController.m; sourceTree = "<group>"; };
+		D5D333F019ABD5E900925EBF /* TLFMyAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFMyAccountViewController.xib; sourceTree = "<group>"; };
+		D5D333F319ABD63500925EBF /* TLFCausesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFCausesViewController.h; sourceTree = "<group>"; };
+		D5D333F419ABD63500925EBF /* TLFCausesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFCausesViewController.m; sourceTree = "<group>"; };
+		D5D333F619ABD64300925EBF /* TLFBusinessesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFBusinessesViewController.h; sourceTree = "<group>"; };
+		D5D333F719ABD64300925EBF /* TLFBusinessesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFBusinessesViewController.m; sourceTree = "<group>"; };
+		D5D3341019ABE7DC00925EBF /* MyAccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyAccount.png; sourceTree = "<group>"; };
+		D5D3341419ABE88400925EBF /* Causes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Causes.png; sourceTree = "<group>"; };
+		D5D3341819ABE93200925EBF /* Businesses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Businesses.png; sourceTree = "<group>"; };
+		D5D3341A19ABE98300925EBF /* Businesses@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Businesses@2x.png"; sourceTree = "<group>"; };
+		D5D3341C19ABE9B900925EBF /* Causes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Causes@2x.png"; sourceTree = "<group>"; };
+		D5D3341E19ABE9D700925EBF /* MyAccount@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyAccount@2x.png"; sourceTree = "<group>"; };
+		D5D3342019ABEE5B00925EBF /* TLFRestAPIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRestAPIHelper.h; sourceTree = "<group>"; };
+		D5D3342119ABEE5B00925EBF /* TLFRestAPIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRestAPIHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,15 +180,9 @@
 		D5B50DD8199D2C1100A486B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D5054EEF19A15FD9008477D9 /* 160.gif */,
-				D5B50E46199D6D8300A486B0 /* logo.png */,
-				D5B50E47199D6D8300A486B0 /* logo@2x.png */,
-				D5B50E42199D6B1C00A486B0 /* Explore.png */,
-				D5B50E43199D6B1C00A486B0 /* Explore@2x.png */,
-				D5B50E3E199D69C800A486B0 /* History.png */,
-				D5B50E3F199D69C800A486B0 /* History@2x.png */,
-				D5B50E3A199D628400A486B0 /* Voucher.png */,
-				D5B50E3B199D628400A486B0 /* Voucher@2x.png */,
+				D5D3340B19ABE45400925EBF /* ImagesMisc */,
+				D5D333FE19ABE2E700925EBF /* Images@2x */,
+				D5D333FD19ABE2A300925EBF /* Images */,
 				D5B50DD9199D2C1100A486B0 /* Taliflo-Info.plist */,
 				D5B50DDA199D2C1100A486B0 /* InfoPlist.strings */,
 				D5B50DDD199D2C1100A486B0 /* main.m */,
@@ -232,8 +221,8 @@
 			children = (
 				D5B50E04199D353000A486B0 /* TLFColor.h */,
 				D5B50E05199D353000A486B0 /* TLFColor.m */,
-				D5B50E29199D3CEB00A486B0 /* TLFNavBarConfig.h */,
-				D5B50E2A199D3CEB00A486B0 /* TLFNavBarConfig.m */,
+				D5B50E29199D3CEB00A486B0 /* TLFNavBarHelper.h */,
+				D5B50E2A199D3CEB00A486B0 /* TLFNavBarHelper.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -241,14 +230,12 @@
 		D5B50E02199D2C7500A486B0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D5B50E17199D38EC00A486B0 /* TLFRedeemAtViewController.h */,
-				D5B50E18199D38EC00A486B0 /* TLFRedeemAtViewController.m */,
-				D5B50E30199D461D00A486B0 /* TLFRedeemViewController.h */,
-				D5B50E31199D461D00A486B0 /* TLFRedeemViewController.m */,
-				D5B50E33199D464B00A486B0 /* TLFHistoryViewController.h */,
-				D5B50E34199D464B00A486B0 /* TLFHistoryViewController.m */,
-				D5B50E9E199FD6FD00A486B0 /* TLFExploreViewController.h */,
-				D5B50E9F199FD6FD00A486B0 /* TLFExploreViewController.m */,
+				D5D333EE19ABD5E900925EBF /* TLFMyAccountViewController.h */,
+				D5D333EF19ABD5E900925EBF /* TLFMyAccountViewController.m */,
+				D5D333F319ABD63500925EBF /* TLFCausesViewController.h */,
+				D5D333F419ABD63500925EBF /* TLFCausesViewController.m */,
+				D5D333F619ABD64300925EBF /* TLFBusinessesViewController.h */,
+				D5D333F719ABD64300925EBF /* TLFBusinessesViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -256,16 +243,17 @@
 		D5B50E03199D2C7F00A486B0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D5D333F019ABD5E900925EBF /* TLFMyAccountViewController.xib */,
 				D5B50E19199D38EC00A486B0 /* TLFRedeemAtViewController.xib */,
 				D5B50E54199D90F400A486B0 /* TLFHistoryCell.h */,
 				D5B50E55199D90F400A486B0 /* TLFHistoryCell.m */,
 				D5B50E56199D90F400A486B0 /* TLFHistoryCell.xib */,
-				D5054EE819A15417008477D9 /* TLFExploreCellLeft.h */,
-				D5054EE919A15417008477D9 /* TLFExploreCellLeft.m */,
-				D5054EEA19A15417008477D9 /* TLFExploreCellLeft.xib */,
-				D5054EF119A16606008477D9 /* TLFExploreCellRight.h */,
-				D5054EF219A16606008477D9 /* TLFExploreCellRight.m */,
-				D5054EF319A16606008477D9 /* TLFExploreCellRight.xib */,
+				D5054EE819A15417008477D9 /* TLFUserCellLeft.h */,
+				D5054EE919A15417008477D9 /* TLFUserCellLeft.m */,
+				D5054EEA19A15417008477D9 /* TLFUserCellLeft.xib */,
+				D5054EF119A16606008477D9 /* TLFUserCellRight.h */,
+				D5054EF219A16606008477D9 /* TLFUserCellRight.m */,
+				D5054EF319A16606008477D9 /* TLFUserCellRight.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -273,10 +261,38 @@
 		D5B50E59199D9A0B00A486B0 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				D5B50E5A199D9A3500A486B0 /* TLFRestAPI.h */,
-				D5B50E5B199D9A3500A486B0 /* TLFRestAPI.m */,
+				D5D3342019ABEE5B00925EBF /* TLFRestAPIHelper.h */,
+				D5D3342119ABEE5B00925EBF /* TLFRestAPIHelper.m */,
 			);
 			name = Rest;
+			sourceTree = "<group>";
+		};
+		D5D333FD19ABE2A300925EBF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D5D3341819ABE93200925EBF /* Businesses.png */,
+				D5D3341419ABE88400925EBF /* Causes.png */,
+				D5D3341019ABE7DC00925EBF /* MyAccount.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		D5D333FE19ABE2E700925EBF /* Images@2x */ = {
+			isa = PBXGroup;
+			children = (
+				D5D3341E19ABE9D700925EBF /* MyAccount@2x.png */,
+				D5D3341C19ABE9B900925EBF /* Causes@2x.png */,
+				D5D3341A19ABE98300925EBF /* Businesses@2x.png */,
+			);
+			name = "Images@2x";
+			sourceTree = "<group>";
+		};
+		D5D3340B19ABE45400925EBF /* ImagesMisc */ = {
+			isa = PBXGroup;
+			children = (
+				D5054EEF19A15FD9008477D9 /* 160.gif */,
+			);
+			name = ImagesMisc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,20 +376,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5B50E40199D69C800A486B0 /* History.png in Resources */,
-				D5B50E49199D6D8300A486B0 /* logo@2x.png in Resources */,
-				D5B50E3D199D628400A486B0 /* Voucher@2x.png in Resources */,
+				D5D3341B19ABE98300925EBF /* Businesses@2x.png in Resources */,
 				D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */,
-				D5054EEC19A15417008477D9 /* TLFExploreCellLeft.xib in Resources */,
-				D5054EF519A16606008477D9 /* TLFExploreCellRight.xib in Resources */,
-				D5B50E44199D6B1C00A486B0 /* Explore.png in Resources */,
+				D5054EEC19A15417008477D9 /* TLFUserCellLeft.xib in Resources */,
+				D5D3341919ABE93200925EBF /* Businesses.png in Resources */,
+				D5054EF519A16606008477D9 /* TLFUserCellRight.xib in Resources */,
+				D5D3341519ABE88400925EBF /* Causes.png in Resources */,
+				D5D333F219ABD5E900925EBF /* TLFMyAccountViewController.xib in Resources */,
+				D5D3341119ABE7DC00925EBF /* MyAccount.png in Resources */,
 				D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */,
+				D5D3341D19ABE9B900925EBF /* Causes@2x.png in Resources */,
 				D5B50E1B199D38EC00A486B0 /* TLFRedeemAtViewController.xib in Resources */,
 				D5054EF019A15FD9008477D9 /* 160.gif in Resources */,
-				D5B50E45199D6B1C00A486B0 /* Explore@2x.png in Resources */,
-				D5B50E48199D6D8300A486B0 /* logo.png in Resources */,
-				D5B50E3C199D628400A486B0 /* Voucher.png in Resources */,
-				D5B50E41199D69C800A486B0 /* History@2x.png in Resources */,
+				D5D3341F19ABE9D700925EBF /* MyAccount@2x.png in Resources */,
 				D5B50E58199D90F400A486B0 /* TLFHistoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,18 +441,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5B50E1A199D38EC00A486B0 /* TLFRedeemAtViewController.m in Sources */,
-				D5054EF419A16606008477D9 /* TLFExploreCellRight.m in Sources */,
+				D5054EF419A16606008477D9 /* TLFUserCellRight.m in Sources */,
 				D5B50E06199D353000A486B0 /* TLFColor.m in Sources */,
-				D5054EEB19A15417008477D9 /* TLFExploreCellLeft.m in Sources */,
-				D5B50E32199D461D00A486B0 /* TLFRedeemViewController.m in Sources */,
-				D5B50EA0199FD6FD00A486B0 /* TLFExploreViewController.m in Sources */,
-				D5B50E2B199D3CEB00A486B0 /* TLFNavBarConfig.m in Sources */,
+				D5054EEB19A15417008477D9 /* TLFUserCellLeft.m in Sources */,
+				D5B50E2B199D3CEB00A486B0 /* TLFNavBarHelper.m in Sources */,
+				D5D333F819ABD64300925EBF /* TLFBusinessesViewController.m in Sources */,
+				D5D333F119ABD5E900925EBF /* TLFMyAccountViewController.m in Sources */,
 				D5B50DDE199D2C1100A486B0 /* main.m in Sources */,
+				D5D333F519ABD63500925EBF /* TLFCausesViewController.m in Sources */,
 				D5B50E57199D90F400A486B0 /* TLFHistoryCell.m in Sources */,
-				D5B50E35199D464B00A486B0 /* TLFHistoryViewController.m in Sources */,
 				D5B50DE2199D2C1100A486B0 /* TLFAppDelegate.m in Sources */,
-				D5B50E5C199D9A3500A486B0 /* TLFRestAPI.m in Sources */,
+				D5D3342219ABEE5B00925EBF /* TLFRestAPIHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
