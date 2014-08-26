@@ -40,6 +40,8 @@
 		D5D3341D19ABE9B900925EBF /* Causes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341C19ABE9B900925EBF /* Causes@2x.png */; };
 		D5D3341F19ABE9D700925EBF /* MyAccount@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341E19ABE9D700925EBF /* MyAccount@2x.png */; };
 		D5D3342219ABEE5B00925EBF /* TLFRestAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3342119ABEE5B00925EBF /* TLFRestAPIHelper.m */; };
+		D5D3342519AD11FA00925EBF /* TLFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3342419AD11FA00925EBF /* TLFUser.m */; };
+		D5D3342819AD198200925EBF /* TLFTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3342719AD198200925EBF /* TLFTransaction.m */; };
 		EE03657EB73449F9A3445768 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2384896295554975B373109D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,10 @@
 		D5D3341E19ABE9D700925EBF /* MyAccount@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyAccount@2x.png"; sourceTree = "<group>"; };
 		D5D3342019ABEE5B00925EBF /* TLFRestAPIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRestAPIHelper.h; sourceTree = "<group>"; };
 		D5D3342119ABEE5B00925EBF /* TLFRestAPIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRestAPIHelper.m; sourceTree = "<group>"; };
+		D5D3342319AD11FA00925EBF /* TLFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUser.h; sourceTree = "<group>"; };
+		D5D3342419AD11FA00925EBF /* TLFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUser.m; sourceTree = "<group>"; };
+		D5D3342619AD198200925EBF /* TLFTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFTransaction.h; sourceTree = "<group>"; };
+		D5D3342719AD198200925EBF /* TLFTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFTransaction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +218,10 @@
 		D5B50E00199D2C6400A486B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D5D3342319AD11FA00925EBF /* TLFUser.h */,
+				D5D3342419AD11FA00925EBF /* TLFUser.m */,
+				D5D3342619AD198200925EBF /* TLFTransaction.h */,
+				D5D3342719AD198200925EBF /* TLFTransaction.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -442,9 +452,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5054EF419A16606008477D9 /* TLFUserCellRight.m in Sources */,
+				D5D3342519AD11FA00925EBF /* TLFUser.m in Sources */,
 				D5B50E06199D353000A486B0 /* TLFColor.m in Sources */,
 				D5054EEB19A15417008477D9 /* TLFUserCellLeft.m in Sources */,
 				D5B50E2B199D3CEB00A486B0 /* TLFNavBarHelper.m in Sources */,
+				D5D3342819AD198200925EBF /* TLFTransaction.m in Sources */,
 				D5D333F819ABD64300925EBF /* TLFBusinessesViewController.m in Sources */,
 				D5D333F119ABD5E900925EBF /* TLFMyAccountViewController.m in Sources */,
 				D5B50DDE199D2C1100A486B0 /* main.m in Sources */,
