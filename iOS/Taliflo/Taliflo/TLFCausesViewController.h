@@ -10,6 +10,4 @@
 
 @interface TLFCausesViewController : UITableViewController
 
-@property (nonatomic, retain) NSArray* causes;
-
 @end

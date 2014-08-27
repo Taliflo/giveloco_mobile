@@ -9,8 +9,13 @@
 #import "TLFBusinessesViewController.h"
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
+#import "TLFRestAPIHelper.h"
+#import "AFNetworking.h"
+#import "TLFUserCell.h"
 
 @interface TLFBusinessesViewController ()
+
+@property (nonatomic, strong) NSMutableArray *businesses;
 
 @end
 
@@ -27,6 +32,9 @@ static TLFNavBarHelper *helper;
         // Setting the nav bar title, and the tab bar title and image
         helper = [TLFNavBarHelper getInstance];
         [helper configViewController:self withTitle:@"Businesses" withImage:[UIImage imageNamed:@"Businesses.png"]];
+        
+        // Request businesses
+        [self requestBusinesses];
     }
     return self;
 }
@@ -50,9 +58,9 @@ static TLFNavBarHelper *helper;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Load the cell nib file
-    UINib *nib = [UINib nibWithNibName:@"TLFUserCellLeft" bundle:nil];
+    UINib *nib = [UINib nibWithNibName:@"TLFUserCell" bundle:nil];
     // Register the nib file which contains the cell
-    [self.tableView registerNib:nib forHeaderFooterViewReuseIdentifier:@"TLFUserCellLeft"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"TLFUserCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,25 +74,82 @@ static TLFNavBarHelper *helper;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [_businesses count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
-/*
+- (void)requestBusinesses
+{
+    TLFRestAPIHelper *restHelper = [TLFRestAPIHelper getInstance];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[restHelper queryUsers]];
+    
+    // AFNetworking asynchronous URL request
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:
+     ^(AFHTTPRequestOperation *operation, id responseObject) {
+         NSLog(@"%@", responseObject[0]);
+         
+         [self sortResponse:responseObject];
+         
+         dispatch_async(dispatch_get_main_queue(),
+                        ^{
+                            [self.tableView reloadData];
+                        }
+                        );
+     }
+                                     failure:
+     ^(AFHTTPRequestOperation *operation, NSError *error) {
+         // Handle error
+         NSLog(@"Request Failed: %@, %@", error, error.userInfo);
+     }
+     ];
+    
+    [operation start];
+}
+
+- (void)sortResponse:(id)responseObject
+{
+    // Extra businesses
+    _businesses = [[NSMutableArray alloc] init];
+     for (NSDictionary *obj in responseObject) {
+         if ([obj[@"role"] isEqualToString:@"business"])
+             [_businesses addObject:obj];
+     }
+    
+    // Sort alphabetically
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]
+                                    initWithKey:@"company_name"
+                                    ascending:YES
+                                    selector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    [_businesses sortUsingDescriptors:@[descriptor]];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 161.0f;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"TLFUserCell";
     
-    // Configure the cell...
+    TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    cell.name.text = _businesses[indexPath.row][@"company_name"];
+    cell.image.image = [UIImage imageNamed:@"160.gif"];
+    cell.backgroundColor = [TLFColor talifloPurple];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

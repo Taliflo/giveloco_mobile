@@ -10,6 +10,4 @@
 
 @interface TLFBusinessesViewController : UITableViewController
 
-@property (nonatomic, retain) NSArray* businesses;
-
 @end

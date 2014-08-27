@@ -43,19 +43,19 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
     return self;
 }
 
-- (NSURL *)queryAllUsers
+- (NSURL *)queryUsers
 {
     return [NSURL URLWithString:[base stringByAppendingString:@"users"]];
 }
 
-- (NSURL *)queryAllBusinesses
+- (void)sortUsers:(NSArray *)data dest:(NSMutableArray *)destArray byRole:(NSString *)role
 {
-    return [NSURL URLWithString:[base stringByAppendingString:@"users?role=business"]];
-}
-
-- (NSURL *)queryAllCauses
-{
-    return [NSURL URLWithString:[base stringByAppendingString:@"users?role=cause"]];    
+    destArray = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *obj in data) {
+        if ([obj[@"role"] isEqualToString:role])
+            [destArray addObject:obj];
+    }
 }
 
 @end

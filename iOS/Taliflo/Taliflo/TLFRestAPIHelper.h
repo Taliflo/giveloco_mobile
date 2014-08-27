@@ -11,8 +11,6 @@
 @interface TLFRestAPIHelper : NSObject
 
 + (instancetype)getInstance;
-- (NSURL *)queryAllUsers;
-- (NSURL *)queryAllBusinesses;
-- (NSURL *)queryAllCauses;
-
+- (NSURL *)queryUsers;
+- (void)sortUsers:(NSArray*)source dest:(NSMutableArray *)destArray byRole:(NSString *)role;
 @end
