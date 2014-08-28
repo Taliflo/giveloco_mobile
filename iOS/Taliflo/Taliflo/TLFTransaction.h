@@ -10,12 +10,16 @@
 
 @interface TLFTransaction : NSObject
 
-@property (nonatomic, copy) NSString * ID, *transID, *stripeID, *transType, *fromUserID, *toUserID, *fromName, *toName, *fromUserRole, *toUserRole, *amount, *status;
-@property (nonatomic, strong) NSDate *cancelledAt, *completedAt, *createdAt, *updatedAt;
+@property (nonatomic, copy) NSNumber * ID, *transID, *stripeID, *fromUserID, *toUserID;
+@property (nonatomic, copy) NSString *transType, *fromName, *toName, *fromUserRole, *toUserRole, *amount, *status;
+@property (nonatomic, copy) NSDate *cancelledAt, *completedAt, *createdAt, *updatedAt;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 - (NSString *)formatCancelledAt;
 - (NSString *)formatCompletedAt;
 - (NSString *)formatCreatedAt;
 - (NSString *)formateUpdatedAt;
+ 
 
 @end

@@ -12,9 +12,10 @@
 
 @property (nonatomic, copy) NSString *ID, *role, *firstName, *lastName, *companyName, *email, *phone,
 *streetAddress, *city, *state, *country, *zip, *summary, *description, *website, *profilePictureURL;
-@property (nonatomic, assign) int totalDebits, totalCredits;
-@property (nonatomic, assign) float balance, totalDebitsValue, totalCreditsValue;
+@property (nonatomic, copy) NSNumber *totalDebits, *totalCredits;
+@property (nonatomic, copy) NSNumber *balance, *totalFundsRaised;
 @property (nonatomic, strong) NSArray *tags, *transactionsCreated, *transactionsAccepted, *supporters, *supportedCauses;
+@property (nonatomic, strong) NSMutableArray *transactions;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 

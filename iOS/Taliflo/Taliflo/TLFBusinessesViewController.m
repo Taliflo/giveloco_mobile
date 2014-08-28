@@ -9,10 +9,10 @@
 #import "TLFBusinessesViewController.h"
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
-#import "TLFRestAPIHelper.h"
 #import "AFNetworking.h"
 #import "TLFUserCell.h"
 #import "TLFBusinessStore.h"
+#import "TLFRestHelper.h"
 
 @interface TLFBusinessesViewController ()
 
@@ -22,6 +22,7 @@
 
 static TLFNavBarHelper *helper;
 static TLFBusinessStore *businessStore;
+static TLFRestHelper *restHelper;
 
 @implementation TLFBusinessesViewController
 
@@ -36,7 +37,8 @@ static TLFBusinessStore *businessStore;
         [helper configViewController:self withTitle:@"Businesses" withImage:[UIImage imageNamed:@"Businesses.png"]];
         
         // Request businesses
-        [self requestBusinesses];
+        restHelper = [[TLFRestHelper alloc] initWithTableView:self.tableView];
+        [restHelper requestUsers:@"business"];
     }
     return self;
 }
@@ -76,65 +78,13 @@ static TLFBusinessStore *businessStore;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [_businesses count];
+    return [restHelper.users count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     return 1;
-}
-
-- (void)requestBusinesses
-{
-    TLFRestAPIHelper *restHelper = [TLFRestAPIHelper getInstance];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[restHelper queryUsers]];
-    
-    // AFNetworking asynchronous URL request
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:
-     ^(AFHTTPRequestOperation *operation, id responseObject) {
-         NSLog(@"%@", responseObject[0]);
-         
-         [self sortResponse:responseObject];
-         
-         dispatch_async(dispatch_get_main_queue(),
-                        ^{
-                            [self.tableView reloadData];
-                        }
-                        );
-     }
-                                     failure:
-     ^(AFHTTPRequestOperation *operation, NSError *error) {
-         // Handle error
-         NSLog(@"Request Failed: %@, %@", error, error.userInfo);
-     }
-     ];
-    
-    [operation start];
-}
-
-- (void)sortResponse:(id)responseObject
-{
-    // Extra businesses
-    _businesses = [[NSMutableArray alloc] init];
-     for (NSDictionary *obj in responseObject) {
-         if ([obj[@"role"] isEqualToString:@"business"])
-             [_businesses addObject:obj];
-     }
-    
-    // Sort alphabetically
-    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]
-                                    initWithKey:@"company_name"
-                                    ascending:YES
-                                    selector:@selector(localizedCaseInsensitiveCompare:)];
-    
-    [_businesses sortUsingDescriptors:@[descriptor]];
-    
-    // Add to global store
-    businessStore = [TLFBusinessStore getInstance];
-    businessStore.businesses = _businesses;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -149,7 +99,11 @@ static TLFBusinessStore *businessStore;
     
     TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    cell.name.text = _businesses[indexPath.row][@"company_name"];
+    if (!cell) {
+        cell = [[TLFUserCell alloc] init];
+    }
+    
+    cell.name.text = restHelper.users[indexPath.row][@"company_name"];
     cell.image.image = [UIImage imageNamed:@"160.gif"];
     cell.backgroundColor = [TLFColor talifloPurple];
     

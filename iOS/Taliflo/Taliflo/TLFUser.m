@@ -13,9 +13,33 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict
 {
     self = [super init];
-    
-    self.companyName = dict[@"company_name"];
-    
+    if (self) {
+        _ID = dict[@"id"];
+        _role = dict[@"role"];
+        _firstName = dict[@"first_name"];
+        _lastName = dict[@"last_name"];
+        _phone = dict[@"phone"];
+        _companyName = dict[@"company_name"];
+        _streetAddress = dict[@"street_address"];
+        _city = dict[@"city"];
+        _state = dict[@"state"];
+        _country = dict[@"country"];
+        _zip = dict[@"zip"];
+        _tags = dict[@"tags"];
+        _summary = dict[@"summary"];
+        _description = dict[@"description"];
+        _website = dict[@"website"];
+        _balance = dict[@"balance"];
+        _totalFundsRaised = dict[@"total_funds_raised"];
+        _supporters = dict[@"supporters"];
+        _supportedCauses = dict[@"supported_causes"];
+        //_createdAt
+        //_updatedAt
+        //_lastSignIn
+        //_deletedAt
+        _transactions = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
+        [_transactions addObjectsFromArray:dict[@"transactions_accepted"]];
+    }
     return self;
 }
 

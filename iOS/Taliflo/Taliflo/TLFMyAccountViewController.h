@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TLFMyAccountViewController : UIViewController
+@interface TLFMyAccountViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UILabel *balance;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -9,10 +9,10 @@
 #import "TLFCausesViewController.h"
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
-#import "TLFRestAPIHelper.h"
 #import "AFNetworking.h"
 #import "TLFUserCell.h"
 #import "TLFCauseStore.h"
+#import "TLFRestHelper.h"
 
 @interface TLFCausesViewController ()
 
@@ -22,6 +22,7 @@
 
 static TLFNavBarHelper *helper;
 static TLFCauseStore *causeStore;
+static TLFRestHelper *restHelper;
 
 @implementation TLFCausesViewController
 
@@ -36,7 +37,8 @@ static TLFCauseStore *causeStore;
         [helper configViewController:self withTitle:@"Causes" withImage:[UIImage imageNamed:@"Causes.png"]];
         
         // Request users
-        [self requestUsers];
+        restHelper = [[TLFRestHelper alloc] initWithTableView:self.tableView];
+        [restHelper requestUsers:@"cause"];
     }
     return self;
 }
@@ -82,59 +84,7 @@ static TLFCauseStore *causeStore;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_causes count];
-}
-
-- (void)requestUsers
-{
-    TLFRestAPIHelper *restHelper = [TLFRestAPIHelper getInstance];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[restHelper queryUsers]];
-    
-    // AFNetworking asynchronous URL request
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:
-     ^(AFHTTPRequestOperation *operation, id responseObject) {
-        // NSLog(@"%@", responseObject[0]);
-         
-         [self sortResponse:responseObject];
-         
-         dispatch_async(dispatch_get_main_queue(),
-                        ^{
-                            [self.tableView reloadData];
-                        }
-                        );
-     }
-                                     failure:
-     ^(AFHTTPRequestOperation *operation, NSError *error) {
-         // Handle error
-         NSLog(@"Request Failed: %@, %@", error, error.userInfo);
-     }
-     ];
-    
-    [operation start];
-}
-
-- (void)sortResponse:(id)responseObject
-{
-    // Extract causes
-    _causes = [[NSMutableArray alloc] init];
-    for (NSDictionary *obj in responseObject) {
-        if ([obj[@"role"] isEqualToString:@"cause"])
-            [_causes addObject:obj];
-    }
-    
-    // Sort alphabetically
-    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]
-                                    initWithKey:@"company_name"
-                                    ascending:YES
-                                    selector:@selector(localizedCaseInsensitiveCompare:)];
-    
-    [_causes sortUsingDescriptors:@[descriptor]];
-    
-    // Add to global store
-    causeStore = [TLFCauseStore getInstance];
-    causeStore.causes = _causes;
+    return [restHelper.users count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -149,7 +99,12 @@ static TLFCauseStore *causeStore;
     
     TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    cell.name.text = _causes[indexPath.row][@"company_name"];
+    if (!cell) {
+        cell = [[TLFUserCell alloc] init];
+    }
+    
+    // Populate cell views
+    cell.name.text = restHelper.users[indexPath.row][@"company_name"];
     cell.image.image = [UIImage imageNamed:@"160.gif"];
     cell.backgroundColor = [TLFColor talifloTiffanyBlue];
     
