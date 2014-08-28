@@ -12,6 +12,7 @@
 #import "TLFRestAPIHelper.h"
 #import "AFNetworking.h"
 #import "TLFUserCell.h"
+#import "TLFBusinessStore.h"
 
 @interface TLFBusinessesViewController ()
 
@@ -20,6 +21,7 @@
 @end
 
 static TLFNavBarHelper *helper;
+static TLFBusinessStore *businessStore;
 
 @implementation TLFBusinessesViewController
 
@@ -129,6 +131,10 @@ static TLFNavBarHelper *helper;
                                     selector:@selector(localizedCaseInsensitiveCompare:)];
     
     [_businesses sortUsingDescriptors:@[descriptor]];
+    
+    // Add to global store
+    businessStore = [TLFBusinessStore getInstance];
+    businessStore.businesses = _businesses;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

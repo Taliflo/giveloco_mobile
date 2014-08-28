@@ -14,6 +14,8 @@
 {
     self = [super init];
     
+    self.companyName = dict[@"company_name"];
+    
     return self;
 }
 

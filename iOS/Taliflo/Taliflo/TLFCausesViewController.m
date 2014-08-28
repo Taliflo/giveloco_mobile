@@ -12,6 +12,7 @@
 #import "TLFRestAPIHelper.h"
 #import "AFNetworking.h"
 #import "TLFUserCell.h"
+#import "TLFCauseStore.h"
 
 @interface TLFCausesViewController ()
 
@@ -20,6 +21,7 @@
 @end
 
 static TLFNavBarHelper *helper;
+static TLFCauseStore *causeStore;
 
 @implementation TLFCausesViewController
 
@@ -93,7 +95,7 @@ static TLFNavBarHelper *helper;
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:
      ^(AFHTTPRequestOperation *operation, id responseObject) {
-         NSLog(@"%@", responseObject[0]);
+        // NSLog(@"%@", responseObject[0]);
          
          [self sortResponse:responseObject];
          
@@ -129,6 +131,10 @@ static TLFNavBarHelper *helper;
                                     selector:@selector(localizedCaseInsensitiveCompare:)];
     
     [_causes sortUsingDescriptors:@[descriptor]];
+    
+    // Add to global store
+    causeStore = [TLFCauseStore getInstance];
+    causeStore.causes = _causes;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -145,6 +151,7 @@ static TLFNavBarHelper *helper;
     
     cell.name.text = _causes[indexPath.row][@"company_name"];
     cell.image.image = [UIImage imageNamed:@"160.gif"];
+    cell.backgroundColor = [TLFColor talifloTiffanyBlue];
     
     return cell;
 }

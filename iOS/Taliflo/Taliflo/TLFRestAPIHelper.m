@@ -15,17 +15,17 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
 
 + (instancetype)getInstance
 {
-    static TLFRestAPIHelper *sharedInstance = nil;
+    static TLFRestAPIHelper *instance = nil;
     static dispatch_once_t pred;
     
-    if (sharedInstance) return sharedInstance;
+    if (instance) return instance;
     
     dispatch_once(&pred, ^{
-        sharedInstance = [TLFRestAPIHelper alloc];
-        sharedInstance = [sharedInstance initPrivate];
+        instance = [TLFRestAPIHelper alloc];
+        instance = [instance initPrivate];
     });
     
-    return sharedInstance;
+    return instance;
 }
 
 // This method should not be called
@@ -57,5 +57,7 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
             [destArray addObject:obj];
     }
 }
+
+
 
 @end

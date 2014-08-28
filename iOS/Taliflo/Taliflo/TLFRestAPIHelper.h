@@ -13,4 +13,5 @@
 + (instancetype)getInstance;
 - (NSURL *)queryUsers;
 - (void)sortUsers:(NSArray*)source dest:(NSMutableArray *)destArray byRole:(NSString *)role;
+
 @end

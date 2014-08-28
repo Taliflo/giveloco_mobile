@@ -27,7 +27,7 @@
                         <color key="textColor" red="1" green="0.68235294117647061" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDt-2N-rJA">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDt-2N-rJA">
                         <rect key="frame" x="168" y="49" width="132" height="91"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -37,7 +37,6 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
-                <color key="backgroundColor" red="0.0" green="0.65490196078431373" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="kEU-rb-w09" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5qm-PF-fW6"/>
                     <constraint firstAttribute="trailing" secondItem="TR1-bY-pcl" secondAttribute="trailing" constant="20" symbolic="YES" id="751-8R-FQ4"/>

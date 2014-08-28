@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "TLFMyAccountViewController.h"
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
@@ -45,6 +47,13 @@ static TLFNavBarHelper *helper;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [[self.balance layer] setBorderColor:[[TLFColor talifloTiffanyBlue] CGColor]];
+    [[self.balance layer] setBorderWidth:2.0];
+    [[self.balance layer] setCornerRadius:3];
+    CGRect frame = _balance.frame;
+    frame.size.height = _balance.frame.size.height + 10;
+    _balance.frame = frame;
 }
 
 - (void)didReceiveMemoryWarning

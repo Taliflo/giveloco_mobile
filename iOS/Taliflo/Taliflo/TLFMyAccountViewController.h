@@ -10,4 +10,7 @@
 
 @interface TLFMyAccountViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) IBOutlet UILabel *balance;
+
 @end
