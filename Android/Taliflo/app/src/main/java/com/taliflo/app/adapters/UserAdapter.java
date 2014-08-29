@@ -62,10 +62,10 @@ public class UserAdapter extends BaseAdapter {
             ImageView image = (ImageView) v.findViewById(R.id.user_image1);
             TextView name = (TextView) v.findViewById(R.id.user_name1);
             TextView summary = (TextView) v.findViewById(R.id.user_summary1);
-            TextView tags = (TextView) v.findViewById(R.id.user_tags1);
-            TextView support = (TextView) v.findViewById(R.id.user_support1);
+            //TextView tags = (TextView) v.findViewById(R.id.user_tags1);
+            //TextView support = (TextView) v.findViewById(R.id.user_support1);
 
-            holder = new UserHolder(name, summary, tags, support, image);
+            holder = new UserHolder(name, summary, image);
             v.setTag(holder);
         } else {
             // Recycle view that already exists
@@ -75,17 +75,15 @@ public class UserAdapter extends BaseAdapter {
         imageLoader.displayImage(user.getProfilePictureURL(), holder.image);
         holder.name.setText(user.getCompanyName());
         holder.summary.setText(user.getSummary());
-        holder.tags.setText(user.getTagsString());
+        //holder.tags.setText(user.getTagsString());
 
-        if (user.getRole().equals("business")) {
+       if (user.getRole().equals("business")) {
             v.setBackgroundColor(context.getResources().getColor(R.color.taliflo_purple));
-            holder.support.setText(user.getSupportedCausesCount() + " "
-                    + context.getResources().getString(R.string.userAdapter_supportedCauses));
+            //holder.support.setText(user.getSupportedCausesCount() + " " + context.getResources().getString(R.string.userAdapter_supportedCauses));
         }
         else if (user.getRole().equals("cause")) {
             v.setBackgroundColor(context.getResources().getColor(R.color.taliflo_tiffanyBlue));
-            holder.support.setText(user.getSupportersCount() + " "
-                    + context.getResources().getString(R.string.userAdapter_supportingBusinesses));
+            //holder.support.setText(user.getSupportersCount() + " " + context.getResources().getString(R.string.userAdapter_supportingBusinesses));
         }
 
         return v;
@@ -141,7 +139,7 @@ public class UserAdapter extends BaseAdapter {
         private TextView name, summary, tags, support;
         private int type;
 
-        private UserHolder(TextView name, TextView summary, TextView tags, TextView support, ImageView image ) {
+        private UserHolder(TextView name, TextView summary, ImageView image ) {
             this.image = image;
             this.name = name;
             this.summary = summary;
