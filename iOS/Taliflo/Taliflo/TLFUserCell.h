@@ -11,6 +11,6 @@
 @interface TLFUserCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UILabel *name;
-@property (strong, nonatomic) IBOutlet UITextView *summary;
+@property (strong, nonatomic) IBOutlet UILabel *summary;
 
 @end

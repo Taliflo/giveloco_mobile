@@ -9,10 +9,10 @@
 #import "TLFBusinessesViewController.h"
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
-#import "AFNetworking.h"
 #import "TLFUserCell.h"
 #import "TLFBusinessStore.h"
 #import "TLFRestHelper.h"
+#import "TLFUserDetailViewController.h"
 
 @interface TLFBusinessesViewController ()
 
@@ -64,7 +64,7 @@ static TLFRestHelper *restHelper;
     // Load the cell nib file
     UINib *nib = [UINib nibWithNibName:@"TLFUserCell" bundle:nil];
     // Register the nib file which contains the cell
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"TLFUserCell"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"TLFUserCellB"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,13 +78,13 @@ static TLFRestHelper *restHelper;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [restHelper.users count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [restHelper.users count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,20 +95,29 @@ static TLFRestHelper *restHelper;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"TLFUserCell";
+    static NSString *cellIdentifier = @"TLFUserCellB";
     
     TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    if (!cell) {
-        cell = [[TLFUserCell alloc] init];
+    if (cell == nil) {
+        cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     cell.name.text = restHelper.users[indexPath.row][@"company_name"];
     cell.image.image = [UIImage imageNamed:@"160.gif"];
+    cell.summary.text = restHelper.users[indexPath.row][@"summary"];
     cell.backgroundColor = [TLFColor talifloPurple];
     
     return cell;
 }
+
+/*
+// When a table cell is selected
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+ */
 
 
 /*

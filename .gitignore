@@ -21,4 +21,5 @@ local.properties
 build/
 
 # Xcode
+*.xcworkspace
 *.xcuserstate

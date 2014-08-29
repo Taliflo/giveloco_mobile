@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TR1-bY-pcl">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="132" translatesAutoresizingMaskIntoConstraints="NO" id="TR1-bY-pcl">
                         <rect key="frame" x="168" y="20" width="132" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
@@ -27,25 +27,25 @@
                         <color key="textColor" red="1" green="0.68235294117647061" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDt-2N-rJA">
-                        <rect key="frame" x="168" y="49" width="132" height="91"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="132" translatesAutoresizingMaskIntoConstraints="NO" id="J3V-xr-29L">
+                        <rect key="frame" x="168" y="44" width="132" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="96" id="v5T-Xf-SID"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="kEU-rb-w09" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5qm-PF-fW6"/>
                     <constraint firstAttribute="trailing" secondItem="TR1-bY-pcl" secondAttribute="trailing" constant="20" symbolic="YES" id="751-8R-FQ4"/>
-                    <constraint firstItem="IDt-2N-rJA" firstAttribute="top" secondItem="TR1-bY-pcl" secondAttribute="bottom" constant="8" symbolic="YES" id="OoK-hG-XJL"/>
+                    <constraint firstItem="J3V-xr-29L" firstAttribute="leading" secondItem="kEU-rb-w09" secondAttribute="trailing" constant="8" symbolic="YES" id="9ot-EV-HgV"/>
                     <constraint firstItem="kEU-rb-w09" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Osp-Zp-Ehp"/>
-                    <constraint firstItem="IDt-2N-rJA" firstAttribute="leading" secondItem="kEU-rb-w09" secondAttribute="trailing" constant="8" symbolic="YES" id="P2s-jd-V4i"/>
-                    <constraint firstItem="TR1-bY-pcl" firstAttribute="trailing" secondItem="IDt-2N-rJA" secondAttribute="trailing" id="WGx-Zp-8vw"/>
+                    <constraint firstItem="J3V-xr-29L" firstAttribute="trailing" secondItem="TR1-bY-pcl" secondAttribute="trailing" id="X8X-2t-bdr"/>
                     <constraint firstAttribute="bottom" secondItem="kEU-rb-w09" secondAttribute="bottom" id="aoO-9T-hPe"/>
-                    <constraint firstAttribute="bottom" secondItem="IDt-2N-rJA" secondAttribute="bottom" constant="20" symbolic="YES" id="mgs-NB-x7M"/>
+                    <constraint firstAttribute="bottom" secondItem="J3V-xr-29L" secondAttribute="bottom" constant="20" symbolic="YES" id="m1j-xg-ncb"/>
                     <constraint firstItem="TR1-bY-pcl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="msp-ye-fkp"/>
                     <constraint firstItem="TR1-bY-pcl" firstAttribute="leading" secondItem="kEU-rb-w09" secondAttribute="trailing" constant="8" symbolic="YES" id="wcW-GG-iQG"/>
                 </constraints>
@@ -53,7 +53,7 @@
             <connections>
                 <outlet property="image" destination="kEU-rb-w09" id="ZxU-Kd-pY5"/>
                 <outlet property="name" destination="TR1-bY-pcl" id="sPA-BF-sfh"/>
-                <outlet property="summary" destination="IDt-2N-rJA" id="ogC-gq-TFy"/>
+                <outlet property="summary" destination="J3V-xr-29L" id="KFl-sy-69Z"/>
             </connections>
         </tableViewCell>
     </objects>

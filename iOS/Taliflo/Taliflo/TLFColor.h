@@ -14,5 +14,5 @@
 + (UIColor *)talifloTiffanyBlue;
 + (UIColor *)talifloOrange;
 + (UIColor *)talifloPurple;
-
++ (UIColor *)talifloPurpleBtnSelect;
 @end

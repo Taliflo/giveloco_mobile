@@ -37,11 +37,18 @@
     [tabBarController.tabBar setBarTintColor:[UIColor whiteColor]];
     [tabBarController.tabBar setTintColor:[TLFColor talifloTiffanyBlue]];
     
+    
     self.window.rootViewController = tabBarController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+// Lock portrait orientation
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

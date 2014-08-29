@@ -9,10 +9,10 @@
 #import "TLFCausesViewController.h"
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
-#import "AFNetworking.h"
 #import "TLFUserCell.h"
 #import "TLFCauseStore.h"
 #import "TLFRestHelper.h"
+#import "TLFUserDetailViewController.h"
 
 @interface TLFCausesViewController ()
 
@@ -64,7 +64,7 @@ static TLFRestHelper *restHelper;
     // Load the cell nib file
     UINib *nib = [UINib nibWithNibName:@"TLFUserCell" bundle:nil];
     // Register the nib file which contains the cell
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"TLFUserCell"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"TLFUserCellC"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,22 +95,33 @@ static TLFRestHelper *restHelper;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"TLFUserCell";
+    static NSString *cellIdentifier = @"TLFUserCellC";
     
     TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    if (!cell) {
-        cell = [[TLFUserCell alloc] init];
+    if (cell == nil) {
+        cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     // Populate cell views
     cell.name.text = restHelper.users[indexPath.row][@"company_name"];
+    cell.summary.text = restHelper.users[indexPath.row][@"summary"];
     cell.image.image = [UIImage imageNamed:@"160.gif"];
     cell.backgroundColor = [TLFColor talifloTiffanyBlue];
     
     return cell;
 }
 
+// When a table cell is selected
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TLFUserDetailViewController *detailVC = [[TLFUserDetailViewController alloc] init];
+    
+    // Give the user detail view controller a pointer to the selected cause
+    
+    // Push the user detail view controller to the top of the notes navigation controller stack
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

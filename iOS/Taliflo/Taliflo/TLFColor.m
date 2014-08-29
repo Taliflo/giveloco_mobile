@@ -61,4 +61,9 @@
     return [self colorWithHexString:@"440e62"];
 }
 
++ (UIColor *)talifloPurpleBtnSelect
+{
+    return [self colorWithHexString:@"7c5691"];
+}
+
 @end
