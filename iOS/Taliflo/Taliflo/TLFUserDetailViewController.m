@@ -11,6 +11,7 @@
 #import "TLFUserStore.h"
 #import "TLFColor.h"
 #import "TLFUserSupportViewController.h"
+#import "TLFRedeemViewController.h"
 
 @interface TLFUserDetailViewController ()
 
@@ -89,7 +90,9 @@ static NSString *bussIden = @"business";
     
     if ([_user.role isEqualToString:bussIden]) {
         // Open redeem view controller
-        
+        TLFRedeemViewController *redeemVC = [[TLFRedeemViewController alloc] init];
+        redeemVC.business = _user;
+        [self.navigationController pushViewController:redeemVC animated:YES];
     }
     
     if ([_user.role isEqualToString:causeIden]) {

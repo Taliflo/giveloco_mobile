@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D5054EF019A15FD9008477D9 /* 160.gif in Resources */ = {isa = PBXBuildFile; fileRef = D5054EEF19A15FD9008477D9 /* 160.gif */; };
 		D54F790419AEE1A6000C2AAE /* TLFUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F790319AEE1A6000C2AAE /* TLFUserStore.m */; };
 		D54F790B19AFB906000C2AAE /* TLFUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F790919AFB906000C2AAE /* TLFUserDetailViewController.m */; };
 		D54F790C19AFB906000C2AAE /* TLFUserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D54F790A19AFB906000C2AAE /* TLFUserDetailViewController.xib */; };
@@ -16,6 +15,8 @@
 		D5AE030619B0144B00F31F04 /* TLFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030519B0144B00F31F04 /* TLFButton.m */; };
 		D5AE030919B0A12700F31F04 /* userImageSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE030819B0A12700F31F04 /* userImageSmall.png */; };
 		D5AE030C19B17D5D00F31F04 /* TLFUserSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030B19B17D5D00F31F04 /* TLFUserSupportViewController.m */; };
+		D5AE031019B18FD200F31F04 /* TLFRedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */; };
+		D5AE031119B18FD200F31F04 /* TLFRedeemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */; };
 		D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
 		D5B50DD4199D2C1100A486B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */; };
 		D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
@@ -66,7 +67,6 @@
 /* Begin PBXFileReference section */
 		2384896295554975B373109D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B030FF31954DD88A413E6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		D5054EEF19A15FD9008477D9 /* 160.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 160.gif; path = ../../../../../TalifloAssets/assets/160.gif; sourceTree = "<group>"; };
 		D54F790219AEE1A6000C2AAE /* TLFUserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserStore.h; sourceTree = "<group>"; };
 		D54F790319AEE1A6000C2AAE /* TLFUserStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUserStore.m; sourceTree = "<group>"; };
 		D54F790819AFB906000C2AAE /* TLFUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserDetailViewController.h; sourceTree = "<group>"; };
@@ -79,6 +79,9 @@
 		D5AE030819B0A12700F31F04 /* userImageSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userImageSmall.png; sourceTree = "<group>"; };
 		D5AE030A19B17D5D00F31F04 /* TLFUserSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserSupportViewController.h; sourceTree = "<group>"; };
 		D5AE030B19B17D5D00F31F04 /* TLFUserSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUserSupportViewController.m; sourceTree = "<group>"; };
+		D5AE030D19B18FD200F31F04 /* TLFRedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemViewController.h; sourceTree = "<group>"; };
+		D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemViewController.m; sourceTree = "<group>"; };
+		D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFRedeemViewController.xib; sourceTree = "<group>"; };
 		D5B50DCE199D2C1100A486B0 /* Taliflo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taliflo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B50DD1199D2C1100A486B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,6 +162,7 @@
 		D5AE030719B030F000F31F04 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */,
 				D5D333F019ABD5E900925EBF /* TLFMyAccountViewController.xib */,
 				D54F790A19AFB906000C2AAE /* TLFUserDetailViewController.xib */,
 				D5D3342B19AD64C500925EBF /* TLFUserCell.h */,
@@ -294,6 +298,8 @@
 				D54F790919AFB906000C2AAE /* TLFUserDetailViewController.m */,
 				D5AE030A19B17D5D00F31F04 /* TLFUserSupportViewController.h */,
 				D5AE030B19B17D5D00F31F04 /* TLFUserSupportViewController.m */,
+				D5AE030D19B18FD200F31F04 /* TLFRedeemViewController.h */,
+				D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -334,7 +340,6 @@
 				D5AE030819B0A12700F31F04 /* userImageSmall.png */,
 				D5AE02FF19B00D2800F31F04 /* smallImg50.png */,
 				D5AE02FD19B00B8D00F31F04 /* userImageBig.png */,
-				D5054EEF19A15FD9008477D9 /* 160.gif */,
 			);
 			name = ImagesMisc;
 			sourceTree = "<group>";
@@ -433,9 +438,9 @@
 				D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */,
 				D5D3341D19ABE9B900925EBF /* Causes@2x.png in Resources */,
 				D5AE030919B0A12700F31F04 /* userImageSmall.png in Resources */,
+				D5AE031119B18FD200F31F04 /* TLFRedeemViewController.xib in Resources */,
 				D5AE030019B00D2800F31F04 /* smallImg50.png in Resources */,
 				D5AE02FE19B00B8D00F31F04 /* userImageBig.png in Resources */,
-				D5054EF019A15FD9008477D9 /* 160.gif in Resources */,
 				D5D3341F19ABE9D700925EBF /* MyAccount@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +502,7 @@
 				D5AE030C19B17D5D00F31F04 /* TLFUserSupportViewController.m in Sources */,
 				D5D333F819ABD64300925EBF /* TLFBusinessesViewController.m in Sources */,
 				D5D333F119ABD5E900925EBF /* TLFMyAccountViewController.m in Sources */,
+				D5AE031019B18FD200F31F04 /* TLFRedeemViewController.m in Sources */,
 				D5B50DDE199D2C1100A486B0 /* main.m in Sources */,
 				D5D3346119AE4A3300925EBF /* TLFCauseStore.m in Sources */,
 				D54F790419AEE1A6000C2AAE /* TLFUserStore.m in Sources */,
