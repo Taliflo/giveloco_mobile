@@ -20,7 +20,7 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0K-GJ-KEm">
                     <rect key="frame" x="20" y="79" width="280" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" red="0.26666666666666666" green="0.054901960784313725" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -30,7 +30,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="09r-Fp-iaq"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -51,7 +51,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="LK6-GK-FqF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -65,6 +65,7 @@
                     </connections>
                 </tableView>
             </subviews>
+            <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Q0K-GJ-KEm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="6KW-9F-2t7"/>
                 <constraint firstItem="JUO-51-jmp" firstAttribute="top" secondItem="Q0K-GJ-KEm" secondAttribute="bottom" constant="8" symbolic="YES" id="89H-j6-vkP"/>

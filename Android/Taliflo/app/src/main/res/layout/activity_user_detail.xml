@@ -78,7 +78,7 @@
             android:id="@+id/userDetail_profilePicture"
             android:layout_width="fill_parent"
             android:layout_height="200dp"
-            android:src="@drawable/user_image_placeholder"
+            android:src="@drawable/user_detail_placehold"
             android:layout_marginBottom="20dp"
             android:scaleType="centerInside"
             />

@@ -8,6 +8,8 @@
 
 #import "TLFRestHelper.h"
 #import "AFNetworking.h"
+#import "TLFCauseStore.h"
+#import "TLFBusinessStore.h"
 
 @implementation TLFRestHelper
 
@@ -90,6 +92,15 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
     
     // Add to global store
     //TODO: Add to global store
+    if ([role isEqualToString:@"business"]) {
+        TLFBusinessStore *bStore = [TLFBusinessStore getInstance];
+        bStore.businesses = _users;
+    }
+    
+    if ([role isEqualToString:@"cause"]) {
+        TLFCauseStore *cStore = [TLFCauseStore getInstance];
+        cStore.causes = _users;
+    }
 }
 
 

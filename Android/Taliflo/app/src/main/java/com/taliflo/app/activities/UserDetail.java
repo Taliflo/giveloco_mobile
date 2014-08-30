@@ -62,7 +62,7 @@ public class UserDetail extends Activity {
             description.setText(user.getDescription());
             address.setText(user.getStreetAddress() + '\n' + user.getCity() + ", " + user.getState() + '\n' + user.getZip());
             phone.setText(user.getPhone());
-            imageLoader.displayImage(user.getProfilePictureURL(), image);
+            imageLoader.displayImage("http://dummyimage.com/700x400/999999/fff.png", image);
             btnSupport.setOnClickListener(openSupport);
 
             // Set activity title and wire up views based on user role

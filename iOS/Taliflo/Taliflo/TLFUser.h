@@ -22,5 +22,7 @@
 - (int)getSupportersCount;
 - (int)getSupportedCausesCount;
 - (NSString *)getTagsString;
+- (NSString *)getSupportersCountStr;
+- (NSString *)getSupportedCausesStr;
 
 @end

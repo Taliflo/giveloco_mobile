@@ -42,14 +42,20 @@
     return self;
 }
 
-- (void) configViewController:(UIViewController *)viewController withTitle:(NSString *)title withImage:(UIImage *)image
-{    
+- (void)configViewController:(UIViewController *)viewController withTitle:(NSString *)title
+{
     // Set the navigation bar title
     UINavigationItem *navItem = viewController.navigationItem;
     navItem.title = title;
+}
+
+- (void)configViewController:(UIViewController *)viewController withTitle:(NSString *)title withImage:(UIImage *)image
+{    
+    // Set the navigation bar title
+    [self configViewController:viewController withTitle:title];
     
     // Set search as the right bar button
-    navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
                                                                                target:viewController
                                                                                action:nil];
     
@@ -59,7 +65,7 @@
     viewController.tabBarItem.image = image;
 }
 
-- (void) configViewController:(UIViewController *)viewController
+- (void)configViewController:(UIViewController *)viewController
              withBarTintColor:(UIColor *)barTintColor
                 withTintColor:(UIColor *)tintColor
 {

@@ -3,6 +3,7 @@ package com.taliflo.app.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +11,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
+import com.google.common.collect.Collections2;
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.model.BusinessStore;
@@ -45,7 +49,7 @@ public class UserSupport extends Activity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             support = new ArrayList<User>();
-            int[] suppIDs = extras.getIntArray("Support");
+            final int[] suppIDs = extras.getIntArray("Support");
 
             if (extras.getString("Role").equals("business")) {
                 setTitle(getResources().getString(R.string.userSupport_titleSupportedCauses));
@@ -54,7 +58,7 @@ public class UserSupport extends Activity {
                 CauseStore causeStore = CauseStore.getInstance();
                 List<User> causes = causeStore.getCauses();
                 for (int i = 0; i < suppIDs.length; i++) {
-                    support.add(causes.get(i));
+
                 }
 
             }
@@ -66,7 +70,7 @@ public class UserSupport extends Activity {
                 BusinessStore businessStore = BusinessStore.getInstance();
                 List<User> businesses = businessStore.getBusinesses();
                 for (int i = 0; i < suppIDs.length; i++) {
-                    support.add(businesses.get(i));
+                    
                 }
             }
 
@@ -113,4 +117,19 @@ public class UserSupport extends Activity {
         helper.onOptionsItemSelected(this, item);
         return super.onOptionsItemSelected(item);
     }
+
+    class UserIdPredicate implements Predicate<User> {
+
+        private int id;
+
+        public UserIdPredicate(int id) {
+            this.id = id;
+        }
+
+        @Override
+        public boolean apply(@Nullable User user) {
+            return user.getId().equals(""+id);
+        }
+    }
+
 }

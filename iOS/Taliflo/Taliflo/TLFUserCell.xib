@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kEU-rb-w09">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userImageSmall.png" translatesAutoresizingMaskIntoConstraints="NO" id="kEU-rb-w09">
                         <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
@@ -57,4 +57,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="userImageSmall.png" width="160" height="160"/>
+    </resources>
 </document>

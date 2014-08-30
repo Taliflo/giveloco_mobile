@@ -7,6 +7,8 @@
 //
 
 #import "TLFUser.h"
+#import "TLFCauseStore.h"
+#import "TLFBusinessStore.h"
 
 @implementation TLFUser
 
@@ -45,12 +47,18 @@
 
 - (int)getSupportedCausesCount
 {
-    return (int)_supportedCauses.count;
+    if (_supportedCauses)
+        return (int)_supportedCauses.count;
+    else
+        return 0;
 }
 
 - (int)getSupportersCount
 {
-    return (int)_supporters.count;
+    if (_supporters)
+        return (int)_supporters.count;
+    else
+        return 0;
 }
 
 - (NSString *)getTagsString
@@ -63,5 +71,63 @@
     }
     return string;
 }
+
+- (NSString *)getSupportedCausesStr
+{
+    int count = [self getSupportedCausesCount];
+    if (count == 0) {
+        return @"No Supported Causes";
+    }
+    else if (count == 1) {
+        return @"1 Supported Cause";
+    } else {
+        return [NSString stringWithFormat:@"%i Supported Causes", count];
+    }
+}
+
+- (NSString *)getSupportersCountStr
+{
+    int count = [self getSupportersCount];
+    if (count == 0) {
+        return @"No Supporters";
+    } else if (count == 1) {
+        return @"1 Supporter";
+    } else {
+        return [NSString stringWithFormat:@"%i Supporters", count];
+    }
+}
+
+- (NSArray *)supportedCauses
+{
+    if (![_role isEqualToString:@"business"]) return nil;
+    
+    NSMutableArray *predArr = [[NSMutableArray alloc] init];
+    for (NSNumber *i in _supportedCauses) {
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K == %@", @"id", i];
+        [predArr addObject:pred];
+    }
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
+    
+    TLFCauseStore *store = [TLFCauseStore getInstance];
+    NSArray *filtered = [store.causes filteredArrayUsingPredicate:predicate];
+    return filtered;
+}
+
+- (NSArray *)supporters
+{
+    if (![_role isEqualToString:@"cause"]) return nil;    
+    
+    NSMutableArray *predArr = [[NSMutableArray alloc] init];
+    for (NSNumber *i in _supporters) {
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K == %@", @"id", i];
+        [predArr addObject:pred];
+    }
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
+    
+    TLFBusinessStore *store = [TLFBusinessStore getInstance];
+    NSArray *filtered = [store.businesses filteredArrayUsingPredicate:predicate];
+    return filtered;
+}
+
 
 @end

@@ -157,9 +157,9 @@ static TLFRestHelper *restHelper;
     cell.transID.text = [NSString stringWithFormat:@"%@", trans.transID];
     
     if (indexPath.row % 2 == 0)
-        cell.backgroundColor = [TLFColor colorWithHexString:@"eeeeee"];
+        cell.backgroundColor = [TLFColor colorWithHexString:@"ffffff"];
     else
-        cell.backgroundColor = [TLFColor colorWithHexString:@"fefefe"];
+        cell.backgroundColor = [TLFColor colorWithHexString:@"eeeeee"];
     
     return cell;
 }

@@ -24,7 +24,7 @@ public class User implements Parcelable {
     // Member fields
     protected String id, role, firstName, lastName, companyName,
             email, phone, streetAddress, city, state,
-            country, zip, summary, description, website, profilePictureURL = "http://placehold.it/500";
+            country, zip, summary, description, website, profilePictureURL = "http://dummyimage.com/200x200/999999/fff.png";
     protected String[] tags;
     protected Transaction[] transactionsCreated, transactionsAccepted;
     private int totalDebits, totalCredits;
@@ -57,7 +57,7 @@ public class User implements Parcelable {
         zip = jsonObject.optString("zip");
         summary = jsonObject.optString("summary");
         description = jsonObject.optString("description");
-
+        //profilePictureURL
         balance = Float.parseFloat(jsonObject.optString("balance"));
 
         JSONArray jsonTags = jsonObject.optJSONArray("tags");

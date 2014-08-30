@@ -21,8 +21,8 @@
 @end
 
 static TLFNavBarHelper *helper;
-static TLFCauseStore *causeStore;
 static TLFRestHelper *restHelper;
+static NSString *cellName = @"TLFUserCell";
 
 @implementation TLFCausesViewController
 
@@ -62,9 +62,9 @@ static TLFRestHelper *restHelper;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Load the cell nib file
-    UINib *nib = [UINib nibWithNibName:@"TLFUserCell" bundle:nil];
+    UINib *nib = [UINib nibWithNibName:cellName bundle:nil];
     // Register the nib file which contains the cell
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"TLFUserCellC"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:cellName];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,18 +95,16 @@ static TLFRestHelper *restHelper;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"TLFUserCellC";
-    
-    TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
+    TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
+    /*
     if (cell == nil) {
-        cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
     }
-    
+    */
     // Populate cell views
     cell.name.text = restHelper.users[indexPath.row][@"company_name"];
     cell.summary.text = restHelper.users[indexPath.row][@"summary"];
-    cell.image.image = [UIImage imageNamed:@"160.gif"];
+    //cell.image.image = [UIImage imageNamed:@"160.gif"];
     cell.backgroundColor = [TLFColor talifloTiffanyBlue];
     
     return cell;
@@ -118,6 +116,7 @@ static TLFRestHelper *restHelper;
     TLFUserDetailViewController *detailVC = [[TLFUserDetailViewController alloc] init];
     
     // Give the user detail view controller a pointer to the selected cause
+    detailVC.user = [[TLFUser alloc] initWithDictionary:restHelper.users[indexPath.row]];
     
     // Push the user detail view controller to the top of the notes navigation controller stack
     [self.navigationController pushViewController:detailVC animated:YES];

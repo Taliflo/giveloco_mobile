@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TLFUser.h"
 
+@class TLFCauseStore, TLFBusinessStore;
 
 @interface TLFRestHelper : NSObject
 

@@ -1,30 +1,23 @@
 //
-//  TLFBusinessesViewController.m
+//  TLFUserSupportViewController.m
 //  Taliflo
 //
-//  Created by NR-Mac on 1/25/2014.
+//  Created by NR-Mac on 1/29/2014.
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import "TLFBusinessesViewController.h"
+#import "TLFUserSupportViewController.h"
 #import "TLFNavBarHelper.h"
-#import "TLFColor.h"
 #import "TLFUserCell.h"
-#import "TLFBusinessStore.h"
-#import "TLFRestHelper.h"
-#import "TLFUserDetailViewController.h"
+#import "TLFColor.h"
 
-@interface TLFBusinessesViewController ()
-
-@property (nonatomic, strong) NSMutableArray *businesses;
+@interface TLFUserSupportViewController ()
 
 @end
 
-static TLFNavBarHelper *helper;
-static TLFRestHelper *restHelper;
 static NSString *cellName = @"TLFUserCell";
 
-@implementation TLFBusinessesViewController
+@implementation TLFUserSupportViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,23 +25,8 @@ static NSString *cellName = @"TLFUserCell";
     if (self) {
         // Custom initialization
         
-        // Setting the nav bar title, and the tab bar title and image
-        helper = [TLFNavBarHelper getInstance];
-        [helper configViewController:self withTitle:@"Businesses" withImage:[UIImage imageNamed:@"Businesses.png"]];
-        
-        // Request businesses
-        restHelper = [[TLFRestHelper alloc] initWithTableView:self.tableView];
-        [restHelper requestUsers:@"business"];
     }
     return self;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    
-    // Setting the nav bar style
-    [helper configViewController:self withBarTintColor:[UIColor whiteColor] withTintColor:[TLFColor talifloTiffanyBlue]];
 }
 
 - (void)viewDidLoad
@@ -84,7 +62,7 @@ static NSString *cellName = @"TLFUserCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [restHelper.users count];
+    return [_support count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,36 +70,23 @@ static NSString *cellName = @"TLFUserCell";
     return 161.0f;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
-    /*
-    if (cell == nil) {
-        cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-    }
-    */
-    cell.name.text = restHelper.users[indexPath.row][@"company_name"];
-    //cell.image.image = [UIImage imageNamed:@"160.gif"];
-    cell.summary.text = restHelper.users[indexPath.row][@"summary"];
-    cell.backgroundColor = [TLFColor talifloPurple];
+    
+    // Configure the cell...
+    
+    cell.name.text = _support[indexPath.row][@"company_name"];
+    cell.summary.text = _support[indexPath.row][@"summary"];
+    
+    if ([_supportRole isEqualToString:@"cause"])
+        cell.backgroundColor = [TLFColor talifloTiffanyBlue];
+    
+    if ([_supportRole isEqualToString:@"business"])
+        cell.backgroundColor = [TLFColor talifloPurple];
     
     return cell;
 }
-
-
-// When a table cell is selected
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TLFUserDetailViewController *detailVC = [[TLFUserDetailViewController alloc] init];
-    
-    // Give the user detail view controller a pointer to the selected cause
-    detailVC.user = [[TLFUser alloc] initWithDictionary:restHelper.users[indexPath.row]];
-    
-    // Push the user detail view controller to the top of the notes navigation controller stack
-    [self.navigationController pushViewController:detailVC animated:YES];
-}
-
 
 
 /*
