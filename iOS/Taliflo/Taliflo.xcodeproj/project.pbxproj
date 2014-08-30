@@ -17,6 +17,8 @@
 		D5AE030C19B17D5D00F31F04 /* TLFUserSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030B19B17D5D00F31F04 /* TLFUserSupportViewController.m */; };
 		D5AE031019B18FD200F31F04 /* TLFRedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */; };
 		D5AE031119B18FD200F31F04 /* TLFRedeemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */; };
+		D5AE031819B1B63B00F31F04 /* TLFDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE031619B1B63B00F31F04 /* TLFDonateViewController.m */; };
+		D5AE031919B1B63B00F31F04 /* TLFDonateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */; };
 		D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
 		D5B50DD4199D2C1100A486B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */; };
 		D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
@@ -82,6 +84,9 @@
 		D5AE030D19B18FD200F31F04 /* TLFRedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemViewController.h; sourceTree = "<group>"; };
 		D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemViewController.m; sourceTree = "<group>"; };
 		D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFRedeemViewController.xib; sourceTree = "<group>"; };
+		D5AE031519B1B63B00F31F04 /* TLFDonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFDonateViewController.h; sourceTree = "<group>"; };
+		D5AE031619B1B63B00F31F04 /* TLFDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFDonateViewController.m; sourceTree = "<group>"; };
+		D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFDonateViewController.xib; sourceTree = "<group>"; };
 		D5B50DCE199D2C1100A486B0 /* Taliflo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taliflo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B50DD1199D2C1100A486B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +167,7 @@
 		D5AE030719B030F000F31F04 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */,
 				D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */,
 				D5D333F019ABD5E900925EBF /* TLFMyAccountViewController.xib */,
 				D54F790A19AFB906000C2AAE /* TLFUserDetailViewController.xib */,
@@ -300,6 +306,8 @@
 				D5AE030B19B17D5D00F31F04 /* TLFUserSupportViewController.m */,
 				D5AE030D19B18FD200F31F04 /* TLFRedeemViewController.h */,
 				D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */,
+				D5AE031519B1B63B00F31F04 /* TLFDonateViewController.h */,
+				D5AE031619B1B63B00F31F04 /* TLFDonateViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -437,6 +445,7 @@
 				D5D3341119ABE7DC00925EBF /* MyAccount.png in Resources */,
 				D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */,
 				D5D3341D19ABE9B900925EBF /* Causes@2x.png in Resources */,
+				D5AE031919B1B63B00F31F04 /* TLFDonateViewController.xib in Resources */,
 				D5AE030919B0A12700F31F04 /* userImageSmall.png in Resources */,
 				D5AE031119B18FD200F31F04 /* TLFRedeemViewController.xib in Resources */,
 				D5AE030019B00D2800F31F04 /* smallImg50.png in Resources */,
@@ -493,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5AE031819B1B63B00F31F04 /* TLFDonateViewController.m in Sources */,
 				D5D3342519AD11FA00925EBF /* TLFUser.m in Sources */,
 				D5AE030619B0144B00F31F04 /* TLFButton.m in Sources */,
 				D5B50E06199D353000A486B0 /* TLFColor.m in Sources */,

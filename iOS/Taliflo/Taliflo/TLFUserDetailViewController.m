@@ -12,6 +12,7 @@
 #import "TLFColor.h"
 #import "TLFUserSupportViewController.h"
 #import "TLFRedeemViewController.h"
+#import "TLFDonateViewController.h"
 
 @interface TLFUserDetailViewController ()
 
@@ -97,8 +98,9 @@ static NSString *bussIden = @"business";
     
     if ([_user.role isEqualToString:causeIden]) {
         // Open donate view controller
-        
-        
+        TLFDonateViewController *donateVC = [[TLFDonateViewController alloc] init];
+        donateVC.cause = _user;
+        [self.navigationController pushViewController:donateVC animated:YES];
     }
     
 }

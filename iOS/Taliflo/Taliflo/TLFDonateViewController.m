@@ -1,20 +1,22 @@
 //
-//  TLFRedeemViewController.m
+//  TLFDonateViewController.m
 //  Taliflo
 //
-//  Created by NR-Mac on 1/29/2014.
+//  Created by NR-Mac on 1/30/2014.
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import "TLFRedeemViewController.h"
+#import "TLFDonateViewController.h"
 #import "TLFUser.h"
 #import "TLFNavBarHelper.h"
 
-@interface TLFRedeemViewController ()
+@interface TLFDonateViewController () {
+
+}
 
 @end
 
-@implementation TLFRedeemViewController
+@implementation TLFDonateViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,7 +26,7 @@
         
         // Set view controller title
         TLFNavBarHelper *nbHelper = [TLFNavBarHelper getInstance];
-        [nbHelper configViewController:self withTitle:@"Redeem Credits"];
+        [nbHelper configViewController:self withTitle:@"Donate"];
     }
     return self;
 }
@@ -35,18 +37,42 @@
     // Do any additional setup after loading the view from its nib.
     
     // Populate views
-    _name.text = _business.companyName;
-    _address.text = [NSString
-                stringWithFormat:@"%@\n%@, %@", _business.streetAddress, _business.city, _business.state];
+    _name.text = _cause.companyName;
     
     // Styling
-    [[_btnRedeem layer] setCornerRadius:3];;
+    [[_btnDonate layer] setCornerRadius:3];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Action listeners
+
+- (IBAction)selectDonation
+{
+    if (_segmentedControl.selectedSegmentIndex) {
+        // Selected $20
+    }
+    
+    if (_segmentedControl.selectedSegmentIndex) {
+        // Selected $40
+    }
+    
+    if (_segmentedControl.selectedSegmentIndex) {
+        // Selected $60
+    }
+    
+    if (_segmentedControl.selectedSegmentIndex) {
+        // Selected $100
+    }
+}
+
+- (IBAction)donate:(id)sender
+{
+    
 }
 
 @end

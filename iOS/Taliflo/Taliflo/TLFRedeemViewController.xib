@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TLFRedeemViewController">
             <connections>
                 <outlet property="address" destination="FBV-F7-uuf" id="GHo-cv-xF9"/>
+                <outlet property="btnRedeem" destination="4Xb-xn-yO3" id="s4L-OG-tzo"/>
                 <outlet property="name" destination="I0a-D5-23G" id="WBT-IJ-GhT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

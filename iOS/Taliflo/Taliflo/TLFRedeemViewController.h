@@ -16,5 +16,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UILabel *address;
+@property (strong, nonatomic) IBOutlet UIButton *btnRedeem;
 
 @end
