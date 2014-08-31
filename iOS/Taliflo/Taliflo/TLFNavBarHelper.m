@@ -8,6 +8,7 @@
 
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
+#import "TLFBillingInfoViewController.h"
 
 @implementation TLFNavBarHelper
 
@@ -47,6 +48,7 @@
     // Set the navigation bar title
     UINavigationItem *navItem = viewController.navigationItem;
     navItem.title = title;
+    navItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void)configViewController:(UIViewController *)viewController withTitle:(NSString *)title withImage:(UIImage *)image

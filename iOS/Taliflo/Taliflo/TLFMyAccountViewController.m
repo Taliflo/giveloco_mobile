@@ -16,6 +16,7 @@
 #import "TLFUserStore.h"
 #import "TLFTransactionCell.h"
 #import "TLFTransaction.h"
+#import "TLFBillingInfoViewController.h"
 
 @interface TLFMyAccountViewController ()
 
@@ -38,11 +39,19 @@ static TLFRestHelper *restHelper;
         // Setting the nav bar title, and the tab bar title and image
         helper = [TLFNavBarHelper getInstance];
         [helper configViewController:self withTitle:@"My Account" withImage:[UIImage imageNamed:@"MyAccount.png"]];
+        [self.navigationItem.rightBarButtonItem setAction:@selector(openBillingInfo:)];
         
         restHelper = [[TLFRestHelper alloc] init];
         [self requestUser:5];
     }
     return self;
+}
+
+- (IBAction)openBillingInfo:(id)sender
+{
+    TLFBillingInfoViewController *billingInfoVC = [[TLFBillingInfoViewController alloc] init];
+    
+    [self.navigationController pushViewController:billingInfoVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,12 +68,8 @@ static TLFRestHelper *restHelper;
     // Do any additional setup after loading the view from its nib.
     
     // Styling
-    [[_balance layer] setBorderColor:[[TLFColor talifloTiffanyBlue] CGColor]];
-    [[_balance layer] setBorderWidth:2.0];
+    [TLFColor setStrokeTB:_balance];
     [[_balance layer] setCornerRadius:3];
-    CGRect frame = _balance.frame;
-    frame.size.height = _balance.frame.size.height + 10;
-    _balance.frame = frame;
     
     // Load the cell nib file
     UINib *nib = [UINib nibWithNibName:@"TLFTransactionCell" bundle:nil];

@@ -61,9 +61,14 @@
     return [self colorWithHexString:@"440e62"];
 }
 
-+ (UIColor *)talifloPurpleBtnSelect
++ (void)setStrokeTB:(UIView *)view
 {
-    return [self colorWithHexString:@"7c5691"];
+    [[view layer] setBorderColor:[[TLFColor talifloTiffanyBlue] CGColor]];
+    [[view layer] setBorderWidth:2.0];
+    [[view layer] setCornerRadius:3];
+    CGRect frame = view.frame;
+    frame.size.height = view.frame.size.height + 10;
+    view.frame = frame;
 }
 
 @end

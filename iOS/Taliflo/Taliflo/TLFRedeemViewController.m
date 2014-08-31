@@ -22,9 +22,7 @@
     if (self) {
         // Custom initialization
         
-        // Set view controller title
-        TLFNavBarHelper *nbHelper = [TLFNavBarHelper getInstance];
-        [nbHelper configViewController:self withTitle:@"Redeem Credits"];
+
     }
     return self;
 }
@@ -34,13 +32,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // ** Styling **
+
+    // Set view controller title
+    TLFNavBarHelper *nbHelper = [TLFNavBarHelper getInstance];
+    [nbHelper configViewController:self withTitle:@"Redeem Credits"];
+    
     // Populate views
     _name.text = _business.companyName;
     _address.text = [NSString
                 stringWithFormat:@"%@\n%@, %@", _business.streetAddress, _business.city, _business.state];
     
     // Styling
-    [[_btnRedeem layer] setCornerRadius:3];;
+    [[_btnRedeem layer] setCornerRadius:3];
 }
 
 - (void)didReceiveMemoryWarning

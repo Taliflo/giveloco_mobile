@@ -13,6 +13,7 @@
 #import "TLFUserSupportViewController.h"
 #import "TLFRedeemViewController.h"
 #import "TLFDonateViewController.h"
+#import "TLFNavBarHelper.h"
 
 @interface TLFUserDetailViewController ()
 
@@ -28,7 +29,6 @@ static NSString *bussIden = @"business";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-
     }
     return self;
 }
@@ -41,6 +41,12 @@ static NSString *bussIden = @"business";
     // Populate and style layout views based on role
     NSLog(@"Selected User: %@", _user.role);
     
+    TLFNavBarHelper *nbHelper = [TLFNavBarHelper getInstance];
+    NSString *title = [[NSString alloc] init];
+    if ([_user.role isEqualToString:@"business"]) title = @"View Business";
+    if ([_user.role isEqualToString:@"cause"]) title = @"View Cause";
+    [nbHelper configViewController:self withTitle:title];
+    
     _companyName.text = _user.companyName;
     _description.text = _user.description;
     _tags.text = [_user getTagsString];
@@ -50,6 +56,8 @@ static NSString *bussIden = @"business";
     
     TLFUserStore *userStore = [TLFUserStore getInstance];
     _availableCredit.text = [NSString stringWithFormat:@"C %@", userStore.currentUser.balance];
+    
+    // ** Styling **
     
     if ([_user.role isEqualToString:bussIden]) {
         [_btnSupport setTitle:[_user getSupportedCausesStr]
@@ -65,7 +73,6 @@ static NSString *bussIden = @"business";
         [_btnTransact setTitle:@"Donate" forState:UIControlStateNormal];
     }
     
-    // Styling
     [[_btnTransact layer] setCornerRadius:3];
     [[_btnSupport layer] setCornerRadius:3];
 }

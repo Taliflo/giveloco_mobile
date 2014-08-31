@@ -65,6 +65,8 @@ static NSString *cellName = @"TLFUserCell";
     UINib *nib = [UINib nibWithNibName:cellName bundle:nil];
     // Register the nib file which contains the cell
     [self.tableView registerNib:nib forCellReuseIdentifier:cellName];
+    
+    // ** Styling **
 }
 
 - (void)didReceiveMemoryWarning

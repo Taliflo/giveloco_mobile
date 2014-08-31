@@ -19,6 +19,15 @@
 		D5AE031119B18FD200F31F04 /* TLFRedeemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */; };
 		D5AE031819B1B63B00F31F04 /* TLFDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE031619B1B63B00F31F04 /* TLFDonateViewController.m */; };
 		D5AE031919B1B63B00F31F04 /* TLFDonateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */; };
+		D5AE032019B2838000F31F04 /* TLFBillingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE031E19B2838000F31F04 /* TLFBillingInfoViewController.m */; };
+		D5AE032119B2838000F31F04 /* TLFBillingInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE031F19B2838000F31F04 /* TLFBillingInfoViewController.xib */; };
+		D5AE032519B28BBE00F31F04 /* right-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE032419B28BBE00F31F04 /* right-arrow@2x.png */; };
+		D5AE032719B28E4F00F31F04 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE032619B28E4F00F31F04 /* right-arrow.png */; };
+		D5AE033119B2B94D00F31F04 /* check_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE032A19B2B94D00F31F04 /* check_mark@2x.png */; };
+		D5AE033219B2B94D00F31F04 /* done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE032B19B2B94D00F31F04 /* done@2x.png */; };
+		D5AE033319B2B94D00F31F04 /* drop_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE032C19B2B94D00F31F04 /* drop_down@2x.png */; };
+		D5AE033419B2B94D00F31F04 /* DropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE032E19B2B94D00F31F04 /* DropDownListView.m */; };
+		D5AE033519B2B94D00F31F04 /* DropDownViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE033019B2B94D00F31F04 /* DropDownViewCell.m */; };
 		D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
 		D5B50DD4199D2C1100A486B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */; };
 		D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
@@ -87,6 +96,18 @@
 		D5AE031519B1B63B00F31F04 /* TLFDonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFDonateViewController.h; sourceTree = "<group>"; };
 		D5AE031619B1B63B00F31F04 /* TLFDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFDonateViewController.m; sourceTree = "<group>"; };
 		D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFDonateViewController.xib; sourceTree = "<group>"; };
+		D5AE031D19B2838000F31F04 /* TLFBillingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFBillingInfoViewController.h; sourceTree = "<group>"; };
+		D5AE031E19B2838000F31F04 /* TLFBillingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFBillingInfoViewController.m; sourceTree = "<group>"; };
+		D5AE031F19B2838000F31F04 /* TLFBillingInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFBillingInfoViewController.xib; sourceTree = "<group>"; };
+		D5AE032419B28BBE00F31F04 /* right-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow@2x.png"; sourceTree = "<group>"; };
+		D5AE032619B28E4F00F31F04 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
+		D5AE032A19B2B94D00F31F04 /* check_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check_mark@2x.png"; path = "../../../../../github/KDropDownMultipleSelection/kDropDown/check_mark@2x.png"; sourceTree = "<group>"; };
+		D5AE032B19B2B94D00F31F04 /* done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "done@2x.png"; path = "../../../../../github/KDropDownMultipleSelection/kDropDown/done@2x.png"; sourceTree = "<group>"; };
+		D5AE032C19B2B94D00F31F04 /* drop_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop_down@2x.png"; path = "../../../../../github/KDropDownMultipleSelection/kDropDown/drop_down@2x.png"; sourceTree = "<group>"; };
+		D5AE032D19B2B94D00F31F04 /* DropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropDownListView.h; path = ../../../../../github/KDropDownMultipleSelection/kDropDown/DropDownListView.h; sourceTree = "<group>"; };
+		D5AE032E19B2B94D00F31F04 /* DropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropDownListView.m; path = ../../../../../github/KDropDownMultipleSelection/kDropDown/DropDownListView.m; sourceTree = "<group>"; };
+		D5AE032F19B2B94D00F31F04 /* DropDownViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropDownViewCell.h; path = ../../../../../github/KDropDownMultipleSelection/kDropDown/DropDownViewCell.h; sourceTree = "<group>"; };
+		D5AE033019B2B94D00F31F04 /* DropDownViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropDownViewCell.m; path = ../../../../../github/KDropDownMultipleSelection/kDropDown/DropDownViewCell.m; sourceTree = "<group>"; };
 		D5B50DCE199D2C1100A486B0 /* Taliflo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taliflo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B50DD1199D2C1100A486B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5B50DD3199D2C1100A486B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -167,6 +188,7 @@
 		D5AE030719B030F000F31F04 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				D5AE031F19B2838000F31F04 /* TLFBillingInfoViewController.xib */,
 				D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */,
 				D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */,
 				D5D333F019ABD5E900925EBF /* TLFMyAccountViewController.xib */,
@@ -179,6 +201,20 @@
 				D5D3346A19AEB7D100925EBF /* TLFTransactionCell.xib */,
 			);
 			name = Layouts;
+			sourceTree = "<group>";
+		};
+		D5AE032919B2B93B00F31F04 /* kDropDown */ = {
+			isa = PBXGroup;
+			children = (
+				D5AE032A19B2B94D00F31F04 /* check_mark@2x.png */,
+				D5AE032B19B2B94D00F31F04 /* done@2x.png */,
+				D5AE032C19B2B94D00F31F04 /* drop_down@2x.png */,
+				D5AE032D19B2B94D00F31F04 /* DropDownListView.h */,
+				D5AE032E19B2B94D00F31F04 /* DropDownListView.m */,
+				D5AE032F19B2B94D00F31F04 /* DropDownViewCell.h */,
+				D5AE033019B2B94D00F31F04 /* DropDownViewCell.m */,
+			);
+			name = kDropDown;
 			sourceTree = "<group>";
 		};
 		D5B50DC5199D2C1000A486B0 = {
@@ -281,6 +317,7 @@
 		D5B50E01199D2C6C00A486B0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D5AE032919B2B93B00F31F04 /* kDropDown */,
 				D5B50E04199D353000A486B0 /* TLFColor.h */,
 				D5B50E05199D353000A486B0 /* TLFColor.m */,
 				D5B50E29199D3CEB00A486B0 /* TLFNavBarHelper.h */,
@@ -308,6 +345,8 @@
 				D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */,
 				D5AE031519B1B63B00F31F04 /* TLFDonateViewController.h */,
 				D5AE031619B1B63B00F31F04 /* TLFDonateViewController.m */,
+				D5AE031D19B2838000F31F04 /* TLFBillingInfoViewController.h */,
+				D5AE031E19B2838000F31F04 /* TLFBillingInfoViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -324,6 +363,7 @@
 		D5D333FD19ABE2A300925EBF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D5AE032619B28E4F00F31F04 /* right-arrow.png */,
 				D5D3342919AD44E800925EBF /* 160.gif */,
 				D5D3341819ABE93200925EBF /* Businesses.png */,
 				D5D3341419ABE88400925EBF /* Causes.png */,
@@ -335,6 +375,7 @@
 		D5D333FE19ABE2E700925EBF /* Images@2x */ = {
 			isa = PBXGroup;
 			children = (
+				D5AE032419B28BBE00F31F04 /* right-arrow@2x.png */,
 				D5D3341E19ABE9D700925EBF /* MyAccount@2x.png */,
 				D5D3341C19ABE9B900925EBF /* Causes@2x.png */,
 				D5D3341A19ABE98300925EBF /* Businesses@2x.png */,
@@ -433,11 +474,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5AE032519B28BBE00F31F04 /* right-arrow@2x.png in Resources */,
+				D5AE033319B2B94D00F31F04 /* drop_down@2x.png in Resources */,
 				D5D3341B19ABE98300925EBF /* Businesses@2x.png in Resources */,
 				D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */,
 				D5D3341919ABE93200925EBF /* Businesses.png in Resources */,
+				D5AE033219B2B94D00F31F04 /* done@2x.png in Resources */,
 				D5D3346C19AEB7D100925EBF /* TLFTransactionCell.xib in Resources */,
 				D5D3342F19AD64C500925EBF /* TLFUserCell.xib in Resources */,
+				D5AE033119B2B94D00F31F04 /* check_mark@2x.png in Resources */,
 				D54F790C19AFB906000C2AAE /* TLFUserDetailViewController.xib in Resources */,
 				D5D3341519ABE88400925EBF /* Causes.png in Resources */,
 				D5D3342A19AD44E800925EBF /* 160.gif in Resources */,
@@ -446,8 +491,10 @@
 				D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */,
 				D5D3341D19ABE9B900925EBF /* Causes@2x.png in Resources */,
 				D5AE031919B1B63B00F31F04 /* TLFDonateViewController.xib in Resources */,
+				D5AE032719B28E4F00F31F04 /* right-arrow.png in Resources */,
 				D5AE030919B0A12700F31F04 /* userImageSmall.png in Resources */,
 				D5AE031119B18FD200F31F04 /* TLFRedeemViewController.xib in Resources */,
+				D5AE032119B2838000F31F04 /* TLFBillingInfoViewController.xib in Resources */,
 				D5AE030019B00D2800F31F04 /* smallImg50.png in Resources */,
 				D5AE02FE19B00B8D00F31F04 /* userImageBig.png in Resources */,
 				D5D3341F19ABE9D700925EBF /* MyAccount@2x.png in Resources */,
@@ -505,16 +552,19 @@
 				D5AE031819B1B63B00F31F04 /* TLFDonateViewController.m in Sources */,
 				D5D3342519AD11FA00925EBF /* TLFUser.m in Sources */,
 				D5AE030619B0144B00F31F04 /* TLFButton.m in Sources */,
+				D5AE033419B2B94D00F31F04 /* DropDownListView.m in Sources */,
 				D5B50E06199D353000A486B0 /* TLFColor.m in Sources */,
 				D5B50E2B199D3CEB00A486B0 /* TLFNavBarHelper.m in Sources */,
 				D5D3342819AD198200925EBF /* TLFTransaction.m in Sources */,
 				D5D3346419AE4A4D00925EBF /* TLFBusinessStore.m in Sources */,
+				D5AE032019B2838000F31F04 /* TLFBillingInfoViewController.m in Sources */,
 				D5AE030C19B17D5D00F31F04 /* TLFUserSupportViewController.m in Sources */,
 				D5D333F819ABD64300925EBF /* TLFBusinessesViewController.m in Sources */,
 				D5D333F119ABD5E900925EBF /* TLFMyAccountViewController.m in Sources */,
 				D5AE031019B18FD200F31F04 /* TLFRedeemViewController.m in Sources */,
 				D5B50DDE199D2C1100A486B0 /* main.m in Sources */,
 				D5D3346119AE4A3300925EBF /* TLFCauseStore.m in Sources */,
+				D5AE033519B2B94D00F31F04 /* DropDownViewCell.m in Sources */,
 				D54F790419AEE1A6000C2AAE /* TLFUserStore.m in Sources */,
 				D5D333F519ABD63500925EBF /* TLFCausesViewController.m in Sources */,
 				D5D3342E19AD64C500925EBF /* TLFUserCell.m in Sources */,
