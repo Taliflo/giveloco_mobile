@@ -9,32 +9,38 @@
     <style name="CustomTealTheme" parent="@android:Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/TealActionBar</item>
     </style>
+
         <!-- Taliflo teal coloured action bar -->
         <style name="TealActionBar" parent="@android:Widget.Holo.ActionBar">
             <item name="android:background">@drawable/action_bar_teal_bg</item>
             <item name="android:titleTextStyle">@style/TealActionBar.TitleTextStyle</item>
         </style>
+
         <!-- Font Appearance -->
         <style name="TealActionBar.TitleTextStyle" parent="@android:TextAppearance.Holo.Widget.ActionBar.Title">
             <item name="android:textColor">#ffffff</item>
         </style>
+
 
     <!-- ** Taliflo white coloured theme ** -->
     <style name="CustomLightGreyTheme" parent="@android:Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/LightGreyActionBar</item>
         <item name="android:actionBarTabTextStyle">@style/GreyTextStyle</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle</item>
+        <item name="android:actionBarWidgetTheme">@style/ActionBarWidgetStyle</item>
         <item name="android:datePickerStyle">@style/DialogStyle</item>
         <item name="android:actionOverflowButtonStyle">@style/Overflow</item>
         <item name="sdlDialogStyle">@style/DialogStyle.CustomDialog</item>
         <item name="android:listChoiceIndicatorMultiple">@drawable/custom_btn_check_holo_light</item>
         <item name="android:listChoiceIndicatorSingle">@drawable/custom_btn_radio_holo_light</item>
     </style>
+
         <!-- Taliflo white coloured action bar -->
         <style name="LightGreyActionBar" parent="@android:Widget.Holo.ActionBar">
             <item name="android:background">#ffffff</item>
             <item name="android:titleTextStyle">@style/TiffanyBlueTextStyle</item>
         </style>
+
         <!-- Font appearance -->
         <style name="TiffanyBlueTextStyle" parent="@android:TextAppearance.Holo.Widget.ActionBar.Title">
             <item name="android:textColor">#00a79d</item>
@@ -42,18 +48,22 @@
         <style name="GreyTextStyle" parent="@android:TextAppearance.Holo.Widget.ActionBar.Title">
             <item name="android:textColor">#888</item>
         </style>
+
         <!-- Action bar tab style -->
         <style name="ActionBarTabStyle" parent="@android:style/Widget.Holo.ActionBar.TabView">
             <item name="android:background">@android:color/transparent</item>
         </style>
+
         <!-- Dialog style -->
         <style name="DialogStyle" parent="@android:style/Widget.Holo.DatePicker">
             <item name="android:windowBackground">@color/taliflo_orange</item>
         </style>
+
         <!-- Action Overflow Icon -->
         <style name="Overflow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
             <item name="android:src">@drawable/ic_action_overflow_tb</item>
         </style>
+
         <!-- Simple Dialog styling -->
         <style name="DialogStyle.CustomDialog">
             <item name="titleTextColor">@color/taliflo_purple</item>
@@ -64,6 +74,11 @@
             <item name="buttonBackgroundColorPressed">@color/med_grey</item>
             <item name="buttonBackgroundColorFocused">@color/med_grey</item>
             <item name="dialogBackground">@color/white</item>
+        </style>
+
+        <!-- Action bar widgets -->
+        <style name="ActionBarWidgetStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+            <item name="searchViewSearchIcon">@drawable/ic_action_search_tb</item>
         </style>
 
     <!-- Style to remove action bar for the Login activity -->

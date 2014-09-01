@@ -3,7 +3,6 @@ package com.taliflo.app.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,8 +47,9 @@ public class UserSupport extends Activity {
         // Retrieve intent data
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            support = new ArrayList<User>();
             final int[] suppIDs = extras.getIntArray("Support");
+
+            ArrayList<Predicate<User>> preds = new ArrayList<Predicate<User>>();
 
             if (extras.getString("Role").equals("business")) {
                 setTitle(getResources().getString(R.string.userSupport_titleSupportedCauses));
@@ -57,9 +57,12 @@ public class UserSupport extends Activity {
                 // Retrieve list of supported causes
                 CauseStore causeStore = CauseStore.getInstance();
                 List<User> causes = causeStore.getCauses();
-                for (int i = 0; i < suppIDs.length; i++) {
 
+                for (int i = 0; i < suppIDs.length; i++) {
+                    preds.add(new UserIdPredicate(suppIDs[i]));
                 }
+
+               support  = new ArrayList<User>(Collections2.filter(causes, Predicates.or(preds)));
 
             }
 
@@ -69,9 +72,12 @@ public class UserSupport extends Activity {
                 // Retrieve list of supporting businesses
                 BusinessStore businessStore = BusinessStore.getInstance();
                 List<User> businesses = businessStore.getBusinesses();
+
                 for (int i = 0; i < suppIDs.length; i++) {
-                    
+                    preds.add(new UserIdPredicate(suppIDs[i]));
                 }
+
+                support = new ArrayList<User>(Collections2.filter(businesses, Predicates.or(preds)));
             }
 
             adapter = new UserAdapter(this, support);
@@ -127,8 +133,8 @@ public class UserSupport extends Activity {
         }
 
         @Override
-        public boolean apply(@Nullable User user) {
-            return user.getId().equals(""+id);
+        public boolean apply(User user) {
+            return user.getId().equals(Integer.toString(id));
         }
     }
 

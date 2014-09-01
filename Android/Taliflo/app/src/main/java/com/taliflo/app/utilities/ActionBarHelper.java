@@ -46,6 +46,7 @@ public class ActionBarHelper {
                 return true;
 
             case R.id.action_search:
+                //activity.onSearchRequested();
                 return true;
 
             case R.id.action_updateBillingInfo:

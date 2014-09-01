@@ -20,25 +20,25 @@
     // Override point for customization after application launch.
     
     // My Account view controller and navigation controller
-    TLFMyAccountViewController *myAccountVC = [[TLFMyAccountViewController alloc] init];
-    UINavigationController *myAccountNC = [[UINavigationController alloc] initWithRootViewController:myAccountVC];
+    self.myAccountVC = [[TLFMyAccountViewController alloc] init];
+    self.myAccountNC = [[UINavigationController alloc] initWithRootViewController:self.myAccountVC];
     
     // Causes table view controller and navigation controller
-    TLFCausesViewController *causesVC = [[TLFCausesViewController alloc] init];
-    UINavigationController *causesNC = [[UINavigationController alloc] initWithRootViewController:causesVC];
+    self.causesVC = [[TLFCausesViewController alloc] init];
+    self.causesNC = [[UINavigationController alloc] initWithRootViewController:self.causesVC];
     
     // Businesses table view controller and navigation controller
-    TLFBusinessesViewController *businessesVC = [[TLFBusinessesViewController alloc] init];
-    UINavigationController *businessesNC = [[UINavigationController alloc] initWithRootViewController:businessesVC];
+    self.businessesVC = [[TLFBusinessesViewController alloc] init];
+    self.businessesNC = [[UINavigationController alloc] initWithRootViewController:self.businessesVC];
     
     // Tab bar controller
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[myAccountNC, causesNC, businessesNC];
-    [tabBarController.tabBar setBarTintColor:[UIColor whiteColor]];
-    [tabBarController.tabBar setTintColor:[TLFColor talifloTiffanyBlue]];
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = @[self.myAccountNC, self.causesNC, self.businessesNC];
+    [self.tabBarController.tabBar setBarTintColor:[UIColor whiteColor]];
+    [self.tabBarController.tabBar setTintColor:[TLFColor talifloTiffanyBlue]];
     
     
-    self.window.rootViewController = tabBarController;
+    self.window.rootViewController = self.tabBarController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

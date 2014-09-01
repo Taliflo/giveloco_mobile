@@ -3,7 +3,10 @@ package com.taliflo.app.activities;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.ComponentName;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -17,9 +20,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.TextView;
+
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.taliflo.app.R;
@@ -29,6 +36,7 @@ import com.taliflo.app.utilities.ActionBarHelper;
 import com.taliflo.app.utilities.NavDrawerInterface;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -170,7 +178,44 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.global, menu);
+
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        // Assumes current activity is the searchable activity
+        ComponentName componentName = new ComponentName(this, Search.class);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName));
+        searchView.setQueryHint(getResources().getString(R.string.search_hint));
+        for (TextView textView : findChildrenByClass(searchView, TextView.class)) {
+            textView.setTextColor(Color.BLACK);
+            textView.setHintTextColor(getResources().getColor(R.color.med_grey));
+        }
+        int searchIconId = getResources().getIdentifier("android:id/search_button", null, null);
+        ImageView imageView = (ImageView) searchView.findViewById(searchIconId);
+        imageView.setImageResource(R.drawable.ic_action_search_tb);
+
         return true;
+    }
+
+    public static <V extends View> Collection<V> findChildrenByClass(ViewGroup viewGroup, Class<V> clazz) {
+
+        return gatherChildrenByClass(viewGroup, clazz, new ArrayList<V>());
+    }
+
+    private static <V extends View> Collection<V> gatherChildrenByClass(ViewGroup viewGroup, Class<V> clazz, Collection<V> childrenFound) {
+
+        for (int i = 0; i < viewGroup.getChildCount(); i++)
+        {
+            final View child = viewGroup.getChildAt(i);
+            if (clazz.isAssignableFrom(child.getClass())) {
+                childrenFound.add((V)child);
+            }
+            if (child instanceof ViewGroup) {
+                gatherChildrenByClass((ViewGroup) child, clazz, childrenFound);
+            }
+        }
+
+        return childrenFound;
     }
 
     @Override
