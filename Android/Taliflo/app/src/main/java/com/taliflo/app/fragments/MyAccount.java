@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.TransactionsAdapter;
-import com.taliflo.app.api.TalifloRestAPI;
+import com.taliflo.app.api.TalifloRestHelper;
 import com.taliflo.app.model.Transaction;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
@@ -58,7 +58,7 @@ public class MyAccount extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         if (transactionsList.isEmpty()) {
-            RequestUser requestUser = new RequestUser(user, 5);
+            RequestUser requestUser = new RequestUser(user, 4);
             requestUser.execute();
         }
     }
@@ -118,7 +118,7 @@ public class MyAccount extends Fragment {
         }
 
         private void parseUser() throws Exception {
-            TalifloRestAPI restAPI = TalifloRestAPI.getSharedInstance();
+            TalifloRestHelper restAPI = TalifloRestHelper.getSharedInstance();
             String query = restAPI.queryUserID(userId);
             String jsonResult = restAPI.getJsonResult(query);
             JSONObject resultObject = new JSONObject(jsonResult);

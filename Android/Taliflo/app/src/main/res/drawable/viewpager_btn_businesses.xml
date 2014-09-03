@@ -10,7 +10,7 @@
         android:drawable="@drawable/ic_business" />
     <item android:state_focused="false" android:state_selected="true"
         android:state_pressed="false"
-        android:drawable="@drawable/ic_business_tb" />
+        android:drawable="@drawable/ic_business_purple" />
 
     <!-- Focused states (such as when focused with a d-pad or mouse hover) -->
     <item android:state_focused="true" android:state_selected="false"
@@ -18,7 +18,7 @@
         android:drawable="@drawable/ic_business" />
     <item android:state_focused="true" android:state_selected="true"
         android:state_pressed="false"
-        android:drawable="@drawable/ic_business_tb" />
+        android:drawable="@drawable/ic_business_purple" />
 
 
     <!-- STATES WHEN BUTTON IS PRESSED -->
@@ -29,7 +29,7 @@
         android:drawable="@drawable/ic_business" />
     <item android:state_focused="false" android:state_selected="true"
         android:state_pressed="true"
-        android:drawable="@drawable/ic_business_tb" />
+        android:drawable="@drawable/ic_business_purple" />
 
     <!-- Focused states (such as when focused with a d-pad or mouse hover) -->
     <item android:state_focused="true" android:state_selected="false"
@@ -37,6 +37,6 @@
         android:drawable="@drawable/ic_business" />
     <item android:state_focused="true" android:state_selected="true"
         android:state_pressed="true"
-        android:drawable="@drawable/ic_business_tb" />
+        android:drawable="@drawable/ic_business_purple" />
 
 </selector>

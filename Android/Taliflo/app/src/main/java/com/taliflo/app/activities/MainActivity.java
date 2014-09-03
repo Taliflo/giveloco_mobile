@@ -72,9 +72,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private ViewPager viewPager;
     private TabsPagerAdapter tabsAdapter;
     private ActionBar actionBar;
+    private ActionBarHelper abHelper = ActionBarHelper.getInstance();
     // Tab titles
 
-    Activity thisActiv;
+    private Activity thisActiv = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +85,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         // If user selects "Logout" from another activity
         if (getIntent().getBooleanExtra("EXIT", false)) finish();
 
-        thisActiv = this;
-
-        Intent loginIntent = new Intent(getApplicationContext(), Login.class);
-        startActivityForResult(loginIntent, 1);
+        /*Intent loginIntent = new Intent(getApplicationContext(), Login.class);
+        startActivityForResult(loginIntent, 1);*/
 
 
         if (savedInstanceState == null) {
@@ -178,22 +177,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.global, menu);
-
-        // Get the SearchView and set the searchable configuration
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        // Assumes current activity is the searchable activity
-        ComponentName componentName = new ComponentName(this, Search.class);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName));
-        searchView.setQueryHint(getResources().getString(R.string.search_hint));
-        for (TextView textView : findChildrenByClass(searchView, TextView.class)) {
-            textView.setTextColor(Color.BLACK);
-            textView.setHintTextColor(getResources().getColor(R.color.med_grey));
-        }
-        int searchIconId = getResources().getIdentifier("android:id/search_button", null, null);
-        ImageView imageView = (ImageView) searchView.findViewById(searchIconId);
-        imageView.setImageResource(R.drawable.ic_action_search_tb);
-
+        abHelper.onCreateOptionsMenu(thisActiv, menu);
         return true;
     }
 
@@ -229,8 +213,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        ActionBarHelper helper = ActionBarHelper.getInstance();
-        helper.onOptionsItemSelected(thisActiv, item);
+        abHelper.onOptionsItemSelected(thisActiv, item);
         return super.onOptionsItemSelected(item);
     }
 /*

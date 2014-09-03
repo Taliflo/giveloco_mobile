@@ -54,7 +54,7 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
 
     private void parseUsers () throws Exception {
 
-        TalifloRestAPI restAPI = TalifloRestAPI.getSharedInstance();
+        TalifloRestHelper restAPI = TalifloRestHelper.getSharedInstance();
         String query = restAPI.QUERY_USERS;
         String jsonResult = restAPI.getJsonResult(query);
         /** Parsing result to retrieve the contents **/

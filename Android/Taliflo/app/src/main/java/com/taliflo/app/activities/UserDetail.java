@@ -28,6 +28,9 @@ public class UserDetail extends Activity {
     private User user, loggedInUser;
     private ImageLoader imageLoader;
 
+    private Activity thisActiv = this;
+    private ActionBarHelper abHelper = ActionBarHelper.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,6 +150,7 @@ public class UserDetail extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.global, menu);
+        abHelper.onCreateOptionsMenu(thisActiv, menu);
         return true;
     }
 
@@ -155,8 +159,7 @@ public class UserDetail extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        ActionBarHelper helper = ActionBarHelper.getInstance();
-        helper.onOptionsItemSelected(this, item);
+        abHelper.onOptionsItemSelected(this, item);
         return super.onOptionsItemSelected(item);
     }
 }

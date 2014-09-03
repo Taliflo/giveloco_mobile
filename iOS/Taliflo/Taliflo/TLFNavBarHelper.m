@@ -49,6 +49,8 @@
     UINavigationItem *navItem = viewController.navigationItem;
     navItem.title = title;
     navItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    /*[navItem.backBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10.0]} forState:UIControlStateNormal]; */
 }
 
 - (void)configViewController:(UIViewController *)viewController withTitle:(NSString *)title withImage:(UIImage *)image

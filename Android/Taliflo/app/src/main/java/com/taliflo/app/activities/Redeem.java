@@ -67,7 +67,7 @@ public class Redeem extends FragmentActivity implements ISimpleDialogListener {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.global, menu);
+        getMenuInflater().inflate(R.menu.no_search, menu);
         return true;
     }
 

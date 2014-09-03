@@ -32,12 +32,24 @@ public class Businesses extends Fragment {
     private UserAdapter adapter;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        adapter = new UserAdapter(getActivity(), businesses);
+        if (businesses.isEmpty()) {
+            Log.i(TAG, "Requesting businesses... ");
+            RequestUsers usersRequest = new RequestUsers(adapter, businesses, "business");
+            usersRequest.execute();
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
         View v = inflater.inflate(R.layout.fragment_businesses, container, false);
         listView = (ListView) v.findViewById(R.id.businesses_listView);
-        adapter = new UserAdapter(getActivity(), businesses);
+
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(openUserDetail);
 
@@ -51,10 +63,7 @@ public class Businesses extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (businesses.isEmpty()) {
-            RequestUsers usersRequest = new RequestUsers(adapter, businesses, "business");
-            usersRequest.execute();
-        }
+
 
         Log.i(TAG, "# of Businesses: " + businesses.size());
     }

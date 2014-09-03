@@ -31,6 +31,18 @@ public class Causes extends Fragment {
     private UserAdapter adapter;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        adapter = new UserAdapter(getActivity(), causes);
+        if (causes.isEmpty()) {
+            Log.i(TAG, "Requesting causes... ");
+            RequestUsers usersRequest = new RequestUsers(adapter, causes, "cause");
+            usersRequest.execute();
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
@@ -38,7 +50,6 @@ public class Causes extends Fragment {
         View v = inflater.inflate(R.layout.fragment_causes, container, false);
         listView = (ListView) v.findViewById(R.id.causes_listView);
 
-        adapter = new UserAdapter(getActivity(), causes);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(openUserDetail);
 
@@ -52,10 +63,7 @@ public class Causes extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (causes.isEmpty()) {
-            RequestUsers usersRequest = new RequestUsers(adapter, causes, "cause");
-            usersRequest.execute();
-        }
+
 
         Log.i(TAG, "# of Causes: " + causes.size());
     }

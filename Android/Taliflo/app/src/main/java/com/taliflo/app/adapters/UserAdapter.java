@@ -15,6 +15,9 @@ import com.taliflo.app.model.User;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Created by Caswell on 1/7/2014.
@@ -132,7 +135,6 @@ public class UserAdapter extends BaseAdapter {
         return v;*/
 
     }
-
 
     private static class UserHolder {
         private ImageView image;

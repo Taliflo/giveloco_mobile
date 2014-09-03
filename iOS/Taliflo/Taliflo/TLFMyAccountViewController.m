@@ -16,7 +16,7 @@
 #import "TLFUserStore.h"
 #import "TLFTransactionCell.h"
 #import "TLFTransaction.h"
-#import "TLFBillingInfoViewController.h"
+#import "TLFSearchViewController.h"
 
 @interface TLFMyAccountViewController ()
 
@@ -42,16 +42,19 @@ static TLFRestHelper *restHelper;
         [self.navigationItem.rightBarButtonItem setAction:@selector(openBillingInfo:)];
         
         restHelper = [[TLFRestHelper alloc] init];
-        [self requestUser:5];
+        [self requestUser:4];
     }
     return self;
 }
 
 - (IBAction)openBillingInfo:(id)sender
 {
-    TLFBillingInfoViewController *billingInfoVC = [[TLFBillingInfoViewController alloc] init];
+/*    TLFBillingInfoViewController *billingInfoVC = [[TLFBillingInfoViewController alloc] init];
     
-    [self.navigationController pushViewController:billingInfoVC animated:YES];
+    [self.navigationController pushViewController:billingInfoVC animated:YES]; */
+    
+    TLFSearchViewController *searchVC = [[TLFSearchViewController alloc] init];
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -145,15 +148,7 @@ static TLFRestHelper *restHelper;
     if (!cell) {
         cell = [[TLFTransactionCell alloc] init];
     }
-/*
-    // Populate cell views (Transactions created)
-    NSDictionary *trans = _user.transactionsCreated[indexPath.row];
-    cell.type.text = trans[@"trans_type"];
-    //cell.date.text = [trans formatCreatedAt];
-    cell.party.text = trans[@"to_name"];
-    //cell.amount.text = trans.amount;
-    //cell.transID.text = trans.transID;
-*/
+
     TLFTransaction *trans = [[TLFTransaction alloc] initWithDictionary:_user.transactions[indexPath.row]];
     cell.party.text = trans.toName;
     cell.date.text = [trans formatCreatedAt];
