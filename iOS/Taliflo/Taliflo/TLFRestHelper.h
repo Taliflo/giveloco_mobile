@@ -13,10 +13,10 @@
 
 @interface TLFRestHelper : NSObject
 
-@property (nonatomic, strong) NSMutableArray* users;
-@property (nonatomic, strong) NSMutableArray* transactions;
-@property (nonatomic, strong) TLFUser *user;
-@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, copy) NSMutableArray* users;
+@property (nonatomic, copy) NSMutableArray* transactions;
+@property (nonatomic, copy) TLFUser *user;
+@property (nonatomic) UITableView *tableView;
 
 - (instancetype)initWithTableView:(UITableView *)tableView;
 - (NSURL *)queryUsers;

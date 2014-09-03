@@ -25,8 +25,7 @@
         // Custom initialization
         
         // Set view controller title
-        TLFNavBarHelper *nbHelper = [TLFNavBarHelper getInstance];
-        [nbHelper configViewController:self withTitle:@"Donate"];
+        [TLFNavBarHelper configViewController:self withTitle:@"Donate"];
     }
     return self;
 }

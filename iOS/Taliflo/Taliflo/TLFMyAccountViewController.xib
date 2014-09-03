@@ -20,17 +20,22 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0K-GJ-KEm">
                     <rect key="frame" x="20" y="79" width="280" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="ENw-bs-1uw"/>
+                        <constraint firstAttribute="height" constant="21" id="abX-87-U7j"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                     <color key="textColor" red="0.26666666666666666" green="0.054901960784313725" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Balance (Credits)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUO-51-jmp">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUO-51-jmp">
                     <rect key="frame" x="20" y="108" width="280" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="09r-Fp-iaq"/>
+                        <constraint firstAttribute="width" constant="280" id="fg8-Up-eOj"/>
+                        <constraint firstAttribute="height" constant="21" id="zdf-Ei-zzt"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -39,7 +44,8 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="T4o-Ju-siU"/>
+                        <constraint firstAttribute="height" constant="30" id="GVS-ck-eDv"/>
+                        <constraint firstAttribute="width" constant="280" id="Xvq-Fu-AP0"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.2666666667" green="0.054901960780000002" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,9 +55,10 @@
                     <rect key="frame" x="20" y="167" width="280" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="LK6-GK-FqF"/>
+                        <constraint firstAttribute="width" constant="280" id="UEs-54-5mB"/>
+                        <constraint firstAttribute="height" constant="21" id="i7r-9F-wDi"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -59,6 +66,9 @@
                     <rect key="frame" x="0.0" y="196" width="320" height="321"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="3Gu-UR-LQM"/>
+                    </constraints>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="cdC-Gd-Ztx"/>
                         <outlet property="delegate" destination="-1" id="mON-1H-G4w"/>
@@ -67,22 +77,22 @@
             </subviews>
             <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Q0K-GJ-KEm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="6KW-9F-2t7"/>
-                <constraint firstItem="JUO-51-jmp" firstAttribute="top" secondItem="Q0K-GJ-KEm" secondAttribute="bottom" constant="8" symbolic="YES" id="89H-j6-vkP"/>
-                <constraint firstItem="Jad-JH-f25" firstAttribute="trailing" secondItem="JUO-51-jmp" secondAttribute="trailing" id="Dnw-ue-LeV"/>
-                <constraint firstItem="Q0K-GJ-KEm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="79" id="Hzs-U6-VKi"/>
-                <constraint firstItem="Dmd-hr-Mba" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Nam-xT-wHK"/>
-                <constraint firstItem="Dmd-hr-Mba" firstAttribute="centerX" secondItem="sg1-xb-fG7" secondAttribute="centerX" id="X8Z-zL-tJH"/>
-                <constraint firstItem="Jad-JH-f25" firstAttribute="trailing" secondItem="sg1-xb-fG7" secondAttribute="trailing" id="ZMR-gB-dop"/>
-                <constraint firstAttribute="bottom" secondItem="Dmd-hr-Mba" secondAttribute="bottom" constant="51" id="ar7-ub-Gb6"/>
-                <constraint firstItem="sg1-xb-fG7" firstAttribute="top" secondItem="Jad-JH-f25" secondAttribute="bottom" constant="8" symbolic="YES" id="dMg-JL-PHu"/>
-                <constraint firstItem="Dmd-hr-Mba" firstAttribute="top" secondItem="sg1-xb-fG7" secondAttribute="bottom" constant="8" symbolic="YES" id="iYi-OM-Pue"/>
-                <constraint firstItem="Jad-JH-f25" firstAttribute="leading" secondItem="JUO-51-jmp" secondAttribute="leading" id="il8-Fm-aG9"/>
-                <constraint firstAttribute="trailing" secondItem="Q0K-GJ-KEm" secondAttribute="trailing" constant="20" symbolic="YES" id="kZP-0L-5Gw"/>
-                <constraint firstItem="Q0K-GJ-KEm" firstAttribute="leading" secondItem="JUO-51-jmp" secondAttribute="leading" id="nsf-9O-h8B"/>
-                <constraint firstItem="Jad-JH-f25" firstAttribute="top" secondItem="JUO-51-jmp" secondAttribute="bottom" id="ply-ZZ-dVb"/>
-                <constraint firstItem="sg1-xb-fG7" firstAttribute="leading" secondItem="Jad-JH-f25" secondAttribute="leading" id="uW7-kQ-WZV"/>
-                <constraint firstItem="Q0K-GJ-KEm" firstAttribute="trailing" secondItem="JUO-51-jmp" secondAttribute="trailing" id="zhQ-rz-fHQ"/>
+                <constraint firstItem="Dmd-hr-Mba" firstAttribute="top" secondItem="sg1-xb-fG7" secondAttribute="bottom" constant="8" id="5De-sh-41V"/>
+                <constraint firstItem="JUO-51-jmp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Af5-GR-4oU"/>
+                <constraint firstItem="Jad-JH-f25" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="C4Y-Lc-TWf"/>
+                <constraint firstAttribute="trailing" secondItem="Jad-JH-f25" secondAttribute="trailing" constant="20" id="Cl8-o0-0oP"/>
+                <constraint firstItem="Dmd-hr-Mba" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DKI-9N-gA6"/>
+                <constraint firstAttribute="bottom" secondItem="Dmd-hr-Mba" secondAttribute="bottom" constant="51" id="FIA-Kd-j44"/>
+                <constraint firstItem="Q0K-GJ-KEm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Gqr-j9-G8C"/>
+                <constraint firstAttribute="trailing" secondItem="Dmd-hr-Mba" secondAttribute="trailing" id="IpG-aR-8Eh"/>
+                <constraint firstItem="Jad-JH-f25" firstAttribute="top" secondItem="JUO-51-jmp" secondAttribute="bottom" id="Jsa-Pz-xcD"/>
+                <constraint firstItem="sg1-xb-fG7" firstAttribute="top" secondItem="Jad-JH-f25" secondAttribute="bottom" constant="8" id="Ob8-kw-BcD"/>
+                <constraint firstItem="JUO-51-jmp" firstAttribute="top" secondItem="Q0K-GJ-KEm" secondAttribute="bottom" constant="8" id="U7k-CV-ooH"/>
+                <constraint firstAttribute="trailing" secondItem="sg1-xb-fG7" secondAttribute="trailing" constant="20" id="VQl-U1-opG"/>
+                <constraint firstItem="sg1-xb-fG7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="ajR-fW-2WZ"/>
+                <constraint firstAttribute="trailing" secondItem="Q0K-GJ-KEm" secondAttribute="trailing" constant="20" id="n8A-qX-mX1"/>
+                <constraint firstItem="Q0K-GJ-KEm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="79" id="tVl-Rc-KOF"/>
+                <constraint firstAttribute="trailing" secondItem="JUO-51-jmp" secondAttribute="trailing" constant="20" id="z3N-UY-w3F"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

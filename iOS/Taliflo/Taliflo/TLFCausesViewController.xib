@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TLFSearchViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TLFCausesViewController">
             <connections>
-                <outlet property="searchBar" destination="qki-mY-RcO" id="C82-eM-qu6"/>
-                <outlet property="searchDisplayController" destination="AXd-aP-uq7" id="p9i-OC-apG"/>
+                <outlet property="searchBar" destination="hga-Vh-gyn" id="riK-NH-ujG"/>
+                <outlet property="searchDisplayController" destination="xo1-YU-yoZ" id="8P8-ja-jVJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,28 +17,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Taliflo" id="qki-mY-RcO">
+            <searchBar key="tableHeaderView" tag="1" contentMode="redraw" id="hga-Vh-gyn">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 <textInputTraits key="textInputTraits"/>
                 <connections>
-                    <outlet property="delegate" destination="-1" id="iNj-3z-gLi"/>
+                    <outlet property="delegate" destination="-1" id="ahx-sO-vBp"/>
                 </connections>
             </searchBar>
             <connections>
-                <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
-                <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
+                <outlet property="dataSource" destination="-1" id="rOl-ah-QPD"/>
+                <outlet property="delegate" destination="-1" id="6IQ-Ud-iNw"/>
             </connections>
         </tableView>
-        <searchDisplayController id="AXd-aP-uq7">
+        <searchDisplayController id="xo1-YU-yoZ">
             <connections>
-                <outlet property="delegate" destination="-1" id="4lC-Jq-hWI"/>
-                <outlet property="searchBar" destination="qki-mY-RcO" id="IpP-gE-7as"/>
-                <outlet property="searchContentsController" destination="-1" id="OOP-tS-wKY"/>
-                <outlet property="searchResultsDataSource" destination="-1" id="hmW-UE-acb"/>
-                <outlet property="searchResultsDelegate" destination="-1" id="9B2-gw-uZj"/>
+                <outlet property="delegate" destination="-1" id="VlO-Jn-GLa"/>
+                <outlet property="searchBar" destination="hga-Vh-gyn" id="EAO-kC-UnZ"/>
+                <outlet property="searchContentsController" destination="-1" id="zr4-ad-dQQ"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="QoQ-Cj-emu"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="8q3-Od-pr1"/>
             </connections>
         </searchDisplayController>
     </objects>

@@ -16,7 +16,6 @@
 #import "TLFUserStore.h"
 #import "TLFTransactionCell.h"
 #import "TLFTransaction.h"
-#import "TLFSearchViewController.h"
 
 @interface TLFMyAccountViewController ()
 
@@ -37,8 +36,7 @@ static TLFRestHelper *restHelper;
         // Custom initialization
         
         // Setting the nav bar title, and the tab bar title and image
-        helper = [TLFNavBarHelper getInstance];
-        [helper configViewController:self withTitle:@"My Account" withImage:[UIImage imageNamed:@"MyAccount.png"]];
+        [TLFNavBarHelper configViewController:self withTitle:@"My Account" withImage:[UIImage imageNamed:@"MyAccount.png"]];
         [self.navigationItem.rightBarButtonItem setAction:@selector(openBillingInfo:)];
         
         restHelper = [[TLFRestHelper alloc] init];
@@ -53,8 +51,6 @@ static TLFRestHelper *restHelper;
     
     [self.navigationController pushViewController:billingInfoVC animated:YES]; */
     
-    TLFSearchViewController *searchVC = [[TLFSearchViewController alloc] init];
-    [self.navigationController pushViewController:searchVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -62,7 +58,7 @@ static TLFRestHelper *restHelper;
     [super viewWillAppear:YES];
     
     // Setting the nav bar style
-    [helper configViewController:self withBarTintColor:[UIColor whiteColor] withTintColor:[TLFColor talifloTiffanyBlue]];
+    [TLFNavBarHelper configViewController:self withBarTintColor:[UIColor whiteColor] withTintColor:[TLFColor talifloTiffanyBlue]];
 }
 
 - (void)viewDidLoad

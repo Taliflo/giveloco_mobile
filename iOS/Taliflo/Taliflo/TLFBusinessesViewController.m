@@ -2,7 +2,7 @@
 //  TLFBusinessesViewController.m
 //  Taliflo
 //
-//  Created by NR-Mac on 1/25/2014.
+//  Created by NR-Mac on 1/3/2014.
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
@@ -10,19 +10,19 @@
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
 #import "TLFUserCell.h"
-#import "TLFBusinessStore.h"
+#import "TLFBusinessesViewController.h"
 #import "TLFRestHelper.h"
 #import "TLFUserDetailViewController.h"
 
 @interface TLFBusinessesViewController ()
 
-@property (nonatomic, strong) NSMutableArray *businesses;
+@property (nonatomic, strong) NSMutableArray *filtered;
 
 @end
 
-static TLFNavBarHelper *helper;
 static TLFRestHelper *restHelper;
-static NSString *cellName = @"TLFUserCell";
+static NSString *cellID = @"TLFUserCell";
+static NSString *sysCellID = @"UITableViewCell";
 
 @implementation TLFBusinessesViewController
 
@@ -30,43 +30,35 @@ static NSString *cellName = @"TLFUserCell";
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
-        
-        // Setting the nav bar title, and the tab bar title and image
-        helper = [TLFNavBarHelper getInstance];
-        [helper configViewController:self withTitle:@"Businesses" withImage:[UIImage imageNamed:@"Businesses.png"]];
-        
-        // Request businesses
+        // Setting the navigation bar title, and the tab bar title and icon
+        [TLFNavBarHelper configViewController:self withTitle:@"Businesses" withImage:[UIImage imageNamed:@"Businesses.png"]];
+        // Request users
         restHelper = [[TLFRestHelper alloc] initWithTableView:self.tableView];
         [restHelper requestUsers:@"business"];
+        
+        self.filtered = [[NSMutableArray alloc] init];
     }
     return self;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    
-    // Setting the nav bar style
-    [helper configViewController:self withBarTintColor:[UIColor whiteColor] withTintColor:[TLFColor talifloTiffanyBlue]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // Load and register the table view cell nib file
+    UINib *nib = [UINib nibWithNibName:cellID bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:cellID];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Register system table view cell for the search display table view
+    [self.searchDisplayController.searchResultsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:sysCellID];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    // Load the cell nib file
-    UINib *nib = [UINib nibWithNibName:cellName bundle:nil];
-    // Register the nib file which contains the cell
-    [self.tableView registerNib:nib forCellReuseIdentifier:cellName];
-    
-    // ** Styling **
+    // Setting the navigation bar style
+    [TLFNavBarHelper configViewController:self withBarTintColor:[UIColor whiteColor] withTintColor:[TLFColor talifloTiffanyBlue]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,93 +78,64 @@ static NSString *cellName = @"TLFUserCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [restHelper.users count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.filtered count];
+    } else {
+        return [restHelper.users count];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 161.0f;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+        return 40.0f;
+    else
+        return 161.0f;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
-    /*
-    if (cell == nil) {
-        cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-    }
-    */
-    cell.name.text = restHelper.users[indexPath.row][@"company_name"];
-    //cell.image.image = [UIImage imageNamed:@"160.gif"];
-    cell.summary.text = restHelper.users[indexPath.row][@"summary"];
-    cell.backgroundColor = [TLFColor talifloPurple];
     
-    return cell;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:sysCellID forIndexPath:indexPath];
+        cell.textLabel.text = self.filtered[indexPath.row][@"company_name"];
+        return cell;
+    } else {
+        TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+        cell.name.text = restHelper.users[indexPath.row][@"company_name"];
+        cell.summary.text = restHelper.users[indexPath.row][@"summary"];
+        cell.backgroundColor = [TLFColor talifloPurple];
+        return cell;
+    }
 }
 
+#pragma mark - Table view delegate
 
-// When a table cell is selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TLFUserDetailViewController *detailVC = [[TLFUserDetailViewController alloc] init];
     
-    // Give the user detail view controller a pointer to the selected cause
+    // Pass the selected cause to the user detail view controller
     detailVC.user = [[TLFUser alloc] initWithDictionary:restHelper.users[indexPath.row]];
     
-    // Push the user detail view controller to the top of the notes navigation controller stack
+    // Push the view controller.
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+#pragma mark - Search display delegate
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+// This method is called whenever changes occur in the search bar
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    // Return NO if you do not want the specified item to be editable.
+    [self.filtered removeAllObjects];
+    
+    if (searchString.length > 0) {
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K beginswith[cd] %@", @"company_name", self.searchBar.text];
+        NSArray *hits = [restHelper.users filteredArrayUsingPredicate:pred];
+        [self.filtered addObjectsFromArray:hits];
+    }
+    
     return YES;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

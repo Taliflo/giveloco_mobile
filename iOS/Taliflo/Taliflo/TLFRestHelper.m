@@ -101,6 +101,8 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
         TLFCauseStore *cStore = [TLFCauseStore getInstance];
         cStore.causes = _users;
     }
+    
+    NSLog(@"Asynchronous Request Complete");
 }
 
 

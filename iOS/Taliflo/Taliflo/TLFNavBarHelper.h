@@ -10,17 +10,15 @@
 
 @interface TLFNavBarHelper : NSObject
 
-+ (instancetype)getInstance;
-
-- (void)configViewController:(UIViewController *)viewController
++ (void)configViewController:(UIViewController *)viewController
                     withTitle:(NSString *)title
                     withImage:(UIImage *)image;
 
-- (void)configViewController:(UIViewController *)viewController
++ (void)configViewController:(UIViewController *)viewController
              withBarTintColor:(UIColor *)barTintColor
                 withTintColor:(UIColor *)tintColor;
 
-- (void)configViewController:(UIViewController *)viewController
++ (void)configViewController:(UIViewController *)viewController
                    withTitle:(NSString *)title;
 
 @end

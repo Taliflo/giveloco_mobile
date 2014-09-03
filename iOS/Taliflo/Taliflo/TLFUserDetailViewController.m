@@ -41,11 +41,10 @@ static NSString *bussIden = @"business";
     // Populate and style layout views based on role
     NSLog(@"Selected User: %@", _user.role);
     
-    TLFNavBarHelper *nbHelper = [TLFNavBarHelper getInstance];
     NSString *title = [[NSString alloc] init];
     if ([_user.role isEqualToString:@"business"]) title = @"View Business";
     if ([_user.role isEqualToString:@"cause"]) title = @"View Cause";
-    [nbHelper configViewController:self withTitle:title];
+    [TLFNavBarHelper configViewController:self withTitle:title];
     
     _companyName.text = _user.companyName;
     _description.text = _user.description;

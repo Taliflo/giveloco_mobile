@@ -22,8 +22,7 @@
     if (self) {
         // Custom initialization
         
-        TLFNavBarHelper *nbHelper = [TLFNavBarHelper getInstance];
-        [nbHelper configViewController:self withTitle:@"Update Billing Info"];
+        [TLFNavBarHelper configViewController:self withTitle:@"Update Billing Info"];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                   target:nil

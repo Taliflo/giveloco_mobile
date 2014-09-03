@@ -35,8 +35,7 @@
     // ** Styling **
 
     // Set view controller title
-    TLFNavBarHelper *nbHelper = [TLFNavBarHelper getInstance];
-    [nbHelper configViewController:self withTitle:@"Redeem Credits"];
+    [TLFNavBarHelper configViewController:self withTitle:@"Redeem Credits"];
     
     // Populate views
     _name.text = _business.companyName;

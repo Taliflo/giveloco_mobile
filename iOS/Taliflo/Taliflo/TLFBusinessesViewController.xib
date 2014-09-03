@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TLFBusinessesViewController">
+            <connections>
+                <outlet property="searchBar" destination="GFZ-Z5-VEr" id="uvS-Cv-TLF"/>
+                <outlet property="searchDisplayController" destination="Rnw-5x-RN0" id="eTh-ez-qYg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" tag="1" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <searchBar key="tableHeaderView" tag="1" contentMode="redraw" id="GFZ-Z5-VEr">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                <textInputTraits key="textInputTraits"/>
+                <connections>
+                    <outlet property="delegate" destination="-1" id="zxY-kl-feM"/>
+                </connections>
+            </searchBar>
+            <connections>
+                <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
+                <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
+            </connections>
+        </tableView>
+        <searchDisplayController id="Rnw-5x-RN0">
+            <connections>
+                <outlet property="delegate" destination="-1" id="TgC-jU-MjB"/>
+                <outlet property="searchBar" destination="GFZ-Z5-VEr" id="LDp-pJ-y08"/>
+                <outlet property="searchContentsController" destination="-1" id="3ab-2C-Pq2"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="ahM-7C-5y1"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="fde-sq-w5o"/>
+            </connections>
+        </searchDisplayController>
+    </objects>
+</document>
