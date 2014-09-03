@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DropDownListView.h"
 
-@interface TLFBillingInfoViewController : UIViewController<kDropDownListViewDelegate> {
+@interface TLFBillingInfoViewController : UIViewController {
     NSArray *_states, *_countries;
-    DropDownListView *_dropDown;
 }
 
 @property (strong, nonatomic) IBOutlet UITextField *name;

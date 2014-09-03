@@ -95,8 +95,6 @@
 
 - (IBAction)selectState:(id)sender
 {
-    [_dropDown fadeOut];
-    [self showPopUpWithTitle:@"Select Province" withOption:_states xy:CGPointMake(16, 78) size:CGSizeMake(287, 330) isMultiple:NO];
 }
 
 - (IBAction)selectCountry:(id)sender
@@ -104,57 +102,5 @@
     
 }
 
-- (void)showPopUpWithTitle:(NSString*)popupTitle withOption:(NSArray*)arrOptions xy:(CGPoint)point size:(CGSize)size isMultiple:(BOOL)isMultiple
-{
-    _dropDown = [[DropDownListView alloc] initWithTitle:popupTitle options:arrOptions xy:point size:size isMultiple:isMultiple];
-    _dropDown.delegate = self;
-    [_dropDown showInView:self.view animated:YES];
-    
-    // Set background colour
-    [_dropDown SetBackGroundDropDwon_R:0 G:167.0 B:157 alpha:1];
-}
 
-- (void)DropDownListView:(DropDownListView *)dropdownListView didSelectedIndex:(NSInteger)anIndex
-{
-    [_btnState setTitle:_states[anIndex] forState:UIControlStateNormal];
-}
-
-- (void)DropDownListView:(DropDownListView *)dropdownListView Datalist:(NSMutableArray *)ArryData
-{
-}
-
-- (void)DropDownListViewDidCancel
-{
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    
-    if ([touch.view isKindOfClass:[UIView class]]) {
-        [_dropDown fadeOut];
-    }
-}
-
--(CGSize)GetHeightDyanamic:(UILabel*)lbl
-{
-    NSRange range = NSMakeRange(0, [lbl.text length]);
-    CGSize constraint;
-    constraint= CGSizeMake(288 ,MAXFLOAT);
-    CGSize size;
-    
-    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)) {
-        NSDictionary *attributes = [lbl.attributedText attributesAtIndex:0 effectiveRange:&range];
-        CGSize boundingBox = [lbl.text boundingRectWithSize:constraint options: NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
-        
-        size = CGSizeMake(ceil(boundingBox.width), ceil(boundingBox.height));
-    }
-    else{
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-        
-        size = [lbl.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:14] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-    }
-    return size;
-}
 @end
