@@ -38,8 +38,8 @@ static NSString *sysCellID = @"UITableViewCell";
                               withTabBarTitle:@"Businesses"
                                      withIcon:[UIImage imageNamed:@"Businesses.png"]];
         
-        // Request users
-        restHelper = [[TLFRestHelper alloc] initWithTableView:self.tableView];
+        // Request businesses
+        restHelper = [[TLFRestHelper alloc] initWithTableViewController:self];
         [restHelper requestUsers:@"business"];
         
         self.filtered = [[NSMutableArray alloc] init];

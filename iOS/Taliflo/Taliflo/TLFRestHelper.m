@@ -15,11 +15,13 @@
 
 static NSString *const base = @"http://api-dev.taliflo.com/v1/";
 
-- (instancetype)initWithTableView:(UITableView *)tableView
+- (instancetype)initWithTableViewController:(UITableViewController *)tableViewController
 {
     self = [super init];
     if (self) {
-        _tableView = tableView;
+        self.tableView = tableViewController.tableView;
+        self.viewController = tableViewController;
+        
     }
     return self;
 }
@@ -44,6 +46,10 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
 
 - (void)requestUsers:(NSString *)role
 {
+    __block UIView *indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self.tableView.superview options:nil][0];
+    indicatorView.center = CGPointMake(160, 176);
+    [self.viewController.tableView addSubview:indicatorView];
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[self queryUsers]];
     
     // AFNetworking asynchronous URL request
@@ -57,7 +63,9 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
          
          dispatch_async(dispatch_get_main_queue(),
                         ^{
-                            [_tableView reloadData];
+                            [indicatorView removeFromSuperview];
+                            [self.tableView reloadData];
+                            
                         }
                         );
      }
@@ -77,7 +85,7 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
     _users = [[NSMutableArray alloc] init];
     for (NSDictionary *obj in responseObject) {
         if ([obj[@"role"] isEqualToString:role])
-            [_users addObject:obj];
+            [self.users addObject:obj];
     }
     
     NSLog(@"HERE %@", _users[0][@"company_name"]);
@@ -88,18 +96,18 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
                                     ascending:YES
                                     selector:@selector(localizedCaseInsensitiveCompare:)];
     
-    [_users sortUsingDescriptors:@[descriptor]];
+    [self.users sortUsingDescriptors:@[descriptor]];
     
     // Add to global store
     //TODO: Add to global store
     if ([role isEqualToString:@"business"]) {
         TLFBusinessStore *bStore = [TLFBusinessStore getInstance];
-        bStore.businesses = _users;
+        bStore.businesses = self.users;
     }
     
     if ([role isEqualToString:@"cause"]) {
         TLFCauseStore *cStore = [TLFCauseStore getInstance];
-        cStore.causes = _users;
+        cStore.causes = self.users;
     }
     
     NSLog(@"Asynchronous Request Complete");

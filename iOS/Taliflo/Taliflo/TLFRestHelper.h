@@ -17,8 +17,9 @@
 @property (nonatomic, copy) NSMutableArray* transactions;
 @property (nonatomic, copy) TLFUser *user;
 @property (nonatomic) UITableView *tableView;
+@property (nonatomic) UITableViewController *viewController;
 
-- (instancetype)initWithTableView:(UITableView *)tableView;
+- (instancetype)initWithTableViewController:(UITableViewController *)tableViewController;
 - (NSURL *)queryUsers;
 - (NSURL *)queryUser:(int)numID;
 - (NSURL *)queryTransactions;

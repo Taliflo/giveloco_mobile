@@ -28,6 +28,7 @@
 
 static TLFNavBarHelper *nbHelper;
 static TLFRestHelper *restHelper;
+static UIView *indicatorView;
 
 @implementation TLFMyAccountViewController
 
@@ -48,6 +49,9 @@ static TLFRestHelper *restHelper;
         // Request logged in user
         restHelper = [[TLFRestHelper alloc] init];
         [self requestUser:4];
+        
+        indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
+        [self.view addSubview:indicatorView];
     }
     return self;
 }
@@ -88,7 +92,6 @@ static TLFRestHelper *restHelper;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -127,6 +130,7 @@ static TLFRestHelper *restHelper;
                             self.balance.text = [NSString stringWithFormat:@"%@", self.user.balance];
                             
                             [self.tableView reloadData];
+                            [indicatorView removeFromSuperview];
                         }
                         );
      }

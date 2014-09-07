@@ -28,6 +28,7 @@
 		D5022E6D19BAB8730015A125 /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5022E6C19BAB8730015A125 /* Menu@2x.png */; };
 		D5022E7519BAD7890015A125 /* ActionMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = D5022E7419BAD7890015A125 /* ActionMenu.png */; };
 		D5022E7B19BAD87C0015A125 /* ActionMenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5022E7A19BAD87C0015A125 /* ActionMenu@2x.png */; };
+		D5022E8119BC35EB0015A125 /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5022E8019BC35EB0015A125 /* ActivityIndicatorView.xib */; };
 		D54F790419AEE1A6000C2AAE /* TLFUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F790319AEE1A6000C2AAE /* TLFUserStore.m */; };
 		D54F790B19AFB906000C2AAE /* TLFUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F790919AFB906000C2AAE /* TLFUserDetailViewController.m */; };
 		D54F790C19AFB906000C2AAE /* TLFUserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D54F790A19AFB906000C2AAE /* TLFUserDetailViewController.xib */; };
@@ -120,6 +121,7 @@
 		D5022E6C19BAB8730015A125 /* Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu@2x.png"; sourceTree = "<group>"; };
 		D5022E7419BAD7890015A125 /* ActionMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActionMenu.png; sourceTree = "<group>"; };
 		D5022E7A19BAD87C0015A125 /* ActionMenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionMenu@2x.png"; sourceTree = "<group>"; };
+		D5022E8019BC35EB0015A125 /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
 		D54F790219AEE1A6000C2AAE /* TLFUserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserStore.h; sourceTree = "<group>"; };
 		D54F790319AEE1A6000C2AAE /* TLFUserStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUserStore.m; sourceTree = "<group>"; };
 		D54F790819AFB906000C2AAE /* TLFUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserDetailViewController.h; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				D5D3346819AEB7D100925EBF /* TLFTransactionCell.h */,
 				D5D3346919AEB7D100925EBF /* TLFTransactionCell.m */,
 				D5D3346A19AEB7D100925EBF /* TLFTransactionCell.xib */,
+				D5022E8019BC35EB0015A125 /* ActivityIndicatorView.xib */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				D5022E6D19BAB8730015A125 /* Menu@2x.png in Resources */,
 				D5AE031119B18FD200F31F04 /* TLFRedeemViewController.xib in Resources */,
 				D5022E6519BAAAED0015A125 /* Logout.png in Resources */,
+				D5022E8119BC35EB0015A125 /* ActivityIndicatorView.xib in Resources */,
 				D5AE032119B2838000F31F04 /* TLFBillingInfoViewController.xib in Resources */,
 				D5AE030019B00D2800F31F04 /* smallImg50.png in Resources */,
 				D5022E5719BAA7990015A125 /* Explore@2x.png in Resources */,

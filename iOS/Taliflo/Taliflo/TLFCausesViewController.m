@@ -39,11 +39,12 @@ static NSString *sysCellID = @"UITableViewCell";
                               withTabBarTitle:@"Causes"
                                      withIcon:[UIImage imageNamed:@"Causes.png"]];
         
-        // Request users
-        restHelper = [[TLFRestHelper alloc] initWithTableView:self.tableView];
+        // Request causes
+        restHelper = [[TLFRestHelper alloc] initWithTableViewController:self];
         [restHelper requestUsers:@"cause"];
         
         self.filtered = [[NSMutableArray alloc] init];
+
     }
     return self;
 }
