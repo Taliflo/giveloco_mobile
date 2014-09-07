@@ -20,6 +20,7 @@
 
 @end
 
+static TLFNavBarHelper *nbHelper;
 static TLFRestHelper *restHelper;
 static NSString *cellID = @"TLFUserCell";
 static NSString *sysCellID = @"UITableViewCell";
@@ -31,7 +32,12 @@ static NSString *sysCellID = @"UITableViewCell";
     self = [super initWithStyle:style];
     if (self) {
         // Setting the navigation bar title, and the tab bar title and icon
-        [TLFNavBarHelper configViewController:self withTitle:@"Causes" withImage:[UIImage imageNamed:@"Causes.png"]];
+        //[TLFNavBarHelper configViewController:self withTabBarTitle:@"Causes" withIcon:[UIImage imageNamed:@"Causes.png"]];
+        
+        nbHelper = [[TLFNavBarHelper alloc] initWithViewController:self title:@"Causes"];
+        [TLFNavBarHelper configViewController:self
+                              withTabBarTitle:@"Causes"
+                                     withIcon:[UIImage imageNamed:@"Causes.png"]];
         
         // Request users
         restHelper = [[TLFRestHelper alloc] initWithTableView:self.tableView];
@@ -60,6 +66,13 @@ static NSString *sysCellID = @"UITableViewCell";
     
     // Setting the navigation bar style
     [TLFNavBarHelper configViewController:self withBarTintColor:[UIColor whiteColor] withTintColor:[TLFColor talifloTiffanyBlue]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (nbHelper.actionMenu.isOpen)
+        [nbHelper.actionMenu close];
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,7 +132,14 @@ static NSString *sysCellID = @"UITableViewCell";
     TLFUserDetailViewController *detailVC = [[TLFUserDetailViewController alloc] init];
     
     // Pass the selected cause to the user detail view controller
-    detailVC.user = [[TLFUser alloc] initWithDictionary:restHelper.users[indexPath.row]];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        NSPredicate *predName = [NSPredicate predicateWithFormat:@"%K == %@", @"company_name", cell.textLabel.text];
+        NSArray *match = [restHelper.users filteredArrayUsingPredicate:predName];
+        detailVC.user = [[TLFUser alloc] initWithDictionary:match[0]];
+    } else {
+        detailVC.user = [[TLFUser alloc] initWithDictionary:restHelper.users[indexPath.row]];
+    }
     
     // Push the view controller.
     [self.navigationController pushViewController:detailVC animated:YES];
@@ -142,8 +162,8 @@ static NSString *sysCellID = @"UITableViewCell";
     [self.filtered removeAllObjects];
     
     if (searchString.length > 0) {
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K beginswith[cd] %@", @"company_name", self.searchBar.text];
-        NSArray *hits = [restHelper.users filteredArrayUsingPredicate:pred];
+        NSPredicate *predName = [NSPredicate predicateWithFormat:@"%K beginswith[cd] %@", @"company_name", self.searchBar.text];
+        NSArray *hits = [restHelper.users filteredArrayUsingPredicate:predName];
         [self.filtered addObjectsFromArray:hits];
     }
  

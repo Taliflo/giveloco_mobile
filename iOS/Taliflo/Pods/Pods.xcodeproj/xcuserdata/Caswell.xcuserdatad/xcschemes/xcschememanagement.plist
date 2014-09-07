@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-ActionSheetPicker-3.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>15B38097872B45B1A4249E71</key>
+		<key>30164BEFDFE342EF93522DEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E287917823E47FDA4AA9F32</key>
+		<key>7707BABAC91448F89937E760</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7D0494D75FB40B6A8E0FFC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

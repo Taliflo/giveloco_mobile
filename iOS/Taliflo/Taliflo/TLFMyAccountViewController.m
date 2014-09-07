@@ -16,15 +16,17 @@
 #import "TLFUserStore.h"
 #import "TLFTransactionCell.h"
 #import "TLFTransaction.h"
+#import "TLFBillingInfoViewController.h"
 
 @interface TLFMyAccountViewController ()
 
 @property (nonatomic, strong) TLFUser *user;
 @property (nonatomic, strong) NSMutableArray *transactions;
 
+
 @end
 
-static TLFNavBarHelper *helper;
+static TLFNavBarHelper *nbHelper;
 static TLFRestHelper *restHelper;
 
 @implementation TLFMyAccountViewController
@@ -36,9 +38,14 @@ static TLFRestHelper *restHelper;
         // Custom initialization
         
         // Setting the nav bar title, and the tab bar title and image
-        [TLFNavBarHelper configViewController:self withTitle:@"My Account" withImage:[UIImage imageNamed:@"MyAccount.png"]];
-        [self.navigationItem.rightBarButtonItem setAction:@selector(openBillingInfo:)];
+        //[TLFNavBarHelper configViewController:self withTitle:@"My Account" withImage:[UIImage imageNamed:@"MyAccount.png"]];
         
+        nbHelper = [[TLFNavBarHelper alloc] initWithViewController:self title:@"My Account"];
+        [TLFNavBarHelper configViewController:self
+                              withTabBarTitle:@"My Account"
+                                     withIcon:[UIImage imageNamed:@"MyAccount.png"]];
+        
+        // Request logged in user
         restHelper = [[TLFRestHelper alloc] init];
         [self requestUser:4];
     }
@@ -47,10 +54,27 @@ static TLFRestHelper *restHelper;
 
 - (IBAction)openBillingInfo:(id)sender
 {
-/*    TLFBillingInfoViewController *billingInfoVC = [[TLFBillingInfoViewController alloc] init];
+    TLFBillingInfoViewController *billingInfoVC = [[TLFBillingInfoViewController alloc] init];
     
-    [self.navigationController pushViewController:billingInfoVC animated:YES]; */
+    [self.navigationController pushViewController:billingInfoVC animated:YES];
     
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
+    // Styling
+    [TLFColor setStrokeTB:_balance];
+    [[self.balance layer] setCornerRadius:3];
+    
+    // Load the cell nib file
+    UINib *nib = [UINib nibWithNibName:@"TLFTransactionCell" bundle:nil];
+    // Register the nib file which contains the cell
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"TLFTransactionCell"];
+    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -61,19 +85,17 @@ static TLFRestHelper *restHelper;
     [TLFNavBarHelper configViewController:self withBarTintColor:[UIColor whiteColor] withTintColor:[TLFColor talifloTiffanyBlue]];
 }
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    // Styling
-    [TLFColor setStrokeTB:_balance];
-    [[_balance layer] setCornerRadius:3];
-    
-    // Load the cell nib file
-    UINib *nib = [UINib nibWithNibName:@"TLFTransactionCell" bundle:nil];
-    // Register the nib file which contains the cell
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"TLFTransactionCell"];
+    [super viewDidAppear:YES];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    if (nbHelper.actionMenu.isOpen)
+        [nbHelper.actionMenu close];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,20 +113,20 @@ static TLFRestHelper *restHelper;
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:
      ^(AFHTTPRequestOperation *operation, id responseObject) {
-         _user = [[TLFUser alloc] initWithDictionary:responseObject];
+         self.user = [[TLFUser alloc] initWithDictionary:responseObject];
          
-         NSLog(@"USER NAME: %@", _user.companyName);
+         NSLog(@"USER NAME: %@", self.user.companyName);
          dispatch_async(dispatch_get_main_queue(),
                         ^{
                             // Set user in global store
                             TLFUserStore *userStore = [TLFUserStore getInstance];
-                            userStore.currentUser = _user;
+                            userStore.currentUser = self.user;
                             
                             // Populate layout views
-                            _name.text = _user.companyName;
-                            _balance.text = [NSString stringWithFormat:@"%@", _user.balance];
+                            self.name.text = _user.companyName;
+                            self.balance.text = [NSString stringWithFormat:@"%@", self.user.balance];
                             
-                            [_tableView reloadData];
+                            [self.tableView reloadData];
                         }
                         );
      }
@@ -127,7 +149,7 @@ static TLFRestHelper *restHelper;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_user.transactions count];
+    return [self.user.transactions count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

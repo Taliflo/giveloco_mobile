@@ -10,12 +10,15 @@
 #import "TLFNavBarHelper.h"
 #import "TLFUserCell.h"
 #import "TLFColor.h"
+#import "TLFNavBarHelper.h"
 
 @interface TLFUserSupportViewController ()
 
 @end
 
+static TLFNavBarHelper *nbHelper;
 static NSString *cellName = @"TLFUserCell";
+static TLFNavBarHelper *nbHelper;
 
 @implementation TLFUserSupportViewController
 
@@ -24,7 +27,7 @@ static NSString *cellName = @"TLFUserCell";
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        
+        nbHelper = [[TLFNavBarHelper alloc] initWithViewController:self];
     }
     return self;
 }
@@ -43,6 +46,13 @@ static NSString *cellName = @"TLFUserCell";
     UINib *nib = [UINib nibWithNibName:cellName bundle:nil];
     // Register the nib file which contains the cell
     [self.tableView registerNib:nib forCellReuseIdentifier:cellName];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (nbHelper.actionMenu.isOpen)
+        [nbHelper.actionMenu close];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,13 +86,13 @@ static NSString *cellName = @"TLFUserCell";
     
     // Configure the cell...
     
-    cell.name.text = _support[indexPath.row][@"company_name"];
-    cell.summary.text = _support[indexPath.row][@"summary"];
+    cell.name.text = self.support[indexPath.row][@"company_name"];
+    cell.summary.text = self.support[indexPath.row][@"summary"];
     
-    if ([_supportRole isEqualToString:@"cause"])
+    if ([self.supportRole isEqualToString:@"cause"])
         cell.backgroundColor = [TLFColor talifloTiffanyBlue];
     
-    if ([_supportRole isEqualToString:@"business"])
+    if ([self.supportRole isEqualToString:@"business"])
         cell.backgroundColor = [TLFColor talifloPurple];
     
     return cell;

@@ -46,6 +46,16 @@
                            alpha:1.0f];
 }
 
++ (void)setStrokeTB:(UIView *)view
+{
+    [[view layer] setBorderColor:[[TLFColor talifloTiffanyBlue] CGColor]];
+    [[view layer] setBorderWidth:1.0];
+    [[view layer] setCornerRadius:3];
+    CGRect frame = view.frame;
+    frame.size.height = view.frame.size.height + 10;
+    view.frame = frame;
+}
+
 + (UIColor *)talifloTiffanyBlue
 {
     return [self colorWithHexString:@"00a79d"];
@@ -61,14 +71,14 @@
     return [self colorWithHexString:@"440e62"];
 }
 
-+ (void)setStrokeTB:(UIView *)view
++ (UIColor *)lightGrey
 {
-    [[view layer] setBorderColor:[[TLFColor talifloTiffanyBlue] CGColor]];
-    [[view layer] setBorderWidth:1.0];
-    [[view layer] setCornerRadius:3];
-    CGRect frame = view.frame;
-    frame.size.height = view.frame.size.height + 10;
-    view.frame = frame;
+    return [self colorWithHexString:@"f3f3f3"];
+}
+
++ (UIColor *)mediumGrey
+{
+    return [self colorWithHexString:@"999999"];
 }
 
 @end

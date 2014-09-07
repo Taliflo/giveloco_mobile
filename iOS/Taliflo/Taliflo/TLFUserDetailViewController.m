@@ -19,6 +19,7 @@
 
 @end
 
+static TLFNavBarHelper *nbHelper;
 static NSString *causeIden = @"cause";
 static NSString *bussIden = @"business";
 
@@ -39,47 +40,54 @@ static NSString *bussIden = @"business";
     // Do any additional setup after loading the view from its nib.
     
     // Populate and style layout views based on role
-    NSLog(@"Selected User: %@", _user.role);
+    NSLog(@"Selected User: %@", self.user.role);
     
     NSString *title = [[NSString alloc] init];
-    if ([_user.role isEqualToString:@"business"]) title = @"View Business";
-    if ([_user.role isEqualToString:@"cause"]) title = @"View Cause";
-    [TLFNavBarHelper configViewController:self withTitle:title];
+    if ([self.user.role isEqualToString:@"business"]) title = @"View Business";
+    if ([self.user.role isEqualToString:@"cause"]) title = @"View Cause";
+    nbHelper = [[TLFNavBarHelper alloc] initWithViewController:self title:title];
     
-    _companyName.text = _user.companyName;
-    _description.text = _user.description;
-    _tags.text = [_user getTagsString];
-    _address.text = [NSString
-                     stringWithFormat:@"%@\n%@, %@\n%@", _user.streetAddress, _user.city, _user.state, _user.zip];
-    _phone.text = _user.phone;
+    self.companyName.text = self.user.companyName;
+    self.description.text = self.user.description;
+    self.tags.text = [self.user getTagsString];
+    self.address.text = [NSString
+                     stringWithFormat:@"%@\n%@, %@\n%@", self.user.streetAddress, self.user.city, self.user.state, self.user.zip];
+    self.phone.text = self.user.phone;
     
     TLFUserStore *userStore = [TLFUserStore getInstance];
-    _availableCredit.text = [NSString stringWithFormat:@"C %@", userStore.currentUser.balance];
+    self.availableCredit.text = [NSString stringWithFormat:@"C %@", userStore.currentUser.balance];
     
     // ** Styling **
     
-    if ([_user.role isEqualToString:bussIden]) {
-        [_btnSupport setTitle:[_user getSupportedCausesStr]
+    if ([self.user.role isEqualToString:bussIden]) {
+        [self.btnSupport setTitle:[_user getSupportedCausesStr]
                      forState:UIControlStateNormal];
-        [_btnTransact setBackgroundColor:[TLFColor talifloPurple]];
-        [_btnTransact setTitle:@"Redeem $20" forState:UIControlStateNormal];
+        [self.btnTransact setBackgroundColor:[TLFColor talifloPurple]];
+        [self.btnTransact setTitle:@"Redeem $20" forState:UIControlStateNormal];
     }
     
-    if ([_user.role isEqualToString:causeIden]) {
-        [_btnSupport setTitle:[_user getSupportersCountStr]
+    if ([self.user.role isEqualToString:causeIden]) {
+        [self.btnSupport setTitle:[_user getSupportersCountStr]
                      forState:UIControlStateNormal];
-        [_btnTransact setBackgroundColor:[TLFColor talifloTiffanyBlue]];
-        [_btnTransact setTitle:@"Donate" forState:UIControlStateNormal];
+        [self.btnTransact setBackgroundColor:[TLFColor talifloTiffanyBlue]];
+        [self.btnTransact setTitle:@"Donate" forState:UIControlStateNormal];
     }
     
-    [[_btnTransact layer] setCornerRadius:3];
-    [[_btnSupport layer] setCornerRadius:3];
+    [[self.btnTransact layer] setCornerRadius:3];
+    [[self.btnSupport layer] setCornerRadius:3];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (nbHelper.actionMenu.isOpen)
+        [nbHelper.actionMenu close];
 }
 
 - (void)viewDidLayoutSubviews
@@ -98,14 +106,14 @@ static NSString *bussIden = @"business";
     if ([_user.role isEqualToString:bussIden]) {
         // Open redeem view controller
         TLFRedeemViewController *redeemVC = [[TLFRedeemViewController alloc] init];
-        redeemVC.business = _user;
+        redeemVC.business = self.user;
         [self.navigationController pushViewController:redeemVC animated:YES];
     }
     
     if ([_user.role isEqualToString:causeIden]) {
         // Open donate view controller
         TLFDonateViewController *donateVC = [[TLFDonateViewController alloc] init];
-        donateVC.cause = _user;
+        donateVC.cause = self.user;
         [self.navigationController pushViewController:donateVC animated:YES];
     }
     
@@ -119,15 +127,15 @@ static NSString *bussIden = @"business";
     TLFUserSupportViewController *userSupportVC = [[TLFUserSupportViewController alloc] init];
     
     if ([_user.role isEqualToString:bussIden]) {
-        NSLog(@"%@", _user.supportedCauses);
-        userSupportVC.support = _user.supportedCauses;
+        NSLog(@"%@", self.user.supportedCauses);
+        userSupportVC.support = self.user.supportedCauses;
         userSupportVC.title = @"Supported Causes";
         userSupportVC.supportRole = @"cause";
     }
     
     if ([_user.role isEqualToString:causeIden]) {
-        NSLog(@"%@", _user.supporters);
-        userSupportVC.support = _user.supporters;
+        NSLog(@"%@", self.user.supporters);
+        userSupportVC.support = self.user.supporters;
         userSupportVC.title = @"Supporting Businesses";
         userSupportVC.supportRole = @"business";
     }

@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TLFBillingInfoViewController : UIViewController {
-    NSArray *_states, *_countries;
-}
+@interface TLFBillingInfoViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITextField *name;
 @property (strong, nonatomic) IBOutlet UITextField *number;
@@ -19,8 +17,8 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *street;
 @property (strong, nonatomic) IBOutlet UITextField *city;
+@property (strong, nonatomic) IBOutlet UITextField *zip;
 @property (strong, nonatomic) IBOutlet UIButton *btnState;
 @property (strong, nonatomic) IBOutlet UIButton *btnCountry;
-@property (strong, nonatomic) IBOutlet UITextField *zip;
 
 @end

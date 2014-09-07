@@ -177,7 +177,7 @@
     <string name="donate_radioBtn$60">$60</string>
     <string name="donate_radioBtn$100">$100</string>
     <string name="donate_dialogTitle">Are you sure?</string>
-    <string name="donate_dialogMsg">Your credit card will charged this amount immediately.</string>
+    <string name="donate_dialogMsg">Your credit card will be charged this amount immediately.</string>
     <string name="donate_dialogBtnPosText">Yes</string>
     <string name="donate_dialogBtnNegText">Cancel</string>
 

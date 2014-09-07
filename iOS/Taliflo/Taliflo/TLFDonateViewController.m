@@ -25,7 +25,7 @@
         // Custom initialization
         
         // Set view controller title
-        [TLFNavBarHelper configViewController:self withTitle:@"Donate"];
+        //[TLFNavBarHelper configViewController:self withTitle:@"Donate"];
     }
     return self;
 }
@@ -36,10 +36,10 @@
     // Do any additional setup after loading the view from its nib.
     
     // Populate views
-    _name.text = _cause.companyName;
+    self.name.text = self.cause.companyName;
     
     // Styling
-    [[_btnDonate layer] setCornerRadius:3];
+    [[self.btnDonate layer] setCornerRadius:3];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,26 +52,43 @@
 
 - (IBAction)selectDonation
 {
-    if (_segmentedControl.selectedSegmentIndex) {
+    if (_segmentedControl.selectedSegmentIndex == 0) {
         // Selected $20
     }
     
-    if (_segmentedControl.selectedSegmentIndex) {
+    if (_segmentedControl.selectedSegmentIndex == 1) {
         // Selected $40
     }
     
-    if (_segmentedControl.selectedSegmentIndex) {
+    if (_segmentedControl.selectedSegmentIndex == 2) {
         // Selected $60
     }
     
-    if (_segmentedControl.selectedSegmentIndex) {
+    if (_segmentedControl.selectedSegmentIndex == 3) {
         // Selected $100
     }
 }
 
-- (IBAction)donate:(id)sender
+- (IBAction)confirm
 {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Your credit card will be charged this amount immediately." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+    [alert show];
     
+    // To be used on iOS 8 for backwards compatability
+/*    if ([UIAlertController class]) {
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Your credit card will be charged this amount immediately." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        [alert show];
+        
+    } */
+}
+
+// Method to respond to the response from the alert view
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) NSLog(@"Cancel button clicked");
+    if (buttonIndex == 1) NSLog(@"Yes button clicked");
 }
 
 @end

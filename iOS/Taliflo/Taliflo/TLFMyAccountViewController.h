@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TLFMyAccountViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TLFMyAccountViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UILabel *balance;

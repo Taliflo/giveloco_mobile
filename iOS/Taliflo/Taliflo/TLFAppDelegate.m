@@ -37,6 +37,8 @@
     [self.tabBarController.tabBar setBarTintColor:[UIColor whiteColor]];
     [self.tabBarController.tabBar setTintColor:[TLFColor talifloTiffanyBlue]];
     
+    // Setting navigation bar back button font size
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0]} forState:UIControlStateNormal];
     
     self.window.rootViewController = self.tabBarController;
     
