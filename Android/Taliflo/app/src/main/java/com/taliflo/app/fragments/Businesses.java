@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -34,21 +36,18 @@ public class Businesses extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG, "Businesses - onCreate called.");
 
-        adapter = new UserAdapter(getActivity(), businesses);
-        if (businesses.isEmpty()) {
-            Log.i(TAG, "Requesting businesses... ");
-            RequestUsers usersRequest = new RequestUsers(adapter, businesses, "business");
-            usersRequest.execute();
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        Log.i(TAG, "Businesses - onCreateView called.");
 
         View v = inflater.inflate(R.layout.fragment_businesses, container, false);
         listView = (ListView) v.findViewById(R.id.businesses_listView);
+        adapter = new UserAdapter(getActivity(), businesses);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(openUserDetail);
@@ -63,10 +62,20 @@ public class Businesses extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
+        if (businesses.isEmpty()) {
+            RequestUsers usersRequest = new RequestUsers(adapter, businesses, "business", getActivity(), R.id.businesses_progressView);
+            usersRequest.execute();
+            Log.i(TAG, "Requesting businesses... ");
+        }
 
         Log.i(TAG, "# of Businesses: " + businesses.size());
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+    }
+
 
     private ListView.OnItemClickListener openUserDetail = new ListView.OnItemClickListener() {
         @Override

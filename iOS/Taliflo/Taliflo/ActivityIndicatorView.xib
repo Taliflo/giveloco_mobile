@@ -10,16 +10,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yJF-xJ-UYa">
-                    <rect key="frame" x="142" y="221" width="37" height="37"/>
+                <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yJF-xJ-UYa">
+                    <rect key="frame" x="150" y="221" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="yJF-xJ-UYa" secondAttribute="centerY" id="0eq-VC-t1C"/>
+                <constraint firstAttribute="centerY" secondItem="yJF-xJ-UYa" secondAttribute="centerY" constant="9" id="0eq-VC-t1C"/>
                 <constraint firstAttribute="centerX" secondItem="yJF-xJ-UYa" secondAttribute="centerX" id="1NO-9C-NkU"/>
                 <constraint firstAttribute="centerX" secondItem="yJF-xJ-UYa" secondAttribute="centerX" id="iLG-wX-9ap"/>
             </constraints>

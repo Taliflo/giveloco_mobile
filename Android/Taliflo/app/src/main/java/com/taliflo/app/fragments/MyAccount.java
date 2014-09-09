@@ -1,5 +1,7 @@
 package com.taliflo.app.fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,7 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.taliflo.app.R;
@@ -39,9 +44,18 @@ public class MyAccount extends Fragment {
 
     private UserStore userStore = UserStore.getInstance();
 
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.i(TAG, "MyAccount - onCreate called.");
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        Log.i(TAG, "MyAccount - onCreateView called.");
 
         View v = inflater.inflate(R.layout.fragment_myaccount, container, false);
 
@@ -50,6 +64,7 @@ public class MyAccount extends Fragment {
         listView = (ListView) v.findViewById(R.id.myAccount_transactions);
         adapter = new TransactionsAdapter(getActivity(), transactionsList);
         listView.setAdapter(adapter);
+
         return v;
     }
 
@@ -58,9 +73,11 @@ public class MyAccount extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         if (transactionsList.isEmpty()) {
-            RequestUser requestUser = new RequestUser(user, 4);
+            RequestUser requestUser = new RequestUser(user, 4, getActivity());
             requestUser.execute();
+            Log.i(TAG, "Requesting user...");
         }
+
     }
 
 
@@ -76,10 +93,14 @@ public class MyAccount extends Fragment {
 
         private User user;
         private int userId;
+        private Activity activity;
+        private RelativeLayout progressView;
 
-        public RequestUser(User user, int userId) {
+        public RequestUser(User user, int userId, Activity activity) {
             this.user = user;
             this.userId = userId;
+            this.activity = activity;
+            progressView = (RelativeLayout) activity.findViewById(R.id.myAccount_progressView);
         }
 
         @Override
@@ -95,11 +116,14 @@ public class MyAccount extends Fragment {
         @Override
         protected void onPreExecute() {
             Log.i(TAG, "Executing RequestUser");
+
+            progressView.setVisibility(View.VISIBLE);
         }
 
         @Override
         protected  void onPostExecute(String result) {
             super.onPostExecute(result);
+            progressView.setVisibility(View.GONE);
 
             if (user.getRole().equals("individual"))
                 name.setText(user.getFullName());

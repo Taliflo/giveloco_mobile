@@ -1,6 +1,9 @@
 package com.taliflo.app.api;
 
+import android.app.Activity;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.model.User;
@@ -24,11 +27,17 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
     private ArrayList<User> userList;
     private UserAdapter adapter;
     private String userRole;
+    private Activity activity;
+    private int progressViewID;
+    private RelativeLayout progressView;
 
-    public RequestUsers (UserAdapter adapter, ArrayList<User> userList, String userRole) {
+    public RequestUsers (UserAdapter adapter, ArrayList<User> userList, String userRole, Activity activity, int progressViewID) {
         this.userList = userList;
         this.adapter = adapter;
         this.userRole = userRole;
+        this.activity = activity;
+        this.progressViewID = progressViewID;
+        progressView = (RelativeLayout) activity.findViewById(progressViewID);
     }
 
     @Override
@@ -43,11 +52,13 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
 
     @Override
     protected void onPreExecute() {
+        progressView.setVisibility(View.VISIBLE);
     }
 
     @Override
     protected void onPostExecute (String result) {
         super.onPostExecute(result);
+        progressView.setVisibility(View.GONE);
         sortAlphabetically(userList);
         adapter.notifyDataSetChanged();
     }

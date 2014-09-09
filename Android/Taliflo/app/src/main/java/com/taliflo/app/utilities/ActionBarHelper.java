@@ -55,7 +55,7 @@ public class ActionBarHelper {
         // Get the SearchView and set the searchable configuration
         SearchManager searchManager = (SearchManager) activity.getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-
+        
         // Set the searchable activity
         ComponentName componentName = new ComponentName(activity, Search.class);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName));

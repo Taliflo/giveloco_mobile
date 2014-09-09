@@ -110,6 +110,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 actionBar.addTab(tab);
             }
 
+            tabsAdapter.instantiateItem(viewPager, 2);
+
             actionBar.setSelectedNavigationItem(0);
             setTitle(tabs[0]);
 

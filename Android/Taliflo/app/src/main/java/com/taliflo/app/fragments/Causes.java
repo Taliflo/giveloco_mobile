@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -33,22 +35,19 @@ public class Causes extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG, "Causes - onCreate called.");
 
-        adapter = new UserAdapter(getActivity(), causes);
-        if (causes.isEmpty()) {
-            Log.i(TAG, "Requesting causes... ");
-            RequestUsers usersRequest = new RequestUsers(adapter, causes, "cause");
-            usersRequest.execute();
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        Log.i(TAG, "Causes - onCreateView called.");
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_causes, container, false);
         listView = (ListView) v.findViewById(R.id.causes_listView);
+        adapter = new UserAdapter(getActivity(), causes);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(openUserDetail);
@@ -63,9 +62,18 @@ public class Causes extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
+        if (causes.isEmpty()) {
+            RequestUsers usersRequest = new RequestUsers(adapter, causes, "cause", getActivity(), R.id.causes_progressView);
+            usersRequest.execute();
+            Log.i(TAG, "Requesting causes... ");
+        }
 
         Log.i(TAG, "# of Causes: " + causes.size());
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
     }
 
     private ListView.OnItemClickListener openUserDetail = new ListView.OnItemClickListener() {

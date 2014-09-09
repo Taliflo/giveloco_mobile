@@ -62,7 +62,7 @@
                                                         }];
         
         self.actionMenu = [[REMenu alloc] initWithItems:@[redeemCredits, billingInfo, logout] viewController:self.viewController];
-        self.actionMenu.backgroundColor = [UIColor whiteColor];
+        self.actionMenu.backgroundColor = [TLFColor colorWithHexString:@"e8e8e8"];
         self.actionMenu.borderColor = [TLFColor mediumGrey];
         self.actionMenu.textColor = [TLFColor talifloTiffanyBlue];
         self.actionMenu.borderWidth = .5;

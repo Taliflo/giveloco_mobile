@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin">
 
+
+    <RelativeLayout
+        android:id="@+id/myAccount_progressView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone"
+        >
+
+        <ProgressBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="84dp"
+            />
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/myAccount_name"
         android:layout_width="fill_parent"
