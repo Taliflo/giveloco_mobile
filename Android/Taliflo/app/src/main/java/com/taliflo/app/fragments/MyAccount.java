@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -21,6 +24,7 @@ import com.taliflo.app.api.TalifloRestHelper;
 import com.taliflo.app.model.Transaction;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
+import com.taliflo.app.utilities.ActionBarHelper;
 
 import org.json.JSONObject;
 
@@ -44,12 +48,13 @@ public class MyAccount extends Fragment {
 
     private UserStore userStore = UserStore.getInstance();
 
+    private ActionBarHelper abHelper = ActionBarHelper.getInstance();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "MyAccount - onCreate called.");
-
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -78,6 +83,17 @@ public class MyAccount extends Fragment {
             Log.i(TAG, "Requesting user...");
         }
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.no_search, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        abHelper.onOptionsItemSelected(getActivity(), item);
+        return super.onOptionsItemSelected(item);
     }
 
 

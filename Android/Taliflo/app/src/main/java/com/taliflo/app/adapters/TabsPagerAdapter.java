@@ -13,13 +13,15 @@ import com.taliflo.app.fragments.MyAccount;
  */
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
-    private Fragment myAccount, options, explore;
+    private Fragment myAccount, businesses, causes;
 
     public TabsPagerAdapter (FragmentManager fm) {
         super(fm);
         myAccount = new MyAccount();
-        options = new Businesses();
-        explore = new Causes();
+        businesses = new Businesses();
+        causes = new Causes();
+
+
     }
 
     @Override
@@ -28,9 +30,9 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return myAccount;
             case 1:
-                return explore;
+                return causes;
             case 2:
-                return options;
+                return businesses;
         }
         return null;
     }

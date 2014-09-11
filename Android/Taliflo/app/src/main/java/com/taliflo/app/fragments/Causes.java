@@ -1,42 +1,61 @@
 package com.taliflo.app.fragments;
 
+import android.app.ActionBar;
+import android.app.SearchManager;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.TextView;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Collections2;
 import com.taliflo.app.R;
+import com.taliflo.app.activities.MainActivity;
 import com.taliflo.app.activities.UserDetail;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.api.RequestUsers;
 import com.taliflo.app.model.CauseStore;
 import com.taliflo.app.model.User;
+import com.taliflo.app.utilities.ActionBarHelper;
+import com.taliflo.app.utilities.MyViewPager;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by Caswell on 1/18/2014.
  */
 public class Causes extends Fragment {
 
+    // Member variables
     private String TAG = "Taliflo.Explore";
 
     private ArrayList<User> causes = new ArrayList<User>();
     private ListView listView;
     private UserAdapter adapter;
+    private ActionBarHelper abHelper = ActionBarHelper.getInstance();
+
+    // Search filtering variables
+    private ArrayList<User> filtered = new ArrayList<User>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Causes - onCreate called.");
-
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -61,6 +80,7 @@ public class Causes extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
 
         if (causes.isEmpty()) {
             RequestUsers usersRequest = new RequestUsers(adapter, causes, "cause", getActivity(), R.id.causes_progressView);
@@ -70,10 +90,18 @@ public class Causes extends Fragment {
 
         Log.i(TAG, "# of Causes: " + causes.size());
     }
-
+//----
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.causes, menu);
+        abHelper.fragmentOnCreateOptionsMenu(getActivity(), menu, adapter, listView, causes, filtered,
+                getActivity().getResources().getString(R.string.search_hint_causes));
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        abHelper.onOptionsItemSelected(getActivity(), item);
+        return super.onOptionsItemSelected(item);
     }
 
     private ListView.OnItemClickListener openUserDetail = new ListView.OnItemClickListener() {
@@ -81,9 +109,11 @@ public class Causes extends Fragment {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             // Start User Detail Activity
             Intent i = new Intent(getActivity(), UserDetail.class);
-            i.putExtra("User", causes.get(position));
+            i.putExtra("User", (User) adapter.getItem(position));
             startActivityForResult(i, 30);
         }
     };
+
+
 
 }

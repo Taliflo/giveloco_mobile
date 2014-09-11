@@ -30,6 +30,7 @@
             android:text="@string/dummy_business_name"
             android:textColor="@color/taliflo_orange"
             android:textSize="22sp"
+            android:ellipsize="end"
             android:maxLines="2"
             />
 

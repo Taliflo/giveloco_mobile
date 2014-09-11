@@ -59,7 +59,7 @@ public class TransactionsAdapter extends BaseAdapter {
         Transaction trans = transactions.get(position);
 
         if (v == null) {
-            v = inflater.inflate(R.layout.transaction_list_item, parentView, false);
+            v = inflater.inflate(R.layout.list_item_transaction, parentView, false);
             TextView party = (TextView) v.findViewById(R.id.trans_party);
             TextView amount = (TextView) v.findViewById(R.id.trans_amount);
             TextView date = (TextView) v.findViewById(R.id.trans_date);

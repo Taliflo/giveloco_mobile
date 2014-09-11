@@ -113,6 +113,11 @@ public class Transaction implements Parcelable {
         updatedAt = new DateTime(in.readString());
     }
 
+    @Override
+    public String toString() {
+        return "Type: " + transType + " | From: " + fromName + " | To: " + toName + " | Amount: " + amount;
+    }
+
     /**
      * This field is required by Android to be able to create new objects,
      * individually or as arrays.

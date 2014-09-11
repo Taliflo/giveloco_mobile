@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -33,6 +34,7 @@ import com.taliflo.app.R;
 import com.taliflo.app.adapters.NavDrawerAdapter;
 import com.taliflo.app.adapters.TabsPagerAdapter;
 import com.taliflo.app.utilities.ActionBarHelper;
+import com.taliflo.app.utilities.MyViewPager;
 import com.taliflo.app.utilities.NavDrawerInterface;
 
 import java.util.ArrayList;
@@ -61,21 +63,20 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private ArrayList<NavDrawerInterface> navDrawerEntries = new ArrayList<NavDrawerInterface>();
     private NavDrawerAdapter adapter;
 
-    // Fragment placeholder
-    private Fragment fragment = null;
-
     // Boolean variable to ensure proper back navigation. When the user presses the back button on a fragment
     // the user should be returned to home. If the user is at home, then the application should be exited
     //private boolean atHome = false;
 
     // Member field for the view pager
-    private ViewPager viewPager;
+    public static MyViewPager viewPager;
     private TabsPagerAdapter tabsAdapter;
     private ActionBar actionBar;
-    private ActionBarHelper abHelper = ActionBarHelper.getInstance();
+    //private ActionBarHelper abHelper = ActionBarHelper.getInstance();
     // Tab titles
 
     private Activity thisActiv = this;
+
+    private static boolean isPagingEnabled = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +93,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         if (savedInstanceState == null) {
 
             // Initialization
-            viewPager = (ViewPager) findViewById(R.id.main_pager);
+            viewPager = (MyViewPager) findViewById(R.id.main_pager);
+            // Disable swipe and tab changing
+            viewPager.setPagingEnabled(true);
             actionBar = getActionBar();
             tabsAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 
@@ -125,13 +128,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
                 @Override
                 public void onPageScrolled(int arg0, float arg1, int arg2) {
-
                 }
 
                 @Override
                 public void onPageScrollStateChanged(int arg0) {
-
                 }
+
             });
 
             tabIcons.recycle();
@@ -147,6 +149,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public void onTabReselected (Tab tab, FragmentTransaction ft) {
+
     }
 
     @Override
@@ -155,8 +158,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     }
 
     @Override
-    public void onTabUnselected(Tab tab, FragmentTransaction ft){
-
+    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
     }
 
     private View createTabView(Context context, int iconSrc) {
@@ -178,30 +180,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.global, menu);
-        abHelper.onCreateOptionsMenu(thisActiv, menu);
-        return true;
-    }
-
-    public static <V extends View> Collection<V> findChildrenByClass(ViewGroup viewGroup, Class<V> clazz) {
-
-        return gatherChildrenByClass(viewGroup, clazz, new ArrayList<V>());
-    }
-
-    private static <V extends View> Collection<V> gatherChildrenByClass(ViewGroup viewGroup, Class<V> clazz, Collection<V> childrenFound) {
-
-        for (int i = 0; i < viewGroup.getChildCount(); i++)
-        {
-            final View child = viewGroup.getChildAt(i);
-            if (clazz.isAssignableFrom(child.getClass())) {
-                childrenFound.add((V)child);
-            }
-            if (child instanceof ViewGroup) {
-                gatherChildrenByClass((ViewGroup) child, clazz, childrenFound);
-            }
-        }
-
-        return childrenFound;
+//        getMenuInflater().inflate(R.menu.global, menu);
+//        abHelper.onCreateOptionsMenu(thisActiv, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -215,7 +196,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        abHelper.onOptionsItemSelected(thisActiv, item);
+//        abHelper.onOptionsItemSelected(thisActiv, item);
         return super.onOptionsItemSelected(item);
     }
 /*

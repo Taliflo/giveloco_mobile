@@ -14,10 +14,6 @@ import com.taliflo.app.R;
 import com.taliflo.app.model.User;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * Created by Caswell on 1/7/2014.
@@ -29,6 +25,8 @@ public class UserAdapter extends BaseAdapter {
     private static LayoutInflater layoutInflater;
     private ImageLoader imageLoader;
 
+    private boolean searching = false;
+
     public UserAdapter(Activity activity, ArrayList<User> users) {
         context = activity.getApplicationContext();
         this.users = users;
@@ -37,6 +35,13 @@ public class UserAdapter extends BaseAdapter {
     }
 
     public void setUserList(ArrayList<User> list) {
+        searching = false;
+        users = list;
+        this.notifyDataSetChanged();
+    }
+
+    public void setFilteredList(ArrayList<User> list) {
+        searching = true;
         users = list;
         this.notifyDataSetChanged();
     }
@@ -45,23 +50,34 @@ public class UserAdapter extends BaseAdapter {
     public int getCount() { return users.size(); }
 
     @Override
-    public Object getItem(int position) { return users.get(position); }
+    public Object getItem(int position) {
+        return users.get(position);
+    }
 
     @Override
     public long getItemId(int position) { return Long.parseLong(users.get(position).getId()); }
 
     @Override
-    public int getViewTypeCount() { return 1; }
+    public int getViewTypeCount() { return 2; }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parentView) {
+
+        if (searching) {
+            return getSearchView(position, convertView, parentView);
+        } else {
+            return getDefaultView(position, convertView, parentView);
+        }
+    }
+
+    public View getDefaultView(int position, View convertView, ViewGroup parentView) {
 
         View v = convertView;
         UserHolder holder = null;
         User user = users.get(position);
 
         if (v == null) {
-            v = layoutInflater.inflate(R.layout.user_list_item_1, parentView, false);
+            v = layoutInflater.inflate(R.layout.list_item_user_1, parentView, false);
             ImageView image = (ImageView) v.findViewById(R.id.user_image1);
             TextView name = (TextView) v.findViewById(R.id.user_name1);
             TextView summary = (TextView) v.findViewById(R.id.user_summary1);
@@ -80,7 +96,7 @@ public class UserAdapter extends BaseAdapter {
         holder.summary.setText(user.getSummary());
         //holder.tags.setText(user.getTagsString());
 
-       if (user.getRole().equals("business")) {
+        if (user.getRole().equals("business")) {
             v.setBackgroundColor(context.getResources().getColor(R.color.taliflo_purple));
             //holder.support.setText(user.getSupportedCausesCount() + " " + context.getResources().getString(R.string.userAdapter_supportedCauses));
         }
@@ -90,50 +106,16 @@ public class UserAdapter extends BaseAdapter {
         }
 
         return v;
+    }
 
-     /*   if (convertView == null) {
+    public View getSearchView(int position, View convertView, ViewGroup parentView) {
 
-            ImageView image;
-            TextView name;
-            TextView summary;
-            TextView tags;
-            TextView support;
-
-            if (user.getType() == 0) {
-                v = layoutInflater.inflate(R.layout.user_list_item_1, parentView, false);
-                image = (ImageView) v.findViewById(R.id.user_image1);
-                name = (TextView) v.findViewById(R.id.user_name1);
-                summary = (TextView) v.findViewById(R.id.user_summary1);
-                tags = (TextView) v.findViewById(R.id.user_tags1);
-                support = (TextView) v.findViewById(R.id.user_support1);
-            } else {
-                v = layoutInflater.inflate(R.layout.user_list_item_2, parentView, false);
-                image = (ImageView) v.findViewById(R.id.user_image2);
-                name = (TextView) v.findViewById(R.id.user_name2);
-                summary = (TextView) v.findViewById(R.id.user_summary2);
-                tags = (TextView) v.findViewById(R.id.user_tags2);
-                support = (TextView) v.findViewById(R.id.user_support2);
-            }
-
-            holder = new UserHolder();
-            holder.image = image;
-            holder.name = name;
-            holder.summary = summary;
-            holder.tags = tags;
-            holder.support = support;
-
-            v.setTag(holder);
-        } else {
-            holder = (UserHolder) v.getTag();
-        }
-
-
-        imageLoader.displayImage(user.getImageUrl(), holder.image);
-        holder.name.setText(user.getName());
-        holder.summary.setText(user.getSummary());
-
-        return v;*/
-
+        View v = convertView;
+        User user = users.get(position);
+        v = layoutInflater.inflate(R.layout.list_item_search, parentView, false);
+        TextView item = (TextView) v.findViewById(R.id.search_item);
+        item.setText(user.getCompanyName());
+        return v;
     }
 
     private static class UserHolder {
@@ -147,6 +129,14 @@ public class UserAdapter extends BaseAdapter {
             this.summary = summary;
             this.tags = tags;
             this.support = support;
+        }
+    }
+
+    private static class SearchHolder {
+        private TextView item;
+
+        private SearchHolder(TextView item) {
+            this.item = item;
         }
     }
 }

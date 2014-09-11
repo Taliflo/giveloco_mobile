@@ -186,6 +186,11 @@ public class User implements Parcelable {
 
     }
 
+    @Override
+    public String toString() {
+        return companyName + " | " + id + " | " + role;
+    }
+
     /**
      * This field is required by Android to be able to create new objects,
      * individually or as arrays.
