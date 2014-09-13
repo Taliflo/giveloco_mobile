@@ -24,6 +24,7 @@ import com.google.common.collect.Collections2;
 import com.taliflo.app.R;
 import com.taliflo.app.activities.BillingInfo;
 import com.taliflo.app.activities.MainActivity;
+import com.taliflo.app.activities.RedeemCredits;
 import com.taliflo.app.activities.Search;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.model.User;
@@ -160,11 +161,13 @@ public class ActionBarHelper {
                 return true;
 
             case R.id.action_redeemCredits:
+                Intent i = new Intent(activity, RedeemCredits.class);
+                activity.startActivityForResult(i, 40);
                 return true;
 
             case R.id.action_updateBillingInfo:
-                Intent i = new Intent(activity, BillingInfo.class);
-                activity.startActivityForResult(i, 555);
+                Intent j = new Intent(activity, BillingInfo.class);
+                activity.startActivityForResult(j, 555);
                 return true;
 
             case R.id.action_logout:

@@ -79,6 +79,7 @@ public class MyAccount extends Fragment {
 
         if (transactionsList.isEmpty()) {
             RequestUser requestUser = new RequestUser(user, 4, getActivity());
+            //RequestUser requestUser = new RequestUser(user, 21, getActivity());
             requestUser.execute();
             Log.i(TAG, "Requesting user...");
         }
@@ -111,6 +112,9 @@ public class MyAccount extends Fragment {
         private int userId;
         private Activity activity;
         private RelativeLayout progressView;
+
+        private long startTime;
+        private long endTime;
 
         public RequestUser(User user, int userId, Activity activity) {
             this.user = user;
@@ -154,10 +158,15 @@ public class MyAccount extends Fragment {
             transactionsList.addAll(Arrays.asList(user.getTransactionsAccepted()));
             adapter.notifyDataSetChanged();
             Log.i(TAG, user.getFirstName());
-            Log.i(TAG, user.getTransactionsAccepted()[0].getAmount());
+            //Log.i(TAG, user.getTransactionsAccepted()[0].getAmount());
+
+            endTime = android.os.SystemClock.uptimeMillis();
+            Log.i(TAG, "Request user execution time: " + (endTime - startTime) + " ms");
         }
 
         private void parseUser() throws Exception {
+            startTime = android.os.SystemClock.uptimeMillis();
+
             TalifloRestHelper restAPI = TalifloRestHelper.getSharedInstance();
             String query = restAPI.queryUserID(userId);
             String jsonResult = restAPI.getJsonResult(query);

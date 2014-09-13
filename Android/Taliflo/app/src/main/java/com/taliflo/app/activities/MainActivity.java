@@ -113,10 +113,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 actionBar.addTab(tab);
             }
 
-            tabsAdapter.instantiateItem(viewPager, 2);
+            //tabsAdapter.instantiateItem(viewPager, 2);
 
-            actionBar.setSelectedNavigationItem(0);
-            setTitle(tabs[0]);
+            actionBar.setSelectedNavigationItem(1);
+            setTitle(tabs[1]);
 
             viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
@@ -139,7 +139,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             tabIcons.recycle();
 
             // Create global configuration and initialize ImageLoader with this configuration
-            ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).build();
+            ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
+                    .denyCacheImageMultipleSizesInMemory()
+                    .build();
             ImageLoader.getInstance().init(config);
 
         }
@@ -313,6 +315,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
             case 30:
                 // UserDetail activity result
+                break;
+
+            case 40:
+                // RedeemCredits activity
                 break;
 
             case 555:

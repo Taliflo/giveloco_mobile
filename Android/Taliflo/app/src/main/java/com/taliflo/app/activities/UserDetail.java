@@ -3,12 +3,12 @@ package com.taliflo.app.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -20,9 +20,11 @@ import com.taliflo.app.utilities.ActionBarHelper;
 public class UserDetail extends Activity {
 
     // Layout Views
-    private TextView companyName, availableCredit, description, address, phone, supportCount, tags;
+    private TextView companyName, availableCredit, description, address, phone, supportCount, tags, btnSupportText;
     private Button btnTransact, btnSupport;
     private ImageView image;
+    private RelativeLayout btnSupportLayout;
+    private TextView redeemDisabledMsg;
 
     // Member variables
     private User user, loggedInUser;
@@ -49,8 +51,10 @@ public class UserDetail extends Activity {
         phone = (TextView) findViewById(R.id.userDetail_phoneNumber);
         supportCount = (TextView) findViewById(R.id.userDetail_supportCount);
         btnTransact = (Button) findViewById(R.id.userDetail_btnTransact);
-        btnSupport = (Button) findViewById(R.id.userDetail_btnSupport);
+        btnSupportText = (TextView) findViewById(R.id.userDetail_btnSupportText);
+        btnSupportLayout = (RelativeLayout) findViewById(R.id.userDetail_btnSupportLayout);
         image = (ImageView) findViewById(R.id.userDetail_profilePicture);
+        redeemDisabledMsg = (TextView) findViewById(R.id.userDetail_redeemDisabledMsg);
 
         imageLoader = ImageLoader.getInstance();
 
@@ -66,30 +70,37 @@ public class UserDetail extends Activity {
             address.setText(user.getStreetAddress() + '\n' + user.getCity() + ", " + user.getState() + '\n' + user.getZip());
             phone.setText(user.getPhone());
             imageLoader.displayImage("http://dummyimage.com/700x400/999999/fff.png", image);
-            btnSupport.setOnClickListener(openSupport);
+            btnSupportLayout.setOnClickListener(openSupport);
 
             // Set activity title and wire up views based on user role
             if (user.getRole().equals("business")) {
                 setTitle("View Business");
-                btnSupport.setText(getResources().getString(R.string.userDetail_btnSupportedCausesText));
-                btnSupport.setCompoundDrawables(getResources().getDrawable(R.drawable.ic_cause_tb), null, null, null);
+                btnSupportText.setText(getResources().getString(R.string.userDetail_btnSupportedCausesText));
                 supportCount.setText("" + user.getSupportedCausesCount());
                 btnTransact.setText(getResources().getString(R.string.userDetail_btnRedeemText));
+
                 btnTransact.setBackgroundResource(R.drawable.btn_bg_purple);
                 btnTransact.setOnClickListener(openRedeem);
+
+                // Default behaviour of disabling the redeem button
+                if (user.isRedeemableBusiness()) {
+                    btnTransact.setEnabled(true);
+                    redeemDisabledMsg.setVisibility(View.GONE);
+                } else {
+                    btnTransact.setEnabled(false);
+                    redeemDisabledMsg.setVisibility(View.VISIBLE);
+                }
             }
 
             if (user.getRole().equals("cause")) {
                 setTitle("View Cause");
-                btnSupport.setText(getResources().getString(R.string.userDetail_btnSupportingBusinessesText));
-                btnSupport.setCompoundDrawables(getResources().getDrawable(R.drawable.ic_business_tb), null, null, null);
+                btnSupportText.setText(getResources().getString(R.string.userDetail_btnSupportingBusinessesText));
                 supportCount.setText("" + user.getSupportersCount());
                 btnTransact.setText(getResources().getString(R.string.userDetail_btnDonateText));
                 btnTransact.setBackgroundResource(R.drawable.btn_bg_tb);
                 btnTransact.setOnClickListener(openDonate);
             }
         }
-
 
     }
 

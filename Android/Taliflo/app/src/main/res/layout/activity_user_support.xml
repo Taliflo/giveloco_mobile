@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightest_grey"
     tools:context="com.taliflo.app.activities.UserSupport">
 
     <ListView

@@ -61,8 +61,8 @@ public class UserSupport extends Activity {
                 CauseStore causeStore = CauseStore.getInstance();
                 List<User> causes = causeStore.getCauses();
 
-                for (int i = 0; i < suppIDs.length; i++) {
-                    preds.add(new UserIdPredicate(suppIDs[i]));
+                for (int i : suppIDs) {
+                    preds.add(new User.UserIdPredicate(i));
                 }
 
                support  = new ArrayList<User>(Collections2.filter(causes, Predicates.or(preds)));
@@ -76,8 +76,8 @@ public class UserSupport extends Activity {
                 BusinessStore businessStore = BusinessStore.getInstance();
                 List<User> businesses = businessStore.getBusinesses();
 
-                for (int i = 0; i < suppIDs.length; i++) {
-                    preds.add(new UserIdPredicate(suppIDs[i]));
+                for (int i : suppIDs) {
+                    preds.add(new User.UserIdPredicate(i));
                 }
 
                 support = new ArrayList<User>(Collections2.filter(businesses, Predicates.or(preds)));
@@ -126,7 +126,7 @@ public class UserSupport extends Activity {
         abHelper.onOptionsItemSelected(this, item);
         return super.onOptionsItemSelected(item);
     }
-
+/*
     class UserIdPredicate implements Predicate<User> {
 
         private int id;
@@ -140,5 +140,5 @@ public class UserSupport extends Activity {
             return user.getId().equals(Integer.toString(id));
         }
     }
-
+*/
 }

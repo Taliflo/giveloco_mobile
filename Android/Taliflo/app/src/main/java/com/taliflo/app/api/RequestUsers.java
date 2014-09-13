@@ -2,11 +2,13 @@ package com.taliflo.app.api;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.model.User;
+import com.taliflo.app.model.UserStore;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,6 +32,9 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
     private Activity activity;
     private int progressViewID;
     private RelativeLayout progressView;
+
+    private long startTime;
+    private long endTime;
 
     public RequestUsers (UserAdapter adapter, ArrayList<User> userList, String userRole, Activity activity, int progressViewID) {
         this.userList = userList;
@@ -61,9 +66,19 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
         progressView.setVisibility(View.GONE);
         sortAlphabetically(userList);
         adapter.notifyDataSetChanged();
+
+        endTime = android.os.SystemClock.uptimeMillis();
+        Log.i(TAG, "Request users [" + userRole + "] execution time: " + (endTime - startTime) + " ms");
+
+        // Determine redeemable businesses
+        if (userRole.equals("business")) {
+            User currentUser = UserStore.getInstance().getCurrentUser();
+            currentUser.determineRedeemableBusinesses();
+        }
     }
 
     private void parseUsers () throws Exception {
+        startTime = android.os.SystemClock.uptimeMillis();
 
         TalifloRestHelper restAPI = TalifloRestHelper.getSharedInstance();
         String query = restAPI.QUERY_USERS;

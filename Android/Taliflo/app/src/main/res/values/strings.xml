@@ -80,7 +80,7 @@
 
     <!-- ** Fragment My Account ** -->
     <string name="myAccount_dummyFullName">Stein Mack</string>
-    <string name="myAccount_currentBalance">Current Balance (Credits)</string>
+    <string name="myAccount_currentBalance">Credits</string>
     <string name="myAccount_dummyCredits">C 00.00</string>
     <string name="myAccount_transactions">Transactions</string>
     <string name="myAccount_transType">Redemption at</string>
@@ -151,6 +151,7 @@
     <string name="userDetail_contactInfo">Contact Info</string>
     <string name="userDetail_dummyBusinessAddress">123 Address St. \nVancouver, BC\nCanada V6T 1Z4</string>
     <string name="userDetail_dummyPhone">778 778 7788</string>
+    <string name="userDetail_disabledRedeemMsg">To redeem credit at our business, please donate to one of our supported causes.</string>
 
     <!-- ** Activity Redeem ** -->
     <string name="title_activity_redeem">Redeem Credits</string>
@@ -192,6 +193,10 @@
 
     <!-- ** Activity Search ** -->
     <string name="title_activity_search">Search Results</string>
+
+    <!-- Activity Redeem Credits -->
+    <string name="title_activity_redeem_credits">RedeemCredits</string>
+    <string name="redeemCredits_noneMsg">Please donate to a cause to obtain credit. This credit can then be redeemed at the businesses that support the causes you have donated to.</string>
 
     <!-- Dialogs -->
     <string name="dialog_title">Are you sure?</string>

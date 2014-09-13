@@ -3,6 +3,9 @@ package com.taliflo.app.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
+import com.google.common.collect.Collections2;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -13,6 +16,7 @@ import org.json.JSONObject;
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -24,12 +28,15 @@ public class User implements Parcelable {
     // Member fields
     protected String id, role, firstName, lastName, companyName,
             email, phone, streetAddress, city, state,
-            country, zip, summary, description, website, profilePictureURL = "http://dummyimage.com/200x200/999999/fff.png";
+            country, zip, summary, description, website, picOriginal, picMedium, picThumb, profilePictureURL = "http://dummyimage.com/200x200/999999/fff.png";
     protected String[] tags;
     protected Transaction[] transactionsCreated, transactionsAccepted;
     private int totalDebits, totalCredits;
     private float balance, totalDebitsValue, totalCreditsValue;
     private int[] supporters, supportedCauses;
+
+    private ArrayList<User> redeemableBusinesses;
+    private boolean redeemableBusiness = false;
 
     // Constructors
 
@@ -59,6 +66,12 @@ public class User implements Parcelable {
         description = jsonObject.optString("description");
         //profilePictureURL
         balance = Float.parseFloat(jsonObject.optString("balance"));
+
+        JSONObject images = jsonObject.optJSONObject("images");
+        JSONObject profilePicture = images.optJSONObject("profile_picture");
+        picOriginal = profilePicture.optString("original");
+        picMedium = profilePicture.optString("medium");
+        picThumb = profilePicture.optString("thumb");
 
         JSONArray jsonTags = jsonObject.optJSONArray("tags");
         tags = new String[jsonTags.length()];
@@ -131,6 +144,9 @@ public class User implements Parcelable {
         dest.writeString(description);
         dest.writeString(website);
         dest.writeString(profilePictureURL);
+        dest.writeString(picOriginal);
+        dest.writeString(picMedium);
+        dest.writeString(picThumb);
 
         dest.writeInt(totalDebits);
         dest.writeInt(totalCredits);
@@ -145,6 +161,9 @@ public class User implements Parcelable {
 
         dest.writeTypedArray(transactionsCreated, 0);
         dest.writeTypedArray(transactionsAccepted, 0);
+
+        // If redeemableBusiness == true, byte == 1
+        dest.writeByte((byte) (redeemableBusiness ? 1 : 0));
     }
 
     /**
@@ -169,6 +188,9 @@ public class User implements Parcelable {
         description = in.readString();
         website = in.readString();
         profilePictureURL = in.readString();
+        picOriginal = in.readString();
+        picMedium = in.readString();
+        picThumb = in.readString();
 
         totalDebits = in.readInt();
         totalCredits = in.readInt();
@@ -184,6 +206,8 @@ public class User implements Parcelable {
         transactionsCreated = (Transaction[]) in.createTypedArray(Transaction.CREATOR);
         transactionsAccepted = (Transaction[]) in.createTypedArray(Transaction.CREATOR);
 
+        // redeemableBusiness == true if byte != 0
+        redeemableBusiness = in.readByte() != 0;
     }
 
     @Override
@@ -215,6 +239,16 @@ public class User implements Parcelable {
             sb.append("#" + tags[i] + " ");
         }
         return sb.toString();
+    }
+
+    public void determineRedeemableBusinesses() {
+        ArrayList<Predicate<User>> preds = new ArrayList<Predicate<User>>();
+
+        for (int i :supportedCauses) {
+            preds.add(new SupportedCausePredicate(i));
+        }
+        List<User> businesses = BusinessStore.getInstance().getBusinesses();
+        redeemableBusinesses = new ArrayList<User>(Collections2.filter(businesses, Predicates.or(preds)));
     }
 
     // Accessor methods
@@ -343,6 +377,30 @@ public class User implements Parcelable {
         this.website = website;
     }
 
+    public String getPicOriginal() {
+        return picOriginal;
+    }
+
+    public void setPicOriginal(String picOriginal) {
+        this.picOriginal = picOriginal;
+    }
+
+    public String getPicMedium() {
+        return picMedium;
+    }
+
+    public void setPicMedium(String picMedium) {
+        this.picMedium = picMedium;
+    }
+
+    public String getPicThumb() {
+        return picThumb;
+    }
+
+    public void setPicThumb(String picThumb) {
+        this.picThumb = picThumb;
+    }
+
     public String[] getTags() {
         return tags;
     }
@@ -443,6 +501,56 @@ public class User implements Parcelable {
             return 0;
         else
             return supportedCauses.length;
+    }
+
+    public ArrayList<User> getRedeemableBusinesses() {
+        return redeemableBusinesses;
+    }
+
+    public void setRedeemableBusinesses(ArrayList<User> redeemableBusinesses) {
+        this.redeemableBusinesses = redeemableBusinesses;
+    }
+
+    public boolean isRedeemableBusiness() {
+        return redeemableBusiness;
+    }
+
+    public void setRedeemableBusiness(boolean redeemableBusiness) {
+        this.redeemableBusiness = redeemableBusiness;
+    }
+
+    static public class UserIdPredicate implements Predicate<User> {
+
+        private int id;
+
+        public UserIdPredicate(int id) {
+            this.id = id;
+        }
+
+        @Override
+        public boolean apply(User user) {
+            return user.getId().equals(Integer.toString(id));
+        }
+    }
+
+    static public class SupportedCausePredicate implements Predicate<User> {
+
+        private int id;
+
+        public SupportedCausePredicate(int id) {
+            this.id = id;
+        }
+
+        @Override
+        public boolean apply(User user) {
+            for (int i : user.getSupportedCauses()) {
+                if (i == id) {
+                    user.setRedeemableBusiness(true);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
 

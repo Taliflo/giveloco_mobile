@@ -16,7 +16,7 @@
     <color name="list_item_bg_def">#ffffff</color>
     <color name="list_item_bg_press">#32b7e8</color>
     <color name="list_section_bg">#bbbbbb</color>
-    <color name="light_grey_bg">#eeeeee</color>
+    <color name="light_grey_bg">#ededed</color>
     <color name="med_grey_bg">#e0e0e0</color>
 
     <!-- Navigation Drawer -->
@@ -31,6 +31,7 @@
     <color name="purple">#7c5691</color>
     <color name="dark_purple">#3d0c58</color>
     <color name="custom_color">@color/taliflo_tiffanyBlue</color>
+    <color name="lightest_grey">#efefef</color>
 
     <!-- Main Acivity Action Bar Tab -->
     <color name="tabTextGrey">#777777</color>
