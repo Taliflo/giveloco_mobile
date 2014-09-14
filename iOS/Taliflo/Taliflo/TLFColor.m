@@ -81,4 +81,14 @@
     return [self colorWithHexString:@"999999"];
 }
 
++ (UIColor *)disabledGrey
+{
+    return [self colorWithHexString:@"bdbdbd"];
+}
+
++ (UIColor *)lightestGrey
+{
+    return [self colorWithHexString:@"efefef"];
+}
+
 @end

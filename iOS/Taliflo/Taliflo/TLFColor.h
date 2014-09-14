@@ -16,5 +16,7 @@
 + (UIColor *)talifloPurple;
 + (UIColor *)lightGrey;
 + (UIColor *)mediumGrey;
++ (UIColor *)disabledGrey;
++ (UIColor *)lightestGrey;
 + (void)setStrokeTB:(UIView *)view;
 @end

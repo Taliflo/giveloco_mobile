@@ -75,7 +75,7 @@
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Dmd-hr-Mba" firstAttribute="top" secondItem="sg1-xb-fG7" secondAttribute="bottom" constant="8" id="5De-sh-41V"/>
                 <constraint firstItem="JUO-51-jmp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Af5-GR-4oU"/>

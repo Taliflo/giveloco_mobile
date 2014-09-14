@@ -10,6 +10,13 @@
 #import "AFNetworking.h"
 #import "TLFCauseStore.h"
 #import "TLFBusinessStore.h"
+#import "TLFUserStore.h"
+
+@interface TLFRestHelper () {
+    double startTime, endTime;
+}
+
+@end
 
 @implementation TLFRestHelper
 
@@ -46,6 +53,8 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
 
 - (void)requestUsers:(NSString *)role
 {
+    startTime = CACurrentMediaTime();
+    
     __block UIView *indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self.tableView.superview options:nil][0];
     indicatorView.center = CGPointMake(160, 176);
     [self.viewController.tableView addSubview:indicatorView];
@@ -57,7 +66,7 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:
      ^(AFHTTPRequestOperation *operation, id responseObject) {
-          NSLog(@"%@", responseObject[0]);
+          //NSLog(@"%@", responseObject[0]);
          
          [self sortUserResponse:responseObject byRole:role];
          
@@ -66,6 +75,14 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
                             [indicatorView removeFromSuperview];
                             [self.tableView reloadData];
                             
+                            endTime = CACurrentMediaTime();
+                            NSLog(@"Request users [%@] execution time: %f sec", role, (endTime - startTime));
+                           
+                            if ([role isEqualToString:@"business"]) {
+                                TLFUser *currentUser = [[TLFUserStore getInstance] currentUser];
+                                [currentUser determineRedeemableBusinesses];
+                                NSLog(@" Redeemable businesses \n%@", [currentUser.redeemableBusinesses description]);
+                            } 
                         }
                         );
      }
@@ -81,14 +98,15 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
 
 - (void)sortUserResponse:(id)responseObject byRole:(NSString *)role
 {
-    // Extract causes
+    // Extract users based on role
     _users = [[NSMutableArray alloc] init];
     for (NSDictionary *obj in responseObject) {
-        if ([obj[@"role"] isEqualToString:role])
+        if ([obj[@"role"] isEqualToString:role]) {
             [self.users addObject:obj];
+        }
     }
     
-    NSLog(@"HERE %@", _users[0][@"company_name"]);
+    NSLog(@"FIRST OBJECT: %@, %@", self.users[0][@"company_name"], self.users[0][@"role"]);
     
     // Sort alphabetically
     NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]
@@ -99,7 +117,6 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
     [self.users sortUsingDescriptors:@[descriptor]];
     
     // Add to global store
-    //TODO: Add to global store
     if ([role isEqualToString:@"business"]) {
         TLFBusinessStore *bStore = [TLFBusinessStore getInstance];
         bStore.businesses = self.users;

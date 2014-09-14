@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *description;
 @property (strong, nonatomic) IBOutlet UILabel *address;
 @property (strong, nonatomic) IBOutlet UITextView *phone;
+@property (strong, nonatomic) IBOutlet UILabel *redeemDisabledMsg;
 
 @property (strong, nonatomic) TLFUser *user;
 

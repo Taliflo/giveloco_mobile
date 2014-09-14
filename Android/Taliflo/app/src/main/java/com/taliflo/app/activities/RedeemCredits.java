@@ -43,17 +43,21 @@ public class RedeemCredits extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_redeem_credits);
 
-        // Get all supporting businesses
-        if (currUser.getRedeemableBusinesses().size() != 0) {
-            Log.i(TAG, "" + currUser.getRedeemableBusinesses());
+        listView = (ListView) findViewById(R.id.redeemCredits_listView);
+        msgLayout = (RelativeLayout) findViewById(R.id.redeemCredits_noneMsgLayout);
 
-            // Layout
-            listView = (ListView) findViewById(R.id.redeemCredits_listView);
-            adapter = new UserAdapter(this, currUser.getRedeemableBusinesses());
-            listView.setAdapter(adapter);
-            listView.setOnItemClickListener(openRedeem);
-        } else {
-            msgLayout = (RelativeLayout) findViewById(R.id.redeemCredits_noneMsgLayout);
+        // Get all supporting businesses
+        try {
+            if (currUser.getRedeemableBusinesses().size() != 0) {
+                Log.i(TAG, "" + currUser.getRedeemableBusinesses());
+                adapter = new UserAdapter(this, currUser.getRedeemableBusinesses());
+                listView.setAdapter(adapter);
+                listView.setOnItemClickListener(openRedeem);
+            } else {
+                msgLayout.setVisibility(View.VISIBLE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
             msgLayout.setVisibility(View.VISIBLE);
         }
     }

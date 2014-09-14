@@ -34,8 +34,13 @@
     // Tab bar controller
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[self.myAccountNC, self.causesNC, self.businessesNC];
-    [self.tabBarController.tabBar setBarTintColor:[UIColor whiteColor]];
+    [self.tabBarController.tabBar setBarTintColor:[TLFColor lightestGrey]];
     [self.tabBarController.tabBar setTintColor:[TLFColor talifloTiffanyBlue]];
+    
+    // Set the navigation bar style
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[TLFColor talifloTiffanyBlue]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
     
     // Setting navigation bar back button font size
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0]} forState:UIControlStateNormal];

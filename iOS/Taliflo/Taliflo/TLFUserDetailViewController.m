@@ -22,6 +22,7 @@
 static TLFNavBarHelper *nbHelper;
 static NSString *causeIden = @"cause";
 static NSString *bussIden = @"business";
+static BOOL redeemableBusiness = NO;
 
 @implementation TLFUserDetailViewController
 
@@ -64,6 +65,17 @@ static NSString *bussIden = @"business";
                      forState:UIControlStateNormal];
         [self.btnTransact setBackgroundColor:[TLFColor talifloPurple]];
         [self.btnTransact setTitle:@"Redeem $20" forState:UIControlStateNormal];
+        
+        // Check if this business is a redeemable business
+        redeemableBusiness = [userStore.currentUser checkReemableBusiness:self.user];
+        NSLog(@"redeemableBusiness=%hhd", redeemableBusiness);
+        
+        if (redeemableBusiness) {
+            [self.redeemDisabledMsg removeFromSuperview];
+        } else {
+            self.btnTransact.enabled = NO;
+            self.btnTransact.backgroundColor = [TLFColor disabledGrey];
+        }
     }
     
     if ([self.user.role isEqualToString:causeIden]) {
@@ -71,10 +83,14 @@ static NSString *bussIden = @"business";
                      forState:UIControlStateNormal];
         [self.btnTransact setBackgroundColor:[TLFColor talifloTiffanyBlue]];
         [self.btnTransact setTitle:@"Donate" forState:UIControlStateNormal];
+        
+        [self.redeemDisabledMsg removeFromSuperview];
     }
     
     [[self.btnTransact layer] setCornerRadius:3];
     [[self.btnSupport layer] setCornerRadius:3];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,14 +144,14 @@ static NSString *bussIden = @"business";
     
     if ([_user.role isEqualToString:bussIden]) {
         NSLog(@"%@", self.user.supportedCauses);
-        userSupportVC.support = self.user.supportedCauses;
+        userSupportVC.support = [self.user getSupportedCauses];
         userSupportVC.title = @"Supported Causes";
         userSupportVC.supportRole = @"cause";
     }
     
     if ([_user.role isEqualToString:causeIden]) {
         NSLog(@"%@", self.user.supporters);
-        userSupportVC.support = self.user.supporters;
+        userSupportVC.support = [self.user getSupporters];
         userSupportVC.title = @"Supporting Businesses";
         userSupportVC.supportRole = @"business";
     }

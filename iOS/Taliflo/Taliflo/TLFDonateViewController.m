@@ -26,6 +26,7 @@
         
         // Set view controller title
         //[TLFNavBarHelper configViewController:self withTitle:@"Donate"];
+        self.title = @"Donate Now";
     }
     return self;
 }

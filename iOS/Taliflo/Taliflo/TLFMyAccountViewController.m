@@ -18,10 +18,11 @@
 #import "TLFTransaction.h"
 #import "TLFBillingInfoViewController.h"
 
-@interface TLFMyAccountViewController ()
+@interface TLFMyAccountViewController () {
+    double startTime, endTime;
+}
 
 @property (nonatomic, strong) TLFUser *user;
-@property (nonatomic, strong) NSMutableArray *transactions;
 
 
 @end
@@ -49,6 +50,7 @@ static UIView *indicatorView;
         // Request logged in user
         restHelper = [[TLFRestHelper alloc] init];
         [self requestUser:4];
+        //[self requestUser:21];
         
         indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
         [self.view addSubview:indicatorView];
@@ -70,7 +72,7 @@ static UIView *indicatorView;
     // Do any additional setup after loading the view from its nib.
     
     // Styling
-    [TLFColor setStrokeTB:_balance];
+    [TLFColor setStrokeTB:self.balance];
     [[self.balance layer] setCornerRadius:3];
     
     // Load the cell nib file
@@ -85,13 +87,18 @@ static UIView *indicatorView;
 {
     [super viewWillAppear:YES];
     
-    // Setting the nav bar style
-    [TLFNavBarHelper configViewController:self withBarTintColor:[UIColor whiteColor] withTintColor:[TLFColor talifloTiffanyBlue]];
+    // Setting the tab bar selected item colour
+    self.tabBarController.tabBar.selectedImageTintColor = [TLFColor talifloOrange];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
+/*
+    self.name.hidden = YES;
+    CGRect newFrame = self.name.frame;
+    newFrame.size.height = 0;
+    [self.name setFrame:newFrame]; */
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -109,6 +116,8 @@ static UIView *indicatorView;
 
 - (void)requestUser:(int)numID
 {
+    startTime = CACurrentMediaTime();
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[restHelper queryUser:numID]];
     
     // AFNetworking asynchronous URL request
@@ -118,7 +127,6 @@ static UIView *indicatorView;
      ^(AFHTTPRequestOperation *operation, id responseObject) {
          self.user = [[TLFUser alloc] initWithDictionary:responseObject];
          
-         NSLog(@"USER NAME: %@", self.user.companyName);
          dispatch_async(dispatch_get_main_queue(),
                         ^{
                             // Set user in global store
@@ -131,6 +139,10 @@ static UIView *indicatorView;
                             
                             [self.tableView reloadData];
                             [indicatorView removeFromSuperview];
+                            
+                            endTime = CACurrentMediaTime();
+                            
+                            NSLog(@"Request logged in user execution time: %f sec", (endTime-startTime));
                         }
                         );
      }
@@ -153,7 +165,7 @@ static UIView *indicatorView;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.user.transactions count];
+    return [self.user.transactionsAll count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,7 +183,7 @@ static UIView *indicatorView;
         cell = [[TLFTransactionCell alloc] init];
     }
 
-    TLFTransaction *trans = [[TLFTransaction alloc] initWithDictionary:_user.transactions[indexPath.row]];
+    TLFTransaction *trans = [[TLFTransaction alloc] initWithDictionary:self.user.transactionsAll[indexPath.row]];
     cell.party.text = trans.toName;
     cell.date.text = [trans formatCreatedAt];
     cell.type.text = trans.transType;

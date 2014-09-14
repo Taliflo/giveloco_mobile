@@ -39,8 +39,8 @@
         //_updatedAt
         //_lastSignIn
         //_deletedAt
-        _transactions = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
-        [_transactions addObjectsFromArray:dict[@"transactions_accepted"]];
+        _transactionsAll = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
+        [_transactionsAll addObjectsFromArray:dict[@"transactions_accepted"]];
     }
     return self;
 }
@@ -48,7 +48,7 @@
 - (int)getSupportedCausesCount
 {
     if (_supportedCauses)
-        return (int)_supportedCauses.count;
+        return (int) self.supportedCauses.count;
     else
         return 0;
 }
@@ -56,7 +56,7 @@
 - (int)getSupportersCount
 {
     if (_supporters)
-        return (int)_supporters.count;
+        return (int) self.supporters.count;
     else
         return 0;
 }
@@ -97,36 +97,81 @@
     }
 }
 
-- (NSArray *)supportedCauses
+- (NSPredicate *)orArrayPredicate:(NSMutableArray *)arr key:(NSString *)key
 {
-    if (![_role isEqualToString:@"business"]) return nil;
+    NSMutableArray *predArray = [[NSMutableArray alloc] init];
+    for (NSObject *i in arr) {
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K == %@", key, i];
+        [predArray addObject:pred];
+    }
     
+    return [NSCompoundPredicate orPredicateWithSubpredicates:predArray];
+}
+
+- (NSArray *)getSupportedCauses
+{
+    if (![self.role isEqualToString:@"business"]) return nil;
+/*
     NSMutableArray *predArr = [[NSMutableArray alloc] init];
     for (NSNumber *i in _supportedCauses) {
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K == %@", @"id", i];
         [predArr addObject:pred];
     }
     NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
-    
+*/
+    NSPredicate *predicate = [self orArrayPredicate:self.supportedCauses key:@"id"];
     TLFCauseStore *store = [TLFCauseStore getInstance];
     NSArray *filtered = [store.causes filteredArrayUsingPredicate:predicate];
     return filtered;
 }
 
-- (NSArray *)supporters
+- (NSArray *)getSupporters
 {
-    if (![_role isEqualToString:@"cause"]) return nil;    
-    
+    if (![self.role isEqualToString:@"cause"]) return nil;
+/*
     NSMutableArray *predArr = [[NSMutableArray alloc] init];
     for (NSNumber *i in _supporters) {
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K == %@", @"id", i];
         [predArr addObject:pred];
     }
     NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
-    
+*/
+    NSPredicate *predicate = [self orArrayPredicate:self.supporters key:@"id"];
     TLFBusinessStore *store = [TLFBusinessStore getInstance];
     NSArray *filtered = [store.businesses filteredArrayUsingPredicate:predicate];
     return filtered;
+}
+
+- (void)determineRedeemableBusinesses
+{
+    //if ([self.role isEqualToString:@"business"] || [self.role isEqualToString:@"cause"]) return;
+    
+    NSMutableArray *predArr = [[NSMutableArray alloc] init];
+    for (NSNumber *i in self.supportedCauses) {
+        NSPredicate *pred = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            NSArray *suppCauses = evaluatedObject[@"supported_causes"];
+            return [suppCauses containsObject:i];
+        }];
+        [predArr addObject:pred];
+    }
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
+    TLFBusinessStore *store = [TLFBusinessStore getInstance];
+    self.redeemableBusinesses = [NSMutableArray arrayWithArray:[store.businesses filteredArrayUsingPredicate:predicate]];
+}
+
+- (BOOL)checkReemableBusiness:(TLFUser *)business
+{
+    NSMutableArray *predArr = [[NSMutableArray alloc] init];
+    for (NSNumber *i in self.supportedCauses) {
+        NSPredicate *pred = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            TLFUser *buss = evaluatedObject;
+            NSArray *suppCauses = buss.supportedCauses;
+            return [suppCauses containsObject:i];
+        }];
+        [predArr addObject:pred];
+    }
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
+    return [predicate evaluateWithObject:business];
 }
 
 @end

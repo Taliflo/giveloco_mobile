@@ -207,7 +207,7 @@
                             </connections>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="0qH-RC-UKu" secondAttribute="trailing" constant="20" id="5ma-Ph-iLc"/>
                         <constraint firstItem="R5b-Ew-aUI" firstAttribute="leading" secondItem="hzV-hv-ZLc" secondAttribute="leading" constant="20" id="68k-a8-8bZ"/>

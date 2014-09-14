@@ -9,6 +9,7 @@
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
 #import "TLFBillingInfoViewController.h"
+#import "TLFRedeemCreditsViewController.h"
 
 @interface TLFNavBarHelper ()
 
@@ -36,6 +37,8 @@
                                                      highlightedImage:nil
                                                                action:^(REMenuItem *item) {
                                                                    NSLog(@"'Redeem Credits' clicked");
+                                                                   TLFRedeemCreditsViewController *redeemCreditsVC = [[TLFRedeemCreditsViewController alloc] init];
+                                                                   [self.viewController.navigationController pushViewController:redeemCreditsVC animated:YES];
                                                                }];
         
         REMenuItem *billingInfo = [[REMenuItem alloc] initWithTitle:@"Update Billing Info"
@@ -43,7 +46,7 @@
                                                    highlightedImage:nil
                                                              action:^(REMenuItem *item) {
                                                                  NSLog(@"'Update Billing Info' clicked");
-                                                                 TLFBillingInfoViewController * billingInfoVC = [[TLFBillingInfoViewController alloc] init];
+                                                                 TLFBillingInfoViewController *billingInfoVC = [[TLFBillingInfoViewController alloc] init];
                                                                  [self.viewController.navigationController pushViewController:billingInfoVC animated:YES];
                                                              }];
         /*
@@ -114,7 +117,7 @@
     UINavigationBar *navBar = viewController.navigationController.navigationBar;
     navBar.barTintColor = barTintColor;
     navBar.tintColor = tintColor;
-    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [TLFColor talifloPurple]}];
+    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
 }
 
 @end

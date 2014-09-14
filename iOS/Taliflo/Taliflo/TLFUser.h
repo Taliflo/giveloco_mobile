@@ -14,8 +14,8 @@
 *streetAddress, *city, *state, *country, *zip, *summary, *description, *website, *profilePictureURL;
 @property (nonatomic, copy) NSNumber *totalDebits, *totalCredits;
 @property (nonatomic, copy) NSNumber *balance, *totalFundsRaised;
-@property (nonatomic, strong) NSArray *tags, *transactionsCreated, *transactionsAccepted, *supporters, *supportedCauses;
-@property (nonatomic, strong) NSMutableArray *transactions;
+@property (nonatomic, strong) NSMutableArray *tags, *transactionsCreated, *transactionsAccepted, *supporters, *supportedCauses, *redeemableBusinesses;
+@property (nonatomic, strong) NSMutableArray *transactionsAll;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 
@@ -24,5 +24,9 @@
 - (NSString *)getTagsString;
 - (NSString *)getSupportersCountStr;
 - (NSString *)getSupportedCausesStr;
+- (NSArray *)getSupportedCauses;
+- (NSArray *)getSupporters;
+- (void)determineRedeemableBusinesses;
+- (BOOL)checkReemableBusiness:(TLFUser *)business;
 
 @end

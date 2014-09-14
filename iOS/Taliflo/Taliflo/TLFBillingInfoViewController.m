@@ -101,7 +101,7 @@ static NSInteger currentMonth;
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [self.scrollView setContentSize:CGSizeMake(320, 565)];
+    [self.scrollView setContentSize:CGSizeMake(320, 568)];
 }
 
 // Close any opened keyboard

@@ -63,8 +63,8 @@ static NSString *sysCellID = @"UITableViewCell";
 {
     [super viewWillAppear:animated];
     
-    // Setting the navigation bar style
-    [TLFNavBarHelper configViewController:self withBarTintColor:[UIColor whiteColor] withTintColor:[TLFColor talifloTiffanyBlue]];
+    // Setting the tab bar selected item colour
+    self.tabBarController.tabBar.selectedImageTintColor = [TLFColor talifloPurple];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -128,12 +128,9 @@ static NSString *sysCellID = @"UITableViewCell";
 {
     TLFUserDetailViewController *detailVC = [[TLFUserDetailViewController alloc] init];
     
-    // Pass the selected cause to the user detail view controller
+    // Pass the selected business to the user detail view controller
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        NSPredicate *predName = [NSPredicate predicateWithFormat:@"%K == %@", @"company_name", cell.textLabel.text];
-        NSArray *match = [restHelper.users filteredArrayUsingPredicate:predName];
-        detailVC.user = [[TLFUser alloc] initWithDictionary:match[0]];
+        detailVC.user = [[TLFUser alloc] initWithDictionary:self.filtered[indexPath.row]];
     } else {
         detailVC.user = [[TLFUser alloc] initWithDictionary:restHelper.users[indexPath.row]];
     }
