@@ -11,6 +11,7 @@
 #import "TLFMyAccountViewController.h"
 #import "TLFCausesViewController.h"
 #import "TLFBusinessesViewController.h"
+#import "TLFLoginViewController.h"
 
 @implementation TLFAppDelegate
 
@@ -47,9 +48,13 @@
     
     self.window.rootViewController = self.tabBarController;
     
+    // Login view controller
+    self.loginVC = [[TLFLoginViewController alloc] init];
     
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [TLFColor lightestGrey];
     [self.window makeKeyAndVisible];
+    
+    [self.window.rootViewController presentViewController:self.loginVC animated:NO completion:nil];
     return YES;
 }
 

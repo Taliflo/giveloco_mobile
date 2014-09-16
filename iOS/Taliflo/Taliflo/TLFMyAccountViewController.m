@@ -135,7 +135,7 @@ static UIView *indicatorView;
                             
                             // Populate layout views
                             self.name.text = _user.companyName;
-                            self.balance.text = [NSString stringWithFormat:@"%@", self.user.balance];
+                            self.balance.text = [NSString stringWithFormat:@"C %@", self.user.balance];
                             
                             [self.tableView reloadData];
                             [indicatorView removeFromSuperview];

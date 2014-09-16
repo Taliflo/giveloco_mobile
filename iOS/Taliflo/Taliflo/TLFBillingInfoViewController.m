@@ -106,6 +106,8 @@ static CGPoint viewCenter;
     self.country.inputView = self.pickerCountry;
     
     [[self.btnSave layer] setCornerRadius:3];
+    self.btnSave.enabled = NO;
+    self.btnSave.backgroundColor = [TLFColor disabledGrey];
 }
 
 - (void)didReceiveMemoryWarning
@@ -289,7 +291,7 @@ static CGPoint viewCenter;
 
 }
 
-#pragma mark - Text view delegate
+#pragma mark - Text field delegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TLFMyAccountViewController, TLFCausesViewController, TLFBusinessesViewController;
+@class TLFMyAccountViewController, TLFCausesViewController, TLFBusinessesViewController, TLFLoginViewController;
 
 @interface TLFAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,6 +16,7 @@
 @property (strong, nonatomic) TLFMyAccountViewController *myAccountVC;
 @property (strong, nonatomic) TLFCausesViewController *causesVC;
 @property (strong, nonatomic) TLFBusinessesViewController *businessesVC;
+@property (strong, nonatomic) TLFLoginViewController *loginVC;
 @property (strong, nonatomic) UINavigationController *myAccountNC, *causesNC, *businessesNC;
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
