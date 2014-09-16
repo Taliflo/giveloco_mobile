@@ -7,18 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomKeyboard.h"
 
-@interface TLFBillingInfoViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface TLFBillingInfoViewController : UIViewController
+    <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, CustomKeyboardDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *name;
 @property (strong, nonatomic) IBOutlet UITextField *number;
+@property (strong, nonatomic) IBOutlet UITextField *expiryDate;
 @property (strong, nonatomic) IBOutlet UITextField *cvv;
-@property (strong, nonatomic) IBOutlet UIButton *btnExpiryDate;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *street;
 @property (strong, nonatomic) IBOutlet UITextField *city;
 @property (strong, nonatomic) IBOutlet UITextField *zip;
-@property (strong, nonatomic) IBOutlet UIButton *btnState;
-@property (strong, nonatomic) IBOutlet UIButton *btnCountry;
+@property (strong, nonatomic) IBOutlet UITextField *state;
+@property (strong, nonatomic) IBOutlet UITextField *country;
+@property (strong, nonatomic) IBOutlet UIButton *btnSave;
 
 @end

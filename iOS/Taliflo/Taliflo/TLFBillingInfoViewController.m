@@ -15,12 +15,16 @@
 
 @property (nonatomic, strong) NSArray *months, *years, *states, *countries;
 @property (nonatomic) NSInteger expireMonth, expireYear;
+@property (nonatomic, strong) UIPickerView *pickerExpiryDate, *pickerState, *pickerCountry;
+@property (nonatomic, strong) CustomKeyboard *customKeyboard;
 
 @end
 
 static NSInteger maxYear = 2030;
 static NSInteger minYear;
 static NSInteger currentMonth;
+static CGPoint scrollViewOffset;
+static CGPoint viewCenter;
 
 @implementation TLFBillingInfoViewController
 
@@ -31,13 +35,13 @@ static NSInteger currentMonth;
         // Custom initialization
         
         self.navigationItem.title = @"Update Billing Info";
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                                  initWithTitle:@"Done"
+        /*self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                                  initWithTitle:@"Save"
                                                   style:UIBarButtonItemStylePlain
                                                   target:nil
-                                                  action:@selector(saveInfo)];
-        [self.navigationItem.rightBarButtonItem setEnabled:YES];
-
+                                                  action:@selector(saveInfo)]; */
+        
+        //[self.navigationItem.rightBarButtonItem setEnabled:YES];
     }
     return self;
 }
@@ -47,49 +51,61 @@ static NSInteger currentMonth;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Initialize variables
     
+    // Initialize variables
     NSDate *currentDate = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit fromDate:currentDate];
     minYear = [components year];
     currentMonth = [components month];
     
+    // Picker view data source
     self.months = @[@"January", @"February", @"March", @"April", @"May", @"June", @"July", @"August", @"September", @"October", @"November", @"December"];
     self.years = [self setYears];
-    
     self.states = @[@"AB", @"BC", @"MB", @"NB", @"NL", @"NS", @"ON", @"PE", @"QC", @"SK"];
     self.countries = @[@"Canada"];
     
     // ** Styling **
     
-    // Adding close button to the various key board
-    self.number.inputAccessoryView = [self doneToolbarWithTitle:@"Enter credit card number"];
-    self.cvv.inputAccessoryView = [self doneToolbarWithTitle:@"Enter your CVV"];
-    self.street.inputAccessoryView = [self doneToolbarWithTitle:@"Select expiry date"];
+    // Keyboard toolbar
+    self.customKeyboard = [[CustomKeyboard alloc] init];
+    self.customKeyboard.delegate = self;
     
     [TLFColor setStrokeTB:self.name];
     [TLFColor setStrokeTB:self.number];
+    [TLFColor setStrokeTB:self.expiryDate];
     [TLFColor setStrokeTB:self.cvv];
     [TLFColor setStrokeTB:self.street];
     [TLFColor setStrokeTB:self.city];
+    [TLFColor setStrokeTB:self.state];
+    [TLFColor setStrokeTB:self.country];
     [TLFColor setStrokeTB:self.zip];
     
-    [[self.btnExpiryDate layer] setCornerRadius:3];
+    [self.state setText:self.states[0]];
+    [self.country setText:self.countries[0]];
     
-    [self.btnState setTitle:self.states[0] forState:UIControlStateNormal];
-    [self.btnCountry setTitle:self.countries[0] forState:UIControlStateNormal];
+    // Initialize pickers
+    self.pickerExpiryDate = [[UIPickerView alloc] init];
+    self.pickerExpiryDate.dataSource = self;
+    self.pickerExpiryDate.delegate = self;
+    self.pickerExpiryDate.tag = 0;
+    self.expiryDate.inputView = self.pickerExpiryDate;
+    // Set the current month as the default selection
+    [self.pickerExpiryDate selectRow:(currentMonth - 1) inComponent:0 animated:NO];
     
-    [[self.btnExpiryDate layer] setCornerRadius:3];
-    [[self.btnState layer] setCornerRadius:3];
-    [[self.btnCountry layer] setCornerRadius:3];
+    self.pickerState = [[UIPickerView alloc] init];
+    self.pickerState.dataSource = self;
+    self.pickerState.delegate = self;
+    self.pickerState.tag = 1;
+    self.state.inputView = self.pickerState;
     
-    UIPickerView *pickerExpiryDate = [[UIPickerView alloc] init];
-    pickerExpiryDate.dataSource = self;
-    pickerExpiryDate.delegate = self;
-    self.street.inputView = pickerExpiryDate;
-    // Select the current month
-    [pickerExpiryDate selectRow:(currentMonth - 1) inComponent:0 animated:NO];
+    self.pickerCountry = [[UIPickerView alloc] init];
+    self.pickerCountry.dataSource = self;
+    self.pickerCountry.delegate = self;
+    self.pickerCountry.tag = 2;
+    self.country.inputView = self.pickerCountry;
+    
+    [[self.btnSave layer] setCornerRadius:3];
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,7 +117,16 @@ static NSInteger currentMonth;
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [self.scrollView setContentSize:CGSizeMake(320, 568)];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    
+    if (screenHeight > 480) {
+        [self.scrollView setContentSize:CGSizeMake(320, 568)];
+    } else {
+        [self.scrollView setContentSize:CGSizeMake(320, 480)];
+    }
+    viewCenter = self.scrollView.center;
 }
 
 // Close any opened keyboard
@@ -114,24 +139,6 @@ static NSInteger currentMonth;
 {
     [textField resignFirstResponder];
     return YES;
-}
-
-- (IBAction)selectState:(id)sender
-{
-/*    [ActionSheetStringPicker showPickerWithTitle:@"Select a Province"
-                                            rows:_states initialSelection:0
-                                       doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-                                           [self.btnState setTitle:_states[selectedIndex] forState:UIControlStateNormal];
-                                       }
-                                     cancelBlock:^(ActionSheetStringPicker *picker) {
-                                         
-                                     }
-                                          origin:sender]; */
-}
-
-- (IBAction)selectCountry:(id)sender
-{
-
 }
 
 - (IBAction)saveInfo
@@ -192,33 +199,202 @@ static NSInteger currentMonth;
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 2;
+    if (pickerView.tag == 0)
+        return 2;
+    else
+        return 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (component == 0)
-        return [self.months count];
-    else
-        return [self.years count];
+    switch (pickerView.tag) {
+        case 0:
+            if (component == 0)
+                return [self.months count];
+            else
+                return [self.years count];
+            break;
+            
+        case 1:
+            return [self.states count];
+            break;
+            
+        case 2:
+            return [self.countries count];
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
+
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (component == 0)
-        return self.months[row];
-    else
-        return self.years[row];
+    switch (pickerView.tag) {
+        case 0:
+            if (component == 0)
+                return self.months[row];
+            else
+                return self.years[row];
+            break;
+            
+        case 1:
+            return self.states[row];
+            break;
+        
+        case 2:
+            return self.countries[0];
+            break;
+            
+        default:
+            return @"";
+            break;
+    }
+
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    // Set the expiry date to the selected rows
-    if (component == 0) self.expireMonth = row + 1;
-    if (component == 1) self.expireYear = [self.years[row] integerValue];
-    NSLog(@"Expiry date: %i/%i", self.expireMonth, self.expireYear);
+
+    switch (pickerView.tag) {
+        case 0:
+            // Set the expiry date to the selected rows
+            if (component == 0) {
+                self.expireMonth = row + 1;
+            }
+            if (component == 1){
+                self.expireYear = [self.years[row] integerValue];
+            }
+            
+            if (self.expireYear == 0) {
+                NSDate *currentDate = [NSDate date];
+                NSCalendar *calendar = [NSCalendar currentCalendar];
+                NSDateComponents *components = [calendar components:NSYearCalendarUnit fromDate:currentDate];
+                self.expireYear = [components year];
+            }
+            
+            NSLog(@"Expiry date: %li/%li", (long)self.expireMonth, (long)self.expireYear-2000);
+            [self.expiryDate setText:[NSString stringWithFormat:@"%li/%li", (long)self.expireMonth, (long)self.expireYear-2000]];
+            break;
+            
+        case 1:
+            [self.state setText:self.states[row]];
+            break;
+            
+        case 2:
+            break;
+    }
+
 }
 
+#pragma mark - Text view delegate
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"TextField began editing.");
+
+    if (textField.tag > 1) {
+        scrollViewOffset = self.scrollView.contentOffset;
+        CGPoint pt;
+        CGRect rc = [textField bounds];
+        pt = rc.origin;
+        pt.x = 0;
+        pt.y += 90;
+        [self.scrollView setContentOffset:pt animated:YES];
+    }
+    
+    BOOL showPrev = textField.tag != 0;
+    BOOL showNext = textField.tag != 8;
+    
+    [textField setInputAccessoryView:[self.customKeyboard getToolbarWithPrevNextDone:showPrev :showNext]];
+    self.customKeyboard.currentSelectedTextboxIndex = textField.tag;
+    
+/*    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.35f];
+    CGRect frame = self.scrollView.frame;
+    frame.origin.y = -100;
+    [self.scrollView setFrame:frame];
+    [UIView commitAnimations]; */
+    
+//    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, self.scrollView.contentOffset.y - 100) animated:YES];
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    if (textField.tag > 1) {
+        [self.scrollView setContentOffset:scrollViewOffset animated:YES];
+        [self.scrollView setCenter:viewCenter];
+    }
+    return YES;
+}
+
+#pragma mark - Custom keyboard delegate
+
+- (void)nextClicked:(NSUInteger)sender
+{
+    switch (sender) {
+        case 0:
+            [self.number becomeFirstResponder];
+            break;
+        case 1:
+            [self.expiryDate becomeFirstResponder];
+            break;
+        case 2:
+            [self.cvv becomeFirstResponder];
+            break;
+        case 3:
+            [self.street becomeFirstResponder];
+            break;
+        case 4:
+            [self.city becomeFirstResponder];
+            break;
+        case 5:
+            [self.state becomeFirstResponder];
+            break;
+        case 6:
+            [self.country becomeFirstResponder];
+            break;
+        case 7:
+            [self.zip becomeFirstResponder];
+            break;
+    }
+}
+
+- (void)previousClicked:(NSUInteger)sender
+{
+    switch (sender) {
+        case 1:
+            [self.name becomeFirstResponder];
+            break;
+        case 2:
+            [self.number becomeFirstResponder];
+            break;
+        case 3:
+            [self.expiryDate becomeFirstResponder];
+            break;
+        case 4:
+            [self.cvv becomeFirstResponder];
+            break;
+        case 5:
+            [self.street becomeFirstResponder];
+            break;
+        case 6:
+            [self.city becomeFirstResponder];
+            break;
+        case 7:
+            [self.state becomeFirstResponder];
+            break;
+        case 8:
+            [self.country becomeFirstResponder];
+            break;
+    }
+}
+
+- (void)resignResponder:(NSUInteger)sender
+{
+    [self closeKeyboard:nil];
+}
 
 @end
