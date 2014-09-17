@@ -16,31 +16,34 @@
 {
     self = [super init];
     if (self) {
-        _ID = dict[@"id"];
-        _role = dict[@"role"];
-        _firstName = dict[@"first_name"];
-        _lastName = dict[@"last_name"];
-        _phone = dict[@"phone"];
-        _companyName = dict[@"company_name"];
-        _streetAddress = dict[@"street_address"];
-        _city = dict[@"city"];
-        _state = dict[@"state"];
-        _country = dict[@"country"];
-        _zip = dict[@"zip"];
-        _tags = dict[@"tags"];
-        _summary = dict[@"summary"];
-        _description = dict[@"description"];
-        _website = dict[@"website"];
-        _balance = dict[@"balance"];
-        _totalFundsRaised = dict[@"total_funds_raised"];
-        _supporters = dict[@"supporters"];
-        _supportedCauses = dict[@"supported_causes"];
+        self.ID = dict[@"id"];
+        self.role = dict[@"role"];
+        self.firstName = dict[@"first_name"];
+        self.lastName = dict[@"last_name"];
+        self.phone = dict[@"phone"];
+        self.companyName = dict[@"company_name"];
+        self.streetAddress = dict[@"street_address"];
+        self.city = dict[@"city"];
+        self.state = dict[@"state"];
+        self.country = dict[@"country"];
+        self.zip = dict[@"zip"];
+        self.tags = dict[@"tags"];
+        self.summary = dict[@"summary"];
+        self.description = dict[@"description"];
+        self.website = dict[@"website"];
+        self.picOriginal = dict[@"images"][@"profile_picture"][@"original"];
+        self.picMedium = dict[@"images"][@"profile_picture"][@"medium"];
+        self.picThumb = dict[@"images"][@"profile_picture"][@"thumb"];
+        self.balance = dict[@"balance"];
+        self.totalFundsRaised = dict[@"total_funds_raised"];
+        self.supporters = dict[@"supporters"];
+        self.supportedCauses = dict[@"supported_causes"];
         //_createdAt
         //_updatedAt
         //_lastSignIn
         //_deletedAt
-        _transactionsAll = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
-        [_transactionsAll addObjectsFromArray:dict[@"transactions_accepted"]];
+        self.transactionsAll = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
+        [self.transactionsAll addObjectsFromArray:dict[@"transactions_accepted"]];
     }
     return self;
 }

@@ -48,8 +48,11 @@ static UIView *indicatorView;
                                      withIcon:[UIImage imageNamed:@"MyAccount.png"]];
         
         // Request logged in user
+        TLFUserStore *userStore = [TLFUserStore getInstance];
         restHelper = [[TLFRestHelper alloc] init];
-        [self requestUser:4];
+        
+        
+        [self requestUser:userStore.uid];
         //[self requestUser:21];
         
         indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
@@ -150,6 +153,20 @@ static UIView *indicatorView;
      ^(AFHTTPRequestOperation *operation, NSError *error) {
          // Handle error
          NSLog(@"Request Failed: %@, %@", error, error.userInfo);
+         
+         [TLFRestHelper showErrorAlertView:error withMessage:@"Account Retrieval Error"];
+         
+         [indicatorView removeFromSuperview];
+         
+         // To be used in iOS 8 for backwards compatibility
+/*        if ([UIAlertController class]) {
+          
+        }
+        else {
+         [TLFRestHelper showErrorAlertView:error withMessage:@"Account Retrieval Error"];
+         
+         [indicatorView removeFromSuperview];
+        } */
      }
      ];
     

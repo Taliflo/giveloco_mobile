@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30164BEFDFE342EF93522DEA"
-               BuildableName = "libPods-ActionSheetPicker-3.0.a"
-               BlueprintName = "Pods-ActionSheetPicker-3.0"
+               BlueprintIdentifier = "26ABAB45D3894988ABBE5DC0"
+               BuildableName = "libPods-UITextField+Shake.a"
+               BlueprintName = "Pods-UITextField+Shake"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

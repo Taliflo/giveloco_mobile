@@ -1,5 +1,4 @@
 PODS:
-  - ActionSheetPicker-3.0 (1.1.9)
   - AFNetworking (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
@@ -21,13 +20,14 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - UITextField+Shake (0.4)
 
 DEPENDENCIES:
-  - ActionSheetPicker-3.0 (~> 1.1.9)
   - AFNetworking (~> 2.2)
+  - UITextField+Shake
 
 SPEC CHECKSUMS:
-  ActionSheetPicker-3.0: 8c74f9f8223fb0d2c7de15db44b206274d573cf4
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  UITextField+Shake: d98b471f0f686021795a8797aeec3658d12fdae2
 
 COCOAPODS: 0.33.1

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TLFUser.h"
 
-@class TLFCauseStore, TLFBusinessStore;
+@class TLFCauseStore, TLFBusinessStore, AFHTTPSessionManager;
 
 @interface TLFRestHelper : NSObject
 
@@ -25,4 +25,6 @@
 - (NSURL *)queryTransactions;
 - (void)requestUsers:(NSString *)role;
 
++ (AFHTTPSessionManager *)newSessionManager:(NSString *)authToken;
++ (void)showErrorAlertView:(NSError *)error withMessage:(NSString *)message;
 @end

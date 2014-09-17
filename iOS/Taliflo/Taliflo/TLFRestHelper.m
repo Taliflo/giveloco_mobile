@@ -50,7 +50,6 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
     [str appendFormat:@"%d", numID];
     return [NSURL URLWithString:str];
 }
-
 - (void)requestUsers:(NSString *)role
 {
     startTime = CACurrentMediaTime();
@@ -81,7 +80,7 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
                             if ([role isEqualToString:@"business"]) {
                                 TLFUser *currentUser = [[TLFUserStore getInstance] currentUser];
                                 [currentUser determineRedeemableBusinesses];
-                                NSLog(@" Redeemable businesses \n%@", [currentUser.redeemableBusinesses description]);
+                                NSLog(@"Total redeemable businesses: %i", [currentUser.redeemableBusinesses count]);
                             } 
                         }
                         );
@@ -90,6 +89,19 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
      ^(AFHTTPRequestOperation *operation, NSError *error) {
          // Handle error
          NSLog(@"Request Failed: %@, %@", error, error.userInfo);
+         
+         NSString *message = [NSString stringWithFormat:@"%@ list retrieval error", role];
+         [TLFRestHelper showErrorAlertView:error
+                               withMessage:[message capitalizedString]];
+         
+         // To be used in iOS 8 for backwards compatability
+/*         if ([UIAlertController class]) {
+             
+         } else {
+             NSString *message = [NSString stringWithFormat:@"%@ list retrieval error", role];
+             [TLFRestHelper showErrorAlertView:error
+                                   withMessage:[message capitalizedString]];
+         } */
      }
      ];
     
@@ -130,7 +142,31 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
     NSLog(@"Asynchronous Request Complete");
 }
 
++ (AFHTTPSessionManager *)newSessionManager:(NSString *)authToken
+{
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    if (authToken != nil) {
+        [manager.requestSerializer setValue:authToken forHTTPHeaderField:@"x-session-token"];
+    }
+    
+    return manager;
+}
 
-
-
++ (void)showErrorAlertView:(NSError *)error withMessage:(NSString *)message
+{
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:message
+                              message:[NSString stringWithFormat:@"%@. Try again later.", [error localizedDescription]]
+                              delegate:nil
+                              cancelButtonTitle:@"Ok"
+                              otherButtonTitles:nil];
+    
+    [alertView show];
+}
 @end

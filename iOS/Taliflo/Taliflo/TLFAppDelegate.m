@@ -20,6 +20,47 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    // Login view controller
+    self.loginVC = [[TLFLoginViewController alloc] init];
+    self.window.rootViewController = self.loginVC;
+/*
+    // My Account view controller and navigation controller
+    self.myAccountVC = [[TLFMyAccountViewController alloc] init];
+    self.myAccountNC = [[UINavigationController alloc] initWithRootViewController:self.myAccountVC];
+    
+    // Causes table view controller and navigation controller
+    self.causesVC = [[TLFCausesViewController alloc] init];
+    self.causesNC = [[UINavigationController alloc] initWithRootViewController:self.causesVC];
+    
+    // Businesses table view controller and navigation controller
+    self.businessesVC = [[TLFBusinessesViewController alloc] init];
+    self.businessesNC = [[UINavigationController alloc] initWithRootViewController:self.businessesVC];
+    
+    // Tab bar controller
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = @[self.myAccountNC, self.causesNC, self.businessesNC];
+    [self.tabBarController.tabBar setBarTintColor:[TLFColor lightestGrey]];
+    [self.tabBarController.tabBar setTintColor:[TLFColor talifloTiffanyBlue]];
+    
+    // Set the navigation bar style
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[TLFColor talifloTiffanyBlue]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+    
+    // Setting navigation bar back button font size
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0]} forState:UIControlStateNormal];
+    
+    self.window.rootViewController = self.tabBarController; */
+    
+    self.window.backgroundColor = [TLFColor lightestGrey];
+    [self.window makeKeyAndVisible];
+    
+    //[self.window.rootViewController presentViewController:self.loginVC animated:NO completion:nil];
+    return YES;
+}
+
+- (void)startApplicationAfterLogin
+{
     // My Account view controller and navigation controller
     self.myAccountVC = [[TLFMyAccountViewController alloc] init];
     self.myAccountNC = [[UINavigationController alloc] initWithRootViewController:self.myAccountVC];
@@ -47,15 +88,28 @@
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0]} forState:UIControlStateNormal];
     
     self.window.rootViewController = self.tabBarController;
+}
+
+- (void)restartApplication
+{
     
-    // Login view controller
-    self.loginVC = [[TLFLoginViewController alloc] init];
-    
-    self.window.backgroundColor = [TLFColor lightestGrey];
-    [self.window makeKeyAndVisible];
-    
-    [self.window.rootViewController presentViewController:self.loginVC animated:NO completion:nil];
-    return YES;
+    [UIView transitionWithView:self.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{ self.window.rootViewController = self.loginVC; }
+                    completion:^(BOOL finished) {
+                        
+                        self.myAccountVC = nil;
+                        self.myAccountNC = nil;
+                        
+                        self.causesVC = nil;
+                        self.causesNC = nil;
+                        
+                        self.businessesVC = nil;
+                        self.businessesNC = nil;
+                        
+                        self.tabBarController = nil;
+                    }];
 }
 
 // Lock portrait orientation

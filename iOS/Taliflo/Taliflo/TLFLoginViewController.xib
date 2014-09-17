@@ -33,7 +33,7 @@
                         <constraint firstAttribute="width" constant="280" id="nJr-FX-zsM"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="IfF-Gi-h9i"/>
                     </connections>
@@ -46,7 +46,7 @@
                         <constraint firstAttribute="width" constant="280" id="8zy-vE-EM5"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" secureTextEntry="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="rhw-LI-pzd"/>
                     </connections>

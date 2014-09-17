@@ -10,6 +10,10 @@
 #import "TLFColor.h"
 #import "TLFBillingInfoViewController.h"
 #import "TLFRedeemCreditsViewController.h"
+#import "TLFRestHelper.h"
+#import "TLFUserStore.h"
+#import "AFNetworking.h"
+#import "TLFAppDelegate.h"
 
 @interface TLFNavBarHelper ()
 
@@ -62,6 +66,32 @@
                                               highlightedImage:nil
                                                         action:^(REMenuItem *item) {
                                                             NSLog(@"'Logout' clicked");
+                                                            
+                                                            TLFUserStore *userStore = [TLFUserStore getInstance];
+                                                            
+                                                            AFHTTPSessionManager *manager = [TLFRestHelper newSessionManager:userStore.authToken];
+                                                            
+                                                            [manager DELETE:@"http://api-dev.taliflo.com/user/logout" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+                                                                NSLog(@"%@", responseObject);
+                                                                
+                                                                // Restart application
+                                                                TLFAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+                                                                [appDelegate restartApplication];
+                                                                
+                                                            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                                                NSLog(@"%@", [error localizedDescription]);
+                                                                
+                                                                [TLFRestHelper showErrorAlertView:error withMessage:@"Logout Error"];
+                                                               
+                                                                // To be used on iOS 8 for backwards compatibility
+                                                            /*   if ([UIAlertController class]) {
+                                                                    
+                                                                }
+                                                                else {
+                                                                [TLFRestHelper showErrorAlertView:error withMessage:@"Logout Error"];
+                                                                } */
+                                                            }];
+                                                            
                                                         }];
         
         self.actionMenu = [[REMenu alloc] initWithItems:@[redeemCredits, billingInfo, logout] viewController:self.viewController];

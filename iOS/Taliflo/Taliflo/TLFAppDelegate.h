@@ -20,4 +20,7 @@
 @property (strong, nonatomic) UINavigationController *myAccountNC, *causesNC, *businessesNC;
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
+- (void)startApplicationAfterLogin;
+- (void)restartApplication;
+
 @end
