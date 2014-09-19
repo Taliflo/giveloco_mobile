@@ -1,9 +1,6 @@
 package com.taliflo.app.fragments;
 
-import android.app.ActionBar;
-import android.app.SearchManager;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -13,27 +10,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SearchView;
-import android.widget.TextView;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Collections2;
 import com.taliflo.app.R;
-import com.taliflo.app.activities.MainActivity;
 import com.taliflo.app.activities.UserDetail;
 import com.taliflo.app.adapters.UserAdapter;
-import com.taliflo.app.api.RequestUsers;
+import com.taliflo.app.rest.RequestUsers;
 import com.taliflo.app.model.CauseStore;
 import com.taliflo.app.model.User;
 import com.taliflo.app.utilities.ActionBarHelper;
-import com.taliflo.app.utilities.MyViewPager;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * Created by Caswell on 1/18/2014.

@@ -1,7 +1,6 @@
 package com.taliflo.app.fragments;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,15 +11,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.TransactionsAdapter;
-import com.taliflo.app.api.TalifloRestHelper;
+import com.taliflo.app.rest.TalifloRestHelper;
 import com.taliflo.app.model.Transaction;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
@@ -45,7 +42,6 @@ public class MyAccount extends Fragment {
     private ListView listView;
     private ArrayList<Transaction> transactionsList = new ArrayList<Transaction>();
     private TransactionsAdapter adapter;
-
     private UserStore userStore = UserStore.getInstance();
 
     private ActionBarHelper abHelper = ActionBarHelper.getInstance();
@@ -78,8 +74,9 @@ public class MyAccount extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         if (transactionsList.isEmpty()) {
-            RequestUser requestUser = new RequestUser(user, 4, getActivity());
-            //RequestUser requestUser = new RequestUser(user, 21, getActivity());
+            int uid = Integer.parseInt(userStore.getUid());
+            RequestUser requestUser = new RequestUser(user, uid, getActivity());
+            //RequestUser requestUser = new RequestUser(user, 4, getActivity());
             requestUser.execute();
             Log.i(TAG, "Requesting user...");
         }
@@ -103,7 +100,7 @@ public class MyAccount extends Fragment {
         super.onSaveInstanceState(outState);
     }
 
-    public class RequestUser extends AsyncTask<String, Integer, String> {
+    private class RequestUser extends AsyncTask<String, Integer, String> {
 
         // Log tag
         private final String TAG = "Taliflo.RequestUser";
@@ -112,6 +109,7 @@ public class MyAccount extends Fragment {
         private int userId;
         private Activity activity;
         private RelativeLayout progressView;
+        private UserStore userStore = UserStore.getInstance();
 
         private long startTime;
         private long endTime;
@@ -167,9 +165,9 @@ public class MyAccount extends Fragment {
         private void parseUser() throws Exception {
             startTime = android.os.SystemClock.uptimeMillis();
 
-            TalifloRestHelper restAPI = TalifloRestHelper.getSharedInstance();
-            String query = restAPI.queryUserID(userId);
-            String jsonResult = restAPI.getJsonResult(query);
+            TalifloRestHelper restHelper = TalifloRestHelper.getInstance();
+            String query = restHelper.queryUserID(userId);
+            String jsonResult = restHelper.getJsonResult(query);
             JSONObject resultObject = new JSONObject(jsonResult);
             user = new User(resultObject);
             userStore.setCurrentUser(user);

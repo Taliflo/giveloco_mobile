@@ -64,7 +64,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="authenticate" destination="-1" eventType="touchUpInside" id="mjo-bP-krQ"/>
+                        <action selector="attemptLogin" destination="-1" eventType="touchUpInside" id="k2y-v1-qIl"/>
                     </connections>
                 </button>
             </subviews>

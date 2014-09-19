@@ -62,7 +62,7 @@ static BOOL screenSize3point5 = NO;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)authenticate
+- (IBAction)attemptLogin
 {
     if (![self.password.text isEqual:@""]) {
 
@@ -162,7 +162,7 @@ static BOOL screenSize3point5 = NO;
         next = 0;
         [self scrollViewBackToCenter];
         
-        [self authenticate];
+        [self attemptLogin];
     }
     
     return YES;

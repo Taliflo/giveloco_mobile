@@ -7,6 +7,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +29,12 @@ import com.taliflo.app.activities.RedeemCredits;
 import com.taliflo.app.activities.Search;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.model.User;
+import com.taliflo.app.model.UserStore;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -171,7 +178,7 @@ public class ActionBarHelper {
                 return true;
 
             case R.id.action_logout:
-                exitApplication(activity);
+                new AttemptLogout(activity).execute();
                 return true;
         }
         return true;
@@ -269,6 +276,71 @@ public class ActionBarHelper {
     }
 */
 
+    private class AttemptLogout extends AsyncTask<String, Integer, String> {
+
+        // Log tag
+        private final String TAG = "Taliflo.AttemptLogout";
+
+        private final String logoutUrl = "http://api-dev.taliflo.com/user/logout";
+
+        private Activity activity;
+        private UserStore userStore = UserStore.getInstance();
+        private boolean logoutFailed = false;
+
+        private AttemptLogout(Activity activity) {
+            this.activity = activity;
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                logoutUser();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            if (logoutFailed) {
+                Log.i(TAG, "Logout failed");
+                return;
+            }
+
+            Log.i(TAG, "Logout successful");
+            exitApplication(activity);
+        }
+
+        private void logoutUser() throws Exception {
+            HttpClient client = new DefaultHttpClient();
+            HttpDelete request = new HttpDelete(logoutUrl);
+            String authToken = userStore.getAuthToken();
+            request.setHeader("x-session-token", authToken);
+            request.setHeader("Content-type", "application/json");
+            request.setHeader("Accept", "application/json");
+
+            Log.i(TAG, request.toString());
+
+            HttpResponse response = client.execute(request);
+            int responseStatus = response.getStatusLine().getStatusCode();
+            Log.i(TAG, "Response Status " + response.toString());
+
+            if (responseStatus == 204) {
+                logoutFailed = false;
+            } else {
+                logoutFailed = true;
+            }
+
+        }
+    }
 
 }
 

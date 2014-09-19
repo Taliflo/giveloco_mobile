@@ -1,5 +1,7 @@
 package com.taliflo.app.model;
 
+import org.json.JSONObject;
+
 /**
  * Singleton class which holds a field for the currently logged in user
  *
@@ -8,6 +10,7 @@ package com.taliflo.app.model;
 public class UserStore {
 
     private User currentUser;
+    private String uid, authToken;
 
     private static UserStore instance = null;
 
@@ -24,6 +27,11 @@ public class UserStore {
         return instance;
     }
 
+    public void setLoggedInCredentials(JSONObject jsonObject) {
+        authToken = jsonObject.optString("auth_token");
+        uid = jsonObject.optString("uid");
+    }
+
     public void setCurrentUser(User user) {
         currentUser = user;
     }
@@ -32,4 +40,19 @@ public class UserStore {
         return currentUser;
     }
 
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
 }

@@ -1,4 +1,4 @@
-package com.taliflo.app.api;
+package com.taliflo.app.rest;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -80,7 +80,7 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
     private void parseUsers () throws Exception {
         startTime = android.os.SystemClock.uptimeMillis();
 
-        TalifloRestHelper restAPI = TalifloRestHelper.getSharedInstance();
+        TalifloRestHelper restAPI = TalifloRestHelper.getInstance();
         String query = restAPI.QUERY_USERS;
         String jsonResult = restAPI.getJsonResult(query);
         /** Parsing result to retrieve the contents **/

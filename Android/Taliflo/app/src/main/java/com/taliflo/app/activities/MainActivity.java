@@ -1,5 +1,7 @@
 package com.taliflo.app.activities;
 
+import android.animation.LayoutTransition;
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -7,6 +9,7 @@ import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -78,16 +81,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     private static boolean isPagingEnabled = true;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_pager);
 
         // If user selects "Logout" from another activity
-        if (getIntent().getBooleanExtra("EXIT", false)) finish();
+        //if (getIntent().getBooleanExtra("EXIT", false)) finish();
 
-        /*Intent loginIntent = new Intent(getApplicationContext(), Login.class);
-        startActivityForResult(loginIntent, 1);*/
+        Intent loginIntent = new Intent(getApplicationContext(), Login.class);
+        startActivityForResult(loginIntent, 10);
 
 
         if (savedInstanceState == null) {
@@ -304,13 +308,23 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public void onActivityResult (int requestCode, int resultCode, Intent data) {
-        switch (resultCode) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i(TAG, "in MainActivity#onActivityResult");
+        Log.i(TAG, "Request code: " + requestCode + " Result code: " + resultCode);
+
+        switch (requestCode) {
+
             case 10:
-                // Successful login
-                break;
-            case 11:
                 // If the user has pressed the back button from the Login activity
-                finish();
+                if (resultCode == RESULT_OK) {
+                    // Successful login
+                    Log.i(TAG, "Successful login");
+                }
+
+                if (resultCode == RESULT_CANCELED) {
+                    Log.i(TAG, "Exit application");
+                    finish();
+                }
                 break;
 
             case 30:

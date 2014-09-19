@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -7,14 +8,27 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@color/lightest_grey"
+    android:animateLayoutChanges="true"
     tools:context="ca.taliflo.app.Login">
 
+    <ImageView
+        android:id="@+id/layout_logo"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:src="@drawable/logo_tiffanyblue_orange"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="40dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        />
+
     <LinearLayout
-        android:id="@+id/layout_credentials"
+        android:id="@+id/login_layout_credentials"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerInParent="true"
+        android:layout_below="@id/layout_logo"
         >
 
         <EditText
@@ -32,10 +46,12 @@
             android:singleLine="true"
             android:hint="@string/login_hint_email"
             android:inputType="textEmailAddress"
+            android:textCursorDrawable="@null"
+            android:nextFocusForward="@+id/login_password"
             />
 
         <EditText
-            android:id="@+id/login_password"
+            android:id="@id/login_password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -49,6 +65,7 @@
             android:singleLine="true"
             android:hint="@string/login_hint_password"
             android:password="true"
+            android:textCursorDrawable="@null"
             />
 
         <Button
@@ -65,13 +82,7 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="75dp"
-        android:layout_above="@id/layout_credentials"
-        android:src="@drawable/logo_tiffanyblue_orange"
-        android:layout_marginBottom="50dp"
-        />
+
 <!--
     <Button
         android:id="@+id/login_btn_signUp"

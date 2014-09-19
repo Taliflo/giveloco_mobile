@@ -46,6 +46,7 @@
                 android:background="@drawable/box_bg_stroke_tb"
                 android:padding="8dp"
                 android:singleLine="true"
+                android:nextFocusForward="@+id/billingInfo_creditCardNumber"
                 />
 
         </TableRow>
@@ -74,7 +75,7 @@
             >
 
             <EditText
-                android:id="@+id/billingInfo_creditCardNumber"
+                android:id="@id/billingInfo_creditCardNumber"
                 android:layout_height="wrap_content"
                 android:layout_width="0dip"
                 android:layout_weight="1"
@@ -83,6 +84,7 @@
                 android:padding="8dp"
                 android:singleLine="true"
                 android:maxLength="16"
+                android:nextFocusForward="@+id/billingInfo_creditCardCCV"
                 />
 
         </TableRow>
@@ -144,7 +146,7 @@
                 />
 
             <EditText
-                android:id="@+id/billingInfo_creditCardCCV"
+                android:id="@id/billingInfo_creditCardCCV"
                 android:layout_height="wrap_content"
                 android:layout_width="0dip"
                 android:layout_weight="1"
@@ -153,6 +155,7 @@
                 android:padding="8dp"
                 android:singleLine="true"
                 android:maxLength="3"
+                android:nextFocusForward="@+id/billingInfo_street"
                 />
 
         </TableRow>
@@ -181,7 +184,7 @@
             >
 
             <EditText
-                android:id="@+id/billingInfo_street"
+                android:id="@id/billingInfo_street"
                 android:layout_height="wrap_content"
                 android:layout_width="0dip"
                 android:layout_weight="1"
@@ -190,6 +193,7 @@
                 android:padding="8dp"
                 android:singleLine="true"
                 android:hint="@string/billingInfo_hintStreet"
+                android:nextFocusForward="@+id/billingInfo_city"
                 />
 
         </TableRow>
@@ -201,7 +205,7 @@
             >
 
             <EditText
-                android:id="@+id/billingInfo_city"
+                android:id="@id/billingInfo_city"
                 android:layout_height="wrap_content"
                 android:layout_width="0dip"
                 android:layout_weight="1"
@@ -210,6 +214,7 @@
                 android:padding="8dp"
                 android:singleLine="true"
                 android:hint="@string/billingInfo_hintCity"
+                android:nextFocusForward="@+id/billingInfo_zip"
                 />
 
         </TableRow>
@@ -251,7 +256,7 @@
             >
 
             <EditText
-                android:id="@+id/billingInfo_zip"
+                android:id="@id/billingInfo_zip"
                 android:layout_height="wrap_content"
                 android:layout_width="0dip"
                 android:layout_weight="1"

@@ -242,13 +242,18 @@ public class User implements Parcelable {
     }
 
     public void determineRedeemableBusinesses() {
-        ArrayList<Predicate<User>> preds = new ArrayList<Predicate<User>>();
+        try {
+            ArrayList<Predicate<User>> preds = new ArrayList<Predicate<User>>();
 
-        for (int i :supportedCauses) {
-            preds.add(new SupportedCausePredicate(i));
+            for (int i : supportedCauses) {
+                preds.add(new SupportedCausePredicate(i));
+            }
+            List<User> businesses = BusinessStore.getInstance().getBusinesses();
+            redeemableBusinesses = new ArrayList<User>(Collections2.filter(businesses, Predicates.or(preds)));
+        } catch (Exception e) {
+            e.printStackTrace();
+            redeemableBusinesses = null;
         }
-        List<User> businesses = BusinessStore.getInstance().getBusinesses();
-        redeemableBusinesses = new ArrayList<User>(Collections2.filter(businesses, Predicates.or(preds)));
     }
 
     // Accessor methods
