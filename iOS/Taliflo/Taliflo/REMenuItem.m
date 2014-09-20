@@ -81,7 +81,7 @@
     return self;
 }
 
-- (NSString *)description
+- (NSString *)descript
 {
     return [NSString stringWithFormat:@"<title: %@; subtitle: %@; tag: %li>", self.title, self.subtitle, (long)self.tag];
 }

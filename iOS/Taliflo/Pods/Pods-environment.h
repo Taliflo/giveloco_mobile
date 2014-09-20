@@ -48,6 +48,18 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 3
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
+// PaymentKit
+#define COCOAPODS_POD_AVAILABLE_PaymentKit
+#define COCOAPODS_VERSION_MAJOR_PaymentKit 1
+#define COCOAPODS_VERSION_MINOR_PaymentKit 1
+#define COCOAPODS_VERSION_PATCH_PaymentKit 1
+
+// Stripe
+#define COCOAPODS_POD_AVAILABLE_Stripe
+#define COCOAPODS_VERSION_MAJOR_Stripe 2
+#define COCOAPODS_VERSION_MINOR_Stripe 0
+#define COCOAPODS_VERSION_PATCH_Stripe 1
+
 // UITextField+Shake
 #define COCOAPODS_POD_AVAILABLE_UITextField_Shake
 #define COCOAPODS_VERSION_MAJOR_UITextField_Shake 0

@@ -9,6 +9,7 @@
 #import "TLFRedeemViewController.h"
 #import "TLFUser.h"
 #import "TLFNavBarHelper.h"
+#import "TLFAlert.h"
 
 @interface TLFRedeemViewController ()
 
@@ -54,17 +55,14 @@
 
 - (IBAction)confirm
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Your available balance will be debited this amount immediately." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
-    [alert show];
+    // Set confirm action
+    void (^yesAction)(UIAlertAction *action);
+    yesAction = ^void(UIAlertAction *action) {
+        NSLog(@"\"Yes\" selected");
+    };
     
-    // To be used on iOS 8 for backwards compatability
-    /*    if ([UIAlertController class]) {
-     
-     } else {
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Your available balance will be debited this amount immediately." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
-     [alert show];
-     
-     } */
+    // Show alert
+    [TLFAlert alertForViewController:self withTitle:@"Are you sure?" message:@"Your available balance will be debited the amount immediately." yesActionHandler:yesAction cancelActionHandler:nil];
 }
 
 // Method to respond to the response from the alert view

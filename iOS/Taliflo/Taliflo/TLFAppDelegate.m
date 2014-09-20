@@ -7,23 +7,34 @@
 //
 
 #import "TLFAppDelegate.h"
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "TLFColor.h"
 #import "TLFMyAccountViewController.h"
 #import "TLFCausesViewController.h"
 #import "TLFBusinessesViewController.h"
 #import "TLFLoginViewController.h"
+#import "Stripe.h"
+
+NSString *const StripeTestPublishableKey = @"pk_test_MBnCYXpbwBkIjjjpIKz6lSud";
+NSString *const StripeLivePublishableKey = @"pk_live_HGECFVdMKGneyKozG9g2Fnxn";
 
 @implementation TLFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Set Stripe public key
+    [Stripe setDefaultPublishableKey:StripeTestPublishableKey];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    // Login view controller
+    // Show activity indicator
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+/*    // Login view controller
     self.loginVC = [[TLFLoginViewController alloc] init];
-    self.window.rootViewController = self.loginVC;
-/*
+    self.window.rootViewController = self.loginVC; */
+
     // My Account view controller and navigation controller
     self.myAccountVC = [[TLFMyAccountViewController alloc] init];
     self.myAccountNC = [[UINavigationController alloc] initWithRootViewController:self.myAccountVC];
@@ -50,12 +61,11 @@
     // Setting navigation bar back button font size
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0]} forState:UIControlStateNormal];
     
-    self.window.rootViewController = self.tabBarController; */
+    self.window.rootViewController = self.tabBarController; 
     
     self.window.backgroundColor = [TLFColor lightestGrey];
     [self.window makeKeyAndVisible];
     
-    //[self.window.rootViewController presentViewController:self.loginVC animated:NO completion:nil];
     return YES;
 }
 

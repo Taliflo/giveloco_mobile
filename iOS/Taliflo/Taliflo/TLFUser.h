@@ -11,7 +11,7 @@
 @interface TLFUser : NSObject
 
 @property (nonatomic, copy) NSString *ID, *role, *firstName, *lastName, *companyName, *email, *phone,
-*streetAddress, *city, *state, *country, *zip, *summary, *description, *website
+*streetAddress, *city, *state, *country, *zip, *summary, *descript, *website
 , *profilePictureURL, *picOriginal, *picMedium, *picThumb, *authToken;
 @property (nonatomic, copy) NSNumber *totalDebits, *totalCredits;
 @property (nonatomic, copy) NSNumber *balance, *totalFundsRaised;

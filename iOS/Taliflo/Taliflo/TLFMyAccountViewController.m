@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "TLFMyAccountViewController.h"
+#import "TLFUser.h"
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
 #import "TLFRestHelper.h"
@@ -17,6 +18,7 @@
 #import "TLFTransactionCell.h"
 #import "TLFTransaction.h"
 #import "TLFBillingInfoViewController.h"
+#import "TLFAlert.h"
 
 @interface TLFMyAccountViewController () {
     double startTime, endTime;
@@ -52,8 +54,8 @@ static UIView *indicatorView;
         restHelper = [[TLFRestHelper alloc] init];
         
         
-        [self requestUser:userStore.uid];
-        //[self requestUser:21];
+        //[self requestUser:userStore.uid];
+        [self requestUser:@"7"];
         
         indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
         [self.view addSubview:indicatorView];
@@ -91,7 +93,7 @@ static UIView *indicatorView;
     [super viewWillAppear:YES];
     
     // Setting the tab bar selected item colour
-    self.tabBarController.tabBar.selectedImageTintColor = [TLFColor talifloOrange];
+    //self.tabBarController.tabBar.selectedImageTintColor = [TLFColor talifloOrange];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -117,10 +119,48 @@ static UIView *indicatorView;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)requestUser:(int)numID
+- (void)requestUser:(NSString *)uid
 {
     startTime = CACurrentMediaTime();
     
+    void (^onSuccess)(AFHTTPRequestOperation *operation, id responseObject);
+    void (^onFailure)(AFHTTPRequestOperation *operation, NSError *error);
+    
+    onSuccess = ^void(AFHTTPRequestOperation *operation, id responseObject) {
+
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           self.user = [[TLFUser alloc] initWithDictionary:responseObject];
+                           // Set user in global store
+                           TLFUserStore *userStore = [TLFUserStore getInstance];
+                           userStore.currentUser = self.user;
+                           // Populate layout views
+                           self.name.text = self.user.companyName;
+                           self.balance.text = [NSString stringWithFormat:@"C %@", self.user.balance];
+                           
+                           [self.tableView reloadData];
+                           [indicatorView removeFromSuperview];
+                           
+                           endTime = CACurrentMediaTime();
+                           
+                           NSLog(@"Request logged in user execution time: %f sec", (endTime-startTime));
+
+                       });
+        
+
+    };
+    
+    onFailure = ^void(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Request Failed: %@", [error localizedDescription]);
+        
+        // Show alert
+        [TLFAlert alertForViewController:self forError:error withTitle:@"Account Rerieval Error"];
+        [indicatorView removeFromSuperview];
+    };
+    
+    [TLFRestHelper requestUser:uid successHandler:onSuccess failureHandler:onFailure];
+    
+/*
     NSURLRequest *request = [NSURLRequest requestWithURL:[restHelper queryUser:numID]];
     
     // AFNetworking asynchronous URL request
@@ -151,26 +191,16 @@ static UIView *indicatorView;
      }
                                      failure:
      ^(AFHTTPRequestOperation *operation, NSError *error) {
-         // Handle error
          NSLog(@"Request Failed: %@, %@", error, error.userInfo);
          
-         [TLFRestHelper showErrorAlertView:error withMessage:@"Account Retrieval Error"];
-         
+         // Show alert
+         [TLFAlert alertForViewController:self forError:error withTitle:@"Account Rerieval Error"];
          [indicatorView removeFromSuperview];
-         
-         // To be used in iOS 8 for backwards compatibility
-/*        if ([UIAlertController class]) {
-          
-        }
-        else {
-         [TLFRestHelper showErrorAlertView:error withMessage:@"Account Retrieval Error"];
-         
-         [indicatorView removeFromSuperview];
-        } */
+
      }
      ];
     
-    [operation start];
+    [operation start]; */
 }
 
 #pragma mark - Table view data source

@@ -11,114 +11,87 @@
 #import "TLFCauseStore.h"
 #import "TLFBusinessStore.h"
 #import "TLFUserStore.h"
+#import "TLFAlert.h"
+#import "TLFUser.h"
 
-@interface TLFRestHelper () {
-    double startTime, endTime;
-}
+@interface TLFRestHelper () 
 
 @end
 
 @implementation TLFRestHelper
 
-static NSString *const base = @"http://api-dev.taliflo.com/v1/";
+static NSString *const base = @"http://api-dev.taliflo.com/";
+double startTime, endTime;
 
-- (instancetype)initWithTableViewController:(UITableViewController *)tableViewController
++ (void)jsonResponse:(NSURLRequest *)request successHandler:(void (^)(AFHTTPRequestOperation *operation, id responseObject))onSuccess failureHandler:(void (^)(AFHTTPRequestOperation *operation, NSError *error))onFailure
 {
-    self = [super init];
-    if (self) {
-        self.tableView = tableViewController.tableView;
-        self.viewController = tableViewController;
-        
-    }
-    return self;
-}
-
-- (NSURL *)queryUsers
-{
-    return [NSURL URLWithString:[base stringByAppendingString:@"users"]];
-}
-
-- (NSURL *)queryTransactions
-{
-    return [NSURL URLWithString:[base stringByAppendingString:@"transactions"]];
-}
-
-- (NSURL *)queryUser:(int)numID
-{
-    NSMutableString *str = [[NSMutableString alloc] initWithString:base];
-    [str appendString:@"users/"];
-    [str appendFormat:@"%d", numID];
-    return [NSURL URLWithString:str];
-}
-- (void)requestUsers:(NSString *)role
-{
-    startTime = CACurrentMediaTime();
-    
-    __block UIView *indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self.tableView.superview options:nil][0];
-    indicatorView.center = CGPointMake(160, 176);
-    [self.viewController.tableView addSubview:indicatorView];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[self queryUsers]];
-    
-    // AFNetworking asynchronous URL request
+    // AFNetworking asynchronous request
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:
-     ^(AFHTTPRequestOperation *operation, id responseObject) {
-          //NSLog(@"%@", responseObject[0]);
-         
-         [self sortUserResponse:responseObject byRole:role];
-         
-         dispatch_async(dispatch_get_main_queue(),
-                        ^{
-                            [indicatorView removeFromSuperview];
-                            [self.tableView reloadData];
-                            
-                            endTime = CACurrentMediaTime();
-                            NSLog(@"Request users [%@] execution time: %f sec", role, (endTime - startTime));
-                           
-                            if ([role isEqualToString:@"business"]) {
-                                TLFUser *currentUser = [[TLFUserStore getInstance] currentUser];
-                                [currentUser determineRedeemableBusinesses];
-                                NSLog(@"Total redeemable businesses: %i", [currentUser.redeemableBusinesses count]);
-                            } 
-                        }
-                        );
-     }
-                                     failure:
-     ^(AFHTTPRequestOperation *operation, NSError *error) {
-         // Handle error
-         NSLog(@"Request Failed: %@, %@", error, error.userInfo);
-         
-         NSString *message = [NSString stringWithFormat:@"%@ list retrieval error", role];
-         [TLFRestHelper showErrorAlertView:error
-                               withMessage:[message capitalizedString]];
-         
-         // To be used in iOS 8 for backwards compatability
-/*         if ([UIAlertController class]) {
-             
-         } else {
-             NSString *message = [NSString stringWithFormat:@"%@ list retrieval error", role];
-             [TLFRestHelper showErrorAlertView:error
-                                   withMessage:[message capitalizedString]];
-         } */
-     }
-     ];
-    
+    [operation setCompletionBlockWithSuccess:onSuccess failure:onFailure];
     [operation start];
 }
 
-- (void)sortUserResponse:(id)responseObject byRole:(NSString *)role
++ (void)requestUser:(NSString *)uid successHandler:(void (^)(AFHTTPRequestOperation *operation, id responseObject))onSuccess failureHandler:(void (^)(AFHTTPRequestOperation *operation, NSError *error))onFailure
+{
+    NSMutableString *urlString = [[NSMutableString alloc] initWithFormat:base];
+    [urlString appendFormat:@"v1/users/%@", uid];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithString:urlString]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [TLFRestHelper jsonResponse:request successHandler:onSuccess failureHandler:onFailure];
+}
+
++ (void)requestUsers:(NSString *)role forTableViewController:(UITableViewController *)viewController backingList:(NSMutableArray *)list
+{
+    startTime = CACurrentMediaTime();
+    
+    __block UIView *indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:viewController.tableView.superview options:nil][0];
+    indicatorView.center = CGPointMake(160, 176);
+    [viewController.tableView addSubview:indicatorView];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[base stringByAppendingString:@"v1/users"]]];
+    
+    void (^onSuccess)(AFHTTPRequestOperation *operation, id responseObject);
+    void (^onFailure)(AFHTTPRequestOperation *operation, NSError *error);
+    
+    onSuccess = ^void(AFHTTPRequestOperation *operation, id responseObject) {
+        [TLFRestHelper sortUserResponse:responseObject byRole:role forList:list];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+                       [indicatorView removeFromSuperview];
+                       [viewController.tableView reloadData];
+                       endTime = CACurrentMediaTime();
+                       NSLog(@"Request users [%@] execution time: %f sec", role, (endTime - startTime));
+                       
+                       if ([role isEqualToString:@"business"]) {
+                           TLFUser *currentUser = [[TLFUserStore getInstance] currentUser];
+                           [currentUser determineRedeemableBusinesses];
+                           NSLog(@"Total redeemable businesses: %lu", (unsigned long)[currentUser.redeemableBusinesses count]);
+                       }
+        });
+    };
+    
+    onFailure = ^void(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Request Failed: %@", [error localizedDescription]);
+        
+        // Show alert
+        NSString *title = [NSString stringWithFormat:@"%@ list retrieval error", role];
+        [TLFAlert alertForViewController:viewController forError:error withTitle:[title capitalizedString]];
+    };
+    
+    [TLFRestHelper jsonResponse:request successHandler:onSuccess failureHandler:onFailure];
+}
+
++ (void)sortUserResponse:(id)responseObject byRole:(NSString *)role forList:(NSMutableArray *)list
 {
     // Extract users based on role
-    _users = [[NSMutableArray alloc] init];
     for (NSDictionary *obj in responseObject) {
         if ([obj[@"role"] isEqualToString:role]) {
-            [self.users addObject:obj];
+            [list addObject:obj];
         }
     }
     
-    NSLog(@"FIRST OBJECT: %@, %@", self.users[0][@"company_name"], self.users[0][@"role"]);
+    NSLog(@"FIRST OBJECT: %@, %@", list[0][@"company_name"], list[0][@"role"]);
     
     // Sort alphabetically
     NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]
@@ -126,17 +99,17 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
                                     ascending:YES
                                     selector:@selector(localizedCaseInsensitiveCompare:)];
     
-    [self.users sortUsingDescriptors:@[descriptor]];
+    [list sortUsingDescriptors:@[descriptor]];
     
     // Add to global store
     if ([role isEqualToString:@"business"]) {
         TLFBusinessStore *bStore = [TLFBusinessStore getInstance];
-        bStore.businesses = self.users;
+        bStore.businesses = list;
     }
     
     if ([role isEqualToString:@"cause"]) {
         TLFCauseStore *cStore = [TLFCauseStore getInstance];
-        cStore.causes = self.users;
+        cStore.causes = list;
     }
     
     NSLog(@"Asynchronous Request Complete");
@@ -158,15 +131,4 @@ static NSString *const base = @"http://api-dev.taliflo.com/v1/";
     return manager;
 }
 
-+ (void)showErrorAlertView:(NSError *)error withMessage:(NSString *)message
-{
-    UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:message
-                              message:[NSString stringWithFormat:@"%@. Try again later.", [error localizedDescription]]
-                              delegate:nil
-                              cancelButtonTitle:@"Ok"
-                              otherButtonTitles:nil];
-    
-    [alertView show];
-}
 @end

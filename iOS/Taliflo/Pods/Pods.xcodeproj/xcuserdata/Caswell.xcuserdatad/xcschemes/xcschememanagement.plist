@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-PaymentKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Stripe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-UITextField+Shake.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>26ABAB45D3894988ABBE5DC0</key>
+		<key>13B91D7B1D4C488685BA99A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3352A480833D4F38A049ABC8</key>
+		<key>1F1F911CEE0B487BBD205BC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C6B244CAD59540E1881F14E7</key>
+		<key>49F69C3D3B7D4CC7B28115E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A53CD4226D74686964124C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7C1DFF36A1824C428A2BCE8B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

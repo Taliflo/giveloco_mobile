@@ -13,10 +13,12 @@
 #import "TLFCauseStore.h"
 #import "TLFRestHelper.h"
 #import "TLFUserDetailViewController.h"
+#import "TLFUser.h"
 
 @interface TLFCausesViewController ()
 
 @property (nonatomic, strong) NSMutableArray *filtered;
+@property (nonatomic, strong) NSMutableArray *causes;
 
 @end
 
@@ -40,11 +42,9 @@ static NSString *sysCellID = @"UITableViewCell";
                                      withIcon:[UIImage imageNamed:@"Causes.png"]];
         
         // Request causes
-        restHelper = [[TLFRestHelper alloc] initWithTableViewController:self];
-        [restHelper requestUsers:@"cause"];
-        
+        self.causes = [[NSMutableArray alloc] init];
         self.filtered = [[NSMutableArray alloc] init];
-
+        [TLFRestHelper requestUsers:@"cause" forTableViewController:self backingList:self.causes];
     }
     return self;
 }
@@ -66,7 +66,7 @@ static NSString *sysCellID = @"UITableViewCell";
     [super viewWillAppear:animated];
     
     // Setting the tab bar selected item colour
-    self.tabBarController.tabBar.selectedImageTintColor = [TLFColor talifloTiffanyBlue];
+    //self.tabBarController.tabBar.selectedImageTintColor = [TLFColor talifloTiffanyBlue];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -96,7 +96,7 @@ static NSString *sysCellID = @"UITableViewCell";
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [self.filtered count];
     } else {
-        return [restHelper.users count];
+        return [self.causes count];
     }
 
 }
@@ -118,8 +118,8 @@ static NSString *sysCellID = @"UITableViewCell";
         return cell;
     } else {
         TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-        cell.name.text = restHelper.users[indexPath.row][@"company_name"];
-        cell.summary.text = restHelper.users[indexPath.row][@"summary"];
+        cell.name.text = self.causes[indexPath.row][@"company_name"];
+        cell.summary.text = self.causes[indexPath.row][@"summary"];
         cell.backgroundColor = [TLFColor talifloTiffanyBlue];
         return cell;
     }
@@ -136,7 +136,7 @@ static NSString *sysCellID = @"UITableViewCell";
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         detailVC.user = [[TLFUser alloc] initWithDictionary:self.filtered[indexPath.row]];
     } else {
-        detailVC.user = [[TLFUser alloc] initWithDictionary:restHelper.users[indexPath.row]];
+        detailVC.user = [[TLFUser alloc] initWithDictionary:self.causes[indexPath.row]];
     }
     
     // Push the view controller.
@@ -161,7 +161,7 @@ static NSString *sysCellID = @"UITableViewCell";
     
     if (searchString.length > 0) {
         NSPredicate *predName = [NSPredicate predicateWithFormat:@"%K beginswith[cd] %@", @"company_name", self.searchBar.text];
-        NSArray *hits = [restHelper.users filteredArrayUsingPredicate:predName];
+        NSArray *hits = [self.causes filteredArrayUsingPredicate:predName];
         [self.filtered addObjectsFromArray:hits];
     }
  

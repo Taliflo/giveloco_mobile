@@ -82,7 +82,7 @@ static BOOL screenSize3point5 = NO;
                   // Set ID of logged in user
                   TLFUserStore *userStore = [TLFUserStore getInstance];
                   userStore.authToken = responseObject[@"auth_token"];
-                  userStore.uid = [responseObject[@"uid"] intValue];
+                  userStore.uid = responseObject[@"uid"];
                   
                   // Start the application
                   TLFAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];

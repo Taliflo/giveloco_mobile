@@ -7,24 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TLFUser.h"
 
-@class TLFCauseStore, TLFBusinessStore, AFHTTPSessionManager;
+@class TLFCauseStore, TLFBusinessStore, AFHTTPSessionManager, AFHTTPRequestOperation;
 
 @interface TLFRestHelper : NSObject
 
-@property (nonatomic, copy) NSMutableArray* users;
-@property (nonatomic, copy) NSMutableArray* transactions;
-@property (nonatomic, copy) TLFUser *user;
-@property (nonatomic) UITableView *tableView;
-@property (nonatomic) UITableViewController *viewController;
++ (void)requestUsers:(NSString *)role forTableViewController:(UITableViewController *)viewController backingList:(NSMutableArray *)list;
 
-- (instancetype)initWithTableViewController:(UITableViewController *)tableViewController;
-- (NSURL *)queryUsers;
-- (NSURL *)queryUser:(int)numID;
-- (NSURL *)queryTransactions;
-- (void)requestUsers:(NSString *)role;
++ (void)requestUser:(NSString *)uid successHandler:(void (^)(AFHTTPRequestOperation *operation, id responseObject))onSuccess failureHandler:(void (^)(AFHTTPRequestOperation *operation, NSError *error))onFailure;
 
 + (AFHTTPSessionManager *)newSessionManager:(NSString *)authToken;
-+ (void)showErrorAlertView:(NSError *)error withMessage:(NSString *)message;
+
+
 @end

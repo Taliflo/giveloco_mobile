@@ -49,7 +49,7 @@ static BOOL redeemableBusiness = NO;
     nbHelper = [[TLFNavBarHelper alloc] initWithViewController:self title:title];
     
     self.companyName.text = self.user.companyName;
-    self.description.text = self.user.description;
+    self.descript.text = self.user.descript;
     self.tags.text = [self.user getTagsString];
     self.address.text = [NSString
                      stringWithFormat:@"%@\n%@, %@\n%@", self.user.streetAddress, self.user.city, self.user.state, self.user.zip];
@@ -68,7 +68,7 @@ static BOOL redeemableBusiness = NO;
         
         // Check if this business is a redeemable business
         redeemableBusiness = [userStore.currentUser checkReemableBusiness:self.user];
-        NSLog(@"redeemableBusiness=%hhd", redeemableBusiness);
+        NSLog(redeemableBusiness ? @"redeemableBusiness = YES" : @"redeemableBusiness = NO" );
         
         if (redeemableBusiness) {
             [self.redeemDisabledMsg removeFromSuperview];

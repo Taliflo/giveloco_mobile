@@ -20,6 +20,7 @@
         self.role = dict[@"role"];
         self.firstName = dict[@"first_name"];
         self.lastName = dict[@"last_name"];
+        self.email = dict[@"email"];
         self.phone = dict[@"phone"];
         self.companyName = dict[@"company_name"];
         self.streetAddress = dict[@"street_address"];
@@ -29,7 +30,7 @@
         self.zip = dict[@"zip"];
         self.tags = dict[@"tags"];
         self.summary = dict[@"summary"];
-        self.description = dict[@"description"];
+        self.descript = dict[@"description"];
         self.website = dict[@"website"];
         self.picOriginal = dict[@"images"][@"profile_picture"][@"original"];
         self.picMedium = dict[@"images"][@"profile_picture"][@"medium"];

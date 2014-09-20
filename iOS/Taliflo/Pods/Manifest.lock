@@ -20,14 +20,20 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - PaymentKit (1.1.1)
+  - Stripe (2.0.1)
   - UITextField+Shake (0.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2)
+  - PaymentKit
+  - Stripe
   - UITextField+Shake
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  PaymentKit: f77b4d5cee45947949429c3d587e8eb160a3c9e2
+  Stripe: 0a4ce5366869dc383154ddcaf9434b3061188928
   UITextField+Shake: d98b471f0f686021795a8797aeec3658d12fdae2
 
 COCOAPODS: 0.33.1

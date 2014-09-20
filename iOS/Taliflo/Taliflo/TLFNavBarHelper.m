@@ -11,6 +11,7 @@
 #import "TLFBillingInfoViewController.h"
 #import "TLFRedeemCreditsViewController.h"
 #import "TLFRestHelper.h"
+#import "TLFAlert.h"
 #import "TLFUserStore.h"
 #import "AFNetworking.h"
 #import "TLFAppDelegate.h"
@@ -81,15 +82,9 @@
                                                             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                                                 NSLog(@"%@", [error localizedDescription]);
                                                                 
-                                                                [TLFRestHelper showErrorAlertView:error withMessage:@"Logout Error"];
-                                                               
-                                                                // To be used on iOS 8 for backwards compatibility
-                                                            /*   if ([UIAlertController class]) {
-                                                                    
-                                                                }
-                                                                else {
-                                                                [TLFRestHelper showErrorAlertView:error withMessage:@"Logout Error"];
-                                                                } */
+                                                                // Show alert
+                                                                [TLFAlert alertForViewController:self.viewController forError:error withTitle:@"Logout Error"];
+                
                                                             }];
                                                             
                                                         }];

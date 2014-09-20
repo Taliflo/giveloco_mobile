@@ -641,7 +641,7 @@ expectedTotalBytes:(int64_t)expectedTotalBytes {
 
 #pragma mark - NSObject
 
-- (NSString *)description {
+- (NSString *)descript {
     return [NSString stringWithFormat:@"<%@: %p, session: %@, operationQueue: %@>", NSStringFromClass([self class]), self, self.session, self.operationQueue];
 }
 

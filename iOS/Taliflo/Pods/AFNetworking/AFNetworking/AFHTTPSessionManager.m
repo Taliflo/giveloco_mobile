@@ -275,7 +275,7 @@
 
 #pragma mark - NSObject
 
-- (NSString *)description {
+- (NSString *)descript {
     return [NSString stringWithFormat:@"<%@: %p, baseURL: %@, session: %@, operationQueue: %@>", NSStringFromClass([self class]), self, [self.baseURL absoluteString], self.session, self.operationQueue];
 }
 

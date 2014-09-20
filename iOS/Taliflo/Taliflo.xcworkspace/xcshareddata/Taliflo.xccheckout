@@ -10,26 +10,26 @@
 	<string>Taliflo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>44C9DA92-AC60-48EA-A969-F8D802808224</key>
-		<string>https://github.com/Taliflo/taliflo_mobile_apps.git</string>
 		<key>64610AF8-2C66-475B-BD87-028055D0AD87</key>
 		<string>https://github.com/elado/jastor.git</string>
+		<key>985913E28809351A7B1E84F3172AE8C182FF29A3</key>
+		<string>https://github.com/Taliflo/taliflo_mobile_apps.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>iOS/Taliflo/Taliflo.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>44C9DA92-AC60-48EA-A969-F8D802808224</key>
-		<string>../../..</string>
 		<key>64610AF8-2C66-475B-BD87-028055D0AD87</key>
-		<string>../../../../../github/jastor</string>
+		<string>../../../../github/jastor</string>
+		<key>985913E28809351A7B1E84F3172AE8C182FF29A3</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Taliflo/taliflo_mobile_apps.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>44C9DA92-AC60-48EA-A969-F8D802808224</string>
+	<string>985913E28809351A7B1E84F3172AE8C182FF29A3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -44,7 +44,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>44C9DA92-AC60-48EA-A969-F8D802808224</string>
+			<string>985913E28809351A7B1E84F3172AE8C182FF29A3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>taliflo_mobile_apps</string>
 		</dict>
