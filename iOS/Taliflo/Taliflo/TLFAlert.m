@@ -58,4 +58,27 @@
     }
 }
 
++ (void) okAlertForViewController:(UIViewController *)viewController withTitle:(NSString *)title message:(NSString *)message
+{
+    // Check for iOS 8
+    if ([UIAlertController class]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                       message:message
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        
+        [alert addAction:ok];
+        [viewController presentViewController:alert animated:YES completion:nil];
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:title
+                                  message:message
+                                  delegate:nil
+                                  cancelButtonTitle:@"Ok"
+                                  otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+}
 @end

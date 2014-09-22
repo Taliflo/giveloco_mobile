@@ -114,10 +114,20 @@ static NSString *sysCellID = @"UITableViewCell";
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:sysCellID forIndexPath:indexPath];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sysCellID];
+        }
+        
         cell.textLabel.text = self.filtered[indexPath.row][@"company_name"];
         return cell;
     } else {
         TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+        
+        if (cell == nil) {
+            cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        
         cell.name.text = self.causes[indexPath.row][@"company_name"];
         cell.summary.text = self.causes[indexPath.row][@"summary"];
         cell.backgroundColor = [TLFColor talifloTiffanyBlue];

@@ -10,10 +10,18 @@
 #import "TLFUser.h"
 #import "TLFNavBarHelper.h"
 #import "TLFAlert.h"
+#import <AFNetworking/AFNetworking.h>
+#import <Braintree/Braintree.h>
+#import "TLFUserStore.h"
+#import "TLFRestHelper.h"
 
-@interface TLFDonateViewController () {
+@interface TLFDonateViewController () <BTDropInViewControllerDelegate>
+{
 
 }
+
+@property (nonatomic, strong) Braintree *braintree;
+@property (nonatomic, strong) NSString *authToken;
 
 @end
 
@@ -82,26 +90,43 @@ static NSString *donationAmount;
     // Set the confirm action
     void(^yesAction)(UIAlertAction *action);
     yesAction = ^void(UIAlertAction *action) {
-        NSLog(@"\"Yes\" selected");
+        TLFUserStore *userStore = [TLFUserStore getInstance];
+        self.authToken = userStore.authToken;
+        // Set up a Braintree with session token
+        NSString *clientToken = @"eyJ2ZXJzaW9uIjoxLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiI0MTFlMzVmOGVlZDQwZDA0MjkyYjhmYTEyY2I5MDllYjlhNTJjYWUxYjYzOTA0MWMxYzljYjJkMTZkM2E0ODcxfGNyZWF0ZWRfYXQ9MjAxNC0wOS0yMVQwNDo0NzozMi4wODgyNTg5NzkrMDAwMFx1MDAyNm1lcmNoYW50X2lkPWRjcHNweTJicndkanIzcW5cdTAwMjZwdWJsaWNfa2V5PTl3d3J6cWszdnIzdDRuYzgiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvZGNwc3B5MmJyd2RqcjNxbi9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbXSwicGF5bWVudEFwcHMiOltdLCJjbGllbnRBcGlVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvZGNwc3B5MmJyd2RqcjNxbi9jbGllbnRfYXBpIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhdXRoVXJsIjoiaHR0cHM6Ly9hdXRoLnZlbm1vLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhbmFseXRpY3MiOnsidXJsIjoiaHR0cHM6Ly9jbGllbnQtYW5hbHl0aWNzLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20ifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6ZmFsc2UsInBheXBhbEVuYWJsZWQiOnRydWUsInBheXBhbCI6eyJkaXNwbGF5TmFtZSI6IkFjbWUgV2lkZ2V0cywgTHRkLiAoU2FuZGJveCkiLCJjbGllbnRJZCI6bnVsbCwicHJpdmFjeVVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS9wcCIsInVzZXJBZ3JlZW1lbnRVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vdG9zIiwiYmFzZVVybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9jaGVja291dC5wYXlwYWwuY29tIiwiZGlyZWN0QmFzZVVybCI6bnVsbCwiYWxsb3dIdHRwIjp0cnVlLCJlbnZpcm9ubWVudE5vTmV0d29yayI6dHJ1ZSwiZW52aXJvbm1lbnQiOiJvZmZsaW5lIiwibWVyY2hhbnRBY2NvdW50SWQiOiJzdGNoMm5mZGZ3c3p5dHc1IiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn19";
+        self.braintree = [Braintree braintreeWithClientToken:clientToken];
+        // Create a BTDropInViewController
+        BTDropInViewController *dropInVC = [self.braintree dropInViewControllerWithDelegate:self];
+        // This is where you might want to customize your Drop in.
         
-        NSString *descript = [NSString stringWithFormat:@"Donation to %@ using the Taliflo platform", self.name.text];
-        
-        PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.com.taliflo"
-                                                                          amount:[NSDecimalNumber decimalNumberWithString:donationAmount]
-                                                                        currency:@"CAD"
-                                                                     description:descript];
-        
-        if ([Stripe canSubmitPaymentRequest:request]) {
-            UIViewController *paymentController = [Stripe paymentControllerWithRequest:request delegate:self];
-            [self presentViewController:paymentController animated:YES completion:nil];
-        } else {
-            // Show the user your own credit card form
-            
-        }
+        // Wrap the BTDropInViewController in a new, modally presented navigation controller
+        dropInVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                                  target:self
+                                                                                                  action:@selector(userDidCancelPayment)];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:dropInVC];
+        [self presentViewController:navigationController animated:YES completion:nil];
     };
     
     // Show alert
     [TLFAlert alertForViewController:self withTitle:@"Are you sure?" message:@"Your credit card will be charged this amount immediately" yesActionHandler:yesAction cancelActionHandler:nil];
+}
+
+- (void)userDidCancelPayment
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dropInViewController:(__unused BTDropInViewController *)viewController didSucceedWithPaymentMethod:(BTPaymentMethod *)paymentMethod
+{
+    NSString* nonce = paymentMethod.nonce;
+    NSLog(@"Payment Nonce: %@", nonce);
+    [self postNonceToServer:nonce];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dropInViewControllerDidCancel:(__unused BTDropInViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Method to respond to the response from the alert view
@@ -116,59 +141,18 @@ static NSString *donationAmount;
     }
 }
 
-- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
-                       didAuthorizePayment:(PKPayment *)payment
-                                completion:(void (^)(PKPaymentAuthorizationStatus))completion
+- (void)postNonceToServer:(NSString *)paymentMethodNonce
 {
-    /*
-     The block that takes a PKPaymentAuthorizationStatus is called with either PKPaymentAuthorizationStatusSuccess or PKPaymentAuthorizationStatusFailure
-     after the asynchronous code finishes executing. This notifies the view controller to update its UI.
-     */
-    [self handlePaymentAuthorizationWithPayment:payment completion:completion];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"http://api-dev.taliflo.com/"
+       parameters:@{}
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              NSLog(@"Post Nonce to Server Success");
+              [TLFAlert okAlertForViewController:self withTitle:@"Donation Complete" message:@"Thank you for using Taliflo to support this cause."];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Post Nonce to Server Failed");
+     }];
 }
 
-- (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-/*
- CREATING TOKENS
- 
- The Stripe libraries send credit card data directly to the Stripe servers, where this data is converted into tokens.
- You can charge thses tokens later in your server-side code.
-*/
-- (void)handlePaymentAuthorizationWithPayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion
-{
-    
-    [Stripe createTokenWithPayment:payment completion:^(STPToken *token, NSError *error) {
-        if (error) {
-            completion(PKPaymentAuthorizationStatusFailure);
-            return;
-        }
-        
-        [self createBackendChargeWithToken:token completion:completion];
-    }];
-}
-
-// Send the token to your server
-- (void)createBackendChargeWithToken:(STPToken *)token completion:(void (^)(PKPaymentAuthorizationStatus))completion
-{
-    NSURL *url = [NSURL URLWithString:@"http://example.com/token"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPMethod = @"POST";
-    NSString *body = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
-    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-    
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                               if (connectionError) {
-                                   completion(PKPaymentAuthorizationStatusFailure);
-                               } else {
-                                   completion(PKPaymentAuthorizationStatusSuccess);
-                               }
-                           }];
-}
 
 @end

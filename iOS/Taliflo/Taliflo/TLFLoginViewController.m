@@ -9,7 +9,7 @@
 #import "TLFLoginViewController.h"
 #import "TLFColor.h"
 #import "TLFAppDelegate.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
 #import "UITextField+Shake.h"
 #import "TLFUserStore.h"
 #import "TLFUser.h"
@@ -160,7 +160,10 @@ static BOOL screenSize3point5 = NO;
     // "Go" pressed, start login
     if (textField.tag == 1) {
         next = 0;
-        [self scrollViewBackToCenter];
+        
+        if (screenSize3point5) {
+            [self scrollViewBackToCenter];
+        }
         
         [self attemptLogin];
     }

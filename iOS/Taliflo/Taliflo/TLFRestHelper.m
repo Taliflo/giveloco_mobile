@@ -7,7 +7,8 @@
 //
 
 #import "TLFRestHelper.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import <AFNetworking/AFHTTPRequestOperation.h>
 #import "TLFCauseStore.h"
 #import "TLFBusinessStore.h"
 #import "TLFUserStore.h"

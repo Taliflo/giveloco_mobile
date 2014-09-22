@@ -13,8 +13,9 @@
 #import "TLFRestHelper.h"
 #import "TLFAlert.h"
 #import "TLFUserStore.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
 #import "TLFAppDelegate.h"
+
 
 @interface TLFNavBarHelper ()
 

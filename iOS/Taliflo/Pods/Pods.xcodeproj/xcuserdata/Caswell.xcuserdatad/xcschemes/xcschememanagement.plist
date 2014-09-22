@@ -4,17 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Braintree-Drop-In-Localization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Braintree-UI-Localization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-PaymentKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Stripe.xcscheme</key>
+		<key>Pods-Braintree.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13B91D7B1D4C488685BA99A1</key>
+		<key>042970D145E547AB84D2EBC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F1F911CEE0B487BBD205BC0</key>
+		<key>1B50ADBF634440D3ABA5AC2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>49F69C3D3B7D4CC7B28115E9</key>
+		<key>244E6FBDBA864EB9BCB941B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A53CD4226D74686964124C2</key>
+		<key>3833D2C9401742C1AA391298</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C1DFF36A1824C428A2BCE8B</key>
+		<key>96245727E3E34353A2AA838A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B14C32F7012B4404B4B1E65E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

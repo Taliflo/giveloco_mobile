@@ -11,10 +11,13 @@
 @interface TLFAlert : NSObject
 
 + (void)alertForViewController:(UIViewController *)viewController forError:(NSError *)error withTitle:(NSString *)title;
+
 + (void)alertForViewController:(UIViewController *)viewController
                      withTitle:(NSString *)title
                        message:(NSString *)message
               yesActionHandler:(void (^)(UIAlertAction *action))yesAction
                cancelActionHandler:(void (^)(UIAlertAction *action))cancelAction;
+
++ (void) okAlertForViewController:(UIViewController *)viewController withTitle:(NSString *)title message:(NSString *)message;
 
 @end

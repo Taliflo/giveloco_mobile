@@ -13,7 +13,6 @@
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
 #import "TLFRestHelper.h"
-#import "AFNetworking.h"
 #import "TLFUserStore.h"
 #import "TLFTransactionCell.h"
 #import "TLFTransaction.h"
@@ -99,11 +98,6 @@ static UIView *indicatorView;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-/*
-    self.name.hidden = YES;
-    CGRect newFrame = self.name.frame;
-    newFrame.size.height = 0;
-    [self.name setFrame:newFrame]; */
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -159,48 +153,7 @@ static UIView *indicatorView;
     };
     
     [TLFRestHelper requestUser:uid successHandler:onSuccess failureHandler:onFailure];
-    
-/*
-    NSURLRequest *request = [NSURLRequest requestWithURL:[restHelper queryUser:numID]];
-    
-    // AFNetworking asynchronous URL request
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:
-     ^(AFHTTPRequestOperation *operation, id responseObject) {
-         self.user = [[TLFUser alloc] initWithDictionary:responseObject];
-         
-         dispatch_async(dispatch_get_main_queue(),
-                        ^{
-                            // Set user in global store
-                            TLFUserStore *userStore = [TLFUserStore getInstance];
-                            userStore.currentUser = self.user;
-                            
-                            // Populate layout views
-                            self.name.text = _user.companyName;
-                            self.balance.text = [NSString stringWithFormat:@"C %@", self.user.balance];
-                            
-                            [self.tableView reloadData];
-                            [indicatorView removeFromSuperview];
-                            
-                            endTime = CACurrentMediaTime();
-                            
-                            NSLog(@"Request logged in user execution time: %f sec", (endTime-startTime));
-                        }
-                        );
-     }
-                                     failure:
-     ^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"Request Failed: %@, %@", error, error.userInfo);
-         
-         // Show alert
-         [TLFAlert alertForViewController:self forError:error withTitle:@"Account Rerieval Error"];
-         [indicatorView removeFromSuperview];
 
-     }
-     ];
-    
-    [operation start]; */
 }
 
 #pragma mark - Table view data source
@@ -227,7 +180,7 @@ static UIView *indicatorView;
     TLFTransactionCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdent];
     
     if (!cell) {
-        cell = [[TLFTransactionCell alloc] init];
+        cell = [[TLFTransactionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdent];
     }
 
     TLFTransaction *trans = [[TLFTransaction alloc] initWithDictionary:self.user.transactionsAll[indexPath.row]];

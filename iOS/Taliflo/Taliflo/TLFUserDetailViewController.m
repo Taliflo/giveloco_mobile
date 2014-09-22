@@ -59,12 +59,23 @@ static BOOL redeemableBusiness = NO;
     self.availableCredit.text = [NSString stringWithFormat:@"C %@", userStore.currentUser.balance];
     
     // ** Styling **
+    UITextField *supportCount = [[UITextField alloc] initWithFrame:CGRectMake(235, 5, 35, 25)];
+    [[supportCount layer] setCornerRadius:5];
+    supportCount.backgroundColor = [TLFColor talifloOrange];
+    supportCount.textColor = [UIColor whiteColor];
+    supportCount.text = @"10";
+    supportCount.textAlignment = NSTextAlignmentCenter;
+    supportCount.font = [UIFont fontWithName:@"Helvetica" size:15];
+    [self.btnSupport addSubview:supportCount];
+    [self.btnSupport setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
+    self.btnSupport.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
     if ([self.user.role isEqualToString:bussIden]) {
-        [self.btnSupport setTitle:[_user getSupportedCausesStr]
+        [self.btnSupport setTitle:@"Supported Causes"
                      forState:UIControlStateNormal];
         [self.btnTransact setBackgroundColor:[TLFColor talifloPurple]];
         [self.btnTransact setTitle:@"Redeem $20" forState:UIControlStateNormal];
+        supportCount.text =[NSString stringWithFormat:@"%i", [self.user getSupportedCausesCount]];
         
         // Check if this business is a redeemable business
         redeemableBusiness = [userStore.currentUser checkReemableBusiness:self.user];
@@ -79,18 +90,24 @@ static BOOL redeemableBusiness = NO;
     }
     
     if ([self.user.role isEqualToString:causeIden]) {
-        [self.btnSupport setTitle:[_user getSupportersCountStr]
+        [self.btnSupport setTitle:@"Supporters"
                      forState:UIControlStateNormal];
         [self.btnTransact setBackgroundColor:[TLFColor talifloTiffanyBlue]];
         [self.btnTransact setTitle:@"Donate" forState:UIControlStateNormal];
+        supportCount.text =[NSString stringWithFormat:@"%i", [self.user getSupportersCount]];
         
         [self.redeemDisabledMsg removeFromSuperview];
     }
     
     [[self.btnTransact layer] setCornerRadius:3];
     [[self.btnSupport layer] setCornerRadius:3];
+    [self.btnSupport setNeedsLayout];
     
-    
+/*    // Add right carat on btnSupport
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(255, 8, 11, 19)];
+    imageView.image = [UIImage imageNamed:@"UIButtonBarArrowRight"];
+    [imageView setTintColor:[TLFColor lightGrey]];
+    [self.btnSupport addSubview:imageView]; */
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,7 +126,7 @@ static BOOL redeemableBusiness = NO;
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [self.scrollView setContentSize:CGSizeMake(320, 1000)];
+    [self.scrollView setContentSize:CGSizeMake(320, 720)];
 }
 
 #pragma mark Button listeners

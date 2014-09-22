@@ -13,17 +13,11 @@
 #import "TLFCausesViewController.h"
 #import "TLFBusinessesViewController.h"
 #import "TLFLoginViewController.h"
-#import "Stripe.h"
-
-NSString *const StripeTestPublishableKey = @"pk_test_MBnCYXpbwBkIjjjpIKz6lSud";
-NSString *const StripeLivePublishableKey = @"pk_live_HGECFVdMKGneyKozG9g2Fnxn";
 
 @implementation TLFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Set Stripe public key
-    [Stripe setDefaultPublishableKey:StripeTestPublishableKey];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -31,8 +25,8 @@ NSString *const StripeLivePublishableKey = @"pk_live_HGECFVdMKGneyKozG9g2Fnxn";
     // Show activity indicator
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-/*    // Login view controller
-    self.loginVC = [[TLFLoginViewController alloc] init];
+    // Login view controller
+/*    self.loginVC = [[TLFLoginViewController alloc] init];
     self.window.rootViewController = self.loginVC; */
 
     // My Account view controller and navigation controller
@@ -61,7 +55,7 @@ NSString *const StripeLivePublishableKey = @"pk_live_HGECFVdMKGneyKozG9g2Fnxn";
     // Setting navigation bar back button font size
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0]} forState:UIControlStateNormal];
     
-    self.window.rootViewController = self.tabBarController; 
+    self.window.rootViewController = self.tabBarController;
     
     self.window.backgroundColor = [TLFColor lightestGrey];
     [self.window makeKeyAndVisible];

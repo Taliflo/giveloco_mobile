@@ -86,6 +86,10 @@ static TLFNavBarHelper *nbHelper;
 {
     TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
     
+    if (cell == nil) {
+        cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+    }
+    
     // Configure the cell...
     
     cell.name.text = self.support[indexPath.row][@"company_name"];

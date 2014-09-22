@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Stripe.h"
 
 @class TLFUser;
 
-@interface TLFDonateViewController : UIViewController <PKPaymentAuthorizationViewControllerDelegate>
+@interface TLFDonateViewController : UIViewController 
 
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;

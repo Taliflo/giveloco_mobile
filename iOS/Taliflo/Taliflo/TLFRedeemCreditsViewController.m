@@ -77,6 +77,11 @@ static NSString *cellID = @"TLFUserCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    
     cell.name.text = self.currentUser.redeemableBusinesses[indexPath.row][@"company_name"];
     cell.summary.text = self.currentUser.redeemableBusinesses[indexPath.row][@"summary"];
     cell.backgroundColor = [TLFColor talifloPurple];
