@@ -42,4 +42,10 @@
     return [super init];
 }
 
+- (void)setLoggedInCredentials:(NSDictionary *)credentials
+{
+    self.authToken = credentials[@"auth_token"];
+    self.uid = credentials[@"uid"];
+}
+
 @end

@@ -17,4 +17,6 @@
 
 + (instancetype)getInstance;
 
+- (void)setLoggedInCredentials:(NSDictionary *)credentials;
+
 @end

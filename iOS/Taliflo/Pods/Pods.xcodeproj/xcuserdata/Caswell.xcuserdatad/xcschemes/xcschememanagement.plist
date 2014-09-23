@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-TTTAttributedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-UITextField+Shake.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>042970D145E547AB84D2EBC7</key>
+		<key>097FAB2907F04A0184D9A79E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B50ADBF634440D3ABA5AC2C</key>
+		<key>0D2C6D669D5348629D5ADBF6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>244E6FBDBA864EB9BCB941B4</key>
+		<key>398C8577A4A44E269B31DE35</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3833D2C9401742C1AA391298</key>
+		<key>571E7C6134A34BBEBD3A12F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96245727E3E34353A2AA838A</key>
+		<key>5A3A8D99B8054A818A2DE49A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B14C32F7012B4404B4B1E65E</key>
+		<key>EB622BC1A4E14AB09C963C32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDC8C9F03B7E4EB3A880197B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

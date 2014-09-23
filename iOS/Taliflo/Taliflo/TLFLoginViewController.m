@@ -10,10 +10,11 @@
 #import "TLFColor.h"
 #import "TLFAppDelegate.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
-#import "UITextField+Shake.h"
+#import "TLFAlert.h"
 #import "TLFUserStore.h"
 #import "TLFUser.h"
-#import "TLFRestHelper.h"
+#import "TLFNetworkHelper.h"
+#import "TLFRegisterViewController.h"
 
 @interface TLFLoginViewController ()
 
@@ -23,7 +24,6 @@
 
 // Variables to control animations
 static CGPoint originalCenter;
-static int next = 0;
 static BOOL screenSize3point5 = NO;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -66,14 +66,15 @@ static BOOL screenSize3point5 = NO;
 {
     if (![self.password.text isEqual:@""]) {
 
-        AFHTTPSessionManager *manager = [TLFRestHelper newSessionManager:nil];
+        AFHTTPSessionManager *manager = [TLFNetworkHelper newSessionManager:nil];
         
         NSDictionary *params = @{
                                  @"email": self.email.text,
                                  @"password": self.password.text
                                  };
         
-        [manager POST:@"http://api-dev.taliflo.com/user/login" parameters:params
+        [manager POST:@"user/login"
+           parameters:params
               success:^(NSURLSessionDataTask *task, id responseObject) {
                   NSLog(@"Login Response: %@", responseObject);
                   
@@ -81,19 +82,38 @@ static BOOL screenSize3point5 = NO;
                   
                   // Set ID of logged in user
                   TLFUserStore *userStore = [TLFUserStore getInstance];
-                  userStore.authToken = responseObject[@"auth_token"];
-                  userStore.uid = responseObject[@"uid"];
+                  [userStore setLoggedInCredentials:responseObject];
                   
-                  // Start the application
+                  // Start the rest of the application
                   TLFAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
                   [appDelegate startApplicationAfterLogin];
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"%@", error.localizedDescription);
-            [self shakeTextField:self.password];
+            [TLFAlert shakeTextField:self.password];
         }];
  
     }
+}
+
+- (IBAction)openSignup
+{
+    // Create a new TLFRegisterViewController
+    TLFRegisterViewController *registerVC = [[TLFRegisterViewController alloc] init];
+    
+    // Wrap it in a vagiation controller
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:registerVC];
+    
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (void)scrollViewUp
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.35f];
+    originalCenter = self.view.center;
+    self.view.center = CGPointMake(originalCenter.x, originalCenter.y - 24);
+    [UIView commitAnimations];
 }
 
 - (void)scrollViewBackToCenter
@@ -104,45 +124,25 @@ static BOOL screenSize3point5 = NO;
     [UIView commitAnimations];
 }
 
-- (void)shakeTextField:(UITextField *)textField
-{
-    [textField shake:10
-           withDelta:5.
-            andSpeed:0.04
-      shakeDirection:ShakeDirectionHorizontal
-          completion:^{
-              textField.text = @"";
-          }];
-}
-
 #pragma mark - Text field delegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (next == 0) {
-        
-        if (screenSize3point5) {
-            [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationDuration:0.35f];
-            originalCenter = self.view.center;
-            self.view.center = CGPointMake(originalCenter.x, originalCenter.y - 24);
-            [UIView commitAnimations];
-        }
-        
-        next = 1;
+    if (screenSize3point5) {
+        [self scrollViewUp];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (screenSize3point5) {
+        [self scrollViewBackToCenter];
     }
 }
 
 - (void)hideKeyboard
 {
-    next = 0;
-    
-    [self.email resignFirstResponder];
-    [self.password resignFirstResponder];
-    
-    if (screenSize3point5) {
-        [self scrollViewBackToCenter];
-    }
+    [self.view endEditing:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -152,19 +152,12 @@ static BOOL screenSize3point5 = NO;
     
     // "Next" pressed
     if (textField.tag == 0) {
-        next = 1;
-        
         [self.password becomeFirstResponder];
     }
     
     // "Go" pressed, start login
     if (textField.tag == 1) {
-        next = 0;
-        
-        if (screenSize3point5) {
-            [self scrollViewBackToCenter];
-        }
-        
+        [self.password resignFirstResponder];
         [self attemptLogin];
     }
     

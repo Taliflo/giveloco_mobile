@@ -10,7 +10,7 @@
 #import "TLFColor.h"
 #import "TLFBillingInfoViewController.h"
 #import "TLFRedeemCreditsViewController.h"
-#import "TLFRestHelper.h"
+#import "TLFNetworkHelper.h"
 #import "TLFAlert.h"
 #import "TLFUserStore.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
@@ -71,7 +71,7 @@
                                                             
                                                             TLFUserStore *userStore = [TLFUserStore getInstance];
                                                             
-                                                            AFHTTPSessionManager *manager = [TLFRestHelper newSessionManager:userStore.authToken];
+                                                            AFHTTPSessionManager *manager = [TLFNetworkHelper newSessionManager:userStore.authToken];
                                                             
                                                             [manager DELETE:@"http://api-dev.taliflo.com/user/logout" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
                                                                 NSLog(@"%@", responseObject);

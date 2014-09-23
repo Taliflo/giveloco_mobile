@@ -90,6 +90,12 @@
 #define COCOAPODS_VERSION_MINOR_Braintree_Venmo 3
 #define COCOAPODS_VERSION_PATCH_Braintree_Venmo 1
 
+// TTTAttributedLabel
+#define COCOAPODS_POD_AVAILABLE_TTTAttributedLabel
+#define COCOAPODS_VERSION_MAJOR_TTTAttributedLabel 1
+#define COCOAPODS_VERSION_MINOR_TTTAttributedLabel 10
+#define COCOAPODS_VERSION_PATCH_TTTAttributedLabel 1
+
 // UITextField+Shake
 #define COCOAPODS_POD_AVAILABLE_UITextField_Shake
 #define COCOAPODS_VERSION_MAJOR_UITextField_Shake 0

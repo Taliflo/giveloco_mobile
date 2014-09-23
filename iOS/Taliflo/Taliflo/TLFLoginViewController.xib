@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TLFLoginViewController">
             <connections>
                 <outlet property="btnLogin" destination="WRa-9c-SnY" id="Pa5-lx-mkd"/>
+                <outlet property="btnSignup" destination="Aoc-YZ-Hdg" id="raU-OR-ibM"/>
                 <outlet property="email" destination="rlc-e5-wrX" id="mpk-8t-5In"/>
                 <outlet property="password" destination="onN-jL-wDE" id="Sre-m5-8Qq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -64,10 +64,25 @@
                         <action selector="attemptLogin" destination="-1" eventType="touchUpInside" id="k2y-v1-qIl"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aoc-YZ-Hdg">
+                    <rect key="frame" x="70" y="518" width="180" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="GcJ-UN-Nap"/>
+                        <constraint firstAttribute="width" constant="180" id="NNf-fc-GyH"/>
+                    </constraints>
+                    <state key="normal" title="Sign up for Taliflo">
+                        <color key="titleColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openSignup" destination="-1" eventType="touchUpInside" id="Uri-bW-Zbe"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="WRa-9c-SnY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="1i6-Pg-Plr"/>
+                <constraint firstAttribute="bottom" secondItem="Aoc-YZ-Hdg" secondAttribute="bottom" constant="20" id="58P-BH-FJh"/>
                 <constraint firstItem="rlc-e5-wrX" firstAttribute="top" secondItem="CBW-a0-vmt" secondAttribute="bottom" constant="8" id="BTT-vg-hZe"/>
                 <constraint firstItem="CBW-a0-vmt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="HYC-he-Ecb"/>
                 <constraint firstItem="rlc-e5-wrX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="IQL-v1-isf"/>
@@ -76,10 +91,13 @@
                 <constraint firstItem="onN-jL-wDE" firstAttribute="top" secondItem="rlc-e5-wrX" secondAttribute="bottom" constant="8" id="XI8-Jn-60W"/>
                 <constraint firstAttribute="trailing" secondItem="WRa-9c-SnY" secondAttribute="trailing" constant="20" id="ZpE-Aq-rL5"/>
                 <constraint firstItem="onN-jL-wDE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="hAH-Ig-qXe"/>
+                <constraint firstAttribute="trailing" secondItem="Aoc-YZ-Hdg" secondAttribute="trailing" constant="70" id="lgv-3R-SDj"/>
                 <constraint firstItem="CBW-a0-vmt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="oRb-sU-IJL"/>
+                <constraint firstItem="Aoc-YZ-Hdg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="rqL-hY-2Ax"/>
                 <constraint firstAttribute="trailing" secondItem="onN-jL-wDE" secondAttribute="trailing" constant="20" id="uoQ-qg-obb"/>
                 <constraint firstAttribute="trailing" secondItem="CBW-a0-vmt" secondAttribute="trailing" constant="20" id="xOX-Ee-3EV"/>
             </constraints>
+            <point key="canvasLocation" x="292" y="188"/>
         </view>
     </objects>
     <resources>

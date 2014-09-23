@@ -11,7 +11,7 @@
 #import "TLFColor.h"
 #import "TLFUserCell.h"
 #import "TLFCauseStore.h"
-#import "TLFRestHelper.h"
+#import "TLFNetworkHelper.h"
 #import "TLFUserDetailViewController.h"
 #import "TLFUser.h"
 
@@ -23,7 +23,7 @@
 @end
 
 static TLFNavBarHelper *nbHelper;
-static TLFRestHelper *restHelper;
+static TLFNetworkHelper *networkHelper;
 static NSString *cellID = @"TLFUserCell";
 static NSString *sysCellID = @"UITableViewCell";
 
@@ -44,7 +44,7 @@ static NSString *sysCellID = @"UITableViewCell";
         // Request causes
         self.causes = [[NSMutableArray alloc] init];
         self.filtered = [[NSMutableArray alloc] init];
-        [TLFRestHelper requestUsers:@"cause" forTableViewController:self backingList:self.causes];
+        [TLFNetworkHelper requestUsers:@"cause" forTableViewController:self backingList:self.causes];
     }
     return self;
 }

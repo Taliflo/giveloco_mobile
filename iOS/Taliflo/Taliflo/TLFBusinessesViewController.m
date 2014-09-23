@@ -11,7 +11,7 @@
 #import "TLFColor.h"
 #import "TLFUserCell.h"
 #import "TLFBusinessesViewController.h"
-#import "TLFRestHelper.h"
+#import "TLFNetworkHelper.h"
 #import "TLFUserDetailViewController.h"
 #import "TLFUser.h"
 
@@ -23,7 +23,7 @@
 @end
 
 static TLFNavBarHelper *nbHelper;
-static TLFRestHelper *restHelper;
+static TLFNetworkHelper *networkHelper;
 static NSString *cellID = @"TLFUserCell";
 static NSString *sysCellID = @"UITableViewCell";
 
@@ -43,7 +43,7 @@ static NSString *sysCellID = @"UITableViewCell";
         // Request businesses        
         self.businesses = [[NSMutableArray alloc] init];
         self.filtered = [[NSMutableArray alloc] init];
-        [TLFRestHelper requestUsers:@"business" forTableViewController:self backingList:self.businesses];
+        [TLFNetworkHelper requestUsers:@"business" forTableViewController:self backingList:self.businesses];
     }
     return self;
 }

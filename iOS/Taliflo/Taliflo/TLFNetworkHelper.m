@@ -6,23 +6,21 @@
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import "TLFRestHelper.h"
-#import <AFNetworking/AFHTTPSessionManager.h>
-#import <AFNetworking/AFHTTPRequestOperation.h>
+#import "TLFNetworkHelper.h"
 #import "TLFCauseStore.h"
 #import "TLFBusinessStore.h"
 #import "TLFUserStore.h"
 #import "TLFAlert.h"
 #import "TLFUser.h"
 
-@interface TLFRestHelper () 
+@interface TLFNetworkHelper () 
 
 @end
 
-@implementation TLFRestHelper
+@implementation TLFNetworkHelper
 
 static NSString *const base = @"http://api-dev.taliflo.com/";
-double startTime, endTime;
+static double startTime, endTime;
 
 + (void)jsonResponse:(NSURLRequest *)request successHandler:(void (^)(AFHTTPRequestOperation *operation, id responseObject))onSuccess failureHandler:(void (^)(AFHTTPRequestOperation *operation, NSError *error))onFailure
 {
@@ -39,7 +37,7 @@ double startTime, endTime;
     [urlString appendFormat:@"v1/users/%@", uid];
     NSURL *url = [NSURL URLWithString:[NSString stringWithString:urlString]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [TLFRestHelper jsonResponse:request successHandler:onSuccess failureHandler:onFailure];
+    [TLFNetworkHelper jsonResponse:request successHandler:onSuccess failureHandler:onFailure];
 }
 
 + (void)requestUsers:(NSString *)role forTableViewController:(UITableViewController *)viewController backingList:(NSMutableArray *)list
@@ -56,7 +54,7 @@ double startTime, endTime;
     void (^onFailure)(AFHTTPRequestOperation *operation, NSError *error);
     
     onSuccess = ^void(AFHTTPRequestOperation *operation, id responseObject) {
-        [TLFRestHelper sortUserResponse:responseObject byRole:role forList:list];
+        [TLFNetworkHelper sortUserResponse:responseObject byRole:role forList:list];
         
         dispatch_async(dispatch_get_main_queue(),^{
                        [indicatorView removeFromSuperview];
@@ -80,7 +78,7 @@ double startTime, endTime;
         [TLFAlert alertForViewController:viewController forError:error withTitle:[title capitalizedString]];
     };
     
-    [TLFRestHelper jsonResponse:request successHandler:onSuccess failureHandler:onFailure];
+    [TLFNetworkHelper jsonResponse:request successHandler:onSuccess failureHandler:onFailure];
 }
 
 + (void)sortUserResponse:(id)responseObject byRole:(NSString *)role forList:(NSMutableArray *)list
@@ -118,7 +116,7 @@ double startTime, endTime;
 
 + (AFHTTPSessionManager *)newSessionManager:(NSString *)authToken
 {
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:base]];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     

@@ -12,7 +12,7 @@
 #import "TLFUser.h"
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
-#import "TLFRestHelper.h"
+#import "TLFNetworkHelper.h"
 #import "TLFUserStore.h"
 #import "TLFTransactionCell.h"
 #import "TLFTransaction.h"
@@ -29,7 +29,7 @@
 @end
 
 static TLFNavBarHelper *nbHelper;
-static TLFRestHelper *restHelper;
+static TLFNetworkHelper *networkHelper;
 static UIView *indicatorView;
 
 @implementation TLFMyAccountViewController
@@ -50,7 +50,7 @@ static UIView *indicatorView;
         
         // Request logged in user
         TLFUserStore *userStore = [TLFUserStore getInstance];
-        restHelper = [[TLFRestHelper alloc] init];
+        networkHelper = [[TLFNetworkHelper alloc] init];
         
         
         //[self requestUser:userStore.uid];
@@ -152,7 +152,7 @@ static UIView *indicatorView;
         [indicatorView removeFromSuperview];
     };
     
-    [TLFRestHelper requestUser:uid successHandler:onSuccess failureHandler:onFailure];
+    [TLFNetworkHelper requestUser:uid successHandler:onSuccess failureHandler:onFailure];
 
 }
 

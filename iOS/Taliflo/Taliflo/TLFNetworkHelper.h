@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import <AFNetworking/AFHTTPRequestOperation.h>
 
-@class TLFCauseStore, TLFBusinessStore, AFHTTPSessionManager, AFHTTPRequestOperation;
+@class TLFCauseStore, TLFBusinessStore;
 
-@interface TLFRestHelper : NSObject
+@interface TLFNetworkHelper : NSObject
 
 + (void)requestUsers:(NSString *)role forTableViewController:(UITableViewController *)viewController backingList:(NSMutableArray *)list;
 

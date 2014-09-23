@@ -13,6 +13,7 @@
 #import "TLFCausesViewController.h"
 #import "TLFBusinessesViewController.h"
 #import "TLFLoginViewController.h"
+#import "TLFRegisterViewController.h"
 
 @implementation TLFAppDelegate
 
@@ -25,12 +26,16 @@
     // Show activity indicator
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
+    // Register view controller for testing
+/*    TLFRegisterViewController * registerVC = [[TLFRegisterViewController alloc] init];
+    self.window.rootViewController = registerVC; */
+    
     // Login view controller
-/*    self.loginVC = [[TLFLoginViewController alloc] init];
-    self.window.rootViewController = self.loginVC; */
+    self.loginVC = [[TLFLoginViewController alloc] init];
+    self.window.rootViewController = self.loginVC; 
 
     // My Account view controller and navigation controller
-    self.myAccountVC = [[TLFMyAccountViewController alloc] init];
+/*    self.myAccountVC = [[TLFMyAccountViewController alloc] init];
     self.myAccountNC = [[UINavigationController alloc] initWithRootViewController:self.myAccountVC];
     
     // Causes table view controller and navigation controller
@@ -55,7 +60,7 @@
     // Setting navigation bar back button font size
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0]} forState:UIControlStateNormal];
     
-    self.window.rootViewController = self.tabBarController;
+    self.window.rootViewController = self.tabBarController; */
     
     self.window.backgroundColor = [TLFColor lightestGrey];
     [self.window makeKeyAndVisible];

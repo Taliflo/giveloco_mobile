@@ -13,7 +13,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <Braintree/Braintree.h>
 #import "TLFUserStore.h"
-#import "TLFRestHelper.h"
+#import "TLFNetworkHelper.h"
 
 @interface TLFDonateViewController () <BTDropInViewControllerDelegate>
 {

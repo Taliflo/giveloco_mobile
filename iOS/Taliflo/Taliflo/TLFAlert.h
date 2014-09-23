@@ -20,4 +20,6 @@
 
 + (void) okAlertForViewController:(UIViewController *)viewController withTitle:(NSString *)title message:(NSString *)message;
 
++ (void)shakeTextField:(UITextField *)textField;
+
 @end

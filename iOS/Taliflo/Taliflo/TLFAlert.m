@@ -7,6 +7,7 @@
 //
 
 #import "TLFAlert.h"
+#import "UITextField+Shake.h"
 
 @implementation TLFAlert
 
@@ -81,4 +82,16 @@
         [alertView show];
     }
 }
+
++ (void)shakeTextField:(UITextField *)textField
+{
+    [textField shake:10
+           withDelta:5.
+            andSpeed:0.04
+      shakeDirection:ShakeDirectionHorizontal
+          completion:^{
+              textField.text = @"";
+          }];
+}
+
 @end
