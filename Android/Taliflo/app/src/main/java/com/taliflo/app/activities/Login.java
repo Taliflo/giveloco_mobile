@@ -168,7 +168,7 @@ public class Login extends Activity {
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("email", email);
             params.put("password", password);
-            String result = restHelper.requestStrategy("login", params);
+            String result = restHelper.requestStrategy(restHelper.ACTION_LOGIN, params);
 
             if (result != null) {
                 // Successful login

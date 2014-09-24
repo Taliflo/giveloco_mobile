@@ -1,5 +1,6 @@
 package com.taliflo.app.rest;
 
+import android.support.annotation.IntegerRes;
 import android.util.Log;
 
 import com.google.gson.JsonObject;
@@ -54,13 +55,13 @@ public final class NetworkHelper {
     public final int SO_TIMEOUT = 20000;
 
     // Session strategy action strings
-    public final String ACTION_LOGIN = "login";
-    public final String ACTION_LOGOUT = "logout";
-    public final String ACTION_SIGNUP = "signup";
-    public final String ACTION_REQ_INDV = "request_individual";
-    public final String ACTION_REQ_CAUSES = "request_causes";
-    public final String ACTION_REQ_BUSINESSES = "request_businesses";
-    public final String ACTION_REQ_USERS = "request_users";
+    public final int ACTION_LOGIN = 1;
+    public final int ACTION_LOGOUT = 2;
+    public final int ACTION_SIGNUP = 3;
+    public final int ACTION_REQ_INDV = 4;
+    public final int ACTION_REQ_CAUSES = 5;
+    public final int ACTION_REQ_BUSINESSES = 6;
+    public final int ACTION_REQ_USERS = 7;
 
     private static NetworkHelper instance = null;
 
@@ -81,80 +82,80 @@ public final class NetworkHelper {
         return USERS_URL + "/" + id;
     }
 
-    public String requestStrategy(String action, HashMap<String, String> params) {
+    public String requestStrategy(int action, HashMap<String, String> params) {
 
         String result = "", jsonString = "";
 
-        if (!( action.equals(ACTION_LOGIN) || action.equals(ACTION_LOGOUT) || action.equals(ACTION_SIGNUP)
-                || action.equals(ACTION_REQ_INDV) || action.equals(ACTION_REQ_CAUSES) || action.equals(ACTION_REQ_BUSINESSES))) {
-            Log.e(TAG, "Invalid action: " + action);
-            return null;
-        }
-
-        if (action.equals(ACTION_LOGIN)) {
-            JsonObject jsonObj = new JsonObject();
-            jsonObj.addProperty("email", params.get("email"));
-            jsonObj.addProperty("password", params.get("password"));
-            jsonString = jsonObj.toString();
-        }
-
-        if (action.equals(ACTION_SIGNUP)) {
-            JsonObject userObj = new JsonObject();
-            userObj.addProperty("role", "individual");
-            userObj.addProperty("first_name", params.get("firstName"));
-            userObj.addProperty("last_name", params.get("lastName"));
-            userObj.addProperty("email", params.get("email"));
-            userObj.addProperty("password", params.get("password"));
-            userObj.add("company_name", null);
-            userObj.add("website", null);
-            userObj.add("street_address", null);
-            userObj.add("country", null);
-            userObj.add("state", null);
-            userObj.add("zip", null);
-            userObj.add("phone", null);
-            userObj.add("tags", null);
-            userObj.add("description", null);
-            userObj.add("summary", null);
-
-            JsonObject jsonObj = new JsonObject();
-            jsonObj.add("user", userObj);
-            jsonString = jsonObj.toString();
-        }
-
-        // Set the HTTP Connection Parameters
-        /*HttpParams httpParams = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TIMEOUT);
-        HttpConnectionParams.setSoTimeout(httpParams, SO_TIMEOUT);*/
-
         try {
+
+            // Set the HTTP Connection Parameters
+            /*HttpParams httpParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TIMEOUT);
+            HttpConnectionParams.setSoTimeout(httpParams, SO_TIMEOUT);*/
+
             //HttpClient client = new DefaultHttpClient(httpParams);
             HttpClient client = new DefaultHttpClient();
             HttpRequestBase request = null;
 
-            if (action.equals(ACTION_LOGIN) || action.equals(ACTION_SIGNUP)) {
-                request = new HttpPost(LOGIN_URL);
-                StringEntity entity = new StringEntity(jsonString, "UTF-8");
-                ((HttpEntityEnclosingRequestBase) request).setEntity(entity);
-            }
+            switch (action) {
+                case ACTION_LOGIN:
+                    JsonObject loginObj = new JsonObject();
+                    loginObj.addProperty("email", params.get("email"));
+                    loginObj.addProperty("password", params.get("password"));
+                    jsonString = loginObj.toString();
 
-            if (action.equals(ACTION_LOGOUT)) {
-                request = new HttpDelete(LOGOUT_URL);
-                request.setHeader("X-Session-Token", params.get("authToken"));
-            }
+                    request = new HttpPost(LOGIN_URL);
+                    StringEntity entity = new StringEntity(jsonString, "UTF-8");
+                    ((HttpEntityEnclosingRequestBase) request).setEntity(entity);
+                    break;
 
-            if (action.equals(ACTION_REQ_INDV)) {
-                request = new HttpGet(USERS_URL + "/" + params.get("uid"));
-                request.setHeader("X-Session-Token", params.get("authToken"));
-            }
+                case ACTION_LOGOUT:
+                    request = new HttpDelete(LOGOUT_URL);
+                    request.setHeader("X-Session-Token", params.get("authToken"));
+                    break;
 
-            if (action.equals(ACTION_REQ_CAUSES)) {
-                request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/cause?id=" + params.get("uid"));
-                request.setHeader("X-Session-Token", params.get("authToken"));
-            }
+                case ACTION_SIGNUP:
+                    JsonObject userObj = new JsonObject();
+                    userObj.addProperty("role", "individual");
+                    userObj.addProperty("first_name", params.get("firstName"));
+                    userObj.addProperty("last_name", params.get("lastName"));
+                    userObj.addProperty("email", params.get("email"));
+                    userObj.addProperty("password", params.get("password"));
+                    userObj.add("company_name", null);
+                    userObj.add("website", null);
+                    userObj.add("street_address", null);
+                    userObj.add("country", null);
+                    userObj.add("state", null);
+                    userObj.add("zip", null);
+                    userObj.add("phone", null);
+                    userObj.add("tags", null);
+                    userObj.add("description", null);
+                    userObj.add("summary", null);
 
-            if (action.equals(ACTION_REQ_BUSINESSES)) {
-                request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/business?id=" + params.get("uid"));
-                request.setHeader("X-Session-Token", params.get("authToken"));
+                    JsonObject signupObj = new JsonObject();
+                    signupObj.add("user", userObj);
+                    jsonString = signupObj.toString();
+                    break;
+
+                case ACTION_REQ_INDV:
+                    request = new HttpGet(USERS_URL + "/" + params.get("uid"));
+                    request.setHeader("X-Session-Token", params.get("authToken"));
+                    break;
+
+                case ACTION_REQ_CAUSES:
+                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/cause?id=" + params.get("uid"));
+                    request.setHeader("X-Session-Token", params.get("authToken"));
+                    break;
+
+                case ACTION_REQ_BUSINESSES:
+                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/business?id=" + params.get("uid"));
+                    request.setHeader("X-Session-Token", params.get("authToken"));
+                    break;
+
+                default:
+                    Log.e(TAG, "Invalid action: " + action);
+                    return null;
+
             }
 
             request.setHeader("Content-type", "application/json");
@@ -164,28 +165,28 @@ public final class NetworkHelper {
             int responseStatus = response.getStatusLine().getStatusCode();
             Log.i(TAG, "Response status: " + responseStatus);
 
-            // GET successful
-            if (responseStatus == 200) {
+            switch(responseStatus) {
+                case 200:
+                    // GET successful
+                    result = getResponseEntity(response.getEntity());
+                    //Log.i(TAG, "Reponse:\n" + result);
+                    break;
 
-                Log.i(TAG, "Response Status: " + responseStatus);
-                result = getResponseEntity(response.getEntity());
-                Log.i(TAG, "Reponse:\n" + result);
-            }
+                case 201:
+                    // Signup successful
 
-            // Signup successful
-            if (responseStatus == 201) {
-                Log.i(TAG, "Signup successful");
-                result = getResponseEntity(response.getEntity());
-                Log.i(TAG, "Reponse:\n" + result);
-            }
+                    //Log.i(TAG, "Signup successful");
+                    result = getResponseEntity(response.getEntity());
+                    Log.i(TAG, "Reponse:\n" + result);
+                    break;
 
-            // Logout successful
-            if (responseStatus == 204) {
-                result = "204 No content.";
-            }
+                case 204:
+                    // Logout successful
+                    result = Integer.toString(responseStatus);
+                    break;
 
-            if (responseStatus == 401) {
-                return null;
+                default:
+                    return null;
             }
 
         } catch (Exception e) {

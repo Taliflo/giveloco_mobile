@@ -30,6 +30,7 @@ import com.taliflo.app.activities.Search;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
+import com.taliflo.app.rest.NetworkHelper;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -38,6 +39,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 
 /**
  * Created by Caswell on 1/24/2014.
@@ -320,25 +322,11 @@ public class ActionBarHelper {
         }
 
         private void logoutUser() throws Exception {
-            HttpClient client = new DefaultHttpClient();
-            HttpDelete request = new HttpDelete(logoutUrl);
-            String authToken = userStore.getAuthToken();
-            request.setHeader("x-session-token", authToken);
-            request.setHeader("Content-type", "application/json");
-            request.setHeader("Accept", "application/json");
-
-            Log.i(TAG, request.toString());
-
-            HttpResponse response = client.execute(request);
-            int responseStatus = response.getStatusLine().getStatusCode();
-            Log.i(TAG, "Response Status " + response.toString());
-
-            if (responseStatus == 204) {
-                logoutFailed = false;
-            } else {
+            HashMap<String, String> params = userStore.getLoggedInCredentials();
+            NetworkHelper networkHelper = NetworkHelper.getInstance();
+            String result = networkHelper.requestStrategy(networkHelper.ACTION_LOGOUT, params);
+            if (!result.equals("204"))
                 logoutFailed = true;
-            }
-
         }
     }
 

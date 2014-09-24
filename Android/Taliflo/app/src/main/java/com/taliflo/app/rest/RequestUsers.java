@@ -88,7 +88,7 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
         String query = networkHelper.USERS_URL;
 
         HashMap<String, String> params = userStore.getLoggedInCredentials();
-        String action = "";
+        int action = 0;
         if (userRole.equals("cause"))
             action = networkHelper.ACTION_REQ_CAUSES;
 
