@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.TransactionsAdapter;
-import com.taliflo.app.rest.TalifloRestHelper;
+import com.taliflo.app.rest.NetworkHelper;
 import com.taliflo.app.model.Transaction;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
@@ -27,6 +27,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created by Caswell on 1/20/2014.
@@ -73,10 +74,9 @@ public class MyAccount extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (transactionsList.isEmpty()) {
+        if (userStore.getCurrentUser() == null) {
             int uid = Integer.parseInt(userStore.getUid());
             RequestUser requestUser = new RequestUser(user, uid, getActivity());
-            //RequestUser requestUser = new RequestUser(user, 4, getActivity());
             requestUser.execute();
             Log.i(TAG, "Requesting user...");
         }
@@ -165,9 +165,9 @@ public class MyAccount extends Fragment {
         private void parseUser() throws Exception {
             startTime = android.os.SystemClock.uptimeMillis();
 
-            TalifloRestHelper restHelper = TalifloRestHelper.getInstance();
-            String query = restHelper.queryUserID(userId);
-            String jsonResult = restHelper.getJsonResult(query);
+            NetworkHelper restHelper = NetworkHelper.getInstance();
+            HashMap<String, String> params = userStore.getLoggedInCredentials();
+            String jsonResult = restHelper.requestStrategy(restHelper.ACTION_REQ_INDV, params);
             JSONObject resultObject = new JSONObject(jsonResult);
             user = new User(resultObject);
             userStore.setCurrentUser(user);

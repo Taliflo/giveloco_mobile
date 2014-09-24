@@ -29,7 +29,7 @@
             android:name=".activities.Login"
             android:label="@string/title_activity_login"
             android:theme="@style/NoActionBar"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".activities.BillingInfo"
@@ -72,6 +72,11 @@
         <activity
             android:name=".activities.RedeemCredits"
             android:label="@string/title_activity_redeem_credits" >
+        </activity>
+        <activity
+            android:name=".activities.Signup"
+            android:theme="@style/NoActionBar"
+            android:label="@string/title_activity_signup" >
         </activity>
     </application>
 

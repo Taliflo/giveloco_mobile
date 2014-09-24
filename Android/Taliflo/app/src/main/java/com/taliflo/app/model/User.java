@@ -64,8 +64,7 @@ public class User implements Parcelable {
         zip = jsonObject.optString("zip");
         summary = jsonObject.optString("summary");
         description = jsonObject.optString("description");
-        //profilePictureURL
-        balance = Float.parseFloat(jsonObject.optString("balance"));
+
 
         JSONObject images = jsonObject.optJSONObject("images");
         JSONObject profilePicture = images.optJSONObject("profile_picture");
@@ -79,16 +78,22 @@ public class User implements Parcelable {
             tags[i] = jsonTags.optString(i);
         }
 
-        JSONArray jsonTC = jsonObject.optJSONArray("transactions_created");
-        transactionsCreated = new Transaction[jsonTC.length()];
-        for (int i = 0; i < jsonTC.length(); i++) {
-            transactionsCreated[i] = new Transaction(jsonTC.optJSONObject(i));
-        }
+        if (role.equals("individual")) {
 
-        JSONArray jsonTA = jsonObject.optJSONArray("transactions_accepted");
-        transactionsAccepted = new Transaction[jsonTA.length()];
-        for (int i = 0; i < jsonTA.length(); i++) {
-            transactionsAccepted[i] = new Transaction(jsonTA.optJSONObject(i));
+            balance = Float.parseFloat(jsonObject.optString("balance"));
+
+            JSONArray jsonTC = jsonObject.optJSONArray("transactions_created");
+            transactionsCreated = new Transaction[jsonTC.length()];
+            for (int i = 0; i < jsonTC.length(); i++) {
+                transactionsCreated[i] = new Transaction(jsonTC.optJSONObject(i));
+            }
+
+            JSONArray jsonTA = jsonObject.optJSONArray("transactions_accepted");
+            transactionsAccepted = new Transaction[jsonTA.length()];
+            for (int i = 0; i < jsonTA.length(); i++) {
+                transactionsAccepted[i] = new Transaction(jsonTA.optJSONObject(i));
+            }
+
         }
 
         if (role.equals("business")) {
@@ -148,12 +153,12 @@ public class User implements Parcelable {
         dest.writeString(picMedium);
         dest.writeString(picThumb);
 
-        dest.writeInt(totalDebits);
-        dest.writeInt(totalCredits);
+        //dest.writeInt(totalDebits);
+        //dest.writeInt(totalCredits);
 
         dest.writeFloat(balance);
-        dest.writeFloat(totalDebitsValue);
-        dest.writeFloat(totalCreditsValue);
+        //dest.writeFloat(totalDebitsValue);
+        //dest.writeFloat(totalCreditsValue);
 
         dest.writeStringArray(tags);
         dest.writeIntArray(supporters);
@@ -192,12 +197,12 @@ public class User implements Parcelable {
         picMedium = in.readString();
         picThumb = in.readString();
 
-        totalDebits = in.readInt();
-        totalCredits = in.readInt();
+        //totalDebits = in.readInt();
+        //totalCredits = in.readInt();
 
         balance = in.readFloat();
-        totalDebitsValue = in.readFloat();
-        totalCreditsValue = in.readFloat();
+        //totalDebitsValue = in.readFloat();
+        //totalCreditsValue = in.readFloat();
 
         tags = in.createStringArray();
         supporters = in.createIntArray();

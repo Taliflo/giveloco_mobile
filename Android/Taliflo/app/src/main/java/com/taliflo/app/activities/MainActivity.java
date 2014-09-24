@@ -205,72 +205,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 //        abHelper.onOptionsItemSelected(thisActiv, item);
         return super.onOptionsItemSelected(item);
     }
-/*
-    /**
-     * Displays fragment view for selected navigation drawer list item
-     * @param position
-     * @param id
-     */
-/*    private void displayView(int position, int id) {
-        Log.d(TAG, "inside DisplayView()");
-        String newTitle = "";
-        // Update the main content by replacing fragments
 
-        // Fragment unselected
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        if (fragment != null) {
-            ft.detach(fragment);
-        }
-
-        switch (id) {
-
-            case 100:
-                fragment = Redeem;
-                newTitle = navDrawerItems[id%10];
-                break;
-
-            case 101:
-                fragment = Businesses;
-                newTitle = navDrawerItems[id%10];
-                break;
-
-            case 999:
-                fragment = Search;
-                newTitle = getResources().getString(R.string.action_search);
-                break;
-
-            default:
-                fragment = Redeem;
-                break;
-        }
-
-        if (fragment != null) {
-            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-
-            ft2.replace(R.id.main_frame_container, fragment);
-            ft2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft2.commit();
-
-            // Update selected item and title, then close the drawer
-            drawerList.setItemChecked(position, true);
-            drawerList.setSelection(position);
-            setTitle(newTitle);
-            drawerLayout.closeDrawer(drawerList);
-
-
-
-            // For back navigation
-            if (fragment == Redeem)
-                atHome = true;
-            else
-                atHome = false;
-
-        } else {
-            // Error in creating fragment
-            Log.e(TAG, "Error in creating fragment");
-        }
-    }
-*/
     @Override
     public void setTitle(CharSequence title) {
         appTitle = title;

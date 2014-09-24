@@ -1,0 +1,125 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/lightest_grey"
+    tools:context="com.taliflo.app.activities.Signup">
+
+    <LinearLayout
+        android:id="@+id/signup_credentials"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:src="@drawable/logo_tiffanyblue_orange"
+            android:layout_marginBottom="10dp"
+            />
+
+        <EditText
+            android:id="@+id/signup_firstName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_bg_stroke_tb"
+            android:hint="@string/signup_hint_firstName"
+            android:textSize="18sp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            />
+
+        <EditText
+            android:id="@+id/signup_lastName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_bg_stroke_tb"
+            android:hint="@string/signup_hint_lastName"
+            android:textSize="18sp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            />
+
+        <EditText
+            android:id="@+id/signup_email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_bg_stroke_tb"
+            android:hint="@string/signup_hint_email"
+            android:textSize="18sp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            />
+
+        <EditText
+            android:id="@+id/signup_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_bg_stroke_tb"
+            android:hint="@string/signup_hint_password"
+            android:textSize="18sp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_TaC_part1"
+            android:textColor="#000"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/signup_TaC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_TaC"
+            android:textColor="@color/link_text_blue"
+            android:gravity="center"
+            android:clickable="true"
+            />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/signup_btnSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_bg_tb"
+        android:text="@string/signup_btnSignup_text"
+        android:textColor="@color/white"
+        />
+
+</RelativeLayout>

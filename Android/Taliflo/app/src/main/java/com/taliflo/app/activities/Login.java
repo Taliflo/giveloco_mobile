@@ -1,45 +1,26 @@
 package com.taliflo.app.activities;
 
-import android.animation.LayoutTransition;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.google.gson.JsonObject;
 import com.taliflo.app.R;
 import com.taliflo.app.model.UserStore;
-import com.taliflo.app.rest.TalifloRestHelper;
+import com.taliflo.app.rest.NetworkHelper;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Login extends Activity {
@@ -48,7 +29,7 @@ public class Login extends Activity {
 
     // Layout views
     private EditText email, password;
-    private Button btnLogin;
+    private Button btnLogin, btnSignup;
     private ImageView logo;
     private Activity thisActiv;
 
@@ -61,17 +42,18 @@ public class Login extends Activity {
 
         email = (EditText) findViewById(R.id.login_email);
         password = (EditText) findViewById(R.id.login_password);
-        btnLogin = (Button) findViewById(R.id.login_btn_login);
+        btnLogin = (Button) findViewById(R.id.login_btnLogin);
+        btnSignup = (Button) findViewById(R.id.login_btnSignup);
         logo = (ImageView) findViewById(R.id.layout_logo);
 
         email.setSelectAllOnFocus(true);
         password.setSelectAllOnFocus(true);
         password.setTypeface(Typeface.DEFAULT);
-        btnLogin.setOnClickListener(btnLoginListener);
-
+        btnLogin.setOnClickListener(attemptLogin);
+        btnSignup.setOnClickListener(openSignup);
     }
 
-    private Button.OnClickListener btnLoginListener = new Button.OnClickListener() {
+    private Button.OnClickListener attemptLogin = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
 
@@ -80,15 +62,25 @@ public class Login extends Activity {
 
             if (noEmail) {
                 emptyInputError(email);
-                return;
             }
 
             if (noPassword) {
                 emptyInputError(password);
+            }
+
+            if (noEmail || noPassword) {
                 return;
             }
 
             new AttemptLogin(thisActiv, email.getText().toString(), password.getText().toString(), password).execute();
+        }
+    };
+
+    private Button.OnClickListener openSignup = new Button.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent i = new Intent(getApplicationContext(), Signup.class);
+            startActivity(i);
         }
     };
 
@@ -172,11 +164,11 @@ public class Login extends Activity {
         private void loginUser() throws Exception {
             startTime = android.os.SystemClock.uptimeMillis();
 
-            TalifloRestHelper restHelper = TalifloRestHelper.getInstance();
+            NetworkHelper restHelper = NetworkHelper.getInstance();
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("email", email);
             params.put("password", password);
-            String result = restHelper.sessionStrategy("login", params);
+            String result = restHelper.requestStrategy("login", params);
 
             if (result != null) {
                 // Successful login

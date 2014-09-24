@@ -2,6 +2,8 @@ package com.taliflo.app.model;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 /**
  * Singleton class which holds a field for the currently logged in user
  *
@@ -30,6 +32,13 @@ public class UserStore {
     public void setLoggedInCredentials(JSONObject jsonObject) {
         authToken = jsonObject.optString("auth_token");
         uid = jsonObject.optString("uid");
+    }
+
+    public HashMap<String, String> getLoggedInCredentials() {
+        HashMap<String, String> hashMap = new HashMap<String, String>();
+        hashMap.put("authToken", authToken);
+        hashMap.put("uid", uid);
+        return hashMap;
     }
 
     public void setCurrentUser(User user) {

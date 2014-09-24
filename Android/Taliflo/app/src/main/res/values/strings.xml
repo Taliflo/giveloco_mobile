@@ -198,6 +198,16 @@
     <string name="title_activity_redeem_credits">RedeemCredits</string>
     <string name="redeemCredits_noneMsg">Please donate to a cause to obtain credit. This credit can then be redeemed at the businesses that support the causes you have donated to.</string>
 
+    <!-- Activity Signup -->
+    <string name="title_activity_signup">Signup</string>
+    <string name="signup_hint_firstName">Enter first name</string>
+    <string name="signup_hint_lastName">Enter last name</string>
+    <string name="signup_hint_email">Enter email address</string>
+    <string name="signup_hint_password">Enter your password</string>
+    <string name="signup_btnSignup_text">Sign Up</string>
+    <string name="signup_TaC_part1">By signing up, you agree to, and have read, the</string>
+    <string name="signup_TaC">Terms and Conditions.</string>
+
     <!-- Dialogs -->
     <string name="dialog_title">Are you sure?</string>
     <string name="dialog_btnPosText">Yes</string>
@@ -221,5 +231,6 @@
     <string name="nav_banner_first">First name</string>
     <string name="nav_banner_last">Last name</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

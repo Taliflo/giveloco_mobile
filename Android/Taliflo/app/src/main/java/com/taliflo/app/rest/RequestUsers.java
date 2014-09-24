@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -32,6 +33,7 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
     private Activity activity;
     private int progressViewID;
     private RelativeLayout progressView;
+    private UserStore userStore;
 
     private long startTime;
     private long endTime;
@@ -41,6 +43,7 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
         this.adapter = adapter;
         this.userRole = userRole;
         this.activity = activity;
+        this.userStore = UserStore.getInstance();
         this.progressViewID = progressViewID;
         progressView = (RelativeLayout) activity.findViewById(progressViewID);
     }
@@ -75,21 +78,30 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
             User currentUser = UserStore.getInstance().getCurrentUser();
             currentUser.determineRedeemableBusinesses();
         }
+
     }
 
     private void parseUsers () throws Exception {
         startTime = android.os.SystemClock.uptimeMillis();
 
-        TalifloRestHelper restAPI = TalifloRestHelper.getInstance();
-        String query = restAPI.QUERY_USERS;
-        String jsonResult = restAPI.getJsonResult(query);
+        NetworkHelper networkHelper = NetworkHelper.getInstance();
+        String query = networkHelper.USERS_URL;
+
+        HashMap<String, String> params = userStore.getLoggedInCredentials();
+        String action = "";
+        if (userRole.equals("cause"))
+            action = networkHelper.ACTION_REQ_CAUSES;
+
+        if (userRole.equals("business"))
+            action = networkHelper.ACTION_REQ_BUSINESSES;
+
+        String jsonResult = networkHelper.requestStrategy(action, params);
+
         /** Parsing result to retrieve the contents **/
         JSONArray resultArray = new JSONArray(jsonResult);
         for (int i = 0; i < resultArray.length(); i++) {
             JSONObject jsonObject = resultArray.getJSONObject(i);
-
-            if (jsonObject.getString("role").equals(userRole))
-                userList.add(new User(jsonObject));
+            userList.add(new User(jsonObject));
         }
     }
 
