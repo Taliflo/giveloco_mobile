@@ -19,8 +19,7 @@
         self.ID = dict[@"id"];
         self.role = dict[@"role"];
         self.firstName = dict[@"first_name"];
-        self.lastName = dict[@"last_name"];
-        self.email = dict[@"email"];
+        self.lastName = dict[@"last_name"];        
         self.phone = dict[@"phone"];
         self.companyName = dict[@"company_name"];
         self.streetAddress = dict[@"street_address"];
@@ -35,16 +34,21 @@
         self.picOriginal = dict[@"images"][@"profile_picture"][@"original"];
         self.picMedium = dict[@"images"][@"profile_picture"][@"medium"];
         self.picThumb = dict[@"images"][@"profile_picture"][@"thumb"];
-        self.balance = dict[@"balance"];
-        self.totalFundsRaised = dict[@"total_funds_raised"];
+        
         self.supporters = dict[@"supporters"];
         self.supportedCauses = dict[@"supported_causes"];
         //_createdAt
         //_updatedAt
         //_lastSignIn
         //_deletedAt
-        self.transactionsAll = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
-        [self.transactionsAll addObjectsFromArray:dict[@"transactions_accepted"]];
+        
+        if ([self.role isEqualToString:@"individual"]) {
+            self.email = dict[@"email"];
+            self.balance = dict[@"balance"];
+            self.totalFundsRaised = dict[@"total_funds_raised"];
+            self.transactionsAll = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
+            [self.transactionsAll addObjectsFromArray:dict[@"transactions_accepted"]];
+        }
     }
     return self;
 }

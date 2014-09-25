@@ -53,8 +53,7 @@ static UIView *indicatorView;
         networkHelper = [[TLFNetworkHelper alloc] init];
         
         
-        //[self requestUser:userStore.uid];
-        [self requestUser:@"7"];
+        [self requestUser:userStore.uid];
         
         indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
         [self.view addSubview:indicatorView];
@@ -117,10 +116,10 @@ static UIView *indicatorView;
 {
     startTime = CACurrentMediaTime();
     
-    void (^onSuccess)(AFHTTPRequestOperation *operation, id responseObject);
-    void (^onFailure)(AFHTTPRequestOperation *operation, NSError *error);
+    void (^onSuccess)(NSURLSessionDataTask *operation, id responseObject);
+    void (^onFailure)(NSURLSessionDataTask *operation, NSError *error);
     
-    onSuccess = ^void(AFHTTPRequestOperation *operation, id responseObject) {
+    onSuccess = ^void(NSURLSessionDataTask *operation, id responseObject) {
 
         dispatch_async(dispatch_get_main_queue(),
                        ^{
@@ -129,8 +128,14 @@ static UIView *indicatorView;
                            TLFUserStore *userStore = [TLFUserStore getInstance];
                            userStore.currentUser = self.user;
                            // Populate layout views
-                           self.name.text = self.user.companyName;
-                           self.balance.text = [NSString stringWithFormat:@"C %@", self.user.balance];
+                           self.name.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
+
+                           if ([self.balance isKindOfClass:[NSNull class]]) {
+                               self.balance.text = [NSString stringWithFormat:@"C %@", self.user.balance];
+                           } else {
+                               self.balance.text = [NSString stringWithFormat:@"C %@", self.user.balance];
+                           }
+                           
                            
                            [self.tableView reloadData];
                            [indicatorView removeFromSuperview];
@@ -144,7 +149,7 @@ static UIView *indicatorView;
 
     };
     
-    onFailure = ^void(AFHTTPRequestOperation *operation, NSError *error) {
+    onFailure = ^void(NSURLSessionDataTask *operation, NSError *error) {
         NSLog(@"Request Failed: %@", [error localizedDescription]);
         
         // Show alert
@@ -166,6 +171,7 @@ static UIView *indicatorView;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.user.transactionsAll count];
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

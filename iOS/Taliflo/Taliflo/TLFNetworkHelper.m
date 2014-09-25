@@ -22,38 +22,47 @@
 static NSString *const base = @"http://api-dev.taliflo.com/";
 static double startTime, endTime;
 
-+ (void)jsonResponse:(NSURLRequest *)request successHandler:(void (^)(AFHTTPRequestOperation *operation, id responseObject))onSuccess failureHandler:(void (^)(AFHTTPRequestOperation *operation, NSError *error))onFailure
++ (AFHTTPSessionManager *)newSessionManager:(NSString *)authToken
 {
-    // AFNetworking asynchronous request
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:onSuccess failure:onFailure];
-    [operation start];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:base]];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    if (authToken != nil) {
+        [manager.requestSerializer setValue:authToken forHTTPHeaderField:@"X-Session-Token"];
+    }
+    
+    return manager;
 }
 
-+ (void)requestUser:(NSString *)uid successHandler:(void (^)(AFHTTPRequestOperation *operation, id responseObject))onSuccess failureHandler:(void (^)(AFHTTPRequestOperation *operation, NSError *error))onFailure
++ (void)requestUser:(NSString *)uid successHandler:(void (^)(NSURLSessionDataTask* task, id responseObject))onSuccess failureHandler:(void (^)(NSURLSessionDataTask* task, NSError *error))onFailure
 {
-    NSMutableString *urlString = [[NSMutableString alloc] initWithFormat:base];
-    [urlString appendFormat:@"v1/users/%@", uid];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithString:urlString]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [TLFNetworkHelper jsonResponse:request successHandler:onSuccess failureHandler:onFailure];
+    TLFUserStore *userStore = [TLFUserStore getInstance];
+    AFHTTPSessionManager *manager = [TLFNetworkHelper newSessionManager:userStore.authToken];
+    
+    [manager GET:[NSString stringWithFormat:@"v1/users/%@", userStore.uid] parameters:nil success:onSuccess failure:onFailure];
 }
 
 + (void)requestUsers:(NSString *)role forTableViewController:(UITableViewController *)viewController backingList:(NSMutableArray *)list
 {
     startTime = CACurrentMediaTime();
     
+    __block TLFUserStore *userStore = [TLFUserStore getInstance];
+    __block TLFUser *currentUser = [userStore currentUser];
+    
     __block UIView *indicatorView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:viewController.tableView.superview options:nil][0];
     indicatorView.center = CGPointMake(160, 176);
     [viewController.tableView addSubview:indicatorView];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[base stringByAppendingString:@"v1/users"]]];
+    AFHTTPSessionManager *manager = [TLFNetworkHelper newSessionManager:userStore.authToken];
     
-    void (^onSuccess)(AFHTTPRequestOperation *operation, id responseObject);
-    void (^onFailure)(AFHTTPRequestOperation *operation, NSError *error);
+    void (^onSuccess)(NSURLSessionDataTask *operation, id responseObject);
+    void (^onFailure)(NSURLSessionDataTask *operation, NSError *error);
     
-    onSuccess = ^void(AFHTTPRequestOperation *operation, id responseObject) {
+    onSuccess = ^void(NSURLSessionDataTask *operation, id responseObject) {
         [TLFNetworkHelper sortUserResponse:responseObject byRole:role forList:list];
         
         dispatch_async(dispatch_get_main_queue(),^{
@@ -63,14 +72,13 @@ static double startTime, endTime;
                        NSLog(@"Request users [%@] execution time: %f sec", role, (endTime - startTime));
                        
                        if ([role isEqualToString:@"business"]) {
-                           TLFUser *currentUser = [[TLFUserStore getInstance] currentUser];
                            [currentUser determineRedeemableBusinesses];
                            NSLog(@"Total redeemable businesses: %lu", (unsigned long)[currentUser.redeemableBusinesses count]);
                        }
         });
     };
     
-    onFailure = ^void(AFHTTPRequestOperation *operation, NSError *error) {
+    onFailure = ^void(NSURLSessionDataTask *operation, NSError *error) {
         NSLog(@"Request Failed: %@", [error localizedDescription]);
         
         // Show alert
@@ -78,7 +86,7 @@ static double startTime, endTime;
         [TLFAlert alertForViewController:viewController forError:error withTitle:[title capitalizedString]];
     };
     
-    [TLFNetworkHelper jsonResponse:request successHandler:onSuccess failureHandler:onFailure];
+   [manager GET:[NSString stringWithFormat:@"v1/users/role/%@?id=%@", role, userStore.uid] parameters:nil success:onSuccess failure:onFailure];
 }
 
 + (void)sortUserResponse:(id)responseObject byRole:(NSString *)role forList:(NSMutableArray *)list
@@ -112,22 +120,6 @@ static double startTime, endTime;
     }
     
     NSLog(@"Asynchronous Request Complete");
-}
-
-+ (AFHTTPSessionManager *)newSessionManager:(NSString *)authToken
-{
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:base]];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    if (authToken != nil) {
-        [manager.requestSerializer setValue:authToken forHTTPHeaderField:@"x-session-token"];
-    }
-    
-    return manager;
 }
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TTTAttributedLabel.h"
 
-@interface TLFRegisterViewController : UIViewController <UITextFieldDelegate, TTTAttributedLabelDelegate>
+@interface TLFSignupViewController : UIViewController <UITextFieldDelegate, TTTAttributedLabelDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *firstName;
 @property (strong, nonatomic) IBOutlet UITextField *lastName;

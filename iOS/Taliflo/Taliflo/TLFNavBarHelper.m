@@ -73,7 +73,8 @@
                                                             
                                                             AFHTTPSessionManager *manager = [TLFNetworkHelper newSessionManager:userStore.authToken];
                                                             
-                                                            [manager DELETE:@"http://api-dev.taliflo.com/user/logout" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+                                                            [manager DELETE:[NSString stringWithFormat:@"user/logout?id=%@", userStore.uid]
+                                                                 parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
                                                                 NSLog(@"%@", responseObject);
                                                                 
                                                                 // Restart application

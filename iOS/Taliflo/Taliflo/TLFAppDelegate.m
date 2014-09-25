@@ -13,7 +13,7 @@
 #import "TLFCausesViewController.h"
 #import "TLFBusinessesViewController.h"
 #import "TLFLoginViewController.h"
-#import "TLFRegisterViewController.h"
+#import "TLFSignupViewController.h"
 
 @implementation TLFAppDelegate
 

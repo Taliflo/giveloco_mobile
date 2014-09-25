@@ -14,7 +14,7 @@
 #import "TLFUserStore.h"
 #import "TLFUser.h"
 #import "TLFNetworkHelper.h"
-#import "TLFRegisterViewController.h"
+#import "TLFSignupViewController.h"
 
 @interface TLFLoginViewController ()
 
@@ -99,7 +99,7 @@ static BOOL screenSize3point5 = NO;
 - (IBAction)openSignup
 {
     // Create a new TLFRegisterViewController
-    TLFRegisterViewController *registerVC = [[TLFRegisterViewController alloc] init];
+    TLFSignupViewController *registerVC = [[TLFSignupViewController alloc] init];
     
     // Wrap it in a vagiation controller
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:registerVC];

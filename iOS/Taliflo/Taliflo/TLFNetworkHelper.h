@@ -16,7 +16,7 @@
 
 + (void)requestUsers:(NSString *)role forTableViewController:(UITableViewController *)viewController backingList:(NSMutableArray *)list;
 
-+ (void)requestUser:(NSString *)uid successHandler:(void (^)(AFHTTPRequestOperation *operation, id responseObject))onSuccess failureHandler:(void (^)(AFHTTPRequestOperation *operation, NSError *error))onFailure;
++ (void)requestUser:(NSString *)uid successHandler:(void (^)(NSURLSessionDataTask *operation, id responseObject))onSuccess failureHandler:(void (^)(NSURLSessionDataTask *operation, NSError *error))onFailure;
 
 + (AFHTTPSessionManager *)newSessionManager:(NSString *)authToken;
 

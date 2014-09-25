@@ -47,17 +47,13 @@ public class RedeemCredits extends Activity {
         msgLayout = (RelativeLayout) findViewById(R.id.redeemCredits_noneMsgLayout);
 
         // Get all supporting businesses
-        try {
-            if (currUser.getRedeemableBusinesses().size() != 0) {
-                Log.i(TAG, "" + currUser.getRedeemableBusinesses());
-                adapter = new UserAdapter(this, currUser.getRedeemableBusinesses());
-                listView.setAdapter(adapter);
-                listView.setOnItemClickListener(openRedeem);
-            } else {
-                msgLayout.setVisibility(View.VISIBLE);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        if (currUser.getRedeemableBusinesses() != null && currUser.getRedeemableBusinesses().size() != 0 ) {
+            Log.i(TAG, "" + currUser.getRedeemableBusinesses());
+            adapter = new UserAdapter(this, currUser.getRedeemableBusinesses());
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener(openRedeem);
+        } else {
             msgLayout.setVisibility(View.VISIBLE);
         }
     }

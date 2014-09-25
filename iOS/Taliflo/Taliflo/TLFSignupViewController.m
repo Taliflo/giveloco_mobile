@@ -6,23 +6,21 @@
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import "TLFRegisterViewController.h"
+#import "TLFSignupViewController.h"
 #import "TLFNetworkHelper.h"
 #import "TLFColor.h"
 #import "TLFAppDelegate.h"
 #import "TLFUserStore.h"
 #import "TLFAlert.h"
 
-@interface TLFRegisterViewController ()
+@interface TLFSignupViewController ()
 
 @end
 
-@implementation TLFRegisterViewController
+@implementation TLFSignupViewController
 
 static BOOL screenSize3Point5 = NO;
 static CGPoint originalCenter;
-static BOOL keyboardOpen = NO;
-static int currentTextField = 0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -97,16 +95,16 @@ static int currentTextField = 0;
                              @"last_name": self.lastName.text,
                              @"email":self.email.text,
                              @"password":self.password.text,
-                             @"company_name":@"",
-                             @"website":@"",
-                             @"street_address":@"",
-                             @"country":@"",
-                             @"state":@"",
-                             @"zip":@"",
-                             @"phone":@"",
-                             @"tags":@"",
-                             @"description":@"",
-                             @"summary":@""
+                             @"company_name":[NSNull null],
+                             @"website":[NSNull null],
+                             @"street_address":[NSNull null],
+                             @"country":[NSNull null],
+                             @"state":[NSNull null],
+                             @"zip":[NSNull null],
+                             @"phone":[NSNull null],
+                             @"tags":[NSNull null],
+                             @"description":[NSNull null],
+                             @"summary":[NSNull null]
                              };
     
     NSDictionary *params = @{@"user":newUser};
