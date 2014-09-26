@@ -207,6 +207,9 @@
     <string name="signup_btnSignup_text">Sign Up</string>
     <string name="signup_TaC_part1">By signing up, you agree to, and have read, the</string>
     <string name="signup_TaC">Terms and Conditions.</string>
+    <string name="signup_password_short">Your password must be 8 characters, or more, in length</string>
+    <string name="signup_successful">Signup successful. Welcome to Taliflo.</string>
+    <string name="signup_failed">Signup failed. Please try again later.</string>
 
     <!-- Dialogs -->
     <string name="dialog_title">Are you sure?</string>

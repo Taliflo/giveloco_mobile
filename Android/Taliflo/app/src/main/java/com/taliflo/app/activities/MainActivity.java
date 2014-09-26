@@ -36,6 +36,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.NavDrawerAdapter;
 import com.taliflo.app.adapters.TabsPagerAdapter;
+import com.taliflo.app.model.User;
+import com.taliflo.app.model.UserStore;
 import com.taliflo.app.utilities.ActionBarHelper;
 import com.taliflo.app.utilities.MyViewPager;
 import com.taliflo.app.utilities.NavDrawerInterface;
@@ -70,16 +72,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     // the user should be returned to home. If the user is at home, then the application should be exited
     //private boolean atHome = false;
 
-    // Member field for the view pager
+    // Member fields for the view pager
     public static MyViewPager viewPager;
     private TabsPagerAdapter tabsAdapter;
     private ActionBar actionBar;
-    //private ActionBarHelper abHelper = ActionBarHelper.getInstance();
-    // Tab titles
 
     private Activity thisActiv = this;
 
     private static boolean isPagingEnabled = true;
+
 
 
     @Override
@@ -90,8 +91,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         // If user selects "Logout" from another activity
         //if (getIntent().getBooleanExtra("EXIT", false)) finish();
 
-        Intent loginIntent = new Intent(getApplicationContext(), Login.class);
-        startActivityForResult(loginIntent, 10);
+        UserStore userStore = UserStore.getInstance();
+        if (userStore.getAuthToken() == null) {
+            Intent loginIntent = new Intent(getApplicationContext(), Login.class);
+            startActivityForResult(loginIntent, 10);
+        }
 
 
         if (savedInstanceState == null) {

@@ -65,6 +65,8 @@ static BOOL screenSize3point5 = NO;
 - (IBAction)attemptLogin
 {
     if (![self.password.text isEqual:@""]) {
+        
+        [self.view endEditing:YES];
 
         AFHTTPSessionManager *manager = [TLFNetworkHelper newSessionManager:nil];
         
@@ -157,7 +159,6 @@ static BOOL screenSize3point5 = NO;
     
     // "Go" pressed, start login
     if (textField.tag == 1) {
-        [self.password resignFirstResponder];
         [self attemptLogin];
     }
     

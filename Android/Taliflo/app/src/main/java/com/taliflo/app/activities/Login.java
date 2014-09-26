@@ -172,8 +172,8 @@ public class Login extends Activity {
 
             if (result != null) {
                 // Successful login
-                JSONObject resultObj = new JSONObject(result);
-                userStore.setLoggedInCredentials(resultObj);
+                //JSONObject resultObj = new JSONObject(result);
+                userStore.setLoggedInCredentials(result);
                 loginFailed = false;
             } else {
                 // Failed login

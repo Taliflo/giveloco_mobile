@@ -1,5 +1,6 @@
 package com.taliflo.app.model;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -29,7 +30,8 @@ public class UserStore {
         return instance;
     }
 
-    public void setLoggedInCredentials(JSONObject jsonObject) {
+    public void setLoggedInCredentials(String result) throws JSONException {
+        JSONObject jsonObject = new JSONObject(result);
         authToken = jsonObject.optString("auth_token");
         uid = jsonObject.optString("uid");
     }

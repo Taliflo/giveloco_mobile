@@ -84,7 +84,7 @@ public final class NetworkHelper {
 
     public String requestStrategy(int action, HashMap<String, String> params) {
 
-        String result = "", jsonString = "";
+        String result = "", jsonString = "", logAction = "";
 
         try {
 
@@ -105,13 +105,17 @@ public final class NetworkHelper {
                     jsonString = loginObj.toString();
 
                     request = new HttpPost(LOGIN_URL);
-                    StringEntity entity = new StringEntity(jsonString, "UTF-8");
-                    ((HttpEntityEnclosingRequestBase) request).setEntity(entity);
+                    StringEntity loginEntity = new StringEntity(jsonString, "UTF-8");
+                    ((HttpEntityEnclosingRequestBase) request).setEntity(loginEntity);
+
+                    logAction = "Login";
                     break;
 
                 case ACTION_LOGOUT:
                     request = new HttpDelete(LOGOUT_URL);
                     request.setHeader("X-Session-Token", params.get("authToken"));
+
+                    logAction = "Logout";
                     break;
 
                 case ACTION_SIGNUP:
@@ -135,21 +139,33 @@ public final class NetworkHelper {
                     JsonObject signupObj = new JsonObject();
                     signupObj.add("user", userObj);
                     jsonString = signupObj.toString();
+
+                    request = new HttpPost(SIGNUP_URL);
+                    StringEntity signupEntity = new StringEntity(jsonString, "UTF-8");
+                    ((HttpEntityEnclosingRequestBase) request).setEntity(signupEntity);
+
+                    logAction = "Singup";
                     break;
 
                 case ACTION_REQ_INDV:
                     request = new HttpGet(USERS_URL + "/" + params.get("uid"));
                     request.setHeader("X-Session-Token", params.get("authToken"));
+
+                    logAction = "Request individual";
                     break;
 
                 case ACTION_REQ_CAUSES:
                     request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/cause?id=" + params.get("uid"));
                     request.setHeader("X-Session-Token", params.get("authToken"));
+
+                    logAction = "Request causes";
                     break;
 
                 case ACTION_REQ_BUSINESSES:
                     request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/business?id=" + params.get("uid"));
                     request.setHeader("X-Session-Token", params.get("authToken"));
+
+                    logAction = "Request buinesses";
                     break;
 
                 default:
@@ -169,23 +185,25 @@ public final class NetworkHelper {
                 case 200:
                     // GET successful
                     result = getResponseEntity(response.getEntity());
+                    Log.i(TAG, logAction + " successful");
                     //Log.i(TAG, "Reponse:\n" + result);
                     break;
 
                 case 201:
-                    // Signup successful
-
-                    //Log.i(TAG, "Signup successful");
+                    // Login, Signup successful
                     result = getResponseEntity(response.getEntity());
+                    Log.i(TAG, logAction + " successful");
                     Log.i(TAG, "Reponse:\n" + result);
                     break;
 
                 case 204:
                     // Logout successful
                     result = Integer.toString(responseStatus);
+                    Log.i(TAG, logAction + " successful");
                     break;
 
                 default:
+                    Log.e(TAG, logAction + " unsuccessful");
                     return null;
             }
 

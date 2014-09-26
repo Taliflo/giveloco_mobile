@@ -1,6 +1,7 @@
 package com.taliflo.app.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,11 +9,21 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.taliflo.app.R;
+import com.taliflo.app.model.UserStore;
+import com.taliflo.app.rest.NetworkHelper;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class Signup extends Activity {
 
@@ -50,12 +61,29 @@ public class Signup extends Activity {
     private View.OnClickListener attemptSignup = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
+            
             // Handle empty input fields
+            boolean emptyField = false;
+            if (firstName.getText().toString().equals("")) { shakeEmptyEditText(firstName); emptyField = true; }
+            if (lastName.getText().toString().equals("")) { shakeEmptyEditText(lastName); emptyField = true; }
+            if (email.getText().toString().equals("")) { shakeEmptyEditText(email); emptyField = true; }
+            if (password.getText().toString().equals("")) { shakeEmptyEditText(password); emptyField = true; }
 
+            if (emptyField) return;
             // Handle invalid input
 
+            if (password.getText().toString().length() < 8) {
+                password.setError(getResources().getString(R.string.signup_password_short));
+                return;
+            }
+
             // Attempt signup
+            new AttemptSignup(
+                    firstName.getText().toString(),
+                    lastName.getText().toString(),
+                    email.getText().toString(),
+                    password.getText().toString()
+            ).execute();
 
         }
     };
@@ -91,13 +119,20 @@ public class Signup extends Activity {
         // Log tag
         private final String TAG = "Taliflo.AttemptSignup";
 
-        private AttemptSignup() {
+        private HashMap<String, String> params;
 
+        private AttemptSignup(String firstName, String lastName, String email, String password) {
+            params = new HashMap<String, String>();
+            params.put("firstName", firstName);
+            params.put("lastName", lastName);
+            params.put("email", email);
+            params.put("password", password);
         }
 
         @Override
         protected String doInBackground(String... params) {
-            return null;
+            NetworkHelper networkHelper = NetworkHelper.getInstance();
+            return networkHelper.requestStrategy(networkHelper.ACTION_SIGNUP, this.params);
         }
 
         @Override
@@ -107,7 +142,38 @@ public class Signup extends Activity {
 
         @Override
         protected void onPostExecute(String result) {
-            super.onPostExecute(result);
+            //super.onPostExecute(result);
+            if (result != null) {
+                try {
+                    // Set logged in user
+                    UserStore userStore = UserStore.getInstance();
+                    userStore.setLoggedInCredentials(result);
+
+                    // Start Main Activity
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    setResult(100);
+                    startActivity(i);
+
+                    // Signup successful
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.signup_successful), Toast.LENGTH_LONG).show();
+                } catch (JSONException e) {
+                    // Signup error or unsuccessful
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.signup_failed), Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                    return;
+                }
+            } else {
+                // Signup unsuccessful
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.signup_failed), Toast.LENGTH_LONG).show();
+                return;
+            }
         }
+    }
+
+    private void shakeEmptyEditText(EditText editText) {
+        Animation shake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.edittext_shake);
+        editText.startAnimation(shake);
+        editText.setText("");
     }
 }
