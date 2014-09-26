@@ -19,8 +19,6 @@ import com.taliflo.app.R;
 import com.taliflo.app.model.UserStore;
 import com.taliflo.app.rest.NetworkHelper;
 
-import org.json.JSONObject;
-
 import java.util.HashMap;
 
 public class Login extends Activity {
@@ -31,14 +29,12 @@ public class Login extends Activity {
     private EditText email, password;
     private Button btnLogin, btnSignup;
     private ImageView logo;
-    private Activity thisActiv;
+    private Activity thisActivity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        thisActiv = this;
 
         email = (EditText) findViewById(R.id.login_email);
         password = (EditText) findViewById(R.id.login_password);
@@ -72,7 +68,7 @@ public class Login extends Activity {
                 return;
             }
 
-            new AttemptLogin(thisActiv, email.getText().toString(), password.getText().toString(), password).execute();
+            new AttemptLogin(thisActivity, email.getText().toString(), password.getText().toString(), password).execute();
         }
     };
 
@@ -173,7 +169,7 @@ public class Login extends Activity {
             if (result != null) {
                 // Successful login
                 //JSONObject resultObj = new JSONObject(result);
-                userStore.setLoggedInCredentials(result);
+                userStore.setLoggedInCredentials(thisActivity, result);
                 loginFailed = false;
             } else {
                 // Failed login

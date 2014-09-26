@@ -1,16 +1,10 @@
 package com.taliflo.app.activities;
 
-import android.animation.LayoutTransition;
-import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
-import android.app.SearchManager;
-import android.content.ComponentName;
 import android.content.Context;
-import android.graphics.Color;
-import android.os.Build;
-import android.support.v4.app.Fragment;
+import android.content.SharedPreferences;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -23,37 +17,26 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.NavDrawerAdapter;
 import com.taliflo.app.adapters.TabsPagerAdapter;
-import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
-import com.taliflo.app.utilities.ActionBarHelper;
 import com.taliflo.app.utilities.MyViewPager;
 import com.taliflo.app.utilities.NavDrawerInterface;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     // Logcat tag
     private final String TAG = "Taliflo.MainActivity";
-
-  //  private DrawerLayout drawerLayout;
-  //  private ListView drawerList;
-  //  private ActionBarDrawerToggle drawerToggle;
 
     // Navigation drawer title
     private CharSequence drawerTitle;
@@ -67,10 +50,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private TypedArray navDrawerIcons;
     private ArrayList<NavDrawerInterface> navDrawerEntries = new ArrayList<NavDrawerInterface>();
     private NavDrawerAdapter adapter;
-
-    // Boolean variable to ensure proper back navigation. When the user presses the back button on a fragment
-    // the user should be returned to home. If the user is at home, then the application should be exited
-    //private boolean atHome = false;
 
     // Member fields for the view pager
     public static MyViewPager viewPager;
@@ -88,15 +67,25 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_pager);
 
-        // If user selects "Logout" from another activity
-        //if (getIntent().getBooleanExtra("EXIT", false)) finish();
+        // Get login status from shared preferences
+        // Restore shared preferences if present
+        SharedPreferences savedPrefs = getSharedPreferences(getResources().getString(R.string.savedPrefName), 0);
+        boolean loggedIn = savedPrefs.getBoolean(getResources().getString(R.string.savedPrefLoggedIn), false);
+        String authToken = savedPrefs.getString(getResources().getString(R.string.savedPrefAuthToken), null);
+        String uid = savedPrefs.getString(getResources().getString(R.string.savedPrefUid), null);
 
+        // If loggedIn is false, start Login activity
         UserStore userStore = UserStore.getInstance();
-        if (userStore.getAuthToken() == null) {
+        if (!loggedIn) {
             Intent loginIntent = new Intent(getApplicationContext(), Login.class);
             startActivityForResult(loginIntent, 10);
         }
 
+        // If current user object has been released, set credentials
+        if (userStore.getCurrentUser() == null) {
+            userStore.setAuthToken(authToken);
+            userStore.setUid(uid);
+        }
 
         if (savedInstanceState == null) {
 

@@ -33,6 +33,7 @@ public class Signup extends Activity {
     private EditText firstName, lastName, email, password;
     private TextView termsAndConditions;
     private Button btnSignup;
+    private Activity thisActivity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,7 @@ public class Signup extends Activity {
 
             // Attempt signup
             new AttemptSignup(
+                    thisActivity,
                     firstName.getText().toString(),
                     lastName.getText().toString(),
                     email.getText().toString(),
@@ -120,8 +122,11 @@ public class Signup extends Activity {
         private final String TAG = "Taliflo.AttemptSignup";
 
         private HashMap<String, String> params;
+        private Activity activity;
 
-        private AttemptSignup(String firstName, String lastName, String email, String password) {
+        private AttemptSignup(Activity activity, String firstName, String lastName, String email, String password) {
+            this.activity = activity;
+
             params = new HashMap<String, String>();
             params.put("firstName", firstName);
             params.put("lastName", lastName);
@@ -147,7 +152,7 @@ public class Signup extends Activity {
                 try {
                     // Set logged in user
                     UserStore userStore = UserStore.getInstance();
-                    userStore.setLoggedInCredentials(result);
+                    userStore.setLoggedInCredentials(activity, result);
 
                     // Start Main Activity
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
@@ -157,6 +162,9 @@ public class Signup extends Activity {
 
                     // Signup successful
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.signup_successful), Toast.LENGTH_LONG).show();
+
+                    // Set login status in shared preferences. authToken and uid are saved in shared preferences
+
                 } catch (JSONException e) {
                     // Signup error or unsuccessful
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.signup_failed), Toast.LENGTH_LONG).show();

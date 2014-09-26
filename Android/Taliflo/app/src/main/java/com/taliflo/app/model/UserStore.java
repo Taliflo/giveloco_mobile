@@ -1,5 +1,10 @@
 package com.taliflo.app.model;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
+
+import com.taliflo.app.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,10 +35,17 @@ public class UserStore {
         return instance;
     }
 
-    public void setLoggedInCredentials(String result) throws JSONException {
+    public void setLoggedInCredentials(Activity activity, String result) throws JSONException {
         JSONObject jsonObject = new JSONObject(result);
         authToken = jsonObject.optString("auth_token");
         uid = jsonObject.optString("uid");
+
+        // Save user credentials to shared preferences
+        SharedPreferences.Editor editor = activity.getSharedPreferences(activity.getResources().getString(R.string.savedPrefName), 0).edit();
+        editor.putBoolean(activity.getResources().getString(R.string.savedPrefLoggedIn), true);
+        editor.putString(activity.getResources().getString(R.string.savedPrefAuthToken), authToken);
+        editor.putString(activity.getResources().getString(R.string.savedPrefUid), uid);
+        editor.commit();
     }
 
     public HashMap<String, String> getLoggedInCredentials() {

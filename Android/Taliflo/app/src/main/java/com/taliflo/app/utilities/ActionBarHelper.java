@@ -318,6 +318,12 @@ public class ActionBarHelper {
             }
 
             Log.i(TAG, "Logout successful");
+
+            // Clear shared preferences
+            activity.getSharedPreferences(activity.getResources().getString(R.string.savedPrefName), 0)
+                    .edit().clear().commit();
+
+            // Exit application
             exitApplication(activity);
         }
 
@@ -325,7 +331,7 @@ public class ActionBarHelper {
             HashMap<String, String> params = userStore.getLoggedInCredentials();
             NetworkHelper networkHelper = NetworkHelper.getInstance();
             String result = networkHelper.requestStrategy(networkHelper.ACTION_LOGOUT, params);
-            if (!result.equals("204"))
+            if (result == null)
                 logoutFailed = true;
         }
     }

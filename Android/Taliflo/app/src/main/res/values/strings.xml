@@ -9,6 +9,12 @@
     <string name="search_hint_causes">Search Causes</string>
     <string name="search_hint_businesses">Search Businesses</string>
 
+    // Shared preferences tags
+    <string name="savedPrefName">TalifloSavedPreferences</string>
+    <string name="savedPrefLoggedIn">loggedIn</string>
+    <string name="savedPrefAuthToken">authToken</string>
+    <string name="savedPrefUid">uid</string>
+
     <!-- ** Activity Main ** -->
     <string-array name="main_tab_labels">
         <item>My Account</item>
