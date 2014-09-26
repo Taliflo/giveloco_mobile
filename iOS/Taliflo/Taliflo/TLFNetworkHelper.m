@@ -19,17 +19,14 @@
 
 @implementation TLFNetworkHelper
 
-static NSString *const base = @"http://api-dev.taliflo.com/";
 static double startTime, endTime;
 
 + (AFHTTPSessionManager *)newSessionManager:(NSString *)authToken
 {
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:base]];
+    NSURL *baseURL = [NSURL URLWithString:@"http://api-dev.taliflo.com/"];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     if (authToken != nil) {
         [manager.requestSerializer setValue:authToken forHTTPHeaderField:@"X-Session-Token"];
@@ -120,6 +117,13 @@ static double startTime, endTime;
     }
     
     NSLog(@"Asynchronous Request Complete");
+}
+
++(void)logoutUser:(NSString *)authToken successHandler:(void(^)(NSURLSessionDataTask* task, id responseObject))onSuccess failureHandler:(void(^)(NSURLSessionDataTask *task, NSError *error))onFailure
+{
+    AFHTTPSessionManager *manager = [TLFNetworkHelper newSessionManager:authToken];
+    
+    [manager DELETE:@"user/logout" parameters:nil success:onSuccess failure:onFailure];
 }
 
 @end

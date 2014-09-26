@@ -9,7 +9,6 @@
 #import "TLFLoginViewController.h"
 #import "TLFColor.h"
 #import "TLFAppDelegate.h"
-#import <AFNetworking/AFHTTPSessionManager.h>
 #import "TLFAlert.h"
 #import "TLFUserStore.h"
 #import "TLFUser.h"
@@ -88,7 +87,7 @@ static BOOL screenSize3point5 = NO;
                   
                   // Start the rest of the application
                   TLFAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-                  [appDelegate startApplicationAfterLogin];
+                  [appDelegate startApplication];
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"%@", error.localizedDescription);

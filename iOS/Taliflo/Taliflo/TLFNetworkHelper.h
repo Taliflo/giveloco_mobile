@@ -18,6 +18,8 @@
 
 + (void)requestUser:(NSString *)uid successHandler:(void (^)(NSURLSessionDataTask *operation, id responseObject))onSuccess failureHandler:(void (^)(NSURLSessionDataTask *operation, NSError *error))onFailure;
 
++(void)logoutUser:(NSString *)authToken successHandler:(void(^)(NSURLSessionDataTask* task, id responseObject))onSuccess failureHandler:(void(^)(NSURLSessionDataTask *task, NSError *error))onFailure;
+
 + (AFHTTPSessionManager *)newSessionManager:(NSString *)authToken;
 
 

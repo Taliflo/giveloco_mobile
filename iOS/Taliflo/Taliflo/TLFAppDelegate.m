@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
+#define k_loggedIn @"loggedIn"
+#define k_authToken @"authToken"
+#define k_uid @"uid"
+
 #import "TLFAppDelegate.h"
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "TLFColor.h"
@@ -14,6 +18,7 @@
 #import "TLFBusinessesViewController.h"
 #import "TLFLoginViewController.h"
 #import "TLFSignupViewController.h"
+#import "TLFUserStore.h"
 
 @implementation TLFAppDelegate
 
@@ -30,9 +35,20 @@
 /*    TLFRegisterViewController * registerVC = [[TLFRegisterViewController alloc] init];
     self.window.rootViewController = registerVC; */
     
+    // Retrieve saved credentials if present
+    NSUserDefaults *savedCredentials = [NSUserDefaults standardUserDefaults];
+    BOOL loggedIn = [savedCredentials boolForKey:k_loggedIn];
+    
+    if (loggedIn) {
+        TLFUserStore *userStore = [TLFUserStore getInstance];
+        userStore.authToken = [savedCredentials objectForKey:k_authToken];
+        userStore.uid = [savedCredentials objectForKey:k_uid];
+        [self startApplication];
+    } else {
     // Login view controller
     self.loginVC = [[TLFLoginViewController alloc] init];
-    self.window.rootViewController = self.loginVC; 
+    self.window.rootViewController = self.loginVC;
+    }
 
     // My Account view controller and navigation controller
 /*    self.myAccountVC = [[TLFMyAccountViewController alloc] init];
@@ -68,7 +84,7 @@
     return YES;
 }
 
-- (void)startApplicationAfterLogin
+- (void)startApplication
 {
     // My Account view controller and navigation controller
     self.myAccountVC = [[TLFMyAccountViewController alloc] init];
@@ -97,6 +113,8 @@
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0]} forState:UIControlStateNormal];
     
     self.window.rootViewController = self.tabBarController;
+    
+    self.loginVC = nil;
 }
 
 - (void)restartApplication
@@ -105,7 +123,10 @@
     [UIView transitionWithView:self.window
                       duration:0.5
                        options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{ self.window.rootViewController = self.loginVC; }
+                    animations:^{
+                        self.loginVC = [[TLFLoginViewController alloc] init];
+                        self.window.rootViewController = self.loginVC;
+                    }
                     completion:^(BOOL finished) {
                         
                         self.myAccountVC = nil;

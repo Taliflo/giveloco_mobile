@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
+#define k_loggedIn @"loggedIn"
+#define k_authToken @"authToken"
+#define k_uid @"uid"
+
 #import "TLFUserStore.h"
 
 @interface TLFUserStore ()
@@ -46,6 +50,13 @@
 {
     self.authToken = credentials[@"auth_token"];
     self.uid = credentials[@"uid"];
+
+    // Save the credentials
+    NSUserDefaults *savedCredentials = [NSUserDefaults standardUserDefaults];
+    [savedCredentials setBool:TRUE forKey:k_loggedIn];
+    [savedCredentials setObject:[self.authToken copy] forKey:k_authToken];
+    [savedCredentials setObject:[self.uid copy] forKey:k_uid];
+    [savedCredentials synchronize];
 }
 
 @end

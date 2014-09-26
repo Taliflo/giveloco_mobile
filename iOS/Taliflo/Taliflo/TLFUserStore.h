@@ -13,7 +13,7 @@
 @interface TLFUserStore : NSObject
 
 @property (nonatomic, strong) TLFUser *currentUser;
-@property (nonatomic, strong) NSString *authToken, *uid;
+@property (nonatomic, copy) NSString *authToken, *uid;
 
 + (instancetype)getInstance;
 

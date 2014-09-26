@@ -13,7 +13,6 @@
 #import "TLFNetworkHelper.h"
 #import "TLFAlert.h"
 #import "TLFUserStore.h"
-#import <AFNetworking/AFHTTPSessionManager.h>
 #import "TLFAppDelegate.h"
 
 
@@ -68,27 +67,29 @@
                                               highlightedImage:nil
                                                         action:^(REMenuItem *item) {
                                                             NSLog(@"'Logout' clicked");
-                                                            
                                                             TLFUserStore *userStore = [TLFUserStore getInstance];
-                                                            
                                                             AFHTTPSessionManager *manager = [TLFNetworkHelper newSessionManager:userStore.authToken];
-                                                            
-                                                            [manager DELETE:[NSString stringWithFormat:@"user/logout", userStore.uid]
-                                                                 parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+                                                            [manager DELETE:@"user/logout"
+                                                                 parameters:nil
+                                                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                                                 NSLog(@"%@", responseObject);
+                                                                        
+                                                                        // Delete saved credentials
+                                                                        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:@"com.taliflo.Taliflo"];
+                                                                        [[NSUserDefaults standardUserDefaults] synchronize];
+                                                                        
                                                                 
                                                                 // Restart application
                                                                 TLFAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
                                                                 [appDelegate restartApplication];
                                                                 
                                                             } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                                                NSLog(@"%@", [error localizedDescription]);
-                                                                
+                                                                //NSLog(@"%@", [error localizedDescription]);
+                                                                NSLog(@"%@", error);
                                                                 // Show alert
                                                                 [TLFAlert alertForViewController:self.viewController forError:error withTitle:@"Logout Error"];
                 
                                                             }];
-                                                            
                                                         }];
         
         self.actionMenu = [[REMenu alloc] initWithItems:@[redeemCredits, billingInfo, logout] viewController:self.viewController];

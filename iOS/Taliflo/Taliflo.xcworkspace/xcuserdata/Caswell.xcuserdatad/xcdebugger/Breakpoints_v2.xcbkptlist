@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Taliflo/TLFNavBarHelper.m"
-            timestampString = "432962281.888136"
+            timestampString = "433420830.231241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "-initWithViewController:"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Taliflo/TLFAppDelegate.m"
-            timestampString = "433112229.561112"
+            timestampString = "433462318.838876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "@implementation TLFAppDelegate"
             landmarkType = "3">
          </BreakpointContent>
@@ -556,6 +556,22 @@
             startingLineNumber = "134"
             endingLineNumber = "134"
             landmarkName = "-requestUser:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Taliflo/TLFUserStore.m"
+            timestampString = "433416026.765986"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-setLoggedInCredentials:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

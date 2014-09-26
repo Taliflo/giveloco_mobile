@@ -123,7 +123,7 @@ static CGPoint originalCenter;
               
               // Start the rest of the application
               TLFAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-              [appDelegate startApplicationAfterLogin];
+              [appDelegate startApplication];
           }
           failure:^(NSURLSessionDataTask *task, NSError *error) {
               NSLog(@"Signup Failed: %@", [error localizedDescription]);
