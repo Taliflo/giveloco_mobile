@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.squareup.picasso.Picasso;
 import com.taliflo.app.R;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
@@ -28,7 +29,7 @@ public class UserDetail extends Activity {
 
     // Member variables
     private User user, loggedInUser;
-    private ImageLoader imageLoader;
+    //private ImageLoader imageLoader;
 
     private Activity thisActiv = this;
     private ActionBarHelper abHelper = ActionBarHelper.getInstance();
@@ -56,7 +57,7 @@ public class UserDetail extends Activity {
         image = (ImageView) findViewById(R.id.userDetail_profilePicture);
         redeemDisabledMsg = (TextView) findViewById(R.id.userDetail_redeemDisabledMsg);
 
-        imageLoader = ImageLoader.getInstance();
+        //imageLoader = ImageLoader.getInstance();
 
         // Retrieve intent data
         Bundle extras = getIntent().getExtras();
@@ -69,7 +70,8 @@ public class UserDetail extends Activity {
             description.setText(user.getDescription());
             address.setText(user.getStreetAddress() + '\n' + user.getCity() + ", " + user.getState() + '\n' + user.getZip());
             phone.setText(user.getPhone());
-            imageLoader.displayImage("http://dummyimage.com/700x400/999999/fff.png", image);
+            //imageLoader.displayImage("http://dummyimage.com/700x400/999999/fff.png", image);
+            Picasso.with(this).load("http://dummyimage.com/700x400/999999/fff.png").into(image);
             btnSupportLayout.setOnClickListener(openSupport);
 
             // Set activity title and wire up views based on user role

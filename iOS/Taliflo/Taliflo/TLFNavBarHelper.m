@@ -67,21 +67,33 @@
                                               highlightedImage:nil
                                                         action:^(REMenuItem *item) {
                                                             NSLog(@"'Logout' clicked");
+                                                            
+                                                            /* Just for now. Come back and sort out the whole logging out issue. */
+                                                            
+                                                            // Delete saved credentials
+                                                            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:@"com.taliflo.Taliflo"];
+                                                            [[NSUserDefaults standardUserDefaults] synchronize];
+                                                            
+                                                            // Restart application
+                                                            TLFAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+                                                            [appDelegate restartApplication];
+                                                            
                                                             TLFUserStore *userStore = [TLFUserStore getInstance];
                                                             AFHTTPSessionManager *manager = [TLFNetworkHelper newSessionManager:userStore.authToken];
                                                             [manager DELETE:@"user/logout"
                                                                  parameters:nil
                                                                     success:^(NSURLSessionDataTask *task, id responseObject) {
                                                                 NSLog(@"%@", responseObject);
-                                                                        
+                                                                        /*
                                                                         // Delete saved credentials
                                                                         [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:@"com.taliflo.Taliflo"];
                                                                         [[NSUserDefaults standardUserDefaults] synchronize];
                                                                         
                                                                 
-                                                                // Restart application
-                                                                TLFAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-                                                                [appDelegate restartApplication];
+                                                                        // Restart application
+                                                                        TLFAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+                                                                        [appDelegate restartApplication];
+                                                                         */
                                                                 
                                                             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                                                 //NSLog(@"%@", [error localizedDescription]);

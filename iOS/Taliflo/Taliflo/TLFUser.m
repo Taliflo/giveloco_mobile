@@ -37,8 +37,8 @@
         
         self.supporters = dict[@"supporters"];
         self.supportedCauses = dict[@"supported_causes"];
-        //_createdAt
-        //_updatedAt
+        self.createdAt = [self formatDateFromJSON:dict[@"created_at"]];
+        self.updatedAt = [self formatDateFromJSON:dict[@"updated_at"]];
         //_lastSignIn
         //_deletedAt
         
@@ -46,11 +46,27 @@
             self.email = dict[@"email"];
             self.balance = dict[@"balance"];
             self.totalFundsRaised = dict[@"total_funds_raised"];
-            self.transactionsAll = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
-            [self.transactionsAll addObjectsFromArray:dict[@"transactions_accepted"]];
+            self.transactionsCreated = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
+            self.transactionsAccepted = [[NSMutableArray alloc] initWithArray:dict[@"transactions_accepted"]];
+            //self.transactionsAll addObjectsFromArray:dict[@"transactions_accepted"]];
         }
     }
     return self;
+}
+
+- (NSDate *)formatDateFromJSON:(NSString *)dateString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd'T'HH:mm:ssZZZ"];
+    return [dateFormatter dateFromString:dateString];
+}
+
+- (void)sortTransactionsByDate
+{
+    NSSortDescriptor *dateDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO];
+    NSMutableArray *presorted = [[NSMutableArray alloc] initWithArray:self.transactionsCreated];
+    [presorted addObjectsFromArray:self.transactionsAccepted];
+    self.transactionsAll = [[NSMutableArray alloc] initWithArray:[presorted sortedArrayUsingDescriptors:@[dateDescriptor]]];
 }
 
 - (int)getSupportedCausesCount

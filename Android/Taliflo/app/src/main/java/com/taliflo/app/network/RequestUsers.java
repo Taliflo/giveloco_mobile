@@ -1,4 +1,4 @@
-package com.taliflo.app.rest;
+package com.taliflo.app.network;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -109,7 +109,7 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
         Collections.sort(userList, new Comparator<User>(){
             @Override
             public int compare(User arg0, User arg1){
-                return new String(arg0.getCompanyName()).compareTo(arg1.getCompanyName());
+                return arg0.getCompanyName().compareTo(arg1.getCompanyName());
             }
         });
     }

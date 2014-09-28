@@ -16,7 +16,7 @@ import android.widget.ListView;
 import com.taliflo.app.R;
 import com.taliflo.app.activities.UserDetail;
 import com.taliflo.app.adapters.UserAdapter;
-import com.taliflo.app.rest.RequestUsers;
+import com.taliflo.app.network.RequestUsers;
 import com.taliflo.app.model.CauseStore;
 import com.taliflo.app.model.User;
 import com.taliflo.app.utilities.ActionBarHelper;

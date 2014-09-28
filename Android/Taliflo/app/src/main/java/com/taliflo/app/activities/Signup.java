@@ -18,10 +18,9 @@ import android.widget.Toast;
 
 import com.taliflo.app.R;
 import com.taliflo.app.model.UserStore;
-import com.taliflo.app.rest.NetworkHelper;
+import com.taliflo.app.network.NetworkHelper;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 

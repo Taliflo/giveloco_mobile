@@ -17,7 +17,7 @@ import android.widget.ImageView;
 
 import com.taliflo.app.R;
 import com.taliflo.app.model.UserStore;
-import com.taliflo.app.rest.NetworkHelper;
+import com.taliflo.app.network.NetworkHelper;
 
 import java.util.HashMap;
 

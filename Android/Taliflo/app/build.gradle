@@ -29,4 +29,5 @@ dependencies {
     compile files('libs/joda-time-2.4.jar')
     compile 'eu.inmite.android.lib:android-styled-dialogs:1.2.0'
     compile group: 'com.google.guava', name: 'guava', version: '18.0'
+    compile group: 'com.squareup.picasso', name: 'picasso', version: '2.3.4'
 }

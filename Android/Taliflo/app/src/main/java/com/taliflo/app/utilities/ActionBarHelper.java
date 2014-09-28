@@ -2,8 +2,6 @@ package com.taliflo.app.utilities;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.SearchManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -26,16 +23,10 @@ import com.taliflo.app.R;
 import com.taliflo.app.activities.BillingInfo;
 import com.taliflo.app.activities.MainActivity;
 import com.taliflo.app.activities.RedeemCredits;
-import com.taliflo.app.activities.Search;
 import com.taliflo.app.adapters.UserAdapter;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
-import com.taliflo.app.rest.NetworkHelper;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.impl.client.DefaultHttpClient;
+import com.taliflo.app.network.NetworkHelper;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -180,6 +171,13 @@ public class ActionBarHelper {
                 return true;
 
             case R.id.action_logout:
+                /* Just for now since loggout is messed up. */
+                // Clear shared preferences
+                activity.getSharedPreferences(activity.getResources().getString(R.string.savedPrefName), 0)
+                        .edit().clear().commit();
+
+                // Exit application
+                exitApplication(activity);
                 new AttemptLogout(activity).execute();
                 return true;
         }

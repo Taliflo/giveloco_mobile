@@ -21,15 +21,19 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.NavDrawerAdapter;
 import com.taliflo.app.adapters.TabsPagerAdapter;
+import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
 import com.taliflo.app.utilities.MyViewPager;
 import com.taliflo.app.utilities.NavDrawerInterface;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -60,7 +64,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     private static boolean isPagingEnabled = true;
 
-
+    private UserStore userStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +78,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         String authToken = savedPrefs.getString(getResources().getString(R.string.savedPrefAuthToken), null);
         String uid = savedPrefs.getString(getResources().getString(R.string.savedPrefUid), null);
 
+        Log.i(TAG, "Saved authToken: " + authToken);
+        Log.i(TAG, "Saved uid: " + uid);
+
         // If loggedIn is false, start Login activity
-        UserStore userStore = UserStore.getInstance();
+        userStore = UserStore.getInstance();
         if (!loggedIn) {
             Intent loginIntent = new Intent(getApplicationContext(), Login.class);
             startActivityForResult(loginIntent, 10);
@@ -134,15 +141,25 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             });
 
             tabIcons.recycle();
-
+/*
             // Create global configuration and initialize ImageLoader with this configuration
+            File cacheDir = StorageUtils.getCacheDirectory(this);
             ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
                     .denyCacheImageMultipleSizesInMemory()
+                    .threadPoolSize(10)
+                    .memoryCacheSize(5 * 1024 * 1024)
+                    //.diskCache(new UnlimitedDiscCache(cacheDir))
+                    .diskCacheSize(50 * 1024 * 1024)
+                    .diskCacheFileCount(250)
+                    .writeDebugLogs()
                     .build();
             ImageLoader.getInstance().init(config);
-
+*/
+        } else {
+            // Restore logged in user
+            Log.i(TAG, "Restore user");
+            userStore.setCurrentUser((User)savedInstanceState.getParcelable("loggedInUser"));
         }
-
 
     }
 
@@ -205,32 +222,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         getActionBar().setTitle(appTitle);
     }
 
-    /**
-     * When using the ActionBarDrawerToggle, you must call it during onPostCreate()
-     * and onConfigurationChanged()
-     */
-
     @Override
-    protected void onPostCreate(Bundle savedInstanceState){
-        super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occured
-        //drawerToggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig){
-        super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggles
-       // drawerToggle.onConfigurationChanged(newConfig);
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("loggedInUser", userStore.getCurrentUser());
+        //outState.putParcelableArrayList("transactions", transactionsList);
     }
 
     @Override
     public void onBackPressed() {
-/*        if (atHome) {
-            finish();
-        } else {
-            displayView(1, 100);
-        } */
+        // Set user to null so that it will be reloaded
+        userStore.setCurrentUser(null);
         finish();
     }
 

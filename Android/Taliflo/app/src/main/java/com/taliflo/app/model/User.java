@@ -17,6 +17,8 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -30,7 +32,7 @@ public class User implements Parcelable {
             email, phone, streetAddress, city, state,
             country, zip, summary, description, website, picOriginal, picMedium, picThumb, profilePictureURL = "http://dummyimage.com/200x200/999999/fff.png";
     protected String[] tags;
-    protected Transaction[] transactionsCreated, transactionsAccepted;
+    protected Transaction[] transactionsCreated, transactionsAccepted, transactionsAll;
     private int totalDebits, totalCredits;
     private float balance, totalDebitsValue, totalCreditsValue;
     private int[] supporters, supportedCauses;
@@ -259,6 +261,19 @@ public class User implements Parcelable {
             e.printStackTrace();
             redeemableBusinesses = null;
         }
+    }
+
+    public void sortTransactionsByDate() {
+        ArrayList<Transaction> trans = new ArrayList<Transaction>();
+        trans.addAll(Arrays.asList(transactionsCreated));
+        trans.addAll(Arrays.asList(transactionsAccepted));
+
+        Collections.sort(trans, new Comparator<Transaction>() {
+            @Override
+            public int compare(Transaction transaction, Transaction transaction2) {
+                return transaction.getCreatedAt().compareTo(transaction2.getCreatedAt());
+            }
+        });
     }
 
     // Accessor methods

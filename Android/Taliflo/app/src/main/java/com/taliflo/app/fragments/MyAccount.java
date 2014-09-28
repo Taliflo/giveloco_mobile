@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.taliflo.app.R;
 import com.taliflo.app.adapters.TransactionsAdapter;
-import com.taliflo.app.rest.NetworkHelper;
+import com.taliflo.app.network.NetworkHelper;
 import com.taliflo.app.model.Transaction;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
@@ -79,7 +79,13 @@ public class MyAccount extends Fragment {
             RequestUser requestUser = new RequestUser(user, uid, getActivity());
             requestUser.execute();
             Log.i(TAG, "Requesting user...");
-        }
+        }/* else {
+            user = savedInstanceState.getParcelable("loggedInUser");
+            transactionsList = savedInstanceState.getParcelableArrayList("transactions");
+            name.setText(user.getFullName());
+            credits.setText("C " + user.getBalance());
+            adapter.notifyDataSetChanged();
+        }*/
 
     }
 
@@ -92,12 +98,6 @@ public class MyAccount extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         abHelper.onOptionsItemSelected(getActivity(), item);
         return super.onOptionsItemSelected(item);
-    }
-
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
     }
 
     private class RequestUser extends AsyncTask<String, Integer, String> {
@@ -165,10 +165,11 @@ public class MyAccount extends Fragment {
         private void parseUser() throws Exception {
             startTime = android.os.SystemClock.uptimeMillis();
 
-            NetworkHelper restHelper = NetworkHelper.getInstance();
+            NetworkHelper networkHelper = NetworkHelper.getInstance();
             HashMap<String, String> params = userStore.getLoggedInCredentials();
-            String jsonResult = restHelper.requestStrategy(restHelper.ACTION_REQ_INDV, params);
+            String jsonResult = networkHelper.requestStrategy(networkHelper.ACTION_REQ_INDV, params);
             JSONObject resultObject = new JSONObject(jsonResult);
+            Log.d(TAG, resultObject.toString());
             user = new User(resultObject);
             userStore.setCurrentUser(user);
         }

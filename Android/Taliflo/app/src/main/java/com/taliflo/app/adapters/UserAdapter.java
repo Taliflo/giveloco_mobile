@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.squareup.picasso.Picasso;
 import com.taliflo.app.R;
 import com.taliflo.app.model.User;
 
@@ -91,7 +92,8 @@ public class UserAdapter extends BaseAdapter {
             holder = (UserHolder) v.getTag();
         }
 
-        imageLoader.displayImage(user.getProfilePictureURL(), holder.image);
+        Picasso.with(context).load(user.getProfilePictureURL()).into(holder.image);
+        //imageLoader.displayImage(user.getProfilePictureURL(), holder.image);
         holder.name.setText(user.getCompanyName());
         holder.summary.setText(user.getSummary());
         //holder.tags.setText(user.getTagsString());

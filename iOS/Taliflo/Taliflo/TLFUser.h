@@ -17,6 +17,7 @@
 @property (nonatomic, copy) NSNumber *balance, *totalFundsRaised;
 @property (nonatomic, strong) NSMutableArray *tags, *transactionsCreated, *transactionsAccepted, *supporters, *supportedCauses, *redeemableBusinesses;
 @property (nonatomic, strong) NSMutableArray *transactionsAll;
+@property (nonatomic, strong) NSDate *createdAt, *updatedAt;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 
