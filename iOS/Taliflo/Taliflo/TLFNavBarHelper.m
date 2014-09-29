@@ -43,7 +43,7 @@
                                                                action:^(REMenuItem *item) {
                                                                    NSLog(@"'Redeem Credits' clicked");
                                                                    TLFRedeemCreditsViewController *redeemCreditsVC = [[TLFRedeemCreditsViewController alloc] init];
-                                                                   [self.viewController.navigationController pushViewController:redeemCreditsVC animated:YES];
+                                                                   [self presentModalViewController:redeemCreditsVC];
                                                                }];
         
         REMenuItem *billingInfo = [[REMenuItem alloc] initWithTitle:@"Update Billing Info"
@@ -52,7 +52,7 @@
                                                              action:^(REMenuItem *item) {
                                                                  NSLog(@"'Update Billing Info' clicked");
                                                                  TLFBillingInfoViewController *billingInfoVC = [[TLFBillingInfoViewController alloc] init];
-                                                                 [self.viewController.navigationController pushViewController:billingInfoVC animated:YES];
+                                                                 [self presentModalViewController:billingInfoVC];
                                                              }];
         /*
          REMenuItem *locate = [[REMenuItem alloc] initWithTitle:@"Locate"
@@ -158,6 +158,18 @@
     navBar.barTintColor = barTintColor;
     navBar.tintColor = tintColor;
     [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+}
+
+- (void)presentModalViewController:(UIViewController *)presentedViewController
+{
+    presentedViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissModalViewController)];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:presentedViewController];
+    [self.viewController presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (void)dismissModalViewController
+{
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

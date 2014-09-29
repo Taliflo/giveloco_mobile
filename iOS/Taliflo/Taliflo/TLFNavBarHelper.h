@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "REMenu.h"
 
+@class TLFAppDelegate;
+
 @interface TLFNavBarHelper : NSObject <UIActionSheetDelegate>
 
 @property (nonatomic, strong, readwrite) REMenu *actionMenu;

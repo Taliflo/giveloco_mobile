@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -21,19 +20,12 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.taliflo.app.R;
-import com.taliflo.app.adapters.NavDrawerAdapter;
 import com.taliflo.app.adapters.TabsPagerAdapter;
 import com.taliflo.app.model.User;
 import com.taliflo.app.model.UserStore;
 import com.taliflo.app.utilities.MyViewPager;
-import com.taliflo.app.utilities.NavDrawerInterface;
 
-import java.io.File;
 import java.util.ArrayList;
 
 
@@ -42,18 +34,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     // Logcat tag
     private final String TAG = "Taliflo.MainActivity";
 
-    // Navigation drawer title
-    private CharSequence drawerTitle;
-
     // Used to store app title
     private CharSequence appTitle;
-
-    // Fields for the navigation drawer
-    private String[] navDrawerItems;
-    private String[] navDrawerSections;
-    private TypedArray navDrawerIcons;
-    private ArrayList<NavDrawerInterface> navDrawerEntries = new ArrayList<NavDrawerInterface>();
-    private NavDrawerAdapter adapter;
 
     // Member fields for the view pager
     public static MyViewPager viewPager;

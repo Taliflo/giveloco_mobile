@@ -27,6 +27,7 @@ static NSString *cellID = @"TLFUserCell";
     if (self) {
         // Custom initialization
         self.title = @"Select a Business";
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:nil action:@selector(close)];
     }
     return self;
 }
@@ -55,6 +56,11 @@ static NSString *cellID = @"TLFUserCell";
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)close
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
