@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Taliflo Inc. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
-
 #import "TLFMyAccountViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "TLFUser.h"
 #import "TLFNavBarHelper.h"
 #import "TLFColor.h"
@@ -75,8 +74,18 @@ static UIView *indicatorView;
     // Do any additional setup after loading the view from its nib.
     
     // Styling
-    [TLFColor setStrokeTB:self.balance];
-    [[self.balance layer] setCornerRadius:3];
+    // Add top and bottom border to balance
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    float borderHeight = 1.0;
+    float borderWidth = screenRect.size.width;
+    CALayer *topBorder = [CALayer layer];
+    topBorder.backgroundColor = [[TLFColor talifloTiffanyBlue] CGColor];
+    topBorder.frame = CGRectMake(0, 0, borderWidth, borderHeight);
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.backgroundColor = [[TLFColor talifloTiffanyBlue] CGColor];
+    bottomBorder.frame = CGRectMake(0, 29, borderWidth, borderHeight);
+    [self.balance.layer addSublayer:topBorder];
+    [self.balance.layer addSublayer:bottomBorder];
     
     // Load the cell nib file
     UINib *nib = [UINib nibWithNibName:@"TLFTransactionCell" bundle:nil];

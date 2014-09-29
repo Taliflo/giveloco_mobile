@@ -65,7 +65,6 @@
 		D5CB54FE19D02ACE00785003 /* TLFSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54FC19D02ACE00785003 /* TLFSignupViewController.m */; };
 		D5CB54FF19D02ACE00785003 /* TLFSignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5CB54FD19D02ACE00785003 /* TLFSignupViewController.xib */; };
 		D5D333F119ABD5E900925EBF /* TLFMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D333EF19ABD5E900925EBF /* TLFMyAccountViewController.m */; };
-		D5D333F219ABD5E900925EBF /* TLFMyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5D333F019ABD5E900925EBF /* TLFMyAccountViewController.xib */; };
 		D5D3341119ABE7DC00925EBF /* MyAccount.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341019ABE7DC00925EBF /* MyAccount.png */; };
 		D5D3341519ABE88400925EBF /* Causes.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341419ABE88400925EBF /* Causes.png */; };
 		D5D3341919ABE93200925EBF /* Businesses.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341819ABE93200925EBF /* Businesses.png */; };
@@ -82,6 +81,7 @@
 		D5D3346B19AEB7D100925EBF /* TLFTransactionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346919AEB7D100925EBF /* TLFTransactionCell.m */; };
 		D5D3346C19AEB7D100925EBF /* TLFTransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5D3346A19AEB7D100925EBF /* TLFTransactionCell.xib */; };
 		D5D3346F19AEBD3100925EBF /* TLFNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346E19AEBD3100925EBF /* TLFNetworkHelper.m */; };
+		D5E6580C19DA0A5100B9A926 /* TLFMyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E6580B19DA0A5100B9A926 /* TLFMyAccountViewController.xib */; };
 		D5EED03719C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED03519C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m */; };
 		D5EED03819C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */; };
 		D5EED03B19C7917400BA6BB4 /* CustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED03A19C7917400BA6BB4 /* CustomKeyboard.m */; };
@@ -191,7 +191,6 @@
 		D5CB54FD19D02ACE00785003 /* TLFSignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFSignupViewController.xib; sourceTree = "<group>"; };
 		D5D333EE19ABD5E900925EBF /* TLFMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFMyAccountViewController.h; sourceTree = "<group>"; };
 		D5D333EF19ABD5E900925EBF /* TLFMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFMyAccountViewController.m; sourceTree = "<group>"; };
-		D5D333F019ABD5E900925EBF /* TLFMyAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFMyAccountViewController.xib; sourceTree = "<group>"; };
 		D5D3341019ABE7DC00925EBF /* MyAccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyAccount.png; sourceTree = "<group>"; };
 		D5D3341419ABE88400925EBF /* Causes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Causes.png; sourceTree = "<group>"; };
 		D5D3341819ABE93200925EBF /* Businesses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Businesses.png; sourceTree = "<group>"; };
@@ -215,6 +214,7 @@
 		D5D3346A19AEB7D100925EBF /* TLFTransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFTransactionCell.xib; sourceTree = "<group>"; };
 		D5D3346D19AEBD3100925EBF /* TLFNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFNetworkHelper.h; sourceTree = "<group>"; };
 		D5D3346E19AEBD3100925EBF /* TLFNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFNetworkHelper.m; sourceTree = "<group>"; };
+		D5E6580B19DA0A5100B9A926 /* TLFMyAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFMyAccountViewController.xib; sourceTree = "<group>"; };
 		D5EED03419C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemCreditsViewController.h; sourceTree = "<group>"; };
 		D5EED03519C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemCreditsViewController.m; sourceTree = "<group>"; };
 		D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFRedeemCreditsViewController.xib; sourceTree = "<group>"; };
@@ -286,12 +286,12 @@
 		D5AE030719B030F000F31F04 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				D5E6580B19DA0A5100B9A926 /* TLFMyAccountViewController.xib */,
 				D5AE031F19B2838000F31F04 /* TLFBillingInfoViewController.xib */,
 				D5022E3119B703F30015A125 /* TLFBusinessesViewController.xib */,
 				D5022E2419B703000015A125 /* TLFCausesViewController.xib */,
 				D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */,
 				D5EED04C19C8122D00BA6BB4 /* TLFLoginViewController.xib */,
-				D5D333F019ABD5E900925EBF /* TLFMyAccountViewController.xib */,
 				D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */,
 				D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */,
 				D5CB54FD19D02ACE00785003 /* TLFSignupViewController.xib */,
@@ -624,7 +624,6 @@
 				D5D3341519ABE88400925EBF /* Causes.png in Resources */,
 				D5022E7519BAD7890015A125 /* ActionMenu.png in Resources */,
 				D5D3342A19AD44E800925EBF /* 160.gif in Resources */,
-				D5D333F219ABD5E900925EBF /* TLFMyAccountViewController.xib in Resources */,
 				D5D3341119ABE7DC00925EBF /* MyAccount.png in Resources */,
 				D5CB54FF19D02ACE00785003 /* TLFSignupViewController.xib in Resources */,
 				D5CB54F819CEC0CF00785003 /* UIButtonBarArrowRight@2x.png in Resources */,
@@ -642,6 +641,7 @@
 				D5022E8119BC35EB0015A125 /* ActivityIndicatorView.xib in Resources */,
 				D5AE032119B2838000F31F04 /* TLFBillingInfoViewController.xib in Resources */,
 				D5AE030019B00D2800F31F04 /* smallImg50.png in Resources */,
+				D5E6580C19DA0A5100B9A926 /* TLFMyAccountViewController.xib in Resources */,
 				D5022E5719BAA7990015A125 /* Explore@2x.png in Resources */,
 				D5EED04E19C8122D00BA6BB4 /* TLFLoginViewController.xib in Resources */,
 				D5AE02FE19B00B8D00F31F04 /* userImageBig.png in Resources */,
