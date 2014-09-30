@@ -1,1 +1,0 @@
-../../Braintree/Braintree/Venmo/Braintree-Venmo/BTClientToken+BTVenmo.h

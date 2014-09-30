@@ -4,22 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Braintree-Drop-In-Localization.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Braintree-UI-Localization.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Braintree.xcscheme</key>
+		<key>Pods-PaymentKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Stripe.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,67 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>042970D145E547AB84D2EBC7</key>
+		<key>0A1F7148EFCE4368B5C6477B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>097FAB2907F04A0184D9A79E</key>
+		<key>10E745EC176F4E7995866905</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0D2C6D669D5348629D5ADBF6</key>
+		<key>46938796E2F747BF947CBF65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B50ADBF634440D3ABA5AC2C</key>
+		<key>8DE98AA85359457BBA0E6788</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>244E6FBDBA864EB9BCB941B4</key>
+		<key>B5542A5EA8F747F48E3E7993</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3833D2C9401742C1AA391298</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>398C8577A4A44E269B31DE35</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>571E7C6134A34BBEBD3A12F6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5A3A8D99B8054A818A2DE49A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>96245727E3E34353A2AA838A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B14C32F7012B4404B4B1E65E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EB622BC1A4E14AB09C963C32</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FDC8C9F03B7E4EB3A880197B</key>
+		<key>B6F2C1FDCB8B4499AFC47B77</key>
 		<dict>
 			<key>primary</key>
 			<true/>

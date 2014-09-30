@@ -48,47 +48,23 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 3
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
-// Braintree
-#define COCOAPODS_POD_AVAILABLE_Braintree
-#define COCOAPODS_VERSION_MAJOR_Braintree 3
-#define COCOAPODS_VERSION_MINOR_Braintree 3
-#define COCOAPODS_VERSION_PATCH_Braintree 1
+// PaymentKit
+#define COCOAPODS_POD_AVAILABLE_PaymentKit
+#define COCOAPODS_VERSION_MAJOR_PaymentKit 1
+#define COCOAPODS_VERSION_MINOR_PaymentKit 1
+#define COCOAPODS_VERSION_PATCH_PaymentKit 1
 
-// Braintree/API
-#define COCOAPODS_POD_AVAILABLE_Braintree_API
-#define COCOAPODS_VERSION_MAJOR_Braintree_API 3
-#define COCOAPODS_VERSION_MINOR_Braintree_API 3
-#define COCOAPODS_VERSION_PATCH_Braintree_API 1
+// Stripe
+#define COCOAPODS_POD_AVAILABLE_Stripe
+#define COCOAPODS_VERSION_MAJOR_Stripe 2
+#define COCOAPODS_VERSION_MINOR_Stripe 0
+#define COCOAPODS_VERSION_PATCH_Stripe 3
 
-// Braintree/Drop-In
-#define COCOAPODS_POD_AVAILABLE_Braintree_Drop_In
-#define COCOAPODS_VERSION_MAJOR_Braintree_Drop_In 3
-#define COCOAPODS_VERSION_MINOR_Braintree_Drop_In 3
-#define COCOAPODS_VERSION_PATCH_Braintree_Drop_In 1
-
-// Braintree/PayPal
-#define COCOAPODS_POD_AVAILABLE_Braintree_PayPal
-#define COCOAPODS_VERSION_MAJOR_Braintree_PayPal 3
-#define COCOAPODS_VERSION_MINOR_Braintree_PayPal 3
-#define COCOAPODS_VERSION_PATCH_Braintree_PayPal 1
-
-// Braintree/Payments
-#define COCOAPODS_POD_AVAILABLE_Braintree_Payments
-#define COCOAPODS_VERSION_MAJOR_Braintree_Payments 3
-#define COCOAPODS_VERSION_MINOR_Braintree_Payments 3
-#define COCOAPODS_VERSION_PATCH_Braintree_Payments 1
-
-// Braintree/UI
-#define COCOAPODS_POD_AVAILABLE_Braintree_UI
-#define COCOAPODS_VERSION_MAJOR_Braintree_UI 3
-#define COCOAPODS_VERSION_MINOR_Braintree_UI 3
-#define COCOAPODS_VERSION_PATCH_Braintree_UI 1
-
-// Braintree/Venmo
-#define COCOAPODS_POD_AVAILABLE_Braintree_Venmo
-#define COCOAPODS_VERSION_MAJOR_Braintree_Venmo 3
-#define COCOAPODS_VERSION_MINOR_Braintree_Venmo 3
-#define COCOAPODS_VERSION_PATCH_Braintree_Venmo 1
+// Stripe/Core
+#define COCOAPODS_POD_AVAILABLE_Stripe_Core
+#define COCOAPODS_VERSION_MAJOR_Stripe_Core 2
+#define COCOAPODS_VERSION_MINOR_Stripe_Core 0
+#define COCOAPODS_VERSION_PATCH_Stripe_Core 3
 
 // TTTAttributedLabel
 #define COCOAPODS_POD_AVAILABLE_TTTAttributedLabel

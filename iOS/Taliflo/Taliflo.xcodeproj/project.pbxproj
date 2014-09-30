@@ -82,6 +82,8 @@
 		D5D3346C19AEB7D100925EBF /* TLFTransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5D3346A19AEB7D100925EBF /* TLFTransactionCell.xib */; };
 		D5D3346F19AEBD3100925EBF /* TLFNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346E19AEBD3100925EBF /* TLFNetworkHelper.m */; };
 		D5E6580C19DA0A5100B9A926 /* TLFMyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E6580B19DA0A5100B9A926 /* TLFMyAccountViewController.xib */; };
+		D5E6580F19DA1BF500B9A926 /* TLFPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6580E19DA1BF500B9A926 /* TLFPaymentViewController.m */; };
+		D5E6581419DA28B500B9A926 /* TLFPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E6581319DA28B500B9A926 /* TLFPaymentViewController.xib */; };
 		D5EED03719C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED03519C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m */; };
 		D5EED03819C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */; };
 		D5EED03B19C7917400BA6BB4 /* CustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED03A19C7917400BA6BB4 /* CustomKeyboard.m */; };
@@ -215,6 +217,9 @@
 		D5D3346D19AEBD3100925EBF /* TLFNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFNetworkHelper.h; sourceTree = "<group>"; };
 		D5D3346E19AEBD3100925EBF /* TLFNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFNetworkHelper.m; sourceTree = "<group>"; };
 		D5E6580B19DA0A5100B9A926 /* TLFMyAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFMyAccountViewController.xib; sourceTree = "<group>"; };
+		D5E6580D19DA1BF500B9A926 /* TLFPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFPaymentViewController.h; sourceTree = "<group>"; };
+		D5E6580E19DA1BF500B9A926 /* TLFPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFPaymentViewController.m; sourceTree = "<group>"; };
+		D5E6581319DA28B500B9A926 /* TLFPaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFPaymentViewController.xib; sourceTree = "<group>"; };
 		D5EED03419C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemCreditsViewController.h; sourceTree = "<group>"; };
 		D5EED03519C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemCreditsViewController.m; sourceTree = "<group>"; };
 		D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFRedeemCreditsViewController.xib; sourceTree = "<group>"; };
@@ -292,6 +297,7 @@
 				D5022E2419B703000015A125 /* TLFCausesViewController.xib */,
 				D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */,
 				D5EED04C19C8122D00BA6BB4 /* TLFLoginViewController.xib */,
+				D5E6581319DA28B500B9A926 /* TLFPaymentViewController.xib */,
 				D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */,
 				D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */,
 				D5CB54FD19D02ACE00785003 /* TLFSignupViewController.xib */,
@@ -445,6 +451,8 @@
 				D5EED04B19C8122D00BA6BB4 /* TLFLoginViewController.m */,
 				D5CB54FB19D02ACE00785003 /* TLFSignupViewController.h */,
 				D5CB54FC19D02ACE00785003 /* TLFSignupViewController.m */,
+				D5E6580D19DA1BF500B9A926 /* TLFPaymentViewController.h */,
+				D5E6580E19DA1BF500B9A926 /* TLFPaymentViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -607,6 +615,7 @@
 				D5D3341B19ABE98300925EBF /* Businesses@2x.png in Resources */,
 				D5EED04719C7B32400BA6BB4 /* More@2x.png in Resources */,
 				D5022E6319BAAAE60015A125 /* Logout@2x.png in Resources */,
+				D5E6581419DA28B500B9A926 /* TLFPaymentViewController.xib in Resources */,
 				D5EED04019C7AB9000BA6BB4 /* UIButtonBarArrowDown@2x.png in Resources */,
 				D5EED04919C7B32E00BA6BB4 /* More.png in Resources */,
 				D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */,
@@ -725,6 +734,7 @@
 				D5EED03719C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m in Sources */,
 				D54F790419AEE1A6000C2AAE /* TLFUserStore.m in Sources */,
 				D5D3342E19AD64C500925EBF /* TLFUserCell.m in Sources */,
+				D5E6580F19DA1BF500B9A926 /* TLFPaymentViewController.m in Sources */,
 				D5CB54FE19D02ACE00785003 /* TLFSignupViewController.m in Sources */,
 				D5EED03B19C7917400BA6BB4 /* CustomKeyboard.m in Sources */,
 				D5D3346F19AEBD3100925EBF /* TLFNetworkHelper.m in Sources */,

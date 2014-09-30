@@ -1,7 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-GCC_TREAT_WARNINGS_AS_ERRORS = YES YES YES
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/Braintree" "${PODS_ROOT}/Headers/TTTAttributedLabel" "${PODS_ROOT}/Headers/UITextField+Shake"
-LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/Braintree/Braintree/PayPal/Braintree-PayPal/PayPalMobileSDK"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/AFNetworking" -isystem "${PODS_ROOT}/Headers/Braintree" -isystem "${PODS_ROOT}/Headers/TTTAttributedLabel" -isystem "${PODS_ROOT}/Headers/UITextField+Shake"
-OTHER_LDFLAGS = -ObjC -ObjC -lPayPalMobile -lc++ -framework AVFoundation -framework CoreGraphics -framework CoreLocation -framework CoreText -framework MessageUI -framework MobileCoreServices -framework QuartzCore -framework Security -framework SystemConfiguration -framework UIKit
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/PaymentKit" "${PODS_ROOT}/Headers/Stripe" "${PODS_ROOT}/Headers/TTTAttributedLabel" "${PODS_ROOT}/Headers/UITextField+Shake"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/AFNetworking" -isystem "${PODS_ROOT}/Headers/PaymentKit" -isystem "${PODS_ROOT}/Headers/Stripe" -isystem "${PODS_ROOT}/Headers/TTTAttributedLabel" -isystem "${PODS_ROOT}/Headers/UITextField+Shake"
+OTHER_LDFLAGS = -ObjC -framework CoreGraphics -framework CoreText -framework Foundation -framework MobileCoreServices -framework QuartzCore -framework Security -framework SystemConfiguration
 PODS_ROOT = ${SRCROOT}/Pods

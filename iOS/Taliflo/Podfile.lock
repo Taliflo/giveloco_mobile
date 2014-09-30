@@ -20,42 +20,24 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Braintree (3.3.1):
-    - Braintree/API
-    - Braintree/Drop-In
-    - Braintree/Payments
-    - Braintree/PayPal
-    - Braintree/UI
-    - Braintree/Venmo
-  - Braintree/API (3.3.1)
-  - Braintree/Drop-In (3.3.1):
-    - Braintree/API
-    - Braintree/Payments
-    - Braintree/PayPal
-    - Braintree/UI
-    - Braintree/Venmo
-  - Braintree/Payments (3.3.1):
-    - Braintree/API
-    - Braintree/PayPal
-    - Braintree/Venmo
-  - Braintree/PayPal (3.3.1):
-    - Braintree/API
-    - Braintree/UI
-  - Braintree/UI (3.3.1)
-  - Braintree/Venmo (3.3.1):
-    - Braintree/API
+  - PaymentKit (1.1.1)
+  - Stripe (2.0.3):
+    - Stripe/Core
+  - Stripe/Core (2.0.3)
   - TTTAttributedLabel (1.10.1)
   - UITextField+Shake (0.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2)
-  - Braintree
+  - PaymentKit
+  - Stripe
   - TTTAttributedLabel
   - UITextField+Shake
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
-  Braintree: 34538ea612eb8aa2a1187fb273ac80fd496f0628
+  PaymentKit: f77b4d5cee45947949429c3d587e8eb160a3c9e2
+  Stripe: 9107ab1e1bb22990dfd9e273cf25922d8b401abf
   TTTAttributedLabel: 94bb04f1e005616002dd2cee0262a0082e533627
   UITextField+Shake: d98b471f0f686021795a8797aeec3658d12fdae2
 

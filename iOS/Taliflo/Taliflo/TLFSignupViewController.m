@@ -51,8 +51,7 @@ static CGPoint originalCenter;
     NSRange range = [self.labelTaC.text rangeOfString:@"Terms and Conditions"];
     [self.labelTaC addLinkToURL:[NSURL URLWithString:@"http://www.google.ca/" ] withRange:range];
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                 action:@selector(hideKeyboard)];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tapGesture];
 }
 

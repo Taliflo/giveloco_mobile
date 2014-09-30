@@ -15,7 +15,6 @@
 #import "TLFUserStore.h"
 #import "TLFAppDelegate.h"
 
-
 @interface TLFNavBarHelper ()
 
 @end

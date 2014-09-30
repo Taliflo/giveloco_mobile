@@ -10,6 +10,9 @@
 #define k_authToken @"authToken"
 #define k_uid @"uid"
 
+#define TestPublishableKey @"pk_test_MBnCYXpbwBkIjjjpIKz6lSud"
+#define LivePublishableKey @"pk_live_HGECFVdMKGneyKozG9g2Fnxn"
+
 #import "TLFAppDelegate.h"
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "TLFColor.h"
@@ -19,11 +22,14 @@
 #import "TLFLoginViewController.h"
 #import "TLFSignupViewController.h"
 #import "TLFUserStore.h"
+#import "Stripe.h"
 
 @implementation TLFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [Stripe setDefaultPublishableKey:TestPublishableKey];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
