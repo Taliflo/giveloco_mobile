@@ -225,8 +225,9 @@
     <string name="payment_hint_cvv">CVV number</string>
     <string name="payment_msg">We accept Visa, MasterCard, American Express, and Discovery.</string>
     <string name="payment_btnComplete_text">Complete</string>
-    <string name="payment_tokenErrorMsg">Error</string>
+    <string name="payment_tokenErrorMsg">Payment Error</string>
     <string name="payment_dialogBtnText">Ok</string>
+    <string name="payment_emptyField">Please fill in all of the fields.</string>
 
     <!-- Dialogs -->
     <string name="dialog_title">Are you sure?</string>

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.stripe.android.Stripe;
 import com.stripe.android.TokenCallback;
@@ -58,6 +59,18 @@ public class Payment extends FragmentActivity implements ISimpleDialogListener {
     private Button.OnClickListener complete = new Button.OnClickListener() {
         @Override
         public void onClick(View view) {
+            boolean emprtyField = false;
+
+            if ( cardNumber.getText().equals("") || expiryDate.getText().equals("") || cvv.getText().equals("") ) {
+                emprtyField = true;
+            }
+
+            if (emprtyField) {
+                Toast.makeText(thisActivity, getResources().getString(R.string.payment_emptyField), Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
             String expiryDateText = expiryDate.getText().toString();
             int expiryMonth = Integer.parseInt(expiryDateText.substring(0, 2));
             int expiryYear = Integer.parseInt(expiryDateText.substring(3));
@@ -77,7 +90,6 @@ public class Payment extends FragmentActivity implements ISimpleDialogListener {
                             public void onError(Exception error) {
                                 // Show localized error message
                                 SimpleDialogFragment.createBuilder(getApplicationContext(), getSupportFragmentManager())
-                                        .setTitle(getResources().getString(R.string.payment_tokenErrorMsg))
                                         .setMessage(error.getLocalizedMessage())
                                         .setPositiveButtonText(getResources().getString(R.string.payment_dialogBtnText))
                                         .setRequestCode(1)
