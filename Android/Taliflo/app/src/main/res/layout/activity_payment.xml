@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/lightest_grey"
+    tools:context="com.taliflo.app.activities.Payment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+
+        <TextView
+            android:text="@string/payment_headeing_cardDetils"
+            android:textColor="@color/taliflo_tiffanyBlue"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/payment_cardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:hint="@string/payment_hint_cardNumber"
+            android:background="@drawable/box_bg_stroke_tb"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:singleLine="true"
+            android:maxLength="19"
+            android:inputType="number"
+            />
+
+        <EditText
+            android:id="@+id/payment_cvv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:hint="@string/payment_hint_cvv"
+            android:background="@drawable/box_bg_stroke_tb"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:singleLine="true"
+            android:maxLength="3"
+            android:inputType="number"
+            />
+
+        <TextView
+            android:id="@+id/payment_expiryDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:hint="@string/payment_hint_expiryDate"
+            android:background="@drawable/box_bg_stroke_tb"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:singleLine="true"
+            android:maxLength="5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_msg"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/payment_btnComplete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_bg_tb"
+        android:text="@string/payment_btnComplete_text"
+        android:textColor="@color/white"
+        />
+
+</RelativeLayout>

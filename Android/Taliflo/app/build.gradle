@@ -20,13 +20,14 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:20.+'
-    compile 'com.android.support:appcompat-v7:20.+'
+    compile group: 'com.android.support', name: 'support-v4', version:'20.+'
+    compile group: 'com.android.support', name: 'appcompat-v7', version: '20.+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.code.gson:gson:+'
+    compile group: 'com.google.code.gson', name: 'gson', version: '+'
     compile files('libs/basic-http-client-android-0.88.jar')
     compile files('libs/joda-time-2.4.jar')
-    compile 'eu.inmite.android.lib:android-styled-dialogs:1.2.0'
+    compile group: 'eu.inmite.android.lib', name:'android-styled-dialogs', version:'1.2.0'
     compile group: 'com.google.guava', name: 'guava', version: '18.0'
     compile group: 'com.squareup.picasso', name: 'picasso', version: '2.3.4'
+    compile group: 'com.stripe', name: 'stripe-android', version: '+'
 }

@@ -22,13 +22,11 @@ public class TransactionsAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<Transaction> transactions;
     private static LayoutInflater inflater;
-    private ImageLoader imageloader;
 
     public TransactionsAdapter(Activity activity, ArrayList<Transaction> transactions) {
         context = activity.getApplicationContext();
         this.transactions = transactions;
         inflater = LayoutInflater.from(activity);
-        imageloader = ImageLoader.getInstance();
     }
 
     @Override

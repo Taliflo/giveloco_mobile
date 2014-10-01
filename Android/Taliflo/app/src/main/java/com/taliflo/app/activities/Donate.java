@@ -1,6 +1,7 @@
 package com.taliflo.app.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
@@ -85,8 +86,9 @@ public class Donate extends FragmentActivity implements ISimpleDialogListener {
     public void onPositiveButtonClicked(int requestCode) {
         if (requestCode == 1) {
             Log.i(TAG, "Positive button clicked");
-
-            finish();
+            Intent i = new Intent(getApplicationContext(), Payment.class);
+            i.putExtra("Cause", user);
+            startActivity(i);
         }
     }
 

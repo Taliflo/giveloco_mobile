@@ -71,12 +71,18 @@
         </activity>
         <activity
             android:name=".activities.RedeemCredits"
-            android:label="@string/title_activity_redeem_credits" >
+            android:label="@string/title_activity_redeem_credits"
+            android:parentActivityName=".activities.MainActivity">
         </activity>
         <activity
             android:name=".activities.Signup"
-            android:theme="@style/NoActionBar"
-            android:label="@string/title_activity_signup" >
+            android:label="@string/title_activity_signup"
+            android:theme="@style/NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activities.Payment"
+            android:label="@string/title_activity_payment"
+            android:parentActivityName=".activities.MainActivity">
         </activity>
     </application>
 

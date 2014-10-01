@@ -24,7 +24,6 @@ public class UserAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<User> users;
     private static LayoutInflater layoutInflater;
-    private ImageLoader imageLoader;
 
     private boolean searching = false;
 
@@ -32,7 +31,6 @@ public class UserAdapter extends BaseAdapter {
         context = activity.getApplicationContext();
         this.users = users;
         layoutInflater = LayoutInflater.from(activity);
-        imageLoader = ImageLoader.getInstance();
     }
 
     public void setUserList(ArrayList<User> list) {
