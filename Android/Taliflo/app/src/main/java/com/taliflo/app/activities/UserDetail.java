@@ -85,7 +85,8 @@ public class UserDetail extends Activity {
                 btnTransact.setOnClickListener(openRedeem);
 
                 // Default behaviour of disabling the redeem button
-                if (user.isRedeemableBusiness()) {
+                //if (user.isRedeemableBusiness()) {
+                if (true) {
                     btnTransact.setEnabled(true);
                     redeemDisabledMsg.setVisibility(View.GONE);
                 } else {

@@ -84,6 +84,7 @@
 		D5E6580C19DA0A5100B9A926 /* TLFMyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E6580B19DA0A5100B9A926 /* TLFMyAccountViewController.xib */; };
 		D5E6580F19DA1BF500B9A926 /* TLFPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6580E19DA1BF500B9A926 /* TLFPaymentViewController.m */; };
 		D5E6581419DA28B500B9A926 /* TLFPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E6581319DA28B500B9A926 /* TLFPaymentViewController.xib */; };
+		D5E6581919DC03AC00B9A926 /* TLFViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6581819DC03AB00B9A926 /* TLFViewHelper.m */; };
 		D5EED03719C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED03519C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m */; };
 		D5EED03819C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */; };
 		D5EED03B19C7917400BA6BB4 /* CustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED03A19C7917400BA6BB4 /* CustomKeyboard.m */; };
@@ -220,6 +221,8 @@
 		D5E6580D19DA1BF500B9A926 /* TLFPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFPaymentViewController.h; sourceTree = "<group>"; };
 		D5E6580E19DA1BF500B9A926 /* TLFPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFPaymentViewController.m; sourceTree = "<group>"; };
 		D5E6581319DA28B500B9A926 /* TLFPaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFPaymentViewController.xib; sourceTree = "<group>"; };
+		D5E6581719DC03AB00B9A926 /* TLFViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFViewHelper.h; sourceTree = "<group>"; };
+		D5E6581819DC03AB00B9A926 /* TLFViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFViewHelper.m; sourceTree = "<group>"; };
 		D5EED03419C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemCreditsViewController.h; sourceTree = "<group>"; };
 		D5EED03519C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemCreditsViewController.m; sourceTree = "<group>"; };
 		D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFRedeemCreditsViewController.xib; sourceTree = "<group>"; };
@@ -422,6 +425,8 @@
 				D5AE030519B0144B00F31F04 /* TLFButton.m */,
 				D5CB54F219CD560500785003 /* TLFAlert.h */,
 				D5CB54F319CD560500785003 /* TLFAlert.m */,
+				D5E6581719DC03AB00B9A926 /* TLFViewHelper.h */,
+				D5E6581819DC03AB00B9A926 /* TLFViewHelper.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 				D5D3346419AE4A4D00925EBF /* TLFBusinessStore.m in Sources */,
 				D5AE032019B2838000F31F04 /* TLFBillingInfoViewController.m in Sources */,
 				D5EED04D19C8122D00BA6BB4 /* TLFLoginViewController.m in Sources */,
+				D5E6581919DC03AC00B9A926 /* TLFViewHelper.m in Sources */,
 				D5AE030C19B17D5D00F31F04 /* TLFUserSupportViewController.m in Sources */,
 				D5022E4F19BA75810015A125 /* REMenuItemView.m in Sources */,
 				D5D333F119ABD5E900925EBF /* TLFMyAccountViewController.m in Sources */,
@@ -863,7 +869,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
 				INFOPLIST_FILE = "Taliflo/Taliflo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -878,7 +886,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Taliflo/Taliflo-Prefix.pch";
 				INFOPLIST_FILE = "Taliflo/Taliflo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

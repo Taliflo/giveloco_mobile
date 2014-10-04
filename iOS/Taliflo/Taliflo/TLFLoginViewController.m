@@ -14,6 +14,7 @@
 #import "TLFUser.h"
 #import "TLFNetworkHelper.h"
 #import "TLFSignupViewController.h"
+#import "TLFViewHelper.h"
 
 @interface TLFLoginViewController ()
 
@@ -22,14 +23,14 @@
 @implementation TLFLoginViewController
 
 // Variables to control animations
-static CGPoint originalCenter;
-static BOOL screenSize3point5 = NO;
+static TLFViewHelper *viewHelper;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        viewHelper = [[TLFViewHelper alloc] initWithViewController:self];
     }
     return self;
 }
@@ -38,13 +39,6 @@ static BOOL screenSize3point5 = NO;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
-    
-    if (screenHeight == 480) {
-        screenSize3point5 = YES;
-    }
     
     [TLFColor setStrokeTB:self.email];
     [TLFColor setStrokeTB:self.password];
@@ -108,36 +102,19 @@ static BOOL screenSize3point5 = NO;
     [self presentViewController:navController animated:YES completion:nil];
 }
 
-- (void)scrollViewUp
-{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.35f];
-    originalCenter = self.view.center;
-    self.view.center = CGPointMake(originalCenter.x, originalCenter.y - 24);
-    [UIView commitAnimations];
-}
-
-- (void)scrollViewBackToCenter
-{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.35f];
-    self.view.center = originalCenter;
-    [UIView commitAnimations];
-}
-
 #pragma mark - Text field delegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (screenSize3point5) {
-        [self scrollViewUp];
+    if (viewHelper.screenSizeSmall) {
+        [viewHelper scrollViewUp:-1];
     }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if (screenSize3point5) {
-        [self scrollViewBackToCenter];
+    if (viewHelper.screenSizeSmall) {
+        [viewHelper scrollViewBackToCenter];
     }
 }
 

@@ -110,20 +110,20 @@
                     <exclude reference="P2u-vY-wBZ"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="KZb-VN-Luo"/>
-                    <exclude reference="UjS-QT-wcj"/>
+                    <exclude reference="avY-bc-7Yt"/>
+                    <exclude reference="oZA-NX-Ocz"/>
+                    <exclude reference="ofZ-aE-SJ8"/>
                     <exclude reference="2Gu-he-nvU"/>
                     <exclude reference="3Ur-XG-BCR"/>
                     <exclude reference="cAP-Pd-Qf8"/>
                     <exclude reference="AIi-ST-rwa"/>
                     <exclude reference="aXc-FZ-Yr3"/>
                     <exclude reference="sxB-6Q-35U"/>
+                    <exclude reference="KZb-VN-Luo"/>
+                    <exclude reference="UjS-QT-wcj"/>
                     <exclude reference="Hxu-ZJ-YYr"/>
                     <exclude reference="vbI-Gd-mAM"/>
                     <exclude reference="yUr-34-Fca"/>
-                    <exclude reference="avY-bc-7Yt"/>
-                    <exclude reference="oZA-NX-Ocz"/>
-                    <exclude reference="ofZ-aE-SJ8"/>
                     <exclude reference="0Sg-Cx-wbq"/>
                     <exclude reference="7hA-vq-cqa"/>
                     <exclude reference="aCA-ta-DY0"/>
@@ -139,26 +139,26 @@
                     <include reference="P2u-vY-wBZ"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="KZb-VN-Luo"/>
-                    <include reference="UjS-QT-wcj"/>
+                    <include reference="avY-bc-7Yt"/>
+                    <include reference="oZA-NX-Ocz"/>
+                    <include reference="ofZ-aE-SJ8"/>
                     <include reference="2Gu-he-nvU"/>
                     <include reference="3Ur-XG-BCR"/>
                     <include reference="cAP-Pd-Qf8"/>
                     <include reference="AIi-ST-rwa"/>
                     <include reference="aXc-FZ-Yr3"/>
                     <include reference="sxB-6Q-35U"/>
+                    <include reference="KZb-VN-Luo"/>
+                    <include reference="UjS-QT-wcj"/>
                     <include reference="Hxu-ZJ-YYr"/>
                     <include reference="vbI-Gd-mAM"/>
                     <include reference="yUr-34-Fca"/>
-                    <include reference="avY-bc-7Yt"/>
-                    <include reference="oZA-NX-Ocz"/>
-                    <include reference="ofZ-aE-SJ8"/>
                     <include reference="0Sg-Cx-wbq"/>
                     <include reference="7hA-vq-cqa"/>
                     <include reference="aCA-ta-DY0"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="621" y="406"/>
+            <point key="canvasLocation" x="76" y="64"/>
         </view>
     </objects>
 </document>

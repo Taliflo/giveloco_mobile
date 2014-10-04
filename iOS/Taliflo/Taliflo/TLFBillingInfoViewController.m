@@ -22,8 +22,6 @@
 static NSInteger maxYear = 2030;
 static NSInteger minYear;
 static NSInteger currentMonth;
-static CGPoint scrollViewOffset;
-static CGPoint viewCenter;
 
 @implementation TLFBillingInfoViewController
 
@@ -119,15 +117,6 @@ static CGPoint viewCenter;
 {
     [super viewDidLayoutSubviews];
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
-    
-    if (screenHeight > 480) {
-        [self.scrollView setContentSize:CGSizeMake(320, 568)];
-    } else {
-        [self.scrollView setContentSize:CGSizeMake(320, 480)];
-    }
-    viewCenter = self.scrollView.center;
 }
 
 // Close any opened keyboard
@@ -146,14 +135,7 @@ static CGPoint viewCenter;
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"These changes will be reflected on your accout immediately." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
     [alert show];
-    
-    // To be used on iOS 8 for backwards compatability
-    /*    if ([UIAlertController class]) {
-     
-     } else {
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"These changes will be reflected on your accout immediately." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
-     [alert show];
-     } */
+
 }
 
 // Method to respond to the response from the alert view
@@ -295,16 +277,6 @@ static CGPoint viewCenter;
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     NSLog(@"TextField began editing.");
-
-    if (textField.tag > 1) {
-        scrollViewOffset = self.scrollView.contentOffset;
-        CGPoint pt;
-        CGRect rc = [textField bounds];
-        pt = rc.origin;
-        pt.x = 0;
-        pt.y += 90;
-        [self.scrollView setContentOffset:pt animated:YES];
-    }
     
     BOOL showPrev = textField.tag != 0;
     BOOL showNext = textField.tag != 8;
@@ -312,22 +284,11 @@ static CGPoint viewCenter;
     [textField setInputAccessoryView:[self.customKeyboard getToolbarWithPrevNextDone:showPrev :showNext]];
     self.customKeyboard.currentSelectedTextboxIndex = textField.tag;
     
-/*    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.35f];
-    CGRect frame = self.scrollView.frame;
-    frame.origin.y = -100;
-    [self.scrollView setFrame:frame];
-    [UIView commitAnimations]; */
-    
-//    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, self.scrollView.contentOffset.y - 100) animated:YES];
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    if (textField.tag > 1) {
-        [self.scrollView setContentOffset:scrollViewOffset animated:YES];
-        [self.scrollView setCenter:viewCenter];
-    }
+
     return YES;
 }
 

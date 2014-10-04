@@ -486,11 +486,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Taliflo/TLFSignupViewController.m"
-            timestampString = "433751532.56352"
+            timestampString = "433852248.003949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-attemptSignup"
             landmarkType = "5">
          </BreakpointContent>

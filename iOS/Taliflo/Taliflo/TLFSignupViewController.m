@@ -12,6 +12,7 @@
 #import "TLFAppDelegate.h"
 #import "TLFUserStore.h"
 #import "TLFAlert.h"
+#import "TLFViewHelper.h"
 
 @interface TLFSignupViewController ()
 
@@ -19,8 +20,7 @@
 
 @implementation TLFSignupViewController
 
-static BOOL screenSize3Point5 = NO;
-static CGPoint originalCenter;
+static TLFViewHelper *viewHelper;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +31,8 @@ static CGPoint originalCenter;
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                  initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                  target:self action:@selector(dismiss)];
+        
+        viewHelper = [[TLFViewHelper alloc] initWithViewController:self];
     }
     return self;
 }
@@ -41,18 +43,14 @@ static CGPoint originalCenter;
     
     self.navigationController.navigationBar.tintColor = [TLFColor talifloTiffanyBlue];
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
-    
-    if (screenHeight == 480) {
-        screenSize3Point5 = YES;
-    }
-    
     NSRange range = [self.labelTaC.text rangeOfString:@"Terms and Conditions"];
     [self.labelTaC addLinkToURL:[NSURL URLWithString:@"http://www.google.ca/" ] withRange:range];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tapGesture];
+    
+    // Styling
+    [[self.btnSignup layer] setCornerRadius:3];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,36 +127,19 @@ static CGPoint originalCenter;
           }];
 }
 
-- (void)scrollViewUp
-{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.35f];
-    originalCenter = self.view.center;
-    self.view.center = CGPointMake(originalCenter.x, originalCenter.y - 44);
-    [UIView commitAnimations];
-}
-
-- (void)scrollViewBackToCenter
-{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.35f];
-    self.view.center = originalCenter;
-    [UIView commitAnimations];
-}
-
 #pragma mark - Text field delegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (screenSize3Point5 && textField.tag == 3) {
-        [self scrollViewUp];
+    if (viewHelper.screenSizeSmall && textField.tag == 3) {
+        [viewHelper scrollViewUp:44];
     }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     if (textField.tag == 3) {
-        [self scrollViewBackToCenter];
+        [viewHelper scrollViewBackToCenter];
     }
 }
 
@@ -180,8 +161,8 @@ static CGPoint originalCenter;
     if (textField.tag == 3) {
         [textField resignFirstResponder];
         
-        if (screenSize3Point5) {
-            [self scrollViewBackToCenter];
+        if (viewHelper.screenSizeSmall) {
+            [viewHelper scrollViewBackToCenter];
         }
     }
     

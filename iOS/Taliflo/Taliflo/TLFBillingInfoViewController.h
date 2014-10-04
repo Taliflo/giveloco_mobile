@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *number;
 @property (strong, nonatomic) IBOutlet UITextField *expiryDate;
 @property (strong, nonatomic) IBOutlet UITextField *cvv;
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *street;
 @property (strong, nonatomic) IBOutlet UITextField *city;
 @property (strong, nonatomic) IBOutlet UITextField *zip;

@@ -112,23 +112,17 @@
                 android:textSize="18sp"
                 android:textColor="@color/taliflo_purple"
                 />
-            <ImageView
-                android:id="@+id/userDetail_btnSupportArrow"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_action_next_item"/>
+
             <TextView
                 android:id="@+id/userDetail_supportCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/userDetail_btnSupportArrow"
                 android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:background="@drawable/counter_oval"
-                android:layout_marginRight="10dp"
                 />
         </RelativeLayout>
 
