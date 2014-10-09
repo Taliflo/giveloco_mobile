@@ -83,20 +83,6 @@
                         <action selector="selectDonation" destination="-1" eventType="valueChanged" id="nzW-DY-OeB"/>
                     </connections>
                 </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGg-zs-Jxf">
-                    <rect key="frame" x="20" y="468" width="280" height="30"/>
-                    <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="zMr-PN-WPZ"/>
-                    </constraints>
-                    <state key="normal" title="Donate">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="confirm" destination="-1" eventType="touchUpInside" id="UsX-LD-tup"/>
-                    </connections>
-                </button>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HCq-C2-aKk">
                     <rect key="frame" x="20" y="403" width="51" height="31"/>
                     <color key="tintColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,10 +96,25 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGg-zs-Jxf">
+                    <rect key="frame" x="8" y="481" width="304" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="zMr-PN-WPZ"/>
+                    </constraints>
+                    <state key="normal" title="Donate">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="confirm" destination="-1" eventType="touchUpInside" id="UsX-LD-tup"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="MGg-zs-Jxf" secondAttribute="trailing" constant="20" id="0pF-42-WMR"/>
+                <constraint firstAttribute="trailing" secondItem="MGg-zs-Jxf" secondAttribute="trailing" constant="8" id="2D5-rn-Gu2"/>
+                <constraint firstAttribute="bottom" secondItem="MGg-zs-Jxf" secondAttribute="bottom" constant="57" id="5np-ll-xVq"/>
                 <constraint firstItem="Jf4-5X-m1u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="6MV-Yt-Haz"/>
                 <constraint firstItem="kEG-3e-p1M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="6nf-ci-vae"/>
                 <constraint firstItem="BPD-HT-Qyh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="173" id="7LY-Ag-JUh"/>
@@ -129,10 +130,9 @@
                 <constraint firstItem="Fqa-9B-fjQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="153" id="aqJ-a5-m5Z"/>
                 <constraint firstItem="Fqa-9B-fjQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="bKI-e0-1pz"/>
                 <constraint firstAttribute="trailing" secondItem="2O5-RT-ZMp" secondAttribute="trailing" constant="20" id="e8m-fV-EAX"/>
-                <constraint firstAttribute="bottom" secondItem="MGg-zs-Jxf" secondAttribute="bottom" constant="70" id="hNu-xl-JyI"/>
                 <constraint firstAttribute="trailing" secondItem="Fqa-9B-fjQ" secondAttribute="trailing" constant="20" id="hpU-1N-tz3"/>
                 <constraint firstAttribute="bottom" secondItem="2O5-RT-ZMp" secondAttribute="bottom" constant="139" id="iLP-hB-I1j"/>
-                <constraint firstItem="MGg-zs-Jxf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="xDv-wM-PZy"/>
+                <constraint firstItem="MGg-zs-Jxf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="n84-bO-bBy"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

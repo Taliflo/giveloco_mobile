@@ -77,7 +77,7 @@ public final class NetworkHelper {
         return USERS_URL + "/" + id;
     }
 
-    public String requestStrategy(int action, HashMap<String, String> params) {
+    public String requestStrategy(int action, HashMap<String, String> extras) {
 
         String result = "", jsonString = "", logAction = "";
 
@@ -95,8 +95,8 @@ public final class NetworkHelper {
             switch (action) {
                 case ACTION_LOGIN:
                     JsonObject loginObj = new JsonObject();
-                    loginObj.addProperty("email", params.get("email"));
-                    loginObj.addProperty("password", params.get("password"));
+                    loginObj.addProperty("email", extras.get("email"));
+                    loginObj.addProperty("password", extras.get("password"));
                     jsonString = loginObj.toString();
 
                     request = new HttpPost(LOGIN_URL);
@@ -108,7 +108,7 @@ public final class NetworkHelper {
 
                 case ACTION_LOGOUT:
                     request = new HttpDelete(LOGOUT_URL);
-                    request.setHeader("X-Session-Token", params.get("authToken"));
+                    request.setHeader("X-Session-Token", extras.get("authToken"));
 
                     logAction = "Logout";
                     break;
@@ -116,10 +116,10 @@ public final class NetworkHelper {
                 case ACTION_SIGNUP:
                     JsonObject userObj = new JsonObject();
                     userObj.addProperty("role", "individual");
-                    userObj.addProperty("first_name", params.get("firstName"));
-                    userObj.addProperty("last_name", params.get("lastName"));
-                    userObj.addProperty("email", params.get("email"));
-                    userObj.addProperty("password", params.get("password"));
+                    userObj.addProperty("first_name", extras.get("firstName"));
+                    userObj.addProperty("last_name", extras.get("lastName"));
+                    userObj.addProperty("email", extras.get("email"));
+                    userObj.addProperty("password", extras.get("password"));
                     userObj.add("company_name", null);
                     userObj.add("website", null);
                     userObj.add("street_address", null);
@@ -143,22 +143,22 @@ public final class NetworkHelper {
                     break;
 
                 case ACTION_REQ_INDV:
-                    request = new HttpGet(USERS_URL + "/" + params.get("uid"));
-                    request.setHeader("X-Session-Token", params.get("authToken"));
+                    request = new HttpGet(USERS_URL + "/" + extras.get("uid"));
+                    request.setHeader("X-Session-Token", extras.get("authToken"));
 
                     logAction = "Request individual";
                     break;
 
                 case ACTION_REQ_CAUSES:
-                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/cause?id=" + params.get("uid"));
-                    request.setHeader("X-Session-Token", params.get("authToken"));
+                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/cause?id=" + extras.get("uid"));
+                    request.setHeader("X-Session-Token", extras.get("authToken"));
 
                     logAction = "Request causes";
                     break;
 
                 case ACTION_REQ_BUSINESSES:
-                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/business?id=" + params.get("uid"));
-                    request.setHeader("X-Session-Token", params.get("authToken"));
+                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/business?id=" + extras.get("uid"));
+                    request.setHeader("X-Session-Token", extras.get("authToken"));
 
                     logAction = "Request buinesses";
                     break;
@@ -181,7 +181,7 @@ public final class NetworkHelper {
                     // GET successful
                     result = getResponseEntity(response.getEntity());
                     Log.i(TAG, logAction + " successful");
-                    //Log.i(TAG, "Reponse:\n" + result);
+                    Log.i(TAG, "Reponse:\n" + result);
                     break;
 
                 case 201:

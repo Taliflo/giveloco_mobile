@@ -107,6 +107,9 @@ static NSString *sysCellID = @"UITableViewCell";
         return 161.0f;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -117,7 +120,7 @@ static NSString *sysCellID = @"UITableViewCell";
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sysCellID];
         }
         
-        cell.textLabel.text = self.filtered[indexPath.row][@"company_name"];
+        cell.textLabel.text = [self.filtered[indexPath.row] companyName];
         return cell;
     } else {
         TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
@@ -126,12 +129,14 @@ static NSString *sysCellID = @"UITableViewCell";
             cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
         
-        cell.name.text = self.businesses[indexPath.row][@"company_name"];
-        cell.summary.text = self.businesses[indexPath.row][@"summary"];
+        cell.name.text = [self.businesses[indexPath.row] companyName];
+        cell.summary.text = [self.businesses[indexPath.row] summary];
         cell.backgroundColor = [TLFColor talifloPurple];
         return cell;
     }
 }
+
+#pragma clang diagnostic pop
 
 #pragma mark - Table view delegate
 
@@ -141,9 +146,9 @@ static NSString *sysCellID = @"UITableViewCell";
     
     // Pass the selected business to the user detail view controller
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        detailVC.user = [[TLFUser alloc] initWithDictionary:self.filtered[indexPath.row]];
+        detailVC.user = self.filtered[indexPath.row];
     } else {
-        detailVC.user = [[TLFUser alloc] initWithDictionary:self.businesses[indexPath.row]];
+        detailVC.user = self.businesses[indexPath.row];
     }
     
     // Push the view controller.

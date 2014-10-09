@@ -88,8 +88,8 @@ static NSString *cellID = @"TLFUserCell";
         cell = [[TLFUserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     
-    cell.name.text = self.currentUser.redeemableBusinesses[indexPath.row][@"company_name"];
-    cell.summary.text = self.currentUser.redeemableBusinesses[indexPath.row][@"summary"];
+    cell.name.text = [self.currentUser.redeemableBusinesses[indexPath.row] companyName];
+    cell.summary.text = [self.currentUser.redeemableBusinesses[indexPath.row] summary];
     cell.backgroundColor = [TLFColor talifloPurple];
     return cell;
 }
@@ -101,7 +101,7 @@ static NSString *cellID = @"TLFUserCell";
     TLFRedeemViewController *redeemVC = [[TLFRedeemViewController alloc] init];
     
     // Pass the selected business to the user detail view controller
-    redeemVC.business = [[TLFUser alloc] initWithDictionary:self.currentUser.redeemableBusinesses[indexPath.row]];
+    redeemVC.business = [[TLFUser alloc] initWithJSON:self.currentUser.redeemableBusinesses[indexPath.row]];
     
     // Push the view controller.
     [self.navigationController pushViewController:redeemVC animated:YES];

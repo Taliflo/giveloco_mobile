@@ -15,20 +15,27 @@
 , *profilePictureURL, *picOriginal, *picMedium, *picThumb, *authToken;
 @property (nonatomic, copy) NSNumber *totalDebits, *totalCredits;
 @property (nonatomic, copy) NSNumber *balance, *totalFundsRaised;
-@property (nonatomic, strong) NSMutableArray *tags, *transactionsCreated, *transactionsAccepted, *supporters, *supportedCauses, *redeemableBusinesses;
+@property (nonatomic, strong) NSMutableArray *tags, *transactionsCreated, *transactionsAccepted, *supporters, *supportedCauses, *redeemableBusinesses, *donors;
 @property (nonatomic, strong) NSMutableArray *transactionsAll;
 @property (nonatomic, strong) NSDate *createdAt, *updatedAt;
+@property (nonatomic) BOOL isPublished, isFeatured;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithJSON:(NSDictionary *)jsonObject;
 
-- (int)getSupportersCount;
-- (int)getSupportedCausesCount;
 - (NSString *)getTagsString;
-- (NSString *)getSupportersCountStr;
-- (NSString *)getSupportedCausesStr;
-- (NSArray *)getSupportedCauses;
-- (NSArray *)getSupporters;
+
+// User functions
 - (void)determineRedeemableBusinesses;
-- (BOOL)checkReemableBusiness:(TLFUser *)business;
+- (BOOL)checkReemableBusiness:(TLFUser *)aBusiness;
+
+// Business functions
+- (int)getSupportedCausesCount;
+- (NSArray *)getSupportedCauses;
+- (NSString *)getSupportedCausesStr;
+
+// Cause functions
+- (int)getSupportersCount;
+- (NSArray *)getSupporters;
+- (NSString *)getSupportersCountStr;
 
 @end

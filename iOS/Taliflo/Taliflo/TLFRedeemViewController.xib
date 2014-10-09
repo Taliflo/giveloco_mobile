@@ -67,17 +67,6 @@
                     <color key="textColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xb-xn-yO3">
-                    <rect key="frame" x="20" y="468" width="280" height="30"/>
-                    <color key="backgroundColor" red="0.2666666667" green="0.054901960780000002" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Redeem">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="confirm" destination="-1" eventType="touchUpInside" id="2jj-Td-M7I"/>
-                    </connections>
-                </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are about to redeem 20 credits (worth $20 in store credit) at" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="c3O-Jv-swQ">
                     <rect key="frame" x="20" y="152" width="280" height="46"/>
                     <constraints>
@@ -94,22 +83,32 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xb-xn-yO3">
+                    <rect key="frame" x="8" y="481" width="304" height="30"/>
+                    <color key="backgroundColor" red="0.2666666667" green="0.054901960780000002" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Redeem">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="confirm" destination="-1" eventType="touchUpInside" id="2jj-Td-M7I"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="lhP-un-NRd" secondAttribute="trailing" constant="20" id="0dR-Gq-Yts"/>
                 <constraint firstItem="FBV-F7-uuf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="7tE-cy-Qdo"/>
-                <constraint firstAttribute="trailing" secondItem="4Xb-xn-yO3" secondAttribute="trailing" constant="20" id="D5M-if-Au2"/>
+                <constraint firstItem="4Xb-xn-yO3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9ht-ov-e1L"/>
                 <constraint firstItem="FBV-F7-uuf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="220" id="G4C-HJ-zMj"/>
-                <constraint firstItem="4Xb-xn-yO3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="HmK-rR-T3a"/>
                 <constraint firstItem="c3O-Jv-swQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="152" id="JWM-Nd-0QX"/>
                 <constraint firstItem="I0a-D5-23G" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="KzL-5w-nF3"/>
                 <constraint firstAttribute="trailing" secondItem="I0a-D5-23G" secondAttribute="trailing" constant="20" id="L9a-Ua-j0Y"/>
                 <constraint firstItem="cjo-d4-y8T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NXk-Bo-0HG"/>
                 <constraint firstItem="I0a-D5-23G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="191" id="ONZ-HS-8W5"/>
-                <constraint firstAttribute="bottom" secondItem="4Xb-xn-yO3" secondAttribute="bottom" constant="70" id="Pub-rE-N97"/>
                 <constraint firstItem="c3O-Jv-swQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Xyh-vr-BL1"/>
                 <constraint firstAttribute="trailing" secondItem="c3O-Jv-swQ" secondAttribute="trailing" constant="20" id="YXk-zH-hHz"/>
+                <constraint firstAttribute="trailing" secondItem="4Xb-xn-yO3" secondAttribute="trailing" constant="8" id="aYq-8K-cmb"/>
                 <constraint firstAttribute="trailing" secondItem="FBV-F7-uuf" secondAttribute="trailing" constant="20" id="bIv-h2-OJG"/>
                 <constraint firstAttribute="trailing" secondItem="cjo-d4-y8T" secondAttribute="trailing" id="grv-cD-UPO"/>
                 <constraint firstItem="lhP-un-NRd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="gz4-1W-kLa"/>
@@ -117,6 +116,7 @@
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FBV-F7-uuf" secondAttribute="trailing" constant="20" id="mdX-yq-Mf5"/>
                 <constraint firstItem="cjo-d4-y8T" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="rA8-Dz-iQB"/>
                 <constraint firstItem="lhP-un-NRd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="278" id="uWv-wD-w8q"/>
+                <constraint firstAttribute="bottom" secondItem="4Xb-xn-yO3" secondAttribute="bottom" constant="57" id="zGP-6e-cAQ"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

@@ -14,7 +14,7 @@
 @property (nonatomic, copy) NSString *transType, *fromName, *toName, *fromUserRole, *toUserRole, *amount, *status;
 @property (nonatomic, copy) NSDate *cancelledAt, *completedAt, *createdAt, *updatedAt;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithJSON:(NSDictionary *)jsonObject;
 
 - (NSString *)formatCancelledAt;
 - (NSString *)formatCompletedAt;

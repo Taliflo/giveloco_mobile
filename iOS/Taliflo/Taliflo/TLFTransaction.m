@@ -17,7 +17,7 @@
 static NSDateFormatter *_inFormatter;
 static NSDateFormatter *_outFormatter;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict
+- (instancetype)initWithJSON:(NSDictionary *)jsonObject
 {
     self = [super init];
     
@@ -33,21 +33,21 @@ static NSDateFormatter *_outFormatter;
     }
     
     if (self) {
-        _ID = dict[@"id"];
-        _transID = dict[@"trans_id"];
-        _stripeID = dict[@"stripe_id"];
-        _transType = dict[@"trans_type"];
-        _fromUserID = dict[@"from_user_id"];
-        _toUserID = dict[@"to_user_id"];
-        _fromName = dict[@"from_name"];
-        _toName = dict[@"to_name"];
-        _fromUserRole = dict[@"from_user_role"];
-        _toUserRole = dict[@"to_user_role"];
-        _amount = dict[@"amount"];
-        _status = dict[@"status"];
+        _ID = jsonObject[@"id"];
+        _transID = jsonObject[@"trans_id"];
+        _stripeID = jsonObject[@"stripe_id"];
+        _transType = jsonObject[@"trans_type"];
+        _fromUserID = jsonObject[@"from_user_id"];
+        _toUserID = jsonObject[@"to_user_id"];
+        _fromName = jsonObject[@"from_name"];
+        _toName = jsonObject[@"to_name"];
+        _fromUserRole = jsonObject[@"from_user_role"];
+        _toUserRole = jsonObject[@"to_user_role"];
+        _amount = jsonObject[@"amount"];
+        _status = jsonObject[@"status"];
         
-        _createdAt = [_inFormatter dateFromString:dict[@"created_at"]];
-        _updatedAt = [_inFormatter dateFromString:dict[@"updated_at"]];
+        _createdAt = [_inFormatter dateFromString:jsonObject[@"created_at"]];
+        _updatedAt = [_inFormatter dateFromString:jsonObject[@"updated_at"]];
     }
     
 

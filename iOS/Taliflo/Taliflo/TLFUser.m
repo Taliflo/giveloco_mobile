@@ -9,50 +9,63 @@
 #import "TLFUser.h"
 #import "TLFCauseStore.h"
 #import "TLFBusinessStore.h"
+#import "TLFAssociation.h"
 
 @implementation TLFUser
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict
+- (instancetype)initWithJSON:(NSDictionary *)jsonObject
 {
     self = [super init];
     if (self) {
-        self.ID = dict[@"id"];
-        self.role = dict[@"role"];
-        self.firstName = dict[@"first_name"];
-        self.lastName = dict[@"last_name"];        
-        self.phone = dict[@"phone"];
-        self.companyName = dict[@"company_name"];
-        self.streetAddress = dict[@"street_address"];
-        self.city = dict[@"city"];
-        self.state = dict[@"state"];
-        self.country = dict[@"country"];
-        self.zip = dict[@"zip"];
-        self.tags = dict[@"tags"];
-        self.summary = dict[@"summary"];
-        self.descript = dict[@"description"];
-        self.website = dict[@"website"];
-        self.picOriginal = dict[@"images"][@"profile_picture"][@"original"];
-        self.picMedium = dict[@"images"][@"profile_picture"][@"medium"];
-        self.picThumb = dict[@"images"][@"profile_picture"][@"thumb"];
+        self.ID = jsonObject[@"id"];
+        self.role = jsonObject[@"role"];
+        self.phone = jsonObject[@"phone"];
+        self.companyName = jsonObject[@"company_name"];
+        self.streetAddress = jsonObject[@"street_address"];
+        self.city = jsonObject[@"city"];
+        self.state = jsonObject[@"state"];
+        self.country = jsonObject[@"country"];
+        self.zip = jsonObject[@"zip"];
+        self.tags = jsonObject[@"tags"];
+        self.summary = jsonObject[@"summary"];
+        self.descript = jsonObject[@"description"];
+        self.website = jsonObject[@"website"];
+        self.picOriginal = jsonObject[@"images"][@"profile_picture"][@"original"];
+        self.picMedium = jsonObject[@"images"][@"profile_picture"][@"medium"];
+        self.picThumb = jsonObject[@"images"][@"profile_picture"][@"thumb"];
+        //self.createdAt = [self formatDateFromJSON:jsonObject[@"created_at"]];
+        //self.updatedAt = [self formatDateFromJSON:jsonObject[@"updated_at"]];
+        self.balance = jsonObject[@"balance"];
+        NSNumber *isPubNum = jsonObject[@"is_published"];
+        self.isPublished = [isPubNum intValue];
         
-        self.supporters = dict[@"supporters"];
-        self.supportedCauses = dict[@"supported_causes"];
-        self.createdAt = [self formatDateFromJSON:dict[@"created_at"]];
-        self.updatedAt = [self formatDateFromJSON:dict[@"updated_at"]];
         //_lastSignIn
         //_deletedAt
+        self.transactionsCreated = [[NSMutableArray alloc] initWithArray:jsonObject[@"transactions_created"]];
+        self.transactionsAccepted = [[NSMutableArray alloc] initWithArray:jsonObject[@"transactions_accepted"]];
+        [self sortTransactionsByDate];
         
         if ([self.role isEqualToString:@"individual"]) {
-            self.email = dict[@"email"];
-            self.balance = dict[@"balance"];
-            self.totalFundsRaised = dict[@"total_funds_raised"];
-            self.transactionsCreated = [[NSMutableArray alloc] initWithArray:dict[@"transactions_created"]];
-            self.transactionsAccepted = [[NSMutableArray alloc] initWithArray:dict[@"transactions_accepted"]];
-            //self.transactionsAll addObjectsFromArray:dict[@"transactions_accepted"]];
+            self.firstName = jsonObject[@"first_name"];
+            self.lastName = jsonObject[@"last_name"];
+            self.email = jsonObject[@"email"];
+            self.supportedCauses = [[NSMutableArray alloc] initWithArray:[self retrieveAssociationIdsfromJson:jsonObject[@"supported_causes"] key:@"to_user_id"]];
+        }
+        
+        if ([self.role isEqualToString:@"business"]) {
+            self.supportedCauses = [[NSMutableArray alloc] initWithArray:[self retrieveAssociationIdsfromJson:jsonObject[@"supported_causes"] key:@"to_user_id"]];
+        }
+        
+        if ([self.role isEqualToString:@"cause"]) {
+            //self.donors = jsonObject[@"donors"];
+            self.supporters = [[NSMutableArray alloc] initWithArray:[self retrieveAssociationIdsfromJson:jsonObject[@"supporters"] key:@"from_user_id"]];
         }
     }
     return self;
 }
+
+
+/** Miscellaneous functions **/
 
 - (NSDate *)formatDateFromJSON:(NSString *)dateString
 {
@@ -69,22 +82,6 @@
     self.transactionsAll = [[NSMutableArray alloc] initWithArray:[presorted sortedArrayUsingDescriptors:@[dateDescriptor]]];
 }
 
-- (int)getSupportedCausesCount
-{
-    if (_supportedCauses)
-        return (int) self.supportedCauses.count;
-    else
-        return 0;
-}
-
-- (int)getSupportersCount
-{
-    if (_supporters)
-        return (int) self.supporters.count;
-    else
-        return 0;
-}
-
 - (NSString *)getTagsString
 {
     NSMutableString *string = [[NSMutableString alloc] init];
@@ -94,6 +91,71 @@
         [string appendString:@" "];
     }
     return string;
+}
+
+- (NSPredicate *)arrayORPredicate:(NSMutableArray *)anArray key:(NSString *)aKey
+{
+    NSMutableArray *predArray = [[NSMutableArray alloc] init];
+    for (NSObject *i in anArray) {
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K == %@", aKey, i];
+        [predArray addObject:pred];
+    }
+    
+    return [NSCompoundPredicate orPredicateWithSubpredicates:predArray];
+}
+
+- (NSArray *)retrieveAssociationIdsfromJson:(NSArray *)jsonArray key:(NSString *)aKey
+{
+    NSMutableArray *anArray = [[NSMutableArray alloc] init];
+    for (NSDictionary *dict in jsonArray) {
+        [anArray addObject:dict[aKey]];
+    }
+    return [anArray copy];
+}
+
+/** User functions **/
+
+- (void)determineRedeemableBusinesses
+{
+    //if ([self.role isEqualToString:@"business"] || [self.role isEqualToString:@"cause"]) return;
+    
+    NSMutableArray *predArr = [[NSMutableArray alloc] init];
+    for (NSNumber *i in self.supportedCauses) {
+        NSPredicate *pred = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            //NSArray *suppCauses = evaluatedObject[@"supported_causes"];
+            NSArray *suppCauses = [evaluatedObject supportedCauses];
+            return [suppCauses containsObject:i];
+        }];
+        [predArr addObject:pred];
+    }
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
+    TLFBusinessStore *store = [TLFBusinessStore getInstance];
+    self.redeemableBusinesses = [NSMutableArray arrayWithArray:[store.businesses filteredArrayUsingPredicate:predicate]];
+}
+
+- (BOOL)checkReemableBusiness:(TLFUser *)aBusiness
+{
+    NSMutableArray *predArr = [[NSMutableArray alloc] init];
+    for (NSNumber *i in self.supportedCauses) {
+        NSPredicate *pred = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            //TLFUser *buss = evaluatedObject;
+            NSArray *suppCauses = [evaluatedObject supportedCauses];
+            return [suppCauses containsObject:i];
+        }];
+        [predArr addObject:pred];
+    }
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
+    return [predicate evaluateWithObject:aBusiness];
+}
+
+/** Business functions **/
+
+- (int)getSupportedCausesCount
+{
+    if (self.supportedCauses)
+        return (int) self.supportedCauses.count;
+    else
+        return 0;
 }
 
 - (NSString *)getSupportedCausesStr
@@ -109,6 +171,26 @@
     }
 }
 
+- (NSArray *)getSupportedCauses
+{
+    if (![self.role isEqualToString:@"business"]) return nil;
+
+    NSPredicate *predicate = [self arrayORPredicate:self.supportedCauses key:@"ID"];
+    TLFCauseStore *store = [TLFCauseStore getInstance];
+    NSArray *filtered = [store.causes filteredArrayUsingPredicate:predicate];
+    return filtered;
+}
+
+/** Cause functions **/
+
+- (int)getSupportersCount
+{
+    if (self.supporters)
+        return (int) self.supporters.count;
+    else
+        return 0;
+}
+
 - (NSString *)getSupportersCountStr
 {
     int count = [self getSupportersCount];
@@ -121,81 +203,14 @@
     }
 }
 
-- (NSPredicate *)orArrayPredicate:(NSMutableArray *)arr key:(NSString *)key
-{
-    NSMutableArray *predArray = [[NSMutableArray alloc] init];
-    for (NSObject *i in arr) {
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K == %@", key, i];
-        [predArray addObject:pred];
-    }
-    
-    return [NSCompoundPredicate orPredicateWithSubpredicates:predArray];
-}
-
-- (NSArray *)getSupportedCauses
-{
-    if (![self.role isEqualToString:@"business"]) return nil;
-/*
-    NSMutableArray *predArr = [[NSMutableArray alloc] init];
-    for (NSNumber *i in _supportedCauses) {
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K == %@", @"id", i];
-        [predArr addObject:pred];
-    }
-    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
-*/
-    NSPredicate *predicate = [self orArrayPredicate:self.supportedCauses key:@"id"];
-    TLFCauseStore *store = [TLFCauseStore getInstance];
-    NSArray *filtered = [store.causes filteredArrayUsingPredicate:predicate];
-    return filtered;
-}
-
 - (NSArray *)getSupporters
 {
     if (![self.role isEqualToString:@"cause"]) return nil;
-/*
-    NSMutableArray *predArr = [[NSMutableArray alloc] init];
-    for (NSNumber *i in _supporters) {
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"%K == %@", @"id", i];
-        [predArr addObject:pred];
-    }
-    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
-*/
-    NSPredicate *predicate = [self orArrayPredicate:self.supporters key:@"id"];
+
+    NSPredicate *predicate = [self arrayORPredicate:self.supporters key:@"ID"];
     TLFBusinessStore *store = [TLFBusinessStore getInstance];
     NSArray *filtered = [store.businesses filteredArrayUsingPredicate:predicate];
     return filtered;
-}
-
-- (void)determineRedeemableBusinesses
-{
-    //if ([self.role isEqualToString:@"business"] || [self.role isEqualToString:@"cause"]) return;
-    
-    NSMutableArray *predArr = [[NSMutableArray alloc] init];
-    for (NSNumber *i in self.supportedCauses) {
-        NSPredicate *pred = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-            NSArray *suppCauses = evaluatedObject[@"supported_causes"];
-            return [suppCauses containsObject:i];
-        }];
-        [predArr addObject:pred];
-    }
-    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
-    TLFBusinessStore *store = [TLFBusinessStore getInstance];
-    self.redeemableBusinesses = [NSMutableArray arrayWithArray:[store.businesses filteredArrayUsingPredicate:predicate]];
-}
-
-- (BOOL)checkReemableBusiness:(TLFUser *)business
-{
-    NSMutableArray *predArr = [[NSMutableArray alloc] init];
-    for (NSNumber *i in self.supportedCauses) {
-        NSPredicate *pred = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-            TLFUser *buss = evaluatedObject;
-            NSArray *suppCauses = buss.supportedCauses;
-            return [suppCauses containsObject:i];
-        }];
-        [predArr addObject:pred];
-    }
-    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predArr];
-    return [predicate evaluateWithObject:business];
 }
 
 @end

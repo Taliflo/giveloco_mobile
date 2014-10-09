@@ -76,10 +76,12 @@ public class MyAccount extends Fragment {
 
         if (userStore.getCurrentUser() == null) {
             int uid = Integer.parseInt(userStore.getUid());
-            RequestUser requestUser = new RequestUser(user, uid, getActivity());
+            RequestUser requestUser = new RequestUser(getActivity(), user, uid, name, credits, transactionsList);
             requestUser.execute();
             Log.i(TAG, "Requesting user...");
-        }/* else {
+        }
+
+        /* else {
             user = savedInstanceState.getParcelable("loggedInUser");
             transactionsList = savedInstanceState.getParcelableArrayList("transactions");
             name.setText(user.getFullName());
@@ -114,10 +116,16 @@ public class MyAccount extends Fragment {
         private long startTime;
         private long endTime;
 
-        public RequestUser(User user, int userId, Activity activity) {
+        private TextView name, credits;
+        private ArrayList<Transaction> transactionsList;
+
+        public RequestUser(Activity activity, User user, int userId, TextView name, TextView credits, ArrayList<Transaction> transactionsList) {
             this.user = user;
             this.userId = userId;
             this.activity = activity;
+            this.name = name;
+            this.credits = credits;
+            this.transactionsList = transactionsList;
             progressView = (RelativeLayout) activity.findViewById(R.id.myAccount_progressView);
         }
 
@@ -143,17 +151,12 @@ public class MyAccount extends Fragment {
             super.onPostExecute(result);
             progressView.setVisibility(View.GONE);
 
-            if (user.getRole().equals("individual"))
-                name.setText(user.getFullName());
-            else
-                name.setText(user.getCompanyName());
+            boolean isNull = (user == null);
+            Log.i(TAG, "User is null: " + isNull);
 
-
+            name.setText(user.getFullName());
             credits.setText("C " + user.getBalance());
-
-
-            transactionsList.addAll(Arrays.asList(user.getTransactionsCreated()));
-            transactionsList.addAll(Arrays.asList(user.getTransactionsAccepted()));
+            transactionsList = user.getTransactionsAll();
             adapter.notifyDataSetChanged();
             Log.i(TAG, user.getFirstName());
             //Log.i(TAG, user.getTransactionsAccepted()[0].getAmount());
@@ -166,10 +169,10 @@ public class MyAccount extends Fragment {
             startTime = android.os.SystemClock.uptimeMillis();
 
             NetworkHelper networkHelper = NetworkHelper.getInstance();
-            HashMap<String, String> params = userStore.getLoggedInCredentials();
-            String jsonResult = networkHelper.requestStrategy(networkHelper.ACTION_REQ_INDV, params);
+            HashMap<String, String> extras = userStore.getLoggedInCredentials();
+            String jsonResult = networkHelper.requestStrategy(networkHelper.ACTION_REQ_INDV, extras);
             JSONObject resultObject = new JSONObject(jsonResult);
-            Log.d(TAG, resultObject.toString());
+            Log.i(TAG, resultObject.toString());
             user = new User(resultObject);
             userStore.setCurrentUser(user);
         }

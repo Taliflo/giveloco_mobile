@@ -85,7 +85,6 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
         startTime = android.os.SystemClock.uptimeMillis();
 
         NetworkHelper networkHelper = NetworkHelper.getInstance();
-        String query = networkHelper.USERS_URL;
 
         HashMap<String, String> params = userStore.getLoggedInCredentials();
         int action = 0;
@@ -101,7 +100,9 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
         JSONArray resultArray = new JSONArray(jsonResult);
         for (int i = 0; i < resultArray.length(); i++) {
             JSONObject jsonObject = resultArray.getJSONObject(i);
-            userList.add(new User(jsonObject));
+            if (jsonObject.getBoolean("is_published") == true) {
+                userList.add(new User(jsonObject));
+            }
         }
     }
 

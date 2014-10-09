@@ -15,13 +15,14 @@
 #import "TLFDonateViewController.h"
 #import "TLFNavBarHelper.h"
 
+#define causeIden @"cause"
+#define bussIden @"business"
+
 @interface TLFUserDetailViewController ()
 
 @end
 
 static TLFNavBarHelper *nbHelper;
-static NSString *causeIden = @"cause";
-static NSString *bussIden = @"business";
 static BOOL redeemableBusiness = NO;
 
 @implementation TLFUserDetailViewController
@@ -81,6 +82,7 @@ static BOOL redeemableBusiness = NO;
         
         // Check if this business is a redeemable business
         redeemableBusiness = [userStore.currentUser checkReemableBusiness:self.user];
+        redeemableBusiness = NO;
         NSLog(redeemableBusiness ? @"redeemableBusiness = YES" : @"redeemableBusiness = NO" );
         
         if (redeemableBusiness) {

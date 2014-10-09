@@ -31,11 +31,11 @@ public class User implements Parcelable {
     protected String id, role, firstName, lastName, companyName,
             email, phone, streetAddress, city, state,
             country, zip, summary, description, website, picOriginal, picMedium, picThumb, profilePictureURL = "http://dummyimage.com/200x200/999999/fff.png";
-    protected String[] tags;
-    protected Transaction[] transactionsCreated, transactionsAccepted, transactionsAll;
-    private int totalDebits, totalCredits;
-    private float balance, totalDebitsValue, totalCreditsValue;
+    protected ArrayList<String> tags;
+    protected ArrayList<Transaction> transactionsCreated, transactionsAccepted, transactionsAll;
+    private float balance;
     private int[] supporters, supportedCauses;
+    private boolean isPublished, isFeatured;
 
     private ArrayList<User> redeemableBusinesses;
     private boolean redeemableBusiness = false;
@@ -51,13 +51,10 @@ public class User implements Parcelable {
     public User(JSONObject jsonObject) {
         id = jsonObject.optString("id");
         role = jsonObject.optString("role");
-        firstName = jsonObject.optString("first_name");
-        lastName = jsonObject.optString("last_name");
         companyName = jsonObject.optString("company_name");
         summary = jsonObject.optString("summary");
         description = jsonObject.optString("description");
         website = jsonObject.optString("website");
-        email = jsonObject.optString("email");
         phone = jsonObject.optString("phone");
         streetAddress = jsonObject.optString("street_address");
         city = jsonObject.optString("city");
@@ -68,6 +65,7 @@ public class User implements Parcelable {
         description = jsonObject.optString("description");
 
 
+
         JSONObject images = jsonObject.optJSONObject("images");
         JSONObject profilePicture = images.optJSONObject("profile_picture");
         picOriginal = profilePicture.optString("original");
@@ -75,43 +73,37 @@ public class User implements Parcelable {
         picThumb = profilePicture.optString("thumb");
 
         JSONArray jsonTags = jsonObject.optJSONArray("tags");
-        tags = new String[jsonTags.length()];
+        tags = new ArrayList<String>();
         for (int i = 0; i < jsonTags.length(); i++) {
-            tags[i] = jsonTags.optString(i);
+            tags.add(jsonTags.optString(i));
+        }
+
+        retrieveTransactions(jsonObject.optJSONArray("transactions_created"), transactionsCreated);
+        retrieveTransactions(jsonObject.optJSONArray("transactions_accepted"), transactionsAccepted);
+
+        if (transactionsAccepted != null || transactionsCreated != null) {
+            transactionsAll = sortTransactionsByDate();
         }
 
         if (role.equals("individual")) {
+            firstName = jsonObject.optString("first_name");
+            lastName = jsonObject.optString("last_name");
+            email = jsonObject.optString("email");
 
-            balance = Float.parseFloat(jsonObject.optString("balance"));
-
-            JSONArray jsonTC = jsonObject.optJSONArray("transactions_created");
-            transactionsCreated = new Transaction[jsonTC.length()];
-            for (int i = 0; i < jsonTC.length(); i++) {
-                transactionsCreated[i] = new Transaction(jsonTC.optJSONObject(i));
+            String bal = jsonObject.optString("balance");
+            if (bal != null) {
+                balance = Float.parseFloat(bal);
             }
 
-            JSONArray jsonTA = jsonObject.optJSONArray("transactions_accepted");
-            transactionsAccepted = new Transaction[jsonTA.length()];
-            for (int i = 0; i < jsonTA.length(); i++) {
-                transactionsAccepted[i] = new Transaction(jsonTA.optJSONObject(i));
-            }
-
+            retrieveAssociationIds(jsonObject.optJSONArray("supported_causes"), supportedCauses, "to_user_id");
         }
 
         if (role.equals("business")) {
-            JSONArray jsonSupport = jsonObject.optJSONArray("supported_causes");
-            supportedCauses = new int[jsonSupport.length()];
-            for (int i = 0; i < jsonSupport.length(); i++) {
-                supportedCauses[i] = jsonSupport.optInt(i);
-            }
+            retrieveAssociationIds(jsonObject.optJSONArray("supported_causes"), supportedCauses, "to_user_id");
         }
 
         if (role.equals("cause")) {
-            JSONArray jsonSupport = jsonObject.optJSONArray("supporters");
-            supporters = new int[jsonSupport.length()];
-            for (int i = 0; i < jsonSupport.length(); i++) {
-                supporters[i] = jsonSupport.optInt(i);
-            }
+            retrieveAssociationIds(jsonObject.optJSONArray("supporters"), supporters, "from_user_id");
         }
     }
 
@@ -155,19 +147,15 @@ public class User implements Parcelable {
         dest.writeString(picMedium);
         dest.writeString(picThumb);
 
-        //dest.writeInt(totalDebits);
-        //dest.writeInt(totalCredits);
-
         dest.writeFloat(balance);
-        //dest.writeFloat(totalDebitsValue);
-        //dest.writeFloat(totalCreditsValue);
 
-        dest.writeStringArray(tags);
         dest.writeIntArray(supporters);
         dest.writeIntArray(supportedCauses);
 
-        dest.writeTypedArray(transactionsCreated, 0);
-        dest.writeTypedArray(transactionsAccepted, 0);
+        dest.writeSerializable(tags);
+        dest.writeSerializable(transactionsCreated);
+        dest.writeSerializable(transactionsAccepted);
+        dest.writeSerializable(transactionsAll);
 
         // If redeemableBusiness == true, byte == 1
         dest.writeByte((byte) (redeemableBusiness ? 1 : 0));
@@ -199,19 +187,15 @@ public class User implements Parcelable {
         picMedium = in.readString();
         picThumb = in.readString();
 
-        //totalDebits = in.readInt();
-        //totalCredits = in.readInt();
-
         balance = in.readFloat();
-        //totalDebitsValue = in.readFloat();
-        //totalCreditsValue = in.readFloat();
 
-        tags = in.createStringArray();
         supporters = in.createIntArray();
         supportedCauses = in.createIntArray();
 
-        transactionsCreated = (Transaction[]) in.createTypedArray(Transaction.CREATOR);
-        transactionsAccepted = (Transaction[]) in.createTypedArray(Transaction.CREATOR);
+        tags = (ArrayList<String>) in.readSerializable();
+        transactionsCreated = (ArrayList<Transaction>) in.readSerializable();
+        transactionsAccepted = (ArrayList<Transaction>) in.readSerializable();
+        transactionsAll = (ArrayList<Transaction>) in.readSerializable();
 
         // redeemableBusiness == true if byte != 0
         redeemableBusiness = in.readByte() != 0;
@@ -240,10 +224,25 @@ public class User implements Parcelable {
                 }
             };
 
+    private void retrieveAssociationIds(JSONArray sourceJson, int[] destination, String key) {
+        destination = new int[sourceJson.length()];
+        for (int i = 0; i < sourceJson.length(); i++) {
+            JSONObject association = sourceJson.optJSONObject(i);
+            destination[i] = association.optInt(key);
+        }
+    }
+
+    private void retrieveTransactions(JSONArray sourceJson, ArrayList<Transaction> destination) {
+        destination = new ArrayList<Transaction>();
+        for (int i = 0; i < sourceJson.length(); i++) {
+            destination.add(new Transaction(sourceJson.optJSONObject(i)));
+        }
+    }
+
     public String getTagsString() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < tags.length; i++) {
-            sb.append("#" + tags[i] + " ");
+        for (int i = 0; i < tags.size(); i++) {
+            sb.append("#" + tags.get(i) + " ");
         }
         return sb.toString();
     }
@@ -263,10 +262,10 @@ public class User implements Parcelable {
         }
     }
 
-    public void sortTransactionsByDate() {
+    public ArrayList<Transaction> sortTransactionsByDate() {
         ArrayList<Transaction> trans = new ArrayList<Transaction>();
-        trans.addAll(Arrays.asList(transactionsCreated));
-        trans.addAll(Arrays.asList(transactionsAccepted));
+        trans.addAll(transactionsCreated);
+        trans.addAll(transactionsAccepted);
 
         Collections.sort(trans, new Comparator<Transaction>() {
             @Override
@@ -274,9 +273,11 @@ public class User implements Parcelable {
                 return transaction.getCreatedAt().compareTo(transaction2.getCreatedAt());
             }
         });
+
+        return trans;
     }
 
-    // Accessor methods
+    // Required accessor methods
 
     public String getId() {
         return id;
@@ -290,24 +291,8 @@ public class User implements Parcelable {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getFullName() {
@@ -318,88 +303,32 @@ public class User implements Parcelable {
         return companyName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhone() {
         return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getStreetAddress() {
         return streetAddress;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
-    }
-
     public String getCity() {
         return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     public String getZip() {
         return zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
     }
 
     public String getSummary() {
         return summary;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
     }
 
     public String getPicOriginal() {
@@ -426,28 +355,12 @@ public class User implements Parcelable {
         this.picThumb = picThumb;
     }
 
-    public String[] getTags() {
+    public ArrayList<String> getTags() {
         return tags;
     }
 
-    public void setTags(String[] tags) {
-        this.tags = tags;
-    }
-
-    public Transaction[] getTransactionsCreated() {
-        return transactionsCreated;
-    }
-
-    public void setTransactionsCreated(Transaction[] transactionsCreated) {
-        this.transactionsCreated = transactionsCreated;
-    }
-
-    public Transaction[] getTransactionsAccepted() {
-        return transactionsAccepted;
-    }
-
-    public void setTransactionsAccepted(Transaction[] transactionsAccepted) {
-        this.transactionsAccepted = transactionsAccepted;
+    public ArrayList<Transaction> getTransactionsAll() {
+        return transactionsAll;
     }
 
     public String getProfilePictureURL() {
@@ -458,22 +371,6 @@ public class User implements Parcelable {
         this.profilePictureURL = profilePictureURL;
     }
 
-    public int getTotalDebits() {
-        return totalDebits;
-    }
-
-    public void setTotalDebits(int totalDebits) {
-        this.totalDebits = totalDebits;
-    }
-
-    public int getTotalCredits() {
-        return totalCredits;
-    }
-
-    public void setTotalCredits(int totalCredits) {
-        this.totalCredits = totalCredits;
-    }
-
     public float getBalance() {
         return balance;
     }
@@ -482,28 +379,8 @@ public class User implements Parcelable {
         this.balance = balance;
     }
 
-    public float getTotalDebitsValue() {
-        return totalDebitsValue;
-    }
-
-    public void setTotalDebitsValue(float totalDebitsValue) {
-        this.totalDebitsValue = totalDebitsValue;
-    }
-
-    public float getTotalCreditsValue() {
-        return totalCreditsValue;
-    }
-
-    public void setTotalCreditsValue(float totalCreditsValue) {
-        this.totalCreditsValue = totalCreditsValue;
-    }
-
     public int[] getSupporters() {
         return supporters;
-    }
-
-    public void setSupporters(int[] supporters) {
-        this.supporters = supporters;
     }
 
     public int getSupportersCount() {
@@ -517,9 +394,6 @@ public class User implements Parcelable {
         return supportedCauses;
     }
 
-    public void setSupportedCauses(int[] supportedCauses) {
-        this.supportedCauses = supportedCauses;
-    }
 
     public int getSupportedCausesCount() {
         if (supportedCauses == null)

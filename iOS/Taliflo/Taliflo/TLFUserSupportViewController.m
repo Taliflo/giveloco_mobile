@@ -45,6 +45,8 @@ static TLFNavBarHelper *nbHelper;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [self.tableView setBackgroundColor:[TLFColor lightestGrey]];
+    
     // Load the cell nib file
     UINib *nib = [UINib nibWithNibName:cellName bundle:nil];
     // Register the nib file which contains the cell
@@ -83,6 +85,9 @@ static TLFNavBarHelper *nbHelper;
     return 161.0f;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TLFUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
@@ -93,8 +98,8 @@ static TLFNavBarHelper *nbHelper;
     
     // Configure the cell...
     
-    cell.name.text = self.support[indexPath.row][@"company_name"];
-    cell.summary.text = self.support[indexPath.row][@"summary"];
+    cell.name.text = [self.support[indexPath.row] companyName];
+    cell.summary.text = [self.support[indexPath.row] summary];
     
     if ([self.supportRole isEqualToString:@"cause"])
         cell.backgroundColor = [TLFColor talifloTiffanyBlue];
@@ -105,6 +110,8 @@ static TLFNavBarHelper *nbHelper;
     return cell;
 }
 
+#pragma clang diagnostic pop
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,7 +119,7 @@ static TLFNavBarHelper *nbHelper;
     TLFUserDetailViewController *detailVC = [[TLFUserDetailViewController alloc] init];
     
     // Pass the selected cause to the user detail view controller
-    detailVC.user = [[TLFUser alloc] initWithDictionary:self.support[indexPath.row]];
+    detailVC.user = [[TLFUser alloc] initWithJSON:self.support[indexPath.row]];
     
     // Push the view controller.
     [self.navigationController pushViewController:detailVC animated:YES];

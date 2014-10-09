@@ -67,7 +67,8 @@ static double startTime, endTime;
                        [viewController.tableView reloadData];
                        endTime = CACurrentMediaTime();
                        NSLog(@"Request users [%@] execution time: %f sec", role, (endTime - startTime));
-                       
+            
+                        
                        if ([role isEqualToString:@"business"]) {
                            [currentUser determineRedeemableBusinesses];
                            NSLog(@"Total redeemable businesses: %lu", (unsigned long)[currentUser.redeemableBusinesses count]);
@@ -90,16 +91,23 @@ static double startTime, endTime;
 {
     // Extract users based on role
     for (NSDictionary *obj in responseObject) {
-        if ([obj[@"role"] isEqualToString:role]) {
-            [list addObject:obj];
+        NSNumber *isPublishedNum = obj[@"is_published"];
+        BOOL isPublished = [isPublishedNum boolValue];
+        if (isPublished && [obj[@"role"] isEqualToString:role]) {
+            TLFUser *user = [[TLFUser alloc] initWithJSON:obj];
+            [list addObject:user];
         }
     }
     
-    NSLog(@"FIRST OBJECT: %@, %@", list[0][@"company_name"], list[0][@"role"]);
+    NSLog(@"FIRST OBJECT: %@, %@", [list[0] companyName], [list[0] role]);
+    
+    if ([role isEqualToString:@"cause"]) {
+        NSLog(@"Supporters: %@", [list[0] supporters]);
+    }
     
     // Sort alphabetically
     NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]
-                                    initWithKey:@"company_name"
+                                    initWithKey:@"companyName"
                                     ascending:YES
                                     selector:@selector(localizedCaseInsensitiveCompare:)];
     

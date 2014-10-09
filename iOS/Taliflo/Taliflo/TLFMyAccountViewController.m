@@ -132,7 +132,7 @@ static UIView *indicatorView;
 
         dispatch_async(dispatch_get_main_queue(),
                        ^{
-                           self.user = [[TLFUser alloc] initWithDictionary:responseObject];
+                           self.user = [[TLFUser alloc] initWithJSON:responseObject];
                            // Set user in global store
                            TLFUserStore *userStore = [TLFUserStore getInstance];
                            userStore.currentUser = self.user;
@@ -198,7 +198,7 @@ static UIView *indicatorView;
         cell = [[TLFTransactionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdent];
     }
 
-    TLFTransaction *trans = [[TLFTransaction alloc] initWithDictionary:self.user.transactionsAll[indexPath.row]];
+    TLFTransaction *trans = [[TLFTransaction alloc] initWithJSON:self.user.transactionsAll[indexPath.row]];
     cell.party.text = trans.toName;
     cell.date.text = [trans formatCreatedAt];
     cell.type.text = trans.transType;
