@@ -3,6 +3,7 @@ package com.taliflo.app.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.taliflo.app.model.UserStore;
 import com.taliflo.app.utilities.ActionBarHelper;
 
 public class UserDetail extends Activity {
+
+    private final String TAG = "Taliflo.UserDeatil";
 
     // Layout Views
     private TextView companyName, availableCredit, description, address, phone, supportCount, tags, btnSupportText;
@@ -93,6 +96,8 @@ public class UserDetail extends Activity {
                     btnTransact.setEnabled(false);
                     redeemDisabledMsg.setVisibility(View.VISIBLE);
                 }
+
+                Log.i(TAG, "Business ID: " + user.getId());
             }
 
             if (user.getRole().equals("cause")) {
@@ -102,6 +107,8 @@ public class UserDetail extends Activity {
                 btnTransact.setText(getResources().getString(R.string.userDetail_btnDonateText));
                 btnTransact.setBackgroundResource(R.drawable.btn_bg_tb);
                 btnTransact.setOnClickListener(openDonate);
+
+                Log.i(TAG, "Cause ID: " + user.getId());
             }
         }
 

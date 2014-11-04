@@ -281,14 +281,15 @@ public class ActionBarHelper {
         // Log tag
         private final String TAG = "Taliflo.AttemptLogout";
 
-        private final String logoutUrl = "http://api-dev.taliflo.com/user/logout";
-
         private Activity activity;
-        private UserStore userStore = UserStore.getInstance();
+        private UserStore userStore;
         private boolean logoutFailed = false;
 
         private AttemptLogout(Activity activity) {
             this.activity = activity;
+            userStore = UserStore.getInstance();
+
+            Log.i(TAG, "Auth token: " + userStore.getLoggedInCredentials().get("authToken"));
         }
 
         @Override
@@ -326,9 +327,8 @@ public class ActionBarHelper {
         }
 
         private void logoutUser() throws Exception {
-            HashMap<String, String> params = userStore.getLoggedInCredentials();
             NetworkHelper networkHelper = NetworkHelper.getInstance();
-            String result = networkHelper.requestStrategy(networkHelper.ACTION_LOGOUT, params);
+            String result = networkHelper.requestStrategy(NetworkHelper.ACTION_LOGOUT, null);
             if (result == null)
                 logoutFailed = true;
         }

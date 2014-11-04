@@ -170,7 +170,7 @@ public class MyAccount extends Fragment {
 
             NetworkHelper networkHelper = NetworkHelper.getInstance();
             HashMap<String, String> extras = userStore.getLoggedInCredentials();
-            String jsonResult = networkHelper.requestStrategy(networkHelper.ACTION_REQ_INDV, extras);
+            String jsonResult = networkHelper.requestStrategy(NetworkHelper.ACTION_REQ_INDV, extras);
             JSONObject resultObject = new JSONObject(jsonResult);
             Log.i(TAG, resultObject.toString());
             user = new User(resultObject);

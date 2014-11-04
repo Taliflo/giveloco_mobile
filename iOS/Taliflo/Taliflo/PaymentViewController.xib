@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentViewController">
+            <connections>
+                <outlet property="cardNumber" destination="COz-EA-CJC" id="CjQ-v7-Kz6"/>
+                <outlet property="cvv" destination="yi4-aj-Hah" id="SXz-2h-PPH"/>
+                <outlet property="expiryDate" destination="iZj-vQ-YL1" id="57V-N0-Ekq"/>
+                <outlet property="view" destination="WWn-0I-OMq" id="2kH-M8-Wqg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="WWn-0I-OMq">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhy-Va-WoP">
+                    <rect key="frame" x="8" y="80" width="158" height="20.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="158" id="TlP-GX-bGB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="COz-EA-CJC">
+                    <rect key="frame" x="8" y="108" width="304" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Vvv-h0-E6R"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Expiry date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZj-vQ-YL1">
+                    <rect key="frame" x="8" y="151" width="304" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="iuK-jM-Yve"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVV number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yi4-aj-Hah">
+                    <rect key="frame" x="8" y="194" width="304" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Vv4-Y3-DwH"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We accept Visa, MasterCard, American Express, and Discovery." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DP-Rg-31P">
+                    <rect key="frame" x="8" y="232" width="304" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="GcQ-f4-fV5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2u-vY-wBZ">
+                    <rect key="frame" x="8" y="530" width="304" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Complete">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="completePayment:" destination="-1" eventType="touchUpInside" id="8RU-eZ-cbK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="COz-EA-CJC" firstAttribute="top" secondItem="xhy-Va-WoP" secondAttribute="bottom" constant="8" symbolic="YES" id="74r-Gr-EeE"/>
+                <constraint firstItem="xhy-Va-WoP" firstAttribute="top" secondItem="WWn-0I-OMq" secondAttribute="top" constant="80" id="BeV-l6-KnM"/>
+                <constraint firstItem="yi4-aj-Hah" firstAttribute="leading" secondItem="WWn-0I-OMq" secondAttribute="leading" constant="8" id="Cq6-02-aTu"/>
+                <constraint firstItem="COz-EA-CJC" firstAttribute="leading" secondItem="WWn-0I-OMq" secondAttribute="leading" constant="8" id="IEY-QU-lho"/>
+                <constraint firstAttribute="trailing" secondItem="P2u-vY-wBZ" secondAttribute="trailing" constant="8" id="RrR-qI-ya2"/>
+                <constraint firstItem="xhy-Va-WoP" firstAttribute="leading" secondItem="COz-EA-CJC" secondAttribute="leading" id="UHj-dR-uJy"/>
+                <constraint firstAttribute="bottom" secondItem="P2u-vY-wBZ" secondAttribute="bottom" constant="8" id="WRH-hx-dBX"/>
+                <constraint firstItem="P2u-vY-wBZ" firstAttribute="leading" secondItem="WWn-0I-OMq" secondAttribute="leading" constant="8" id="aQY-Fs-KkP"/>
+                <constraint firstItem="iZj-vQ-YL1" firstAttribute="leading" secondItem="WWn-0I-OMq" secondAttribute="leading" constant="8" id="ak2-jy-pbB"/>
+                <constraint firstItem="9DP-Rg-31P" firstAttribute="leading" secondItem="yi4-aj-Hah" secondAttribute="leading" id="avY-bc-7Yt"/>
+                <constraint firstAttribute="trailing" secondItem="COz-EA-CJC" secondAttribute="trailing" constant="8" id="fs2-bc-NOv"/>
+                <constraint firstItem="9DP-Rg-31P" firstAttribute="trailing" secondItem="yi4-aj-Hah" secondAttribute="trailing" id="oZA-NX-Ocz"/>
+                <constraint firstItem="9DP-Rg-31P" firstAttribute="top" secondItem="yi4-aj-Hah" secondAttribute="bottom" constant="8" symbolic="YES" id="ofZ-aE-SJ8"/>
+                <constraint firstAttribute="trailing" secondItem="yi4-aj-Hah" secondAttribute="trailing" constant="8" id="sno-Hc-o4S"/>
+                <constraint firstItem="iZj-vQ-YL1" firstAttribute="top" secondItem="COz-EA-CJC" secondAttribute="bottom" constant="13" id="sxB-6Q-35U"/>
+                <constraint firstAttribute="trailing" secondItem="iZj-vQ-YL1" secondAttribute="trailing" constant="8" id="w2X-U3-Tg9"/>
+                <constraint firstItem="yi4-aj-Hah" firstAttribute="top" secondItem="iZj-vQ-YL1" secondAttribute="bottom" constant="13" id="yUr-34-Fca"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="76" y="64"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

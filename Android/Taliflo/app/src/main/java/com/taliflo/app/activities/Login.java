@@ -160,11 +160,11 @@ public class Login extends Activity {
         private void loginUser() throws Exception {
             startTime = android.os.SystemClock.uptimeMillis();
 
-            NetworkHelper restHelper = NetworkHelper.getInstance();
+            NetworkHelper networkHelper = NetworkHelper.getInstance();
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("email", email);
             params.put("password", password);
-            String result = restHelper.requestStrategy(restHelper.ACTION_LOGIN, params);
+            String result = networkHelper.requestStrategy(NetworkHelper.ACTION_LOGIN, params);
 
             if (result != null) {
                 // Successful login

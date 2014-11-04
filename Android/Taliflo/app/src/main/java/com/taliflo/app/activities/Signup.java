@@ -136,7 +136,7 @@ public class Signup extends Activity {
         @Override
         protected String doInBackground(String... params) {
             NetworkHelper networkHelper = NetworkHelper.getInstance();
-            return networkHelper.requestStrategy(networkHelper.ACTION_SIGNUP, this.params);
+            return networkHelper.requestStrategy(NetworkHelper.ACTION_SIGNUP, this.params);
         }
 
         @Override

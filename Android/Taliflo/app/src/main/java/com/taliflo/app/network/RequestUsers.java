@@ -89,10 +89,10 @@ public class RequestUsers extends AsyncTask<String, Integer, String> {
         HashMap<String, String> params = userStore.getLoggedInCredentials();
         int action = 0;
         if (userRole.equals("cause"))
-            action = networkHelper.ACTION_REQ_CAUSES;
+            action = NetworkHelper.ACTION_REQ_CAUSES;
 
         if (userRole.equals("business"))
-            action = networkHelper.ACTION_REQ_BUSINESSES;
+            action = NetworkHelper.ACTION_REQ_BUSINESSES;
 
         String jsonResult = networkHelper.requestStrategy(action, params);
 

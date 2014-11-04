@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D5022E2519B703000015A125 /* TLFCausesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5022E2319B703000015A125 /* TLFCausesViewController.m */; };
-		D5022E2619B703000015A125 /* TLFCausesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5022E2419B703000015A125 /* TLFCausesViewController.xib */; };
-		D5022E3219B703F30015A125 /* TLFBusinessesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5022E3019B703F30015A125 /* TLFBusinessesViewController.m */; };
-		D5022E3319B703F30015A125 /* TLFBusinessesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5022E3119B703F30015A125 /* TLFBusinessesViewController.xib */; };
+		3B453A9D1A096CFE00D460D2 /* Taliflo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B453A9B1A096CFE00D460D2 /* Taliflo.xcdatamodeld */; };
+		3B453AAC1A0976E300D460D2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B453AAB1A0976E300D460D2 /* User.m */; };
+		3B453AAF1A0976E400D460D2 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B453AAE1A0976E400D460D2 /* Transaction.m */; };
+		D5022E2519B703000015A125 /* CausesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5022E2319B703000015A125 /* CausesViewController.m */; };
+		D5022E2619B703000015A125 /* CausesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5022E2419B703000015A125 /* CausesViewController.xib */; };
+		D5022E3219B703F30015A125 /* BusinessesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5022E3019B703F30015A125 /* BusinessesViewController.m */; };
+		D5022E3319B703F30015A125 /* BusinessesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5022E3119B703F30015A125 /* BusinessesViewController.xib */; };
 		D5022E4C19BA75810015A125 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = D5022E4319BA75810015A125 /* RECommonFunctions.m */; };
 		D5022E4D19BA75810015A125 /* REMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D5022E4519BA75810015A125 /* REMenu.m */; };
 		D5022E4E19BA75810015A125 /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D5022E4719BA75810015A125 /* REMenuItem.m */; };
@@ -29,20 +32,20 @@
 		D5022E7519BAD7890015A125 /* ActionMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = D5022E7419BAD7890015A125 /* ActionMenu.png */; };
 		D5022E7B19BAD87C0015A125 /* ActionMenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5022E7A19BAD87C0015A125 /* ActionMenu@2x.png */; };
 		D5022E8119BC35EB0015A125 /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5022E8019BC35EB0015A125 /* ActivityIndicatorView.xib */; };
-		D54F790419AEE1A6000C2AAE /* TLFUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F790319AEE1A6000C2AAE /* TLFUserStore.m */; };
-		D54F790B19AFB906000C2AAE /* TLFUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F790919AFB906000C2AAE /* TLFUserDetailViewController.m */; };
-		D54F790C19AFB906000C2AAE /* TLFUserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D54F790A19AFB906000C2AAE /* TLFUserDetailViewController.xib */; };
+		D54F790419AEE1A6000C2AAE /* UserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F790319AEE1A6000C2AAE /* UserStore.m */; };
+		D54F790B19AFB906000C2AAE /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F790919AFB906000C2AAE /* UserDetailViewController.m */; };
+		D54F790C19AFB906000C2AAE /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D54F790A19AFB906000C2AAE /* UserDetailViewController.xib */; };
 		D5AE02FE19B00B8D00F31F04 /* userImageBig.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE02FD19B00B8D00F31F04 /* userImageBig.png */; };
 		D5AE030019B00D2800F31F04 /* smallImg50.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE02FF19B00D2800F31F04 /* smallImg50.png */; };
-		D5AE030619B0144B00F31F04 /* TLFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030519B0144B00F31F04 /* TLFButton.m */; };
+		D5AE030619B0144B00F31F04 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030519B0144B00F31F04 /* CustomButton.m */; };
 		D5AE030919B0A12700F31F04 /* userImageSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE030819B0A12700F31F04 /* userImageSmall.png */; };
-		D5AE030C19B17D5D00F31F04 /* TLFUserSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030B19B17D5D00F31F04 /* TLFUserSupportViewController.m */; };
-		D5AE031019B18FD200F31F04 /* TLFRedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */; };
-		D5AE031119B18FD200F31F04 /* TLFRedeemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */; };
-		D5AE031819B1B63B00F31F04 /* TLFDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE031619B1B63B00F31F04 /* TLFDonateViewController.m */; };
-		D5AE031919B1B63B00F31F04 /* TLFDonateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */; };
-		D5AE032019B2838000F31F04 /* TLFBillingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE031E19B2838000F31F04 /* TLFBillingInfoViewController.m */; };
-		D5AE032119B2838000F31F04 /* TLFBillingInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE031F19B2838000F31F04 /* TLFBillingInfoViewController.xib */; };
+		D5AE030C19B17D5D00F31F04 /* UserSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030B19B17D5D00F31F04 /* UserSupportViewController.m */; };
+		D5AE031019B18FD200F31F04 /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE030E19B18FD200F31F04 /* RedeemViewController.m */; };
+		D5AE031119B18FD200F31F04 /* RedeemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE030F19B18FD200F31F04 /* RedeemViewController.xib */; };
+		D5AE031819B1B63B00F31F04 /* DonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE031619B1B63B00F31F04 /* DonateViewController.m */; };
+		D5AE031919B1B63B00F31F04 /* DonateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE031719B1B63B00F31F04 /* DonateViewController.xib */; };
+		D5AE032019B2838000F31F04 /* BillingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE031E19B2838000F31F04 /* BillingInfoViewController.m */; };
+		D5AE032119B2838000F31F04 /* BillingInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5AE031F19B2838000F31F04 /* BillingInfoViewController.xib */; };
 		D5AE032519B28BBE00F31F04 /* right-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE032419B28BBE00F31F04 /* right-arrow@2x.png */; };
 		D5AE032719B28E4F00F31F04 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D5AE032619B28E4F00F31F04 /* right-arrow.png */; };
 		D5B50DD2199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
@@ -50,44 +53,41 @@
 		D5B50DD6199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
 		D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DDA199D2C1100A486B0 /* InfoPlist.strings */; };
 		D5B50DDE199D2C1100A486B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DDD199D2C1100A486B0 /* main.m */; };
-		D5B50DE2199D2C1100A486B0 /* TLFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DE1199D2C1100A486B0 /* TLFAppDelegate.m */; };
+		D5B50DE2199D2C1100A486B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DE1199D2C1100A486B0 /* AppDelegate.m */; };
 		D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DE3199D2C1100A486B0 /* Images.xcassets */; };
 		D5B50DEB199D2C1100A486B0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DEA199D2C1100A486B0 /* XCTest.framework */; };
 		D5B50DEC199D2C1100A486B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD1199D2C1100A486B0 /* Foundation.framework */; };
 		D5B50DED199D2C1100A486B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B50DD5199D2C1100A486B0 /* UIKit.framework */; };
 		D5B50DF5199D2C1100A486B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5B50DF3199D2C1100A486B0 /* InfoPlist.strings */; };
 		D5B50DF7199D2C1100A486B0 /* TalifloTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50DF6199D2C1100A486B0 /* TalifloTests.m */; };
-		D5B50E06199D353000A486B0 /* TLFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E05199D353000A486B0 /* TLFColor.m */; };
-		D5B50E2B199D3CEB00A486B0 /* TLFNavBarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E2A199D3CEB00A486B0 /* TLFNavBarHelper.m */; };
-		D5CB54F419CD560500785003 /* TLFAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54F319CD560500785003 /* TLFAlert.m */; };
+		D5B50E06199D353000A486B0 /* CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E05199D353000A486B0 /* CustomColor.m */; };
+		D5B50E2B199D3CEB00A486B0 /* NavigationBarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B50E2A199D3CEB00A486B0 /* NavigationBarHelper.m */; };
+		D5CB54F419CD560500785003 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54F319CD560500785003 /* Alert.m */; };
 		D5CB54F619CEC0C900785003 /* UIButtonBarArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = D5CB54F519CEC0C900785003 /* UIButtonBarArrowRight.png */; };
 		D5CB54F819CEC0CF00785003 /* UIButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5CB54F719CEC0CF00785003 /* UIButtonBarArrowRight@2x.png */; };
-		D5CB54FE19D02ACE00785003 /* TLFSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54FC19D02ACE00785003 /* TLFSignupViewController.m */; };
-		D5CB54FF19D02ACE00785003 /* TLFSignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5CB54FD19D02ACE00785003 /* TLFSignupViewController.xib */; };
-		D5D333F119ABD5E900925EBF /* TLFMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D333EF19ABD5E900925EBF /* TLFMyAccountViewController.m */; };
+		D5CB54FE19D02ACE00785003 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54FC19D02ACE00785003 /* SignupViewController.m */; };
+		D5CB54FF19D02ACE00785003 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5CB54FD19D02ACE00785003 /* SignupViewController.xib */; };
+		D5D333F119ABD5E900925EBF /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D333EF19ABD5E900925EBF /* MyAccountViewController.m */; };
 		D5D3341119ABE7DC00925EBF /* MyAccount.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341019ABE7DC00925EBF /* MyAccount.png */; };
 		D5D3341519ABE88400925EBF /* Causes.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341419ABE88400925EBF /* Causes.png */; };
 		D5D3341919ABE93200925EBF /* Businesses.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341819ABE93200925EBF /* Businesses.png */; };
 		D5D3341B19ABE98300925EBF /* Businesses@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341A19ABE98300925EBF /* Businesses@2x.png */; };
 		D5D3341D19ABE9B900925EBF /* Causes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341C19ABE9B900925EBF /* Causes@2x.png */; };
 		D5D3341F19ABE9D700925EBF /* MyAccount@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D3341E19ABE9D700925EBF /* MyAccount@2x.png */; };
-		D5D3342519AD11FA00925EBF /* TLFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3342419AD11FA00925EBF /* TLFUser.m */; };
-		D5D3342819AD198200925EBF /* TLFTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3342719AD198200925EBF /* TLFTransaction.m */; };
 		D5D3342A19AD44E800925EBF /* 160.gif in Resources */ = {isa = PBXBuildFile; fileRef = D5D3342919AD44E800925EBF /* 160.gif */; };
-		D5D3342E19AD64C500925EBF /* TLFUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3342C19AD64C500925EBF /* TLFUserCell.m */; };
-		D5D3342F19AD64C500925EBF /* TLFUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5D3342D19AD64C500925EBF /* TLFUserCell.xib */; };
-		D5D3346119AE4A3300925EBF /* TLFCauseStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346019AE4A3300925EBF /* TLFCauseStore.m */; };
-		D5D3346419AE4A4D00925EBF /* TLFBusinessStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346319AE4A4D00925EBF /* TLFBusinessStore.m */; };
-		D5D3346B19AEB7D100925EBF /* TLFTransactionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346919AEB7D100925EBF /* TLFTransactionCell.m */; };
-		D5D3346C19AEB7D100925EBF /* TLFTransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5D3346A19AEB7D100925EBF /* TLFTransactionCell.xib */; };
-		D5D3346F19AEBD3100925EBF /* TLFNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346E19AEBD3100925EBF /* TLFNetworkHelper.m */; };
-		D5E6580C19DA0A5100B9A926 /* TLFMyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E6580B19DA0A5100B9A926 /* TLFMyAccountViewController.xib */; };
-		D5E6580F19DA1BF500B9A926 /* TLFPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6580E19DA1BF500B9A926 /* TLFPaymentViewController.m */; };
-		D5E6581419DA28B500B9A926 /* TLFPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E6581319DA28B500B9A926 /* TLFPaymentViewController.xib */; };
-		D5E6581919DC03AC00B9A926 /* TLFViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6581819DC03AB00B9A926 /* TLFViewHelper.m */; };
-		D5E6589D19E3ED8A00B9A926 /* TLFAssociation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6589C19E3ED8A00B9A926 /* TLFAssociation.m */; };
-		D5EED03719C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED03519C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m */; };
-		D5EED03819C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */; };
+		D5D3342E19AD64C500925EBF /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3342C19AD64C500925EBF /* UserCell.m */; };
+		D5D3342F19AD64C500925EBF /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5D3342D19AD64C500925EBF /* UserCell.xib */; };
+		D5D3346119AE4A3300925EBF /* CauseStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346019AE4A3300925EBF /* CauseStore.m */; };
+		D5D3346419AE4A4D00925EBF /* BusinessStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346319AE4A4D00925EBF /* BusinessStore.m */; };
+		D5D3346B19AEB7D100925EBF /* TransactionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346919AEB7D100925EBF /* TransactionCell.m */; };
+		D5D3346C19AEB7D100925EBF /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5D3346A19AEB7D100925EBF /* TransactionCell.xib */; };
+		D5D3346F19AEBD3100925EBF /* NetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D3346E19AEBD3100925EBF /* NetworkHelper.m */; };
+		D5E6580C19DA0A5100B9A926 /* MyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E6580B19DA0A5100B9A926 /* MyAccountViewController.xib */; };
+		D5E6580F19DA1BF500B9A926 /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6580E19DA1BF500B9A926 /* PaymentViewController.m */; };
+		D5E6581419DA28B500B9A926 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E6581319DA28B500B9A926 /* PaymentViewController.xib */; };
+		D5E6581919DC03AC00B9A926 /* TranslateViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6581819DC03AB00B9A926 /* TranslateViewHelper.m */; };
+		D5EED03719C58EAB00BA6BB4 /* RedeemCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED03519C58EAB00BA6BB4 /* RedeemCreditsViewController.m */; };
+		D5EED03819C58EAB00BA6BB4 /* RedeemCreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5EED03619C58EAB00BA6BB4 /* RedeemCreditsViewController.xib */; };
 		D5EED03B19C7917400BA6BB4 /* CustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED03A19C7917400BA6BB4 /* CustomKeyboard.m */; };
 		D5EED04019C7AB9000BA6BB4 /* UIButtonBarArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EED03E19C7AB9000BA6BB4 /* UIButtonBarArrowDown@2x.png */; };
 		D5EED04119C7AB9000BA6BB4 /* UIButtonBarArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EED03F19C7AB9000BA6BB4 /* UIButtonBarArrowUp@2x.png */; };
@@ -95,8 +95,8 @@
 		D5EED04519C7AB9C00BA6BB4 /* UIButtonBarArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EED04319C7AB9C00BA6BB4 /* UIButtonBarArrowUp.png */; };
 		D5EED04719C7B32400BA6BB4 /* More@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EED04619C7B32400BA6BB4 /* More@2x.png */; };
 		D5EED04919C7B32E00BA6BB4 /* More.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EED04819C7B32E00BA6BB4 /* More.png */; };
-		D5EED04D19C8122D00BA6BB4 /* TLFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED04B19C8122D00BA6BB4 /* TLFLoginViewController.m */; };
-		D5EED04E19C8122D00BA6BB4 /* TLFLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5EED04C19C8122D00BA6BB4 /* TLFLoginViewController.xib */; };
+		D5EED04D19C8122D00BA6BB4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EED04B19C8122D00BA6BB4 /* LoginViewController.m */; };
+		D5EED04E19C8122D00BA6BB4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5EED04C19C8122D00BA6BB4 /* LoginViewController.xib */; };
 		D5EED05019C8148100BA6BB4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EED04F19C8148100BA6BB4 /* logo.png */; };
 		EE03657EB73449F9A3445768 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2384896295554975B373109D /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -113,13 +113,18 @@
 
 /* Begin PBXFileReference section */
 		2384896295554975B373109D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B453A9C1A096CFE00D460D2 /* Taliflo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Taliflo.xcdatamodel; sourceTree = "<group>"; };
+		3B453AAA1A0976E300D460D2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3B453AAB1A0976E300D460D2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3B453AAD1A0976E400D460D2 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
+		3B453AAE1A0976E400D460D2 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
 		94B030FF31954DD88A413E6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		D5022E2219B703000015A125 /* TLFCausesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFCausesViewController.h; sourceTree = "<group>"; };
-		D5022E2319B703000015A125 /* TLFCausesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFCausesViewController.m; sourceTree = "<group>"; };
-		D5022E2419B703000015A125 /* TLFCausesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFCausesViewController.xib; sourceTree = "<group>"; };
-		D5022E2F19B703F30015A125 /* TLFBusinessesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFBusinessesViewController.h; sourceTree = "<group>"; };
-		D5022E3019B703F30015A125 /* TLFBusinessesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFBusinessesViewController.m; sourceTree = "<group>"; };
-		D5022E3119B703F30015A125 /* TLFBusinessesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFBusinessesViewController.xib; sourceTree = "<group>"; };
+		D5022E2219B703000015A125 /* CausesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CausesViewController.h; sourceTree = "<group>"; };
+		D5022E2319B703000015A125 /* CausesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CausesViewController.m; sourceTree = "<group>"; };
+		D5022E2419B703000015A125 /* CausesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CausesViewController.xib; sourceTree = "<group>"; };
+		D5022E2F19B703F30015A125 /* BusinessesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesViewController.h; sourceTree = "<group>"; };
+		D5022E3019B703F30015A125 /* BusinessesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesViewController.m; sourceTree = "<group>"; };
+		D5022E3119B703F30015A125 /* BusinessesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessesViewController.xib; sourceTree = "<group>"; };
 		D5022E4219BA75810015A125 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
 		D5022E4319BA75810015A125 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
 		D5022E4419BA75810015A125 /* REMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenu.h; sourceTree = "<group>"; };
@@ -143,27 +148,27 @@
 		D5022E7419BAD7890015A125 /* ActionMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActionMenu.png; sourceTree = "<group>"; };
 		D5022E7A19BAD87C0015A125 /* ActionMenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionMenu@2x.png"; sourceTree = "<group>"; };
 		D5022E8019BC35EB0015A125 /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
-		D54F790219AEE1A6000C2AAE /* TLFUserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserStore.h; sourceTree = "<group>"; };
-		D54F790319AEE1A6000C2AAE /* TLFUserStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUserStore.m; sourceTree = "<group>"; };
-		D54F790819AFB906000C2AAE /* TLFUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserDetailViewController.h; sourceTree = "<group>"; };
-		D54F790919AFB906000C2AAE /* TLFUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUserDetailViewController.m; sourceTree = "<group>"; };
-		D54F790A19AFB906000C2AAE /* TLFUserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFUserDetailViewController.xib; sourceTree = "<group>"; };
+		D54F790219AEE1A6000C2AAE /* UserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStore.h; sourceTree = "<group>"; };
+		D54F790319AEE1A6000C2AAE /* UserStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStore.m; sourceTree = "<group>"; };
+		D54F790819AFB906000C2AAE /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
+		D54F790919AFB906000C2AAE /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
+		D54F790A19AFB906000C2AAE /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		D5AE02FD19B00B8D00F31F04 /* userImageBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userImageBig.png; sourceTree = "<group>"; };
 		D5AE02FF19B00D2800F31F04 /* smallImg50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallImg50.png; sourceTree = "<group>"; };
-		D5AE030419B0144B00F31F04 /* TLFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFButton.h; sourceTree = "<group>"; };
-		D5AE030519B0144B00F31F04 /* TLFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFButton.m; sourceTree = "<group>"; };
+		D5AE030419B0144B00F31F04 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		D5AE030519B0144B00F31F04 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 		D5AE030819B0A12700F31F04 /* userImageSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userImageSmall.png; sourceTree = "<group>"; };
-		D5AE030A19B17D5D00F31F04 /* TLFUserSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserSupportViewController.h; sourceTree = "<group>"; };
-		D5AE030B19B17D5D00F31F04 /* TLFUserSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUserSupportViewController.m; sourceTree = "<group>"; };
-		D5AE030D19B18FD200F31F04 /* TLFRedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemViewController.h; sourceTree = "<group>"; };
-		D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemViewController.m; sourceTree = "<group>"; };
-		D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFRedeemViewController.xib; sourceTree = "<group>"; };
-		D5AE031519B1B63B00F31F04 /* TLFDonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFDonateViewController.h; sourceTree = "<group>"; };
-		D5AE031619B1B63B00F31F04 /* TLFDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFDonateViewController.m; sourceTree = "<group>"; };
-		D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFDonateViewController.xib; sourceTree = "<group>"; };
-		D5AE031D19B2838000F31F04 /* TLFBillingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFBillingInfoViewController.h; sourceTree = "<group>"; };
-		D5AE031E19B2838000F31F04 /* TLFBillingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFBillingInfoViewController.m; sourceTree = "<group>"; };
-		D5AE031F19B2838000F31F04 /* TLFBillingInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFBillingInfoViewController.xib; sourceTree = "<group>"; };
+		D5AE030A19B17D5D00F31F04 /* UserSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSupportViewController.h; sourceTree = "<group>"; };
+		D5AE030B19B17D5D00F31F04 /* UserSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSupportViewController.m; sourceTree = "<group>"; };
+		D5AE030D19B18FD200F31F04 /* RedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedeemViewController.h; sourceTree = "<group>"; };
+		D5AE030E19B18FD200F31F04 /* RedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedeemViewController.m; sourceTree = "<group>"; };
+		D5AE030F19B18FD200F31F04 /* RedeemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedeemViewController.xib; sourceTree = "<group>"; };
+		D5AE031519B1B63B00F31F04 /* DonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonateViewController.h; sourceTree = "<group>"; };
+		D5AE031619B1B63B00F31F04 /* DonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonateViewController.m; sourceTree = "<group>"; };
+		D5AE031719B1B63B00F31F04 /* DonateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonateViewController.xib; sourceTree = "<group>"; };
+		D5AE031D19B2838000F31F04 /* BillingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingInfoViewController.h; sourceTree = "<group>"; };
+		D5AE031E19B2838000F31F04 /* BillingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingInfoViewController.m; sourceTree = "<group>"; };
+		D5AE031F19B2838000F31F04 /* BillingInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BillingInfoViewController.xib; sourceTree = "<group>"; };
 		D5AE032419B28BBE00F31F04 /* right-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow@2x.png"; sourceTree = "<group>"; };
 		D5AE032619B28E4F00F31F04 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		D5B50DCE199D2C1100A486B0 /* Taliflo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taliflo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,61 +179,55 @@
 		D5B50DDB199D2C1100A486B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D5B50DDD199D2C1100A486B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D5B50DDF199D2C1100A486B0 /* Taliflo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taliflo-Prefix.pch"; sourceTree = "<group>"; };
-		D5B50DE0199D2C1100A486B0 /* TLFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLFAppDelegate.h; sourceTree = "<group>"; };
-		D5B50DE1199D2C1100A486B0 /* TLFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLFAppDelegate.m; sourceTree = "<group>"; };
+		D5B50DE0199D2C1100A486B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D5B50DE1199D2C1100A486B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D5B50DE3199D2C1100A486B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D5B50DE9199D2C1100A486B0 /* TalifloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalifloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B50DEA199D2C1100A486B0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D5B50DF2199D2C1100A486B0 /* TalifloTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TalifloTests-Info.plist"; sourceTree = "<group>"; };
 		D5B50DF4199D2C1100A486B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D5B50DF6199D2C1100A486B0 /* TalifloTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalifloTests.m; sourceTree = "<group>"; };
-		D5B50E04199D353000A486B0 /* TLFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFColor.h; sourceTree = "<group>"; };
-		D5B50E05199D353000A486B0 /* TLFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFColor.m; sourceTree = "<group>"; };
-		D5B50E29199D3CEB00A486B0 /* TLFNavBarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFNavBarHelper.h; sourceTree = "<group>"; };
-		D5B50E2A199D3CEB00A486B0 /* TLFNavBarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFNavBarHelper.m; sourceTree = "<group>"; };
-		D5CB54F219CD560500785003 /* TLFAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFAlert.h; sourceTree = "<group>"; };
-		D5CB54F319CD560500785003 /* TLFAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFAlert.m; sourceTree = "<group>"; };
+		D5B50E04199D353000A486B0 /* CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomColor.h; sourceTree = "<group>"; };
+		D5B50E05199D353000A486B0 /* CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomColor.m; sourceTree = "<group>"; };
+		D5B50E29199D3CEB00A486B0 /* NavigationBarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarHelper.h; sourceTree = "<group>"; };
+		D5B50E2A199D3CEB00A486B0 /* NavigationBarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarHelper.m; sourceTree = "<group>"; };
+		D5CB54F219CD560500785003 /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alert.h; sourceTree = "<group>"; };
+		D5CB54F319CD560500785003 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
 		D5CB54F519CEC0C900785003 /* UIButtonBarArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowRight.png; sourceTree = "<group>"; };
 		D5CB54F719CEC0CF00785003 /* UIButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
-		D5CB54FB19D02ACE00785003 /* TLFSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFSignupViewController.h; sourceTree = "<group>"; };
-		D5CB54FC19D02ACE00785003 /* TLFSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFSignupViewController.m; sourceTree = "<group>"; };
-		D5CB54FD19D02ACE00785003 /* TLFSignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFSignupViewController.xib; sourceTree = "<group>"; };
-		D5D333EE19ABD5E900925EBF /* TLFMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFMyAccountViewController.h; sourceTree = "<group>"; };
-		D5D333EF19ABD5E900925EBF /* TLFMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFMyAccountViewController.m; sourceTree = "<group>"; };
+		D5CB54FB19D02ACE00785003 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		D5CB54FC19D02ACE00785003 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		D5CB54FD19D02ACE00785003 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		D5D333EE19ABD5E900925EBF /* MyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountViewController.h; sourceTree = "<group>"; };
+		D5D333EF19ABD5E900925EBF /* MyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountViewController.m; sourceTree = "<group>"; };
 		D5D3341019ABE7DC00925EBF /* MyAccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyAccount.png; sourceTree = "<group>"; };
 		D5D3341419ABE88400925EBF /* Causes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Causes.png; sourceTree = "<group>"; };
 		D5D3341819ABE93200925EBF /* Businesses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Businesses.png; sourceTree = "<group>"; };
 		D5D3341A19ABE98300925EBF /* Businesses@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Businesses@2x.png"; sourceTree = "<group>"; };
 		D5D3341C19ABE9B900925EBF /* Causes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Causes@2x.png"; sourceTree = "<group>"; };
 		D5D3341E19ABE9D700925EBF /* MyAccount@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyAccount@2x.png"; sourceTree = "<group>"; };
-		D5D3342319AD11FA00925EBF /* TLFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUser.h; sourceTree = "<group>"; };
-		D5D3342419AD11FA00925EBF /* TLFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUser.m; sourceTree = "<group>"; };
-		D5D3342619AD198200925EBF /* TLFTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFTransaction.h; sourceTree = "<group>"; };
-		D5D3342719AD198200925EBF /* TLFTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFTransaction.m; sourceTree = "<group>"; };
 		D5D3342919AD44E800925EBF /* 160.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 160.gif; sourceTree = "<group>"; };
-		D5D3342B19AD64C500925EBF /* TLFUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFUserCell.h; sourceTree = "<group>"; };
-		D5D3342C19AD64C500925EBF /* TLFUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFUserCell.m; sourceTree = "<group>"; };
-		D5D3342D19AD64C500925EBF /* TLFUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFUserCell.xib; sourceTree = "<group>"; };
-		D5D3345F19AE4A3300925EBF /* TLFCauseStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFCauseStore.h; sourceTree = "<group>"; };
-		D5D3346019AE4A3300925EBF /* TLFCauseStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFCauseStore.m; sourceTree = "<group>"; };
-		D5D3346219AE4A4D00925EBF /* TLFBusinessStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFBusinessStore.h; sourceTree = "<group>"; };
-		D5D3346319AE4A4D00925EBF /* TLFBusinessStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFBusinessStore.m; sourceTree = "<group>"; };
-		D5D3346819AEB7D100925EBF /* TLFTransactionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFTransactionCell.h; sourceTree = "<group>"; };
-		D5D3346919AEB7D100925EBF /* TLFTransactionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFTransactionCell.m; sourceTree = "<group>"; };
-		D5D3346A19AEB7D100925EBF /* TLFTransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFTransactionCell.xib; sourceTree = "<group>"; };
-		D5D3346D19AEBD3100925EBF /* TLFNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFNetworkHelper.h; sourceTree = "<group>"; };
-		D5D3346E19AEBD3100925EBF /* TLFNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFNetworkHelper.m; sourceTree = "<group>"; };
-		D5E6580B19DA0A5100B9A926 /* TLFMyAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFMyAccountViewController.xib; sourceTree = "<group>"; };
-		D5E6580D19DA1BF500B9A926 /* TLFPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFPaymentViewController.h; sourceTree = "<group>"; };
-		D5E6580E19DA1BF500B9A926 /* TLFPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFPaymentViewController.m; sourceTree = "<group>"; };
-		D5E6581319DA28B500B9A926 /* TLFPaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFPaymentViewController.xib; sourceTree = "<group>"; };
-		D5E6581719DC03AB00B9A926 /* TLFViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFViewHelper.h; sourceTree = "<group>"; };
-		D5E6581819DC03AB00B9A926 /* TLFViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFViewHelper.m; sourceTree = "<group>"; };
-		D5E6589B19E3ED8A00B9A926 /* TLFAssociation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFAssociation.h; sourceTree = "<group>"; };
-		D5E6589C19E3ED8A00B9A926 /* TLFAssociation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFAssociation.m; sourceTree = "<group>"; };
-		D5EED03419C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFRedeemCreditsViewController.h; sourceTree = "<group>"; };
-		D5EED03519C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFRedeemCreditsViewController.m; sourceTree = "<group>"; };
-		D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFRedeemCreditsViewController.xib; sourceTree = "<group>"; };
+		D5D3342B19AD64C500925EBF /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		D5D3342C19AD64C500925EBF /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		D5D3342D19AD64C500925EBF /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		D5D3345F19AE4A3300925EBF /* CauseStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CauseStore.h; sourceTree = "<group>"; };
+		D5D3346019AE4A3300925EBF /* CauseStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CauseStore.m; sourceTree = "<group>"; };
+		D5D3346219AE4A4D00925EBF /* BusinessStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessStore.h; sourceTree = "<group>"; };
+		D5D3346319AE4A4D00925EBF /* BusinessStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessStore.m; sourceTree = "<group>"; };
+		D5D3346819AEB7D100925EBF /* TransactionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionCell.h; sourceTree = "<group>"; };
+		D5D3346919AEB7D100925EBF /* TransactionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionCell.m; sourceTree = "<group>"; };
+		D5D3346A19AEB7D100925EBF /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		D5D3346D19AEBD3100925EBF /* NetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHelper.h; sourceTree = "<group>"; };
+		D5D3346E19AEBD3100925EBF /* NetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHelper.m; sourceTree = "<group>"; };
+		D5E6580B19DA0A5100B9A926 /* MyAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAccountViewController.xib; sourceTree = "<group>"; };
+		D5E6580D19DA1BF500B9A926 /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		D5E6580E19DA1BF500B9A926 /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
+		D5E6581319DA28B500B9A926 /* PaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
+		D5E6581719DC03AB00B9A926 /* TranslateViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateViewHelper.h; sourceTree = "<group>"; };
+		D5E6581819DC03AB00B9A926 /* TranslateViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateViewHelper.m; sourceTree = "<group>"; };
+		D5EED03419C58EAB00BA6BB4 /* RedeemCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedeemCreditsViewController.h; sourceTree = "<group>"; };
+		D5EED03519C58EAB00BA6BB4 /* RedeemCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedeemCreditsViewController.m; sourceTree = "<group>"; };
+		D5EED03619C58EAB00BA6BB4 /* RedeemCreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedeemCreditsViewController.xib; sourceTree = "<group>"; };
 		D5EED03919C7916E00BA6BB4 /* CustomKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomKeyboard.h; sourceTree = "<group>"; };
 		D5EED03A19C7917400BA6BB4 /* CustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomKeyboard.m; sourceTree = "<group>"; };
 		D5EED03E19C7AB9000BA6BB4 /* UIButtonBarArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowDown@2x.png"; sourceTree = "<group>"; };
@@ -237,9 +236,9 @@
 		D5EED04319C7AB9C00BA6BB4 /* UIButtonBarArrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowUp.png; sourceTree = "<group>"; };
 		D5EED04619C7B32400BA6BB4 /* More@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "More@2x.png"; sourceTree = "<group>"; };
 		D5EED04819C7B32E00BA6BB4 /* More.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = More.png; sourceTree = "<group>"; };
-		D5EED04A19C8122D00BA6BB4 /* TLFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLFLoginViewController.h; sourceTree = "<group>"; };
-		D5EED04B19C8122D00BA6BB4 /* TLFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLFLoginViewController.m; sourceTree = "<group>"; };
-		D5EED04C19C8122D00BA6BB4 /* TLFLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLFLoginViewController.xib; sourceTree = "<group>"; };
+		D5EED04A19C8122D00BA6BB4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D5EED04B19C8122D00BA6BB4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D5EED04C19C8122D00BA6BB4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D5EED04F19C8148100BA6BB4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,8 +287,8 @@
 		D568DDB919D3DA590028F0BE /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				D5D3346D19AEBD3100925EBF /* TLFNetworkHelper.h */,
-				D5D3346E19AEBD3100925EBF /* TLFNetworkHelper.m */,
+				D5D3346D19AEBD3100925EBF /* NetworkHelper.h */,
+				D5D3346E19AEBD3100925EBF /* NetworkHelper.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -297,23 +296,23 @@
 		D5AE030719B030F000F31F04 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				D5E6580B19DA0A5100B9A926 /* TLFMyAccountViewController.xib */,
-				D5AE031F19B2838000F31F04 /* TLFBillingInfoViewController.xib */,
-				D5022E3119B703F30015A125 /* TLFBusinessesViewController.xib */,
-				D5022E2419B703000015A125 /* TLFCausesViewController.xib */,
-				D5AE031719B1B63B00F31F04 /* TLFDonateViewController.xib */,
-				D5EED04C19C8122D00BA6BB4 /* TLFLoginViewController.xib */,
-				D5E6581319DA28B500B9A926 /* TLFPaymentViewController.xib */,
-				D5AE030F19B18FD200F31F04 /* TLFRedeemViewController.xib */,
-				D5EED03619C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib */,
-				D5CB54FD19D02ACE00785003 /* TLFSignupViewController.xib */,
-				D54F790A19AFB906000C2AAE /* TLFUserDetailViewController.xib */,
-				D5D3342B19AD64C500925EBF /* TLFUserCell.h */,
-				D5D3342C19AD64C500925EBF /* TLFUserCell.m */,
-				D5D3342D19AD64C500925EBF /* TLFUserCell.xib */,
-				D5D3346819AEB7D100925EBF /* TLFTransactionCell.h */,
-				D5D3346919AEB7D100925EBF /* TLFTransactionCell.m */,
-				D5D3346A19AEB7D100925EBF /* TLFTransactionCell.xib */,
+				D5E6580B19DA0A5100B9A926 /* MyAccountViewController.xib */,
+				D5AE031F19B2838000F31F04 /* BillingInfoViewController.xib */,
+				D5022E3119B703F30015A125 /* BusinessesViewController.xib */,
+				D5022E2419B703000015A125 /* CausesViewController.xib */,
+				D5AE031719B1B63B00F31F04 /* DonateViewController.xib */,
+				D5EED04C19C8122D00BA6BB4 /* LoginViewController.xib */,
+				D5E6581319DA28B500B9A926 /* PaymentViewController.xib */,
+				D5AE030F19B18FD200F31F04 /* RedeemViewController.xib */,
+				D5EED03619C58EAB00BA6BB4 /* RedeemCreditsViewController.xib */,
+				D5CB54FD19D02ACE00785003 /* SignupViewController.xib */,
+				D54F790A19AFB906000C2AAE /* UserDetailViewController.xib */,
+				D5D3342B19AD64C500925EBF /* UserCell.h */,
+				D5D3342C19AD64C500925EBF /* UserCell.m */,
+				D5D3342D19AD64C500925EBF /* UserCell.xib */,
+				D5D3346819AEB7D100925EBF /* TransactionCell.h */,
+				D5D3346919AEB7D100925EBF /* TransactionCell.m */,
+				D5D3346A19AEB7D100925EBF /* TransactionCell.xib */,
 				D5022E8019BC35EB0015A125 /* ActivityIndicatorView.xib */,
 			);
 			name = Layouts;
@@ -359,8 +358,8 @@
 				D5B50E02199D2C7500A486B0 /* Controllers */,
 				D5B50E01199D2C6C00A486B0 /* Utilities */,
 				D5B50E00199D2C6400A486B0 /* Model */,
-				D5B50DE0199D2C1100A486B0 /* TLFAppDelegate.h */,
-				D5B50DE1199D2C1100A486B0 /* TLFAppDelegate.m */,
+				D5B50DE0199D2C1100A486B0 /* AppDelegate.h */,
+				D5B50DE1199D2C1100A486B0 /* AppDelegate.m */,
 				D5B50DE3199D2C1100A486B0 /* Images.xcassets */,
 				D5B50DD8199D2C1100A486B0 /* Supporting Files */,
 			);
@@ -402,18 +401,17 @@
 		D5B50E00199D2C6400A486B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D5D3342319AD11FA00925EBF /* TLFUser.h */,
-				D5D3342419AD11FA00925EBF /* TLFUser.m */,
-				D5D3342619AD198200925EBF /* TLFTransaction.h */,
-				D5D3342719AD198200925EBF /* TLFTransaction.m */,
-				D5D3345F19AE4A3300925EBF /* TLFCauseStore.h */,
-				D5D3346019AE4A3300925EBF /* TLFCauseStore.m */,
-				D5D3346219AE4A4D00925EBF /* TLFBusinessStore.h */,
-				D5D3346319AE4A4D00925EBF /* TLFBusinessStore.m */,
-				D54F790219AEE1A6000C2AAE /* TLFUserStore.h */,
-				D54F790319AEE1A6000C2AAE /* TLFUserStore.m */,
-				D5E6589B19E3ED8A00B9A926 /* TLFAssociation.h */,
-				D5E6589C19E3ED8A00B9A926 /* TLFAssociation.m */,
+				D5D3345F19AE4A3300925EBF /* CauseStore.h */,
+				D5D3346019AE4A3300925EBF /* CauseStore.m */,
+				D5D3346219AE4A4D00925EBF /* BusinessStore.h */,
+				D5D3346319AE4A4D00925EBF /* BusinessStore.m */,
+				D54F790219AEE1A6000C2AAE /* UserStore.h */,
+				D54F790319AEE1A6000C2AAE /* UserStore.m */,
+				3B453A9B1A096CFE00D460D2 /* Taliflo.xcdatamodeld */,
+				3B453AAD1A0976E400D460D2 /* Transaction.h */,
+				3B453AAE1A0976E400D460D2 /* Transaction.m */,
+				3B453AAA1A0976E300D460D2 /* User.h */,
+				3B453AAB1A0976E300D460D2 /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -422,16 +420,16 @@
 			isa = PBXGroup;
 			children = (
 				D5EED03D19C7919300BA6BB4 /* Third Party */,
-				D5B50E04199D353000A486B0 /* TLFColor.h */,
-				D5B50E05199D353000A486B0 /* TLFColor.m */,
-				D5B50E29199D3CEB00A486B0 /* TLFNavBarHelper.h */,
-				D5B50E2A199D3CEB00A486B0 /* TLFNavBarHelper.m */,
-				D5AE030419B0144B00F31F04 /* TLFButton.h */,
-				D5AE030519B0144B00F31F04 /* TLFButton.m */,
-				D5CB54F219CD560500785003 /* TLFAlert.h */,
-				D5CB54F319CD560500785003 /* TLFAlert.m */,
-				D5E6581719DC03AB00B9A926 /* TLFViewHelper.h */,
-				D5E6581819DC03AB00B9A926 /* TLFViewHelper.m */,
+				D5B50E04199D353000A486B0 /* CustomColor.h */,
+				D5B50E05199D353000A486B0 /* CustomColor.m */,
+				D5B50E29199D3CEB00A486B0 /* NavigationBarHelper.h */,
+				D5B50E2A199D3CEB00A486B0 /* NavigationBarHelper.m */,
+				D5AE030419B0144B00F31F04 /* CustomButton.h */,
+				D5AE030519B0144B00F31F04 /* CustomButton.m */,
+				D5CB54F219CD560500785003 /* Alert.h */,
+				D5CB54F319CD560500785003 /* Alert.m */,
+				D5E6581719DC03AB00B9A926 /* TranslateViewHelper.h */,
+				D5E6581819DC03AB00B9A926 /* TranslateViewHelper.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -439,30 +437,30 @@
 		D5B50E02199D2C7500A486B0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D5D333EE19ABD5E900925EBF /* TLFMyAccountViewController.h */,
-				D5D333EF19ABD5E900925EBF /* TLFMyAccountViewController.m */,
-				D5022E2219B703000015A125 /* TLFCausesViewController.h */,
-				D5022E2319B703000015A125 /* TLFCausesViewController.m */,
-				D5022E2F19B703F30015A125 /* TLFBusinessesViewController.h */,
-				D5022E3019B703F30015A125 /* TLFBusinessesViewController.m */,
-				D54F790819AFB906000C2AAE /* TLFUserDetailViewController.h */,
-				D54F790919AFB906000C2AAE /* TLFUserDetailViewController.m */,
-				D5AE030A19B17D5D00F31F04 /* TLFUserSupportViewController.h */,
-				D5AE030B19B17D5D00F31F04 /* TLFUserSupportViewController.m */,
-				D5AE030D19B18FD200F31F04 /* TLFRedeemViewController.h */,
-				D5AE030E19B18FD200F31F04 /* TLFRedeemViewController.m */,
-				D5AE031519B1B63B00F31F04 /* TLFDonateViewController.h */,
-				D5AE031619B1B63B00F31F04 /* TLFDonateViewController.m */,
-				D5AE031D19B2838000F31F04 /* TLFBillingInfoViewController.h */,
-				D5AE031E19B2838000F31F04 /* TLFBillingInfoViewController.m */,
-				D5EED03419C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.h */,
-				D5EED03519C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m */,
-				D5EED04A19C8122D00BA6BB4 /* TLFLoginViewController.h */,
-				D5EED04B19C8122D00BA6BB4 /* TLFLoginViewController.m */,
-				D5CB54FB19D02ACE00785003 /* TLFSignupViewController.h */,
-				D5CB54FC19D02ACE00785003 /* TLFSignupViewController.m */,
-				D5E6580D19DA1BF500B9A926 /* TLFPaymentViewController.h */,
-				D5E6580E19DA1BF500B9A926 /* TLFPaymentViewController.m */,
+				D5D333EE19ABD5E900925EBF /* MyAccountViewController.h */,
+				D5D333EF19ABD5E900925EBF /* MyAccountViewController.m */,
+				D5022E2219B703000015A125 /* CausesViewController.h */,
+				D5022E2319B703000015A125 /* CausesViewController.m */,
+				D5022E2F19B703F30015A125 /* BusinessesViewController.h */,
+				D5022E3019B703F30015A125 /* BusinessesViewController.m */,
+				D54F790819AFB906000C2AAE /* UserDetailViewController.h */,
+				D54F790919AFB906000C2AAE /* UserDetailViewController.m */,
+				D5AE030A19B17D5D00F31F04 /* UserSupportViewController.h */,
+				D5AE030B19B17D5D00F31F04 /* UserSupportViewController.m */,
+				D5AE030D19B18FD200F31F04 /* RedeemViewController.h */,
+				D5AE030E19B18FD200F31F04 /* RedeemViewController.m */,
+				D5AE031519B1B63B00F31F04 /* DonateViewController.h */,
+				D5AE031619B1B63B00F31F04 /* DonateViewController.m */,
+				D5AE031D19B2838000F31F04 /* BillingInfoViewController.h */,
+				D5AE031E19B2838000F31F04 /* BillingInfoViewController.m */,
+				D5EED03419C58EAB00BA6BB4 /* RedeemCreditsViewController.h */,
+				D5EED03519C58EAB00BA6BB4 /* RedeemCreditsViewController.m */,
+				D5EED04A19C8122D00BA6BB4 /* LoginViewController.h */,
+				D5EED04B19C8122D00BA6BB4 /* LoginViewController.m */,
+				D5CB54FB19D02ACE00785003 /* SignupViewController.h */,
+				D5CB54FC19D02ACE00785003 /* SignupViewController.m */,
+				D5E6580D19DA1BF500B9A926 /* PaymentViewController.h */,
+				D5E6580E19DA1BF500B9A926 /* PaymentViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -621,51 +619,51 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5AE032519B28BBE00F31F04 /* right-arrow@2x.png in Resources */,
-				D5022E2619B703000015A125 /* TLFCausesViewController.xib in Resources */,
+				D5022E2619B703000015A125 /* CausesViewController.xib in Resources */,
 				D5D3341B19ABE98300925EBF /* Businesses@2x.png in Resources */,
 				D5EED04719C7B32400BA6BB4 /* More@2x.png in Resources */,
 				D5022E6319BAAAE60015A125 /* Logout@2x.png in Resources */,
-				D5E6581419DA28B500B9A926 /* TLFPaymentViewController.xib in Resources */,
+				D5E6581419DA28B500B9A926 /* PaymentViewController.xib in Resources */,
 				D5EED04019C7AB9000BA6BB4 /* UIButtonBarArrowDown@2x.png in Resources */,
 				D5EED04919C7B32E00BA6BB4 /* More.png in Resources */,
 				D5B50DDC199D2C1100A486B0 /* InfoPlist.strings in Resources */,
 				D5022E5D19BAA8C00015A125 /* UpdateBillingInfo.png in Resources */,
 				D5022E5B19BAA8B80015A125 /* UpdateBillingInfo@2x.png in Resources */,
-				D5EED03819C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.xib in Resources */,
+				D5EED03819C58EAB00BA6BB4 /* RedeemCreditsViewController.xib in Resources */,
 				D5EED05019C8148100BA6BB4 /* logo.png in Resources */,
 				D5D3341919ABE93200925EBF /* Businesses.png in Resources */,
-				D5D3346C19AEB7D100925EBF /* TLFTransactionCell.xib in Resources */,
+				D5D3346C19AEB7D100925EBF /* TransactionCell.xib in Resources */,
 				D5CB54F619CEC0C900785003 /* UIButtonBarArrowRight.png in Resources */,
-				D5D3342F19AD64C500925EBF /* TLFUserCell.xib in Resources */,
-				D54F790C19AFB906000C2AAE /* TLFUserDetailViewController.xib in Resources */,
+				D5D3342F19AD64C500925EBF /* UserCell.xib in Resources */,
+				D54F790C19AFB906000C2AAE /* UserDetailViewController.xib in Resources */,
 				D5EED04519C7AB9C00BA6BB4 /* UIButtonBarArrowUp.png in Resources */,
 				D5EED04419C7AB9C00BA6BB4 /* UIButtonBarArrowDown.png in Resources */,
 				D5D3341519ABE88400925EBF /* Causes.png in Resources */,
 				D5022E7519BAD7890015A125 /* ActionMenu.png in Resources */,
 				D5D3342A19AD44E800925EBF /* 160.gif in Resources */,
 				D5D3341119ABE7DC00925EBF /* MyAccount.png in Resources */,
-				D5CB54FF19D02ACE00785003 /* TLFSignupViewController.xib in Resources */,
+				D5CB54FF19D02ACE00785003 /* SignupViewController.xib in Resources */,
 				D5CB54F819CEC0CF00785003 /* UIButtonBarArrowRight@2x.png in Resources */,
 				D5022E5919BAA7A00015A125 /* Explore.png in Resources */,
 				D5022E6B19BAB86D0015A125 /* Menu.png in Resources */,
 				D5022E7B19BAD87C0015A125 /* ActionMenu@2x.png in Resources */,
 				D5B50DE4199D2C1100A486B0 /* Images.xcassets in Resources */,
 				D5D3341D19ABE9B900925EBF /* Causes@2x.png in Resources */,
-				D5AE031919B1B63B00F31F04 /* TLFDonateViewController.xib in Resources */,
+				D5AE031919B1B63B00F31F04 /* DonateViewController.xib in Resources */,
 				D5AE032719B28E4F00F31F04 /* right-arrow.png in Resources */,
 				D5AE030919B0A12700F31F04 /* userImageSmall.png in Resources */,
 				D5022E6D19BAB8730015A125 /* Menu@2x.png in Resources */,
-				D5AE031119B18FD200F31F04 /* TLFRedeemViewController.xib in Resources */,
+				D5AE031119B18FD200F31F04 /* RedeemViewController.xib in Resources */,
 				D5022E6519BAAAED0015A125 /* Logout.png in Resources */,
 				D5022E8119BC35EB0015A125 /* ActivityIndicatorView.xib in Resources */,
-				D5AE032119B2838000F31F04 /* TLFBillingInfoViewController.xib in Resources */,
+				D5AE032119B2838000F31F04 /* BillingInfoViewController.xib in Resources */,
 				D5AE030019B00D2800F31F04 /* smallImg50.png in Resources */,
-				D5E6580C19DA0A5100B9A926 /* TLFMyAccountViewController.xib in Resources */,
+				D5E6580C19DA0A5100B9A926 /* MyAccountViewController.xib in Resources */,
 				D5022E5719BAA7990015A125 /* Explore@2x.png in Resources */,
-				D5EED04E19C8122D00BA6BB4 /* TLFLoginViewController.xib in Resources */,
+				D5EED04E19C8122D00BA6BB4 /* LoginViewController.xib in Resources */,
 				D5AE02FE19B00B8D00F31F04 /* userImageBig.png in Resources */,
 				D5022E5519BAA6830015A125 /* RedeemCredits@2x.png in Resources */,
-				D5022E3319B703F30015A125 /* TLFBusinessesViewController.xib in Resources */,
+				D5022E3319B703F30015A125 /* BusinessesViewController.xib in Resources */,
 				D5EED04119C7AB9000BA6BB4 /* UIButtonBarArrowUp@2x.png in Resources */,
 				D5022E5319BAA67E0015A125 /* RedeemCredits.png in Resources */,
 				D5D3341F19ABE9D700925EBF /* MyAccount@2x.png in Resources */,
@@ -720,40 +718,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5AE031819B1B63B00F31F04 /* TLFDonateViewController.m in Sources */,
-				D5022E3219B703F30015A125 /* TLFBusinessesViewController.m in Sources */,
-				D5022E2519B703000015A125 /* TLFCausesViewController.m in Sources */,
-				D5D3342519AD11FA00925EBF /* TLFUser.m in Sources */,
-				D5AE030619B0144B00F31F04 /* TLFButton.m in Sources */,
+				D5AE031819B1B63B00F31F04 /* DonateViewController.m in Sources */,
+				D5022E3219B703F30015A125 /* BusinessesViewController.m in Sources */,
+				D5022E2519B703000015A125 /* CausesViewController.m in Sources */,
+				D5AE030619B0144B00F31F04 /* CustomButton.m in Sources */,
 				D5022E4C19BA75810015A125 /* RECommonFunctions.m in Sources */,
 				D5022E4E19BA75810015A125 /* REMenuItem.m in Sources */,
 				D5022E4D19BA75810015A125 /* REMenu.m in Sources */,
-				D5B50E06199D353000A486B0 /* TLFColor.m in Sources */,
-				D5B50E2B199D3CEB00A486B0 /* TLFNavBarHelper.m in Sources */,
-				D5D3342819AD198200925EBF /* TLFTransaction.m in Sources */,
-				D5D3346419AE4A4D00925EBF /* TLFBusinessStore.m in Sources */,
-				D5AE032019B2838000F31F04 /* TLFBillingInfoViewController.m in Sources */,
-				D5EED04D19C8122D00BA6BB4 /* TLFLoginViewController.m in Sources */,
-				D5E6581919DC03AC00B9A926 /* TLFViewHelper.m in Sources */,
-				D5AE030C19B17D5D00F31F04 /* TLFUserSupportViewController.m in Sources */,
+				D5B50E06199D353000A486B0 /* CustomColor.m in Sources */,
+				D5B50E2B199D3CEB00A486B0 /* NavigationBarHelper.m in Sources */,
+				D5D3346419AE4A4D00925EBF /* BusinessStore.m in Sources */,
+				3B453AAF1A0976E400D460D2 /* Transaction.m in Sources */,
+				D5AE032019B2838000F31F04 /* BillingInfoViewController.m in Sources */,
+				D5EED04D19C8122D00BA6BB4 /* LoginViewController.m in Sources */,
+				D5E6581919DC03AC00B9A926 /* TranslateViewHelper.m in Sources */,
+				D5AE030C19B17D5D00F31F04 /* UserSupportViewController.m in Sources */,
 				D5022E4F19BA75810015A125 /* REMenuItemView.m in Sources */,
-				D5D333F119ABD5E900925EBF /* TLFMyAccountViewController.m in Sources */,
+				D5D333F119ABD5E900925EBF /* MyAccountViewController.m in Sources */,
+				3B453A9D1A096CFE00D460D2 /* Taliflo.xcdatamodeld in Sources */,
+				3B453AAC1A0976E300D460D2 /* User.m in Sources */,
 				D5022E5019BA75810015A125 /* REMenuContainerView.m in Sources */,
-				D5AE031019B18FD200F31F04 /* TLFRedeemViewController.m in Sources */,
-				D5E6589D19E3ED8A00B9A926 /* TLFAssociation.m in Sources */,
+				D5AE031019B18FD200F31F04 /* RedeemViewController.m in Sources */,
 				D5B50DDE199D2C1100A486B0 /* main.m in Sources */,
-				D5D3346119AE4A3300925EBF /* TLFCauseStore.m in Sources */,
-				D5EED03719C58EAB00BA6BB4 /* TLFRedeemCreditsViewController.m in Sources */,
-				D54F790419AEE1A6000C2AAE /* TLFUserStore.m in Sources */,
-				D5D3342E19AD64C500925EBF /* TLFUserCell.m in Sources */,
-				D5E6580F19DA1BF500B9A926 /* TLFPaymentViewController.m in Sources */,
-				D5CB54FE19D02ACE00785003 /* TLFSignupViewController.m in Sources */,
+				D5D3346119AE4A3300925EBF /* CauseStore.m in Sources */,
+				D5EED03719C58EAB00BA6BB4 /* RedeemCreditsViewController.m in Sources */,
+				D54F790419AEE1A6000C2AAE /* UserStore.m in Sources */,
+				D5D3342E19AD64C500925EBF /* UserCell.m in Sources */,
+				D5E6580F19DA1BF500B9A926 /* PaymentViewController.m in Sources */,
+				D5CB54FE19D02ACE00785003 /* SignupViewController.m in Sources */,
 				D5EED03B19C7917400BA6BB4 /* CustomKeyboard.m in Sources */,
-				D5D3346F19AEBD3100925EBF /* TLFNetworkHelper.m in Sources */,
-				D5D3346B19AEB7D100925EBF /* TLFTransactionCell.m in Sources */,
-				D5B50DE2199D2C1100A486B0 /* TLFAppDelegate.m in Sources */,
-				D54F790B19AFB906000C2AAE /* TLFUserDetailViewController.m in Sources */,
-				D5CB54F419CD560500785003 /* TLFAlert.m in Sources */,
+				D5D3346F19AEBD3100925EBF /* NetworkHelper.m in Sources */,
+				D5D3346B19AEB7D100925EBF /* TransactionCell.m in Sources */,
+				D5B50DE2199D2C1100A486B0 /* AppDelegate.m in Sources */,
+				D54F790B19AFB906000C2AAE /* UserDetailViewController.m in Sources */,
+				D5CB54F419CD560500785003 /* Alert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -970,6 +968,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3B453A9B1A096CFE00D460D2 /* Taliflo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3B453A9C1A096CFE00D460D2 /* Taliflo.xcdatamodel */,
+			);
+			currentVersion = 3B453A9C1A096CFE00D460D2 /* Taliflo.xcdatamodel */;
+			path = Taliflo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D5B50DC6199D2C1000A486B0 /* Project object */;
 }

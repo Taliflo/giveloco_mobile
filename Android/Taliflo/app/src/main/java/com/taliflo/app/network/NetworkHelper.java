@@ -3,6 +3,7 @@ package com.taliflo.app.network;
 import android.util.Log;
 
 import com.google.gson.JsonObject;
+import com.taliflo.app.model.UserStore;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -33,11 +34,11 @@ public final class NetworkHelper {
     // Request URLs
     public final String USERS_URL = base + "v1/users";
 
-    private final String LOGIN_URL = base + "user/login";
-    private final String LOGOUT_URL = base + "user/logout";
-    private final String SIGNUP_URL = base + "user/signup";
-    private final String CAUSES_URL = base + "users/role/cause";
-    private final String BUSINESSES_URL = base + "users/role/business";
+    private final String URL_LOGIN = base + "user/login";
+    private final String URL_LOGOUT = base + "user/logout";
+    private final String URL_SIGNUP = base + "user/signup";
+    private final String URL_CAUSES = base + "users/role/cause";
+    private final String URL_BUSINESSES = base + "users/role/business";
 
     // Response codes
     public final int STATUS_OK = 200;
@@ -50,13 +51,17 @@ public final class NetworkHelper {
     public final int SO_TIMEOUT = 30000; // read timeout, 30s
 
     // Session strategy action strings
-    public final int ACTION_LOGIN = 1;
-    public final int ACTION_LOGOUT = 2;
-    public final int ACTION_SIGNUP = 3;
-    public final int ACTION_REQ_INDV = 4;
-    public final int ACTION_REQ_CAUSES = 5;
-    public final int ACTION_REQ_BUSINESSES = 6;
-    public final int ACTION_REQ_USERS = 7;
+    public static final int ACTION_LOGIN = 1;
+    public static final int ACTION_LOGOUT = 2;
+    public static final int ACTION_SIGNUP = 3;
+    public static final int ACTION_REQ_INDV = 4;
+    public static final int ACTION_REQ_CAUSES = 5;
+    public static final int ACTION_REQ_BUSINESSES = 6;
+    public static final int ACTION_REQ_USERS = 7;
+
+    private final String HEADER_AUTH_TOKEN = "X-Session-Token";
+    private final String HEADER_CONTENT_TYPE = "Content-type";
+    private final String HEADER_ACCEPT = "Accept";
 
     private static NetworkHelper instance = null;
 
@@ -77,7 +82,7 @@ public final class NetworkHelper {
         return USERS_URL + "/" + id;
     }
 
-    public String requestStrategy(int action, HashMap<String, String> extras) {
+    public String requestStrategy(int action, HashMap<String, String> args) {
 
         String result = "", jsonString = "", logAction = "";
 
@@ -95,11 +100,11 @@ public final class NetworkHelper {
             switch (action) {
                 case ACTION_LOGIN:
                     JsonObject loginObj = new JsonObject();
-                    loginObj.addProperty("email", extras.get("email"));
-                    loginObj.addProperty("password", extras.get("password"));
+                    loginObj.addProperty("email", args.get("email"));
+                    loginObj.addProperty("password", args.get("password"));
                     jsonString = loginObj.toString();
 
-                    request = new HttpPost(LOGIN_URL);
+                    request = new HttpPost(URL_LOGIN);
                     StringEntity loginEntity = new StringEntity(jsonString, "UTF-8");
                     ((HttpEntityEnclosingRequestBase) request).setEntity(loginEntity);
 
@@ -107,8 +112,9 @@ public final class NetworkHelper {
                     break;
 
                 case ACTION_LOGOUT:
-                    request = new HttpDelete(LOGOUT_URL);
-                    request.setHeader("X-Session-Token", extras.get("authToken"));
+                    request = new HttpDelete("http://api-dev.taliflo.com/user/logout");
+                    UserStore userStore = UserStore.getInstance();
+                    request.setHeader(HEADER_AUTH_TOKEN, userStore.getAuthToken());
 
                     logAction = "Logout";
                     break;
@@ -116,10 +122,10 @@ public final class NetworkHelper {
                 case ACTION_SIGNUP:
                     JsonObject userObj = new JsonObject();
                     userObj.addProperty("role", "individual");
-                    userObj.addProperty("first_name", extras.get("firstName"));
-                    userObj.addProperty("last_name", extras.get("lastName"));
-                    userObj.addProperty("email", extras.get("email"));
-                    userObj.addProperty("password", extras.get("password"));
+                    userObj.addProperty("first_name", args.get("firstName"));
+                    userObj.addProperty("last_name", args.get("lastName"));
+                    userObj.addProperty("email", args.get("email"));
+                    userObj.addProperty("password", args.get("password"));
                     userObj.add("company_name", null);
                     userObj.add("website", null);
                     userObj.add("street_address", null);
@@ -135,7 +141,7 @@ public final class NetworkHelper {
                     signupObj.add("user", userObj);
                     jsonString = signupObj.toString();
 
-                    request = new HttpPost(SIGNUP_URL);
+                    request = new HttpPost(URL_SIGNUP);
                     StringEntity signupEntity = new StringEntity(jsonString, "UTF-8");
                     ((HttpEntityEnclosingRequestBase) request).setEntity(signupEntity);
 
@@ -143,22 +149,22 @@ public final class NetworkHelper {
                     break;
 
                 case ACTION_REQ_INDV:
-                    request = new HttpGet(USERS_URL + "/" + extras.get("uid"));
-                    request.setHeader("X-Session-Token", extras.get("authToken"));
+                    request = new HttpGet(USERS_URL + "/" + args.get("uid"));
+                    request.setHeader(HEADER_AUTH_TOKEN, args.get("authToken"));
 
                     logAction = "Request individual";
                     break;
 
                 case ACTION_REQ_CAUSES:
-                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/cause?id=" + extras.get("uid"));
-                    request.setHeader("X-Session-Token", extras.get("authToken"));
+                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/cause?id=" + args.get("uid"));
+                    request.setHeader(HEADER_AUTH_TOKEN, args.get("authToken"));
 
                     logAction = "Request causes";
                     break;
 
                 case ACTION_REQ_BUSINESSES:
-                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/business?id=" + extras.get("uid"));
-                    request.setHeader("X-Session-Token", extras.get("authToken"));
+                    request = new HttpGet("http://api-dev.taliflo.com/v1/users/role/business?id=" + args.get("uid"));
+                    request.setHeader(HEADER_AUTH_TOKEN, args.get("authToken"));
 
                     logAction = "Request buinesses";
                     break;
@@ -169,8 +175,8 @@ public final class NetworkHelper {
 
             }
 
-            request.setHeader("Content-type", "application/json");
-            request.setHeader("Accept", "application/json");
+            request.setHeader(HEADER_CONTENT_TYPE, "application/json");
+            request.setHeader(HEADER_ACCEPT, "application/json");
 
             HttpResponse response = client.execute(request);
             int responseStatus = response.getStatusLine().getStatusCode();
@@ -178,12 +184,7 @@ public final class NetworkHelper {
 
             switch(responseStatus) {
                 case 200:
-                    // GET successful
-                    result = getResponseEntity(response.getEntity());
-                    Log.i(TAG, logAction + " successful");
-                    Log.i(TAG, "Reponse:\n" + result);
-                    break;
-
+                    // GET, logout successful
                 case 201:
                     // Login, Signup successful
                     result = getResponseEntity(response.getEntity());
@@ -196,6 +197,16 @@ public final class NetworkHelper {
                     result = Integer.toString(responseStatus);
                     Log.i(TAG, logAction + " successful");
                     break;
+
+                case 401:
+                    // Unauthorized
+                    Log.i(TAG, logAction + " unauthorized");
+                    return null;
+
+                case 500:
+                    // Internal server error
+                    Log.i(TAG, "Internal server error");
+                    return null;
 
                 default:
                     Log.e(TAG, logAction + " unsuccessful");

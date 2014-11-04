@@ -51,6 +51,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Clear saved preferences
+        //getSharedPreferences(getResources().getString(R.string.savedPrefName), 0).edit().clear().commit();
+
         setContentView(R.layout.activity_main_pager);
 
         // Get login status from shared preferences

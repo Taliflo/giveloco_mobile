@@ -7,7 +7,7 @@
 //
 
 #import "CustomKeyboard.h"
-#import "TLFColor.h"
+#import "CustomColor.h"
 
 @implementation CustomKeyboard
 
@@ -19,7 +19,7 @@
     self = [super init];
     if (self){
         self.navBarColor = [UIColor whiteColor];
-        self.fontColor = [TLFColor talifloTiffanyBlue];
+        self.fontColor = [CustomColor talifloTiffanyBlue];
     }
     return self;
 }

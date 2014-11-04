@@ -30,7 +30,6 @@ public class BillingInfo extends FragmentActivity implements ISimpleDialogListen
 
     // Layout views
     private EditText name, number, cvv, street, city, zip;
-    private Button btnSave;
     private TextView expiryDate;
 
     private Spinner province, country;
@@ -55,13 +54,11 @@ public class BillingInfo extends FragmentActivity implements ISimpleDialogListen
         city = (EditText) findViewById(R.id.billingInfo_city);
         zip = (EditText) findViewById(R.id.billingInfo_zip);
         expiryDate = (TextView) findViewById(R.id.billingInfo_expiryDate);
-        btnSave = (Button) findViewById(R.id.billingInfo_btnSave);
         province = (Spinner) findViewById(R.id.billingInfo_province);
         country = (Spinner) findViewById(R.id.billingInfo_country);
 
         expiryDate.setClickable(true);
         expiryDate.setOnClickListener(openDatePicker);
-        btnSave.setOnClickListener(saveInfo);
 
         name.setSelectAllOnFocus(true);
         number.setSelectAllOnFocus(true);
@@ -71,17 +68,25 @@ public class BillingInfo extends FragmentActivity implements ISimpleDialogListen
         //province.setAdapter(provinceAdapter);
         country.setOnItemSelectedListener(countryListener);
 
-
-
         // Should put exception handling here to check if the GET user
         // request fails
         UserStore userStore = UserStore.getInstance();
         user = userStore.getCurrentUser();
 
         name.setText(user.getFullName());
-        street.setText(user.getStreetAddress());
-        city.setText(user.getCity());
-        zip.setText(user.getZip());
+
+        if (!user.getStreetAddress().equals("null")) {
+            street.setText(user.getStreetAddress());
+        }
+
+        if (!user.getCity().equals("null")) {
+            city.setText(user.getCity());
+        }
+
+        if (!user.getZip().equals("null")) {
+            zip.setText(user.getZip());
+        }
+
 
     }
 
@@ -126,7 +131,7 @@ public class BillingInfo extends FragmentActivity implements ISimpleDialogListen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.logout_only, menu);
+        getMenuInflater().inflate(R.menu.billing_info, menu);
         return true;
     }
 

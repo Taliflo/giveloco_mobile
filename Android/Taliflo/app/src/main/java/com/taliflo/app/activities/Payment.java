@@ -1,11 +1,13 @@
 package com.taliflo.app.activities;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +23,7 @@ import com.stripe.android.model.Token;
 import com.taliflo.app.R;
 import com.taliflo.app.utilities.ActionBarHelper;
 import com.taliflo.app.utilities.MyDatePickerDialog;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 
 import eu.inmite.android.lib.dialogs.ISimpleDialogListener;
 import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
@@ -39,6 +42,8 @@ public class Payment extends FragmentActivity implements ISimpleDialogListener {
     private Activity thisActivity = this;
     private ActionBarHelper abHelper = ActionBarHelper.getInstance();
 
+    private boolean keyDel = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +59,33 @@ public class Payment extends FragmentActivity implements ISimpleDialogListener {
         expiryDate.setOnClickListener(openDatePicker);
 
         btnComplete.setOnClickListener(complete);
+        /*
+        cardNumber.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                cardNumber.removeTextChangedListener(this);
+                appendSpace(cardNumber);
+                cardNumber.addTextChangedListener(this);
+            }
+        });
+        */
+
+    }
+
+    private void appendSpace(EditText editText) {
+        String newStr = editText.getText().toString() + " ";
+        editText.setText(newStr);
+        editText.setSelection(newStr.length());
     }
 
     private Button.OnClickListener complete = new Button.OnClickListener() {

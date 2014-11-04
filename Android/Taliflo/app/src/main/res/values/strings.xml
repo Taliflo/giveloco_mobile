@@ -28,6 +28,7 @@
         <item>@drawable/viewpager_btn_businesses</item>
     </array>
 
+    <string name="action_save">Save</string>
     <string name="action_redeemCredits">Redeem Credits</string>
     <string name="action_updateBillingInfo">Update Billing Info</string>
     <string name="action_logout">Logout</string>
