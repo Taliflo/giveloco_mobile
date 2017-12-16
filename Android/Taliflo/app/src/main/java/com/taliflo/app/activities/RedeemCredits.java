@@ -27,7 +27,7 @@ import java.util.List;
 
 public class RedeemCredits extends Activity {
 
-    private final String TAG = "Taliflo.RedeemCredits";
+    private final String TAG = "taliflo.RedeemCredits";
 
     // Layout
     private ListView listView;

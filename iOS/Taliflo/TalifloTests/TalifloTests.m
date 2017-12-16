@@ -1,18 +1,18 @@
 //
-//  TalifloTests.m
-//  TalifloTests
+//  talifloTests.m
+//  talifloTests
 //
 //  Created by NR-Mac on 1/14/2014.
-//  Copyright (c) 2014 Taliflo Inc. All rights reserved.
+//  Copyright (c) 2014 taliflo Inc. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface TalifloTests : XCTestCase
+@interface talifloTests : XCTestCase
 
 @end
 
-@implementation TalifloTests
+@implementation talifloTests
 
 - (void)setUp
 {

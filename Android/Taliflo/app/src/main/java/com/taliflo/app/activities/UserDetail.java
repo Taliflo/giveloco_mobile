@@ -21,7 +21,7 @@ import com.taliflo.app.utilities.ActionBarHelper;
 
 public class UserDetail extends Activity {
 
-    private final String TAG = "Taliflo.UserDeatil";
+    private final String TAG = "taliflo.UserDeatil";
 
     // Layout Views
     private TextView companyName, availableCredit, description, address, phone, supportCount, tags, btnSupportText;

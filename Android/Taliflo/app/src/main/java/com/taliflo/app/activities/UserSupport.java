@@ -25,7 +25,7 @@ import java.util.List;
 
 public class UserSupport extends Activity {
 
-    private final String TAG = "Taliflo.UserSupport";
+    private final String TAG = "taliflo.UserSupport";
 
     // Layout views
     private ListView listView;

@@ -16,7 +16,7 @@ import org.joda.time.DateTime;
  */
 public class MyDatePickerDialog {
 
-    private final String TAG = "Taliflo.DatePickerDialogWithoutDay";
+    private final String TAG = "taliflo.DatePickerDialogWithoutDay";
 
     private TextView textView;
     private Context context;

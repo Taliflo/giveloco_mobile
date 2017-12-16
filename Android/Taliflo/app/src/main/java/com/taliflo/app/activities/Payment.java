@@ -31,7 +31,7 @@ import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 public class Payment extends FragmentActivity implements ISimpleDialogListener {
 
     // Log tag
-    private final String TAG = "Taliflo.Payment";
+    private final String TAG = "taliflo.Payment";
 
     // Layout views
     private EditText cardNumber, cvv;

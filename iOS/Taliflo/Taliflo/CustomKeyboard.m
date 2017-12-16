@@ -3,7 +3,7 @@
 //  CustomKeyboard
 //
 //  Created by Kalyan Vishnubhatla on 10/9/12.
-//  Slightly modified by Taliflo 2014
+//  Slightly modified by taliflo 2014
 //
 
 #import "CustomKeyboard.h"

@@ -5,12 +5,12 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <!-- ** Taliflo teal coloured theme ** -->
+    <!-- ** taliflo teal coloured theme ** -->
     <style name="CustomTealTheme" parent="@android:Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/TealActionBar</item>
     </style>
 
-        <!-- Taliflo teal coloured action bar -->
+        <!-- taliflo teal coloured action bar -->
         <style name="TealActionBar" parent="@android:Widget.Holo.ActionBar">
             <item name="android:background">@drawable/action_bar_teal_bg</item>
             <item name="android:titleTextStyle">@style/TealActionBar.TitleTextStyle</item>
@@ -22,7 +22,7 @@
         </style>
 
 
-    <!-- ** Taliflo white coloured theme ** -->
+    <!-- ** taliflo white coloured theme ** -->
     <style name="CustomLightGreyTheme" parent="@android:Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/LightGreyActionBar</item>
         <item name="android:actionBarTabTextStyle">@style/GreyTextStyle</item>
@@ -35,7 +35,7 @@
         <item name="android:listChoiceIndicatorSingle">@drawable/custom_btn_radio_holo_light</item>
     </style>
 
-        <!-- Taliflo white coloured action bar -->
+        <!-- taliflo white coloured action bar -->
         <style name="LightGreyActionBar" parent="@android:Widget.Holo.ActionBar">
             <item name="android:background">#ffffff</item>
             <item name="android:titleTextStyle">@style/TiffanyBlueTextStyle</item>

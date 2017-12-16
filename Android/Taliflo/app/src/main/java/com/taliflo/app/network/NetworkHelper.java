@@ -26,7 +26,7 @@ import java.util.HashMap;
  */
 public final class NetworkHelper {
 
-    private final String TAG = "Taliflo.NetworkHelper";
+    private final String TAG = "taliflo.NetworkHelper";
 
     private final String base = "http://api-dev.taliflo.com/";
     //private final String base = "http://sheltered-wave-9353.herokuapp.com/";

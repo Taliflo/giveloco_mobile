@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D5B50DCD199D2C1100A486B0"
-               BuildableName = "Taliflo.app"
-               BlueprintName = "Taliflo"
-               ReferencedContainer = "container:Taliflo.xcodeproj">
+               BuildableName = "taliflo.app"
+               BlueprintName = "taliflo"
+               ReferencedContainer = "container:taliflo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D5B50DE8199D2C1100A486B0"
-               BuildableName = "TalifloTests.xctest"
-               BlueprintName = "TalifloTests"
-               ReferencedContainer = "container:Taliflo.xcodeproj">
+               BuildableName = "talifloTests.xctest"
+               BlueprintName = "talifloTests"
+               ReferencedContainer = "container:taliflo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D5B50DCD199D2C1100A486B0"
-            BuildableName = "Taliflo.app"
-            BlueprintName = "Taliflo"
-            ReferencedContainer = "container:Taliflo.xcodeproj">
+            BuildableName = "taliflo.app"
+            BlueprintName = "taliflo"
+            ReferencedContainer = "container:taliflo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D5B50DCD199D2C1100A486B0"
-            BuildableName = "Taliflo.app"
-            BlueprintName = "Taliflo"
-            ReferencedContainer = "container:Taliflo.xcodeproj">
+            BuildableName = "taliflo.app"
+            BlueprintName = "taliflo"
+            ReferencedContainer = "container:taliflo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D5B50DCD199D2C1100A486B0"
-            BuildableName = "Taliflo.app"
-            BlueprintName = "Taliflo"
-            ReferencedContainer = "container:Taliflo.xcodeproj">
+            BuildableName = "taliflo.app"
+            BlueprintName = "taliflo"
+            ReferencedContainer = "container:taliflo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

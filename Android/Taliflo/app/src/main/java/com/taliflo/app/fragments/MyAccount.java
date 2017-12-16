@@ -35,7 +35,7 @@ import java.util.HashMap;
 public class MyAccount extends Fragment {
 
     // Log tag
-    private final String TAG = "Taliflo.MyAccount";
+    private final String TAG = "taliflo.MyAccount";
 
     private User user;
 
@@ -105,7 +105,7 @@ public class MyAccount extends Fragment {
     private class RequestUser extends AsyncTask<String, Integer, String> {
 
         // Log tag
-        private final String TAG = "Taliflo.RequestUser";
+        private final String TAG = "taliflo.RequestUser";
 
         private User user;
         private int userId;

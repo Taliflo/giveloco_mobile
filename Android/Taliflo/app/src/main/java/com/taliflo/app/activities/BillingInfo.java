@@ -26,7 +26,7 @@ import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 public class BillingInfo extends FragmentActivity implements ISimpleDialogListener {
 
     // Log tag
-    private final String TAG = "Taliflo.BillingInfo";
+    private final String TAG = "taliflo.BillingInfo";
 
     // Layout views
     private EditText name, number, cvv, street, city, zip;

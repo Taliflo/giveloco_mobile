@@ -1,4 +1,4 @@
-taliflo_mobile_apps
+taliflo_mobile
 ===================
 
-Repository for the Taliflo iOS and Android apps
+Repository for the taliflo iOS and Android apps

@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 public class Signup extends Activity {
 
-    private final String TAG = "Taliflo.Signup";
+    private final String TAG = "taliflo.Signup";
 
     // Layout views
     private EditText firstName, lastName, email, password;
@@ -118,7 +118,7 @@ public class Signup extends Activity {
     private class AttemptSignup extends AsyncTask<String, Integer, String> {
 
         // Log tag
-        private final String TAG = "Taliflo.AttemptSignup";
+        private final String TAG = "taliflo.AttemptSignup";
 
         private HashMap<String, String> params;
         private Activity activity;

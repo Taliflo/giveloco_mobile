@@ -1,9 +1,9 @@
 //
 //  TLFNavBarConfig.m
-//  Taliflo
+//  taliflo
 //
 //  Created by NR-Mac on 1/14/2014.
-//  Copyright (c) 2014 Taliflo Inc. All rights reserved.
+//  Copyright (c) 2014 taliflo Inc. All rights reserved.
 //
 
 #import "NavigationBarHelper.h"
@@ -70,7 +70,7 @@
                                                             /* Just for now. Come back and sort out the whole logging out issue. */
                                                             
                                                             // Delete saved credentials
-                                                            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:@"com.taliflo.Taliflo"];
+                                                            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:@"com.taliflo.taliflo"];
                                                             [[NSUserDefaults standardUserDefaults] synchronize];
                                                             
                                                             // Restart application
@@ -85,7 +85,7 @@
                                                                 NSLog(@"%@", responseObject);
                                                                         /*
                                                                         // Delete saved credentials
-                                                                        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:@"com.taliflo.Taliflo"];
+                                                                        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:@"com.taliflo.taliflo"];
                                                                         [[NSUserDefaults standardUserDefaults] synchronize];
                                                                         
                                                                 

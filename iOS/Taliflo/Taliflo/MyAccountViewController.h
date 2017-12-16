@@ -1,9 +1,9 @@
 //
 //  TLFMyAccountViewController.h
-//  Taliflo
+//  taliflo
 //
 //  Created by NR-Mac on 1/25/2014.
-//  Copyright (c) 2014 Taliflo Inc. All rights reserved.
+//  Copyright (c) 2014 taliflo Inc. All rights reserved.
 //
 
 @interface MyAccountViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>

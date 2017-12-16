@@ -206,7 +206,7 @@ public class ActionBarHelper {
 */
     private class QueryTextListener implements SearchView.OnQueryTextListener {
 
-        private final String TAG = "Taliflo.SearchQueryTextListener";
+        private final String TAG = "taliflo.SearchQueryTextListener";
 
         private Activity activity;
         private ArrayList<User> filtered;
@@ -279,7 +279,7 @@ public class ActionBarHelper {
     private class AttemptLogout extends AsyncTask<String, Integer, String> {
 
         // Log tag
-        private final String TAG = "Taliflo.AttemptLogout";
+        private final String TAG = "taliflo.AttemptLogout";
 
         private Activity activity;
         private UserStore userStore;

@@ -28,7 +28,7 @@ import java.util.ArrayList;
  */
 public class Businesses extends Fragment {
 
-    private final String TAG = "Taliflo.Businesses";
+    private final String TAG = "taliflo.Businesses";
 
     // Layout views
     private ArrayList<User> businesses = new ArrayList<User>();

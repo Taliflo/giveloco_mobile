@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Taliflo colours -->
+    <!-- taliflo colours -->
     <color name="taliflo_tiffanyBlue">#00a79d</color>
     <color name="taliflo_orange">#ffae42</color>
     <color name="taliflo_purple">#440e62</color>

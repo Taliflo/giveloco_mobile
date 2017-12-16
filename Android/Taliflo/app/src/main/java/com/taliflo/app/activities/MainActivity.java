@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     // Logcat tag
-    private final String TAG = "Taliflo.MainActivity";
+    private final String TAG = "taliflo.MainActivity";
 
     // Used to store app title
     private CharSequence appTitle;

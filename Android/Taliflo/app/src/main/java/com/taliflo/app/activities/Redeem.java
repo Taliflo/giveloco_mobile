@@ -18,7 +18,7 @@ import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 
 public class Redeem extends FragmentActivity implements ISimpleDialogListener {
 
-    private final String TAG = "Taliflo.Redeem";
+    private final String TAG = "taliflo.Redeem";
 
     // Layout views
     private TextView companyName, location;

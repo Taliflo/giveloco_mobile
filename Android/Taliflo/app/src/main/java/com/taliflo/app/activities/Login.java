@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 public class Login extends Activity {
 
-    private final String TAG = "Taliflo.Login";
+    private final String TAG = "taliflo.Login";
 
     // Layout views
     private EditText email, password;
@@ -108,7 +108,7 @@ public class Login extends Activity {
     private class AttemptLogin extends AsyncTask<String, Integer, String> {
 
         // Log tag
-        private final String TAG = "Taliflo.AttemptLogin";
+        private final String TAG = "taliflo.AttemptLogin";
 
         private final String loginUrl = "http://api-dev.taliflo.com/user/login";
 

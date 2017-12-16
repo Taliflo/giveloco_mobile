@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class Causes extends Fragment {
 
     // Member variables
-    private String TAG = "Taliflo.Explore";
+    private String TAG = "taliflo.Explore";
 
     private ArrayList<User> causes = new ArrayList<User>();
     private ListView listView;

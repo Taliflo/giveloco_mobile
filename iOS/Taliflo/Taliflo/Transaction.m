@@ -1,9 +1,9 @@
 //
 //  Transaction.m
-//  Taliflo
+//  taliflo
 //
 //  Created by Ntokozo Radebe on 2014-11-04.
-//  Copyright (c) 2014 Taliflo Inc. All rights reserved.
+//  Copyright (c) 2014 taliflo Inc. All rights reserved.
 //
 
 #import "Transaction.h"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Taliflo</string>
+    <string name="app_name">taliflo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
@@ -10,7 +10,7 @@
     <string name="stripe_key_live">pk_live_HGECFVdMKGneyKozG9g2Fnxn</string>
 
     <!-- Shared preferences tags -->
-    <string name="savedPrefName">TalifloSavedPreferences</string>
+    <string name="savedPrefName">talifloSavedPreferences</string>
     <string name="savedPrefLoggedIn">loggedIn</string>
     <string name="savedPrefAuthToken">authToken</string>
     <string name="savedPrefUid">uid</string>
@@ -38,7 +38,7 @@
     <string name="login_hint_email">Enter email</string>
     <string name="login_hint_password">Enter password</string>
     <string name="login_btn_login">Log In</string>
-    <string name="login_btn_signUp">Sign up for Taliflo</string>
+    <string name="login_btn_signUp">Sign up for taliflo</string>
     <string name="login_btn_fb">Log in with Facebook</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -215,7 +215,7 @@
     <string name="signup_TaC_part1">By signing up, you agree to, and have read, the</string>
     <string name="signup_TaC">Terms and Conditions.</string>
     <string name="signup_password_short">Your password must be 8 characters, or more, in length</string>
-    <string name="signup_successful">Signup successful. Welcome to Taliflo.</string>
+    <string name="signup_successful">Signup successful. Welcome to taliflo.</string>
     <string name="signup_failed">Signup failed. Please try again later.</string>
 
     <!-- Activity Payment -->
@@ -255,7 +255,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Search -->
-    <string name="search_hint">Search Taliflo</string>
+    <string name="search_hint">Search taliflo</string>
     <string name="search_hint_transactions">Search Transactions</string>
     <string name="search_hint_causes">Search Causes</string>
     <string name="search_hint_businesses">Search Businesses</string>

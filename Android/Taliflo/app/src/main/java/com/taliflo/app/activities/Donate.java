@@ -24,7 +24,7 @@ import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 
 public class Donate extends FragmentActivity implements ISimpleDialogListener {
 
-    private final String TAG = "Taliflo.Donate";
+    private final String TAG = "taliflo.Donate";
 
     // Layout views
     private Button btnConfirm;
